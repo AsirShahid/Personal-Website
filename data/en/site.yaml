@@ -1,13 +1,14 @@
 # Copyright Notice
-copyright: © 2020 Copyright.
+copyright: © 2021 Copyright.
 
 # Meta description for your site.  This will help the search engines to find your site.
-description: Portfolio and personal blog of John Doe.
+description: Portfolio and personal website of Mohammed Shahid.
 
 # specify the list of custom menus that you want to show in the top navbar.
 # they will be separated by a divider from the main menus.
 customMenus:
 - name: Docs
-  url: https://toha-guides.netlify.app/posts/
+  #  url: https://toha-guides.netlify.app/posts/
+  url: https://asir.dev/posts/
 - name: Notes
   url: /notes
