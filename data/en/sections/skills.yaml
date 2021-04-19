@@ -12,7 +12,7 @@ section:
 # Give a summary of you each skill in the summary section.
 skills:
 - name: Python
-  logo: /images/sections/skills/kubernetes.png
+  logo: /images/sections/skills/python.svg
   summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
   url: "https://kubernetes.io/"
 - name: Kubernetes
