@@ -8,7 +8,7 @@ section:
   template: sections/about.html
 
 # your designation
-designation: Software Engineer
+designation: Data Scientist & System Administrator
 # your company information
 company:
   name: Example Co.
@@ -25,11 +25,11 @@ summary: 'I am a passionate software engineer with x years of working experience
 socialLinks:
 - name: Email
   icon: "fas fa-envelope"
-  url: "example@gmail.com"
+  url: "mohammedshahid@protonmail.com"
 
 - name: Github
   icon: "fab fa-github"
-  url: "https://www.github.com/example"
+  url: "https://www.github.com/Mohammed-A-Shahid"
 
 - name: Stackoverflow
   icon: "fab fa-stack-overflow"
@@ -37,15 +37,15 @@ socialLinks:
 
 - name: LinkedIn
   icon: "fab fa-linkedin"
-  url: "#"
+  url: "https://www.linkedin.com/in/mohammed---shahid/"
 
-- name: Twitter
-  icon: "fab fa-twitter"
-  url: "#"
+  #- name: Twitter
+  #  icon: "fab fa-twitter"
+  #  url: "#"
 
-- name: Facebook
-  icon: "fab fa-facebook"
-  url: "#"
+  #- name: Facebook
+  #  icon: "fab fa-facebook"
+  #  url: "#"
 
 # your soft skills
 # give the percentage between 50 to 100 with 5 intervals.
