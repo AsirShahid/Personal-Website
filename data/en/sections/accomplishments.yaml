@@ -11,6 +11,14 @@ section:
 
 # Your accomplishments
 accomplishments:
+- name: Data Scientist in Python
+  timeline: "March 2018 - March 2019"
+  organization:
+    name: Data
+    url: https://www.linuxfoundation.org
+  courseOverview: This course helps to understand the key concepts such as networking, storage, security, maintenance, logging and monitoring, application lifecycle, troubleshooting, API object primitives etc. It also help to grow the ability to establish basic use-cases for end users.
+  certificateURL: ""
+
 - name: Linux Foundation System Administrator
   timeline: "March 2018 - March 2019"
   organization:
