@@ -54,6 +54,10 @@ skills:
   summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
   url: "https://git-scm.com/"
 
+- name: Java
+  logo: /images/sections/skills/git.png
+  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
+
   #- name: C++
   #  logo: /images/sections/skills/c++.png
   #  summary: "Know basic C/C++ programming. Used for contest programming and problem solving."
