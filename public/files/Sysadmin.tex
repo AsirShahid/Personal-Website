@@ -1,0 +1,181 @@
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{#2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{http://mohammedshahid.com/}{\Large Mohammed Asir Shahid }} & \href{mailto:mohammedshahid@protonmail.com}{mohammedshahid@protonmail.com}\\
+  %\href{http://mohammedshahid.com/}{http://www.mohammedshahid.com} 
+  Selden, New York &  (516)-514-5047 \\
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Stony Brook University}{Stony Brook, New York}
+      {BS, Mathematics \& Applied Mathematics and Statistics}{Aug. 2017 -- Aug. 2020}
+      \resumeItemListStart
+        \resumeItem{GPA: }
+          {3.80/4.00}
+        \resumeItem{Dean's List: }
+          {Fall 2017, Spring 2018, Fall 2018, Spring 2019, Fall 2019, Spring 2020}
+	  \resumeItem{Recipient of a Presidential Scholarship (Full Tuition)}.
+        \resumeItem{Relevant Coursework: }
+        {Data Analysis (Using R and Python), Statistical Laboratory (Using R and SAS), Computer Science Principles (Using Python), Introduction to Object Oriented Programming (Using Java)}
+      \resumeItemListEnd
+
+      
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+  
+    \resumeSubheading
+      {Stony Brook University Applied Mathematics Department}{Stony Brook, New York}
+      {Teaching Assistant}{Aug. 2018 - December 2019}
+      \resumeItemListStart
+      \resumeItem{Teaching Assistant } {for Linear Algebra and Statistical Laboratory (Using R and SAS)}
+        
+      \resumeItem{}
+      {Grading assignments and providing feedback to hundreds of students on tight deadlines as well as providing personal feedback regarding how they can improve.}
+      \resumeItem{}
+      {Demonstrating interpersonal skills by communicating effectively with my faculty adviser and my students.}
+      \resumeItem{}
+      {Holding office hours in order to host review sessions and instruct students with questions they have regarding the assignments and exams.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Private Tutor}{Stony Brook, New York}
+      {Tutor}{Aug. 2017 - Present}
+      \resumeItemListStart
+        \resumeItem{}
+	{Teaching college level Computer Science and Mathematics (Statistics, Linear Algebra, Calculus, and Real Analysis) to fellow university students.}
+        \resumeItem{}
+          {Teaching Mathematics, Sciences, and Programming to students from Elementary School to High School.}
+      \resumeItemListEnd
+
+
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Homelab: }
+    {Home Server running several Virtual Machines with different services.}
+
+    {Set up a server to run Nextcloud, Plex, Sonarr, Radarr, Lidarr, VNC, and Nginx in order to create a web server and a media server. }
+
+    \resumeSubItem{Data Analysis Project: }
+    {Analyzed large amounts of real world data with multiple predictors to find the best fitting model.}
+
+    {Created a professional report in LaTeX explaining the findings of my analysis.}
+  \resumeSubHeadingListEnd
+
+
+%--------PROGRAMMING SKILLS------------
+\section{Skills}
+  \resumeSubHeadingListStart
+    %\item{
+    %  \textbf{Languages:}{ R, Python, LaTeX, SQL, Java, SAS}
+    %}
+    \item{
+	 \textbf{Environment:} {Experience with Red Hat Enterprise Linux, Ubuntu, Debian, CentOS, OpenSUSE Leap, Gentoo Linux, NixOS, and Windows Server.}
+    }
+    \item{
+        \textbf{Software Skills:} {Proficiency with Linux, System Administration, AWS, Azure, Google Cloud Platform, Docker, SQL Server, Shell Scripting, Virtualization, Microsoft Office Suite, and LaTeX.}
+    }
+    \item{
+        \textbf{Programming Languages:} {Proficiency with R, Python, Octave, Bash, and SQL.}
+    }
+    \item{
+        \textbf{Typing Speed:} {90 WPM.}
+    }
+
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATES-----------------
+\section{Certificates}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Red Hat, Inc.}{New York, New York}
+      {Red Hat Certified System Administrator}{April 2021 (Expected)}
+  \resumeSubHeadingListEnd
+
+\end{document}
