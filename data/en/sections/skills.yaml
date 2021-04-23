@@ -14,7 +14,7 @@ skills:
 - name: Python
   logo: /images/sections/skills/python.svg
   summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
-  url: "https://kubernetes.io/"
+  url: "https://www.python.org/"
 
 - name: R
   logo: /images/sections/skills/R.png
