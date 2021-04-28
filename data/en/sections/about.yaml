@@ -31,6 +31,10 @@ socialLinks:
   icon: "fab fa-github"
   url: "https://www.github.com/Mohammed-A-Shahid"
 
+- name: Github
+  icon: "fab fa-gitlab"
+  url: "https://www.gitlab.com/MohammedShahid"
+
   #- name: Stackoverflow
   #  icon: "fab fa-stack-overflow"
   #  url: "#"
