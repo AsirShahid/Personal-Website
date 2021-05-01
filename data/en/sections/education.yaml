@@ -10,16 +10,35 @@ section:
   # hideTitle: true
 
 degrees:
-- name: Ph.D in Quantum Cryptography
-  icon: fa-microscope
-  timeframe: 2016-2020
+- name: BS, Mathematics & Applied Mathematics and Statistics
+  icon: fa-graduation-cap
+  timeframe: 2017 - 2020
   institution:
     name: Stony Brook University
-    url: "#"
+    url: "https://www.stonybrook.edu/"
   grade: #(optional)
-    scale: CGPA
-    achieved: 3.6
+    scale: GPA
+    achieved: 3.8
     outOf: 4
+
+  takenCourses: #(optional)
+    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+    showGrades: False
+    courses:
+    - name: Data Analysis (Using R and Python)
+      achieved: 3.75
+      outOf: 4
+    - name: Statistical Laboratory (Using R and SAS)
+      achieved: 3.80
+      outOf: 4
+    - name: Computer Science Principals (Using Python)
+      achieved: 3.5
+      outOf: 4
+    - name: Introduction to Object Oriented Programming (Using Java)
+      achieved: 3.75
+      outOf: 4
+
+
   publications: #(optional)
   - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     url: "#"
