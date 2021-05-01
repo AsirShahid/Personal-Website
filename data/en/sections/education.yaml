@@ -14,7 +14,7 @@ degrees:
   icon: fa-microscope
   timeframe: 2016-2020
   institution:
-    name: ABC University of Technology
+    name: Stony Brook University
     url: "#"
   grade: #(optional)
     scale: CGPA
@@ -27,42 +27,42 @@ degrees:
     url: "#"
   - title: Nullam vitae orci tincidunt purus viverra pulvinar.
     url: "#"
-- name: B.Sc. in Computer Science & Engineering
-  icon: fa-graduation-cap
-  timeframe: 2012-2016
-  institution:
-    name: University of XYZ
-    url: "#"
-  grade: #(optional)
-    scale: CGPA
-    achieved: 3.5
-    outOf: 4
-  takenCourses: #(optional)
-    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
-    showGrades: true
-    courses:
-    - name: Data Structures and Algorithm
-      achieved: 3.75
-      outOf: 4
-    - name: Network Security
-      achieved: 3.80
-      outOf: 4
-    - name: Operating System
-      achieved: 3.5
-      outOf: 4
-    - name: Artificial Intelligent
-      achieved: 3.75
-      outOf: 4
-  publications: #(optional)
-  - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    url: "#"
-  - title: Fusce eu augue ut odio porttitor pulvinar.
-    url: "#"
-  extracurricularActivities: #(optional)
-  - In vitae facilisis est, eget porta sem.
-  - Vestibulum consectetur lorem justo, at laoreet lorem feugiat et.
-  - Duis sed massa feugiat, ornare justo et, aliquam est.
-  - Pellentesque ut fringilla magna.
+# - name: B.Sc. in Computer Science & Engineering
+#   icon: fa-graduation-cap
+#   timeframe: 2012-2016
+#   institution:
+#     name: University of XYZ
+#     url: "#"
+#   grade: #(optional)
+#     scale: CGPA
+#     achieved: 3.5
+#     outOf: 4
+#   takenCourses: #(optional)
+#     # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
+#     showGrades: true
+#     courses:
+#     - name: Data Structures and Algorithm
+#       achieved: 3.75
+#       outOf: 4
+#     - name: Network Security
+#       achieved: 3.80
+#       outOf: 4
+#     - name: Operating System
+#       achieved: 3.5
+#       outOf: 4
+#     - name: Artificial Intelligent
+#       achieved: 3.75
+#       outOf: 4
+#   publications: #(optional)
+#   - title: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+#     url: "#"
+#   - title: Fusce eu augue ut odio porttitor pulvinar.
+#     url: "#"
+#   extracurricularActivities: #(optional)
+#   - In vitae facilisis est, eget porta sem.
+#   - Vestibulum consectetur lorem justo, at laoreet lorem feugiat et.
+#   - Duis sed massa feugiat, ornare justo et, aliquam est.
+#   - Pellentesque ut fringilla magna.
 # - name: Higher Secondary School Certificate
 #   icon: fa-university
 #   timeframe: 2010-2012
