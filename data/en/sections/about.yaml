@@ -39,6 +39,10 @@ socialLinks:
   icon: "fab fa-kaggle"
   url: "https://www.kaggle.com/mohammedasirshahid"
 
+- name: LeetCode
+  icon: "fas fa-code"
+  url: "https://leetcode.com/Mohammed-A-Shahid/"
+
   #- name: Stackoverflow
   #  icon: "fab fa-stack-overflow"
   #  url: "#"
