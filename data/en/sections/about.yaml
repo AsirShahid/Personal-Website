@@ -43,9 +43,9 @@ socialLinks:
   icon: "fas fa-code"
   url: "https://leetcode.com/Mohammed-A-Shahid/"
 
-  #- name: Stackoverflow
-  #  icon: "fab fa-stack-overflow"
-  #  url: "#"
+- name: Stackoverflow
+  icon: "fab fa-stack-overflow"
+  url: "https://stackoverflow.com/users/15829817/mohammed-asir-shahid?tab=profile"
 
 - name: LinkedIn
   icon: "fab fa-linkedin"
