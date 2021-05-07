@@ -13,7 +13,7 @@ section:
 skills:
 - name: Python
   logo: /images/sections/skills/python.svg
-  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
+  summary: "Experience with **Data Science**, **Automation**, and **Machine Learning** using Python. Capable of Cleaning, Analysing "
   url: "https://www.python.org/"
 
 - name: R
