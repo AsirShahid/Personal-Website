@@ -13,7 +13,7 @@ section:
 skills:
 - name: Python
   logo: /images/sections/skills/python.svg
-  summary: "Experience with **Data Science**, **Automation**, and **Machine Learning** using Python. Capable of Cleaning, Analysing "
+  summary: "Capable of cleaning, analyzing, and visualizing data using Python. Experience with **Data Science**, **Automation**, and **Machine Learning** using Python."
   url: "https://www.python.org/"
 
 - name: R
