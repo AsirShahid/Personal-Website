@@ -48,7 +48,7 @@ skills:
 
 - name: Linux
   logo: /images/sections/skills/linux.png
-  summary: "Have used as both a desktop and server operating system for several years. Capable of writing bash/shell scripts. Have worked with a multitude of different Distros such as RHEL, CentOS, SLES, Debian, Ubuntu, Gentoo, and NixOS"
+  summary: "Have used Linux as both a desktop and server operating system for several years. Capable of writing bash/shell scripts. Have worked with a multitude of different Distros such as RHEL, CentOS, SLES, Debian, Ubuntu, Gentoo, and NixOS"
   url: "https://en.wikipedia.org/wiki/Linux"
 
 - name: SQL
