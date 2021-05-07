@@ -33,7 +33,7 @@ skills:
 
 - name: Cloud Computing
   logo: /images/sections/skills/cloud.png
-  summary: "Worked extensively with the major Cloud Platforms such as Google Cloud Platform, Amazon Web Services, Azure, DigitalOcean, and many more."
+  summary: "Worked extensively with the major Cloud Platforms such as Google Cloud Platform, Amazon Web Services, Azure, DigitalOcean, and as well as smaller VPS companies."
   url: "https://en.wikipedia.org/wiki/Cloud_computing"
 
 - name: Docker
