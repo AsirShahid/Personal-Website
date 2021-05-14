@@ -20,6 +20,16 @@ accomplishments:
   # This step-by-step learning path teaches you everything you need to know in order :to become a Data Analyst in Python. Whether you're just starting out or looking to progress your career, begin here to learn a complete set of in-demand data skills.
   certificateURL: "https://app.dataquest.io/path/data-scientist"
 
+- name: Fundamentals of Statistics
+  timeline: "May 2021 - Present"
+  organization:
+    name: MITx 
+    url: https://www.edx.org/course/fundamentals-of-statistics
+  courseOverview: This course helps to understand the key concepts such as networking, storage, security, maintenance, logging and monitoring, application lifecycle, troubleshooting, API object primitives etc. It also help to grow the ability to establish basic use-cases for end users.
+  # This step-by-step learning path teaches you everything you need to know in order :to become a Data Analyst in Python. Whether you're just starting out or looking to progress your career, begin here to learn a complete set of in-demand data skills.
+  certificateURL: "https://app.dataquest.io/path/data-scientist"
+
+
 - name: Data Scientist in Python
   timeline: "March 2018 - March 2019"
   organization:
