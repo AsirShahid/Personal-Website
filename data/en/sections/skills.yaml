@@ -22,7 +22,7 @@ skills:
   url: "https://www.r-project.org/"
 
 - name: C
-  logo: /images/sections/skills/R.png
+  logo: /images/sections/skills/c.svg
   #  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
   url: "https://en.wikipedia.org/wiki/C_(programming_language)"
 
