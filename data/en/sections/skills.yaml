@@ -69,7 +69,7 @@ skills:
 - name: SQL
   logo: /images/sections/skills/git.png
   #  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
-  url: "https://git-scm.com/"
+  url: "https://en.wikipedia.org/wiki/SQL"
 
 - name: Git
   logo: /images/sections/skills/git.png
