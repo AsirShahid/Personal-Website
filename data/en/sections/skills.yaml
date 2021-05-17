@@ -29,7 +29,7 @@ skills:
 - name: C++
   logo: /images/sections/skills/R.png
   #  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
-  url: "https://www.r-project.org/"
+  url: "https://isocpp.org/"
 
 - name: Kubernetes
   logo: /images/sections/skills/kubernetes.png
