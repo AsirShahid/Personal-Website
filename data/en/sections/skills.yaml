@@ -77,7 +77,7 @@ skills:
   url: "https://git-scm.com/"
 
 - name: Java
-  logo: /images/sections/skills/git.png
+  logo: /images/sections/skills/java.svg
   #  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
   url: "https://www.oracle.com/java"
 
