@@ -67,7 +67,7 @@ skills:
   url: "https://www.linuxfoundation.org"
 
 - name: SQL
-  logo: /images/sections/skills/git.png
+  logo: /images/sections/skills/sql.svg
   #  summary: "Experienced with git-based development. Mostly, use Github. Also, have experience in working with GitLab."
   url: "https://en.wikipedia.org/wiki/SQL"
 
