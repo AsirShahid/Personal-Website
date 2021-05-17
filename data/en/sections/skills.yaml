@@ -27,7 +27,7 @@ skills:
   url: "https://en.wikipedia.org/wiki/C_(programming_language)"
 
 - name: C++
-  logo: /images/sections/skills/R.png
+  logo: /images/sections/skills/c++.png
   #  summary: "Capable of deploying, managing application on Kubernetes. Experienced in writing Kubernetes controllers for CRDs."
   url: "https://isocpp.org/"
 
