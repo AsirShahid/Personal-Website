@@ -46,6 +46,11 @@ skills:
   #  summary: "Capable of setup, configure Prometheus metrics. Experienced with PromQL, AlertManager. Also, experienced with writing metric exporters."
   #  url: "https://prometheus.io/"
 
+- name: Hadoop
+  logo: /images/sections/skills/linux.png
+  #  summary: "Have used Linux as both a desktop and server operating system for several years. Capable of writing bash/shell scripts. Have worked with a multitude of different Distros such as RHEL, CentOS, SLES, Debian, Ubuntu, Gentoo, and NixOS."
+  url: "https://hadoop.apache.org"
+
 - name: Linux
   logo: /images/sections/skills/linux.png
   #  summary: "Have used Linux as both a desktop and server operating system for several years. Capable of writing bash/shell scripts. Have worked with a multitude of different Distros such as RHEL, CentOS, SLES, Debian, Ubuntu, Gentoo, and NixOS."
