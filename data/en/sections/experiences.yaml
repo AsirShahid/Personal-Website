@@ -20,10 +20,10 @@ experiences:
   - designation: Teaching Assistant
     start: Aug. 2018
     start: Dec. 2019
-    responsibilities:
-    - Design and develop XYZ tool for ABC task
-    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
-    - Lead backend team.
+#    responsibilities:
+#    - Design and develop XYZ tool for ABC task
+#    - Design, develop and manage disaster recovery tool [Xtool](https://www.example.com) that backup Kubernetes volumes, databases, and cluster's resource definition.
+#    - Lead backend team.
 
 #   - designation: Junior Software Engineer
 #     start: Nov 2017
