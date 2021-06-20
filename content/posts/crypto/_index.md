@@ -1,8 +1,8 @@
-  ---
-title: Top Category Sample
+---
+title: Crypto Test
 menu:
   sidebar:
-    name: Category
-    identifier: category
-    weight: 20
+    name: Crypto
+    identifier: Crypto
+    weight: 22
 ---
