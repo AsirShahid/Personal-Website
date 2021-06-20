@@ -1,0 +1,581 @@
+% Created 2021-06-06 Sun 21:13
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Mohammed Asir Shahid}
+\date{2021-05-15}
+\title{Lec 1 Probability Models And Axioms}
+\hypersetup{
+ pdfauthor={Mohammed Asir Shahid},
+ pdftitle={Lec 1 Probability Models And Axioms},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{1. Motivation}
+\label{sec:org66f124c}
+\subsection{We need to be able to make decisions under uncertainty}
+\label{sec:org4d31840}
+\section{2. Lecture 1 overview and slides}
+\label{sec:org178cf39}
+\subsection{Downloaded PDF for lecture slides}
+\label{sec:orge5fc4d0}
+\section{3. Sample space}
+\label{sec:orgd6394fd}
+\subsection{Two Steps:}
+\label{sec:org7318679}
+\subsubsection{Describe possible outcomes}
+\label{sec:org04cc902}
+\subsubsection{Describe beliefs about likelihood}
+\label{sec:org50a5ef9}
+\subsection{List set of possible outcomes \(\Omega\)}
+\label{sec:orgffd9c6c}
+\subsection{The elements out our set should have some properties}
+\label{sec:org9e1d51f}
+\subsubsection{Mutually exclusive}
+\label{sec:orgeb72d47}
+\begin{enumerate}
+\item If one outcome happened, others can not happen
+\label{sec:org80ac1cd}
+\end{enumerate}
+\subsubsection{Collectively exhaustive}
+\label{sec:orgc035f8b}
+\begin{enumerate}
+\item All the elements of the set make up all possibilities
+\label{sec:orgafe132f}
+\end{enumerate}
+\subsubsection{At the right granularity}
+\label{sec:org146988f}
+\subsection{Ex.}
+\label{sec:org09f2e7f}
+\subsubsection{Flipping a coin. Our outcomes are heads or tails.}
+\label{sec:org45a784e}
+\begin{enumerate}
+\item Let's say we also looked outside while flipping the coin.
+\label{sec:org39018db}
+\begin{enumerate}
+\item Either it's heads and rain, heads and no rain, tails and rain, or tails and no rain.
+\label{sec:org5f341cf}
+\begin{enumerate}
+\item This is also a valid sample space.
+\label{sec:orgc09a553}
+\item However, since we are just curious about whether its heads or tails, this second sample space isn't as relevant.
+\label{sec:org0f0a07d}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\section{4. Exercise: Sample space}
+\label{sec:org2f17348}
+\subsection{For the experiment of flipping a coin, and for each one of the following choices, determine whether we have a legitimate sample space:}
+\label{sec:org3371012}
+\subsection{\$\(\Omega\)\$=\{Heads and it is raining, Heads and it is not raining, Tails\}}
+\label{sec:orgf2001b9}
+\subsubsection{Yes}
+\label{sec:orgbad0e75}
+\subsection{\$\$P(A\(\cup\) B\(\Omega\)\$=\{Heads and it is raining, Tails and it is not raining, Tails\}}
+\label{sec:org0e6655e}
+\subsubsection{No}
+\label{sec:orgd630e9e}
+\section{5. Sample space examples}
+\label{sec:orge5ea451}
+\subsection{Discrete/finite example}
+\label{sec:org0163a4b}
+\subsubsection{Two rolls of a tetrahedral die}
+\label{sec:org828bfd1}
+\begin{enumerate}
+\item We have pairs of numbers. One containing the result of the first die and another containing the result of hte second die.
+\label{sec:org748774c}
+\begin{enumerate}
+\item Result could be written as (1,1) if first die was 1 and second die was 1, (1,2) if first die was 1 and second die was 2, etc.
+\label{sec:org2966f2b}
+\end{enumerate}
+\item Sequential description-
+\label{sec:orgfbe0fe6}
+\begin{enumerate}
+\item An experiment with several stages such as this can be described as a tree
+\label{sec:org226ed4f}
+\url{https://i.imgur.com/k6Hl4NP.png}
+\item This shows us a distinction in the stages, with 16 different outcomes.
+\label{sec:orgd1fc6d9}
+\end{enumerate}
+\end{enumerate}
+\subsection{Continuous example}
+\label{sec:org058f57d}
+\subsubsection{If we have a dart board, where we are throwing darts with X and Y axis, we can record the coordinates as real numbers with infinite precision. This gives us an infinite amount of possibilities for our sample space, thus we have a continuous sample space.}
+\label{sec:orgcced99f}
+
+\section{6. Exercise: Tree representations}
+\label{sec:org0fd695c}
+\subsection{Paul checks the weather forecast. If the forecast is good, Paul will go out for a walk. If the forecast is bad, then Paul will either stay home or go out. If he goes out, he might either remember or forget his umbrella. In the tree diagram below, identify the leaf that corresponds to the event that the forecast is bad and Paul stays home.}
+\label{sec:org1cde13d}
+
+\url{https://courses.edx.org/assets/courseware/v1/641ba94a18d06ac5698cf9a413c42bd2/asset-v1:MITx+6.431x+2T2021+type@asset+block/images\_texshop\_image.jpg}
+\subsubsection{1 Represents the forecast being good, as the decision making ends there. Paul will definitely go for a walk.}
+\label{sec:org13fdc9a}
+\subsubsection{If the forecast is bad, we have choices to make. 2 represents the weather being good and Paul deciding to stay home.}
+\label{sec:org115612b}
+\subsubsection{If the forecast is bad, Paul could still go out. In which case he could either remember or forget his umbrella which would be 3 and 4.}
+\label{sec:orgd3aa948}
+\section{7. Probability axioms}
+\label{sec:org31ade46}
+\subsection{Now we can see how to figure out which occurences are more/less likely to occur.}
+\label{sec:org8303eba}
+\subsection{However, we have an issue when it comes to continuous sample spaces.}
+\label{sec:orgdeeac16}
+\subsubsection{The probability of hitting any single point on a continuous space is essentially 0.}
+\label{sec:org6639f2e}
+\subsection{Event: A subset of the sample space.}
+\label{sec:org1866f0a}
+\subsubsection{We will instead assign probability to events.}
+\label{sec:org6c2db7b}
+\begin{enumerate}
+\item \(P(A)\)
+\label{sec:org9ca6b03}
+\item So even though individual events have 0 probablity, these events have some probability.
+\label{sec:orgf9183ad}
+\end{enumerate}
+\subsection{Axioms:}
+\label{sec:orge23a5ae}
+\subsubsection{Nonnegativity: \(P(A)\ge 0\)}
+\label{sec:orgf54790e}
+\subsubsection{Normalization: \(P(\Omega)=1\)}
+\label{sec:org56c0686}
+\begin{enumerate}
+\item The probability of our sample space occuring is 1.
+\label{sec:orgbf37b43}
+\end{enumerate}
+\subsubsection{Finite Additivity:}
+\label{sec:org3b67d0b}
+If \(A \cap B = \varnothing\), then \(P(A \cup B)=P(A)+P(B)\)
+\begin{enumerate}
+\item When the intersection between A and B is the empty set, then they are considered disjoint. Then \(P(A\cup B)=P(A)+P(B)\)
+\label{sec:orgc7f0150}
+\begin{enumerate}
+\item This is due to the fact that there is no overlap in \(P(A)\) or \(P(B)\).
+\label{sec:org0a9e0cd}
+\end{enumerate}
+\item This axiom needs to be refined and strengthened later.
+\label{sec:org6369478}
+\end{enumerate}
+\subsubsection{These axioms are the only ones that need to be stated. Anything else, such as \(P(A)\leq 1\) is already implied from our axioms.}
+\label{sec:org6ce1b93}
+\section{8. Exercise: Axioms}
+\label{sec:orgb57e900}
+\subsection{Let A and B be events on the same sample space, with P(A)=0.6 and P(B)=0.7. Can these two events be disjoint?}
+\label{sec:org940ee92}
+\subsubsection{No because \(P(A)+P(B)>1\). If they were disjoint, then \(P(A)+P(B)=P(A\cup B)=1.3\) which is greater than 1. This would contradict the normalization axiom}
+\label{sec:orgc26d6e7}
+\section{9. Simple properties of probabilities}
+\label{sec:orga327be0}
+\subsection{Consequences of axioms:}
+\label{sec:org0d62d97}
+\subsubsection{(A) \(P(A)\ge 0\) implies that \(P(A)\le 1\)}
+\label{sec:org22900d3}
+\subsubsection{(B) \(P(\Omega)=1\) implies that \(P(\varnothing)=0\)}
+\label{sec:orge4d3628}
+\subsubsection{(C) \(P(A\cup B)=P(A)+P(B)\) implies that \(P(A)+P(A^c)=1\) and that \(P(A\cup B\cup C)=P(A)+P(B)+P(C)\) for \(k\) disjoint sets.}
+\label{sec:orgb2397a3}
+\begin{enumerate}
+\item An element and its compliment makes up \(\Omega\) and the intersection of a set and its compliment is \(\varnothing\).
+\label{sec:org0b6733b}
+\item From (B), \(P(\Omega)=1\) which is equal to \(P(A\cup A^c)\). This is equal to \(P(A)+P(A^c)\).
+\label{sec:orgc8cb3c9}
+\begin{enumerate}
+\item Based on this, we can write that \(P(A)=1-P(A^c)\le 1\).
+\label{sec:orgf683756}
+\end{enumerate}
+\item \(1=P(\Omega)+P(\Omega^c)\)
+\label{sec:orgc2fc87a}
+\begin{enumerate}
+\item \(1=1+P(\Omega^c) \Rightarrow 1=1+P(\varnothing)\Rightarrow P(\varnothing)=0\)
+\label{sec:org9ada5be}
+\end{enumerate}
+\item When \(A,B,C\) are disjoint, \(P(A\cup B\cup C)=P(A)+P(B)+P(C)\).
+\label{sec:org1445614}
+\begin{enumerate}
+\item We can think of the \(P(A\cup B\cup C)\) as \(P((A\cup B)\cup C)=P(A\cup B)+P(C)=P(A)+P(B)+P(C)\)
+\label{sec:org10fd1b4}
+\begin{enumerate}
+\item This logic can be continued for \(k\) disjoint sets. Can prove by induction.
+\label{sec:orgdd5f51a}
+\item If \((A_1,\cdots ,A_k)\) then \(P(A_1\cup \cdots \cup A_k = \sum_{i=1}^{k}P(A_i)\)
+\label{sec:org712cf12}
+\end{enumerate}
+\end{enumerate}
+\item \(P(\{s_1,s_2,\cdots,s_k\}) = P(\{s_1\}\cup\cdots \cup \{s_k\}) = P(\{s_1\})+\cdots + P(\{s_k\})=P(s_1)+\cdots + P(s_k)\)
+\label{sec:org9e596f5}
+\end{enumerate}
+\section{10. Exercise: Simple properties}
+\label{sec:org7683a7e}
+\subsection{Let A, B, and C be disjoint subsets of the sample space. For each one of the following statements, determine whether it is true or false. Note: ``False'' means ``not guaranteed to be true.}
+\label{sec:org38b2e84}
+\subsubsection{\(P(A)+P(A^c)+P(B)=P(A\cup A^c\cup B)\)}
+\label{sec:org0638beb}
+\begin{enumerate}
+\item This statement is false. While A and the compliment of A are known to be disjoint, we do not know if this also applies to A and B or \(A^c\) and B.
+\label{sec:orgf70fe11}
+\end{enumerate}
+\subsubsection{\(P(A)+P(B)\le 1\)}
+\label{sec:orgcdff96b}
+\begin{enumerate}
+\item This statement is true since A and B are disjoint, \(P(A)+P(B)=P(A\cup B)\) which can not be greater than 1.
+\label{sec:org226c94f}
+\end{enumerate}
+\subsubsection{\(P(A^c)+P(B)\le 1\)}
+\label{sec:org19a2beb}
+\begin{enumerate}
+\item This is false. For example, consider A situation where \(A=\varnothing\). Then \(A^c=\Omega\). Now given that A and B are disjoint, no matter what B is, \(P(\Omega)+P(B)>1\).
+\label{sec:orgddd56b0}
+\end{enumerate}
+\subsubsection{\(P(A\cup B\cup C)\ge P(A\cup B)\).}
+\label{sec:orge25889f}
+\begin{enumerate}
+\item This must be true. Given that these are disjoint, we know that \(P(A\cup B\cup C)=P(A)+P(B)+P(C)\). And we also know that \(P(A\cup B)= P(A)+P(B)\). So given that the probability of an event must be nonnegative, we know \(P(A\cup B\cup C)\) must be greater than or equal to \(P(A\cup B)\).
+\label{sec:orgf534d65}
+\end{enumerate}
+\section{11. More properties of probabilities}
+\label{sec:org69aa9c4}
+\subsection{More consequences of axioms:}
+\label{sec:org62f89cb}
+\subsubsection{If \(A \subset B\), then \(P(A)\le P(B)\)}
+\label{sec:orgba2532a}
+\begin{enumerate}
+\item This seems obvious, but how can we prove this?
+\label{sec:org3a4ee23}
+\begin{enumerate}
+\item \(B\) can be written as \(A \cup (B \cap A^c)\).
+\label{sec:org64c3819}
+\item Thus \(P(B)=P(A) +P(B \cap A^c)\ge P(A)\)
+\label{sec:org4af2d45}
+\item So since probabilities are nonnegative, we know that \(P(A) \le P(B)\)
+\label{sec:orgfba0c1e}
+\end{enumerate}
+\end{enumerate}
+\subsubsection{\(P(A \cup B) = P(A) + P(B) -P(A \cap B)\) even if these sets are not disjoint.}
+\label{sec:orgde3017a}
+\begin{enumerate}
+\item The union of A and B can be broken down into 3 distinct parts.
+\label{sec:org398c7fc}
+\begin{enumerate}
+\item \(a=P(A \cap B^c)\)
+\label{sec:org5e3026f}
+\item \(b=P(A \cap B)\)
+\label{sec:org8ef05bb}
+\item \(c=P(B  \cap A^c)\)
+\label{sec:org142ed77}
+\end{enumerate}
+\item Then \(P(A \cup B) =a+b+c\)
+\label{sec:org16bcbdc}
+\begin{enumerate}
+\item \(P(A)+P(B)-P(A\cap B)=(a+b)+(b+c)-b=a+b+c\)
+\label{sec:org72dacf5}
+\item Thus we can see that this is true.
+\label{sec:orga903ba9}
+\end{enumerate}
+\item This leads us to the following union bound:
+\label{sec:org4e7fe52}
+\end{enumerate}
+\subsubsection{\(P(A \cup B) \le P(A) + P(B)\)}
+\label{sec:org50a6c8e}
+\begin{enumerate}
+\item This is called the union bound and can be used when proving the probability of something is less than the probability of something else.
+\label{sec:org06214ad}
+\item \(P(A \cup B \cup C) = P(A) +P(A^c \cap B) + P(A^c \cap B^c \cap C)\)
+\label{sec:org53f10d9}
+\begin{enumerate}
+\item We have several pieces:
+\label{sec:org75f254c}
+\begin{enumerate}
+\item \(A \cup B \cup C=A \cup (B \cap A^c) \cup (C \cap A^c \cap B^c)\)
+\label{sec:orgc306eec}
+\end{enumerate}
+\item These three pieces are disjoint, thus the additivity axiom gives us:
+\label{sec:orge1b4b1b}
+\begin{enumerate}
+\item \(P(A \cup B \cup C)=P(A)+ P(\cup (B \cap A^c)) + P(C \cap A^c \cap B^c)\)
+\label{sec:org404f299}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\section{12. Exercise: More properties}
+\label{sec:org7657ce4}
+\subsection{Let A, B, and C be subsets of the sample space, not necessarily disjoint. For each one of the following statements, determine whether it is true or false. Note: “False`` means “not guaranteed to be true.''}
+\label{sec:orgef69561}
+\subsubsection{\(P( (A \cap B) \cup (C \cap A^c) ) \le P(A \cup B \cup C)\)}
+\label{sec:org849098d}
+\begin{enumerate}
+\item This statement must be true. This is due to the fact that \(A \cap B\) cannot be any bigger than \(A \cup B\) and \(C \cap A^c\) cannot be any bigger than \(C\). Thus this statement is true.
+\label{sec:org29d9c56}
+\end{enumerate}
+\subsubsection{\(P( A \cup B \cup C ) = P( A \cap C^c ) + P(C) + P( B \cap A^c \cap C^c )\)}
+\label{sec:orga5c97d1}
+\begin{enumerate}
+\item This statement must be true. It is the same property we saw earlier in 11.
+\label{sec:org274d8a6}
+\end{enumerate}
+\section{13. A discrete example}
+\label{sec:orgd88b521}
+\subsection{We can move from the abstract to the concrete.}
+\label{sec:org33ce633}
+\subsection{When we have two rolls of a tetrahedral dice, we have 16 possible outcomes, all of which are equally likely.}
+\label{sec:org3017d18}
+\subsection{\(P(X=1) = \frac{1}{4}\)}
+\label{sec:orgc51971e}
+\subsubsection{Where X is the value of the first roll.}
+\label{sec:orgcefcda6}
+\subsection{Let \(Z=\min(X,Y)\)}
+\label{sec:orgbbd2a53}
+\subsubsection{\(P(Z=4)= \frac{1}{16}\)}
+\label{sec:org02516aa}
+\subsubsection{\(P(Z=2) = \frac{1}{16} + \frac{2}{16} + \frac{2}{16} = \frac{5}{16}\)}
+\label{sec:org148fd9a}
+\subsection{This example is something called a Discrete Uniform Law.}
+\label{sec:org4a104e5}
+\subsubsection{Assume \(\Omega\) consists of \(n\) equally likely elements}
+\label{sec:orgf743549}
+\subsubsection{Assume \(A\) consists of \(k\) elements}
+\label{sec:org3b62179}
+\subsubsection{\(P(A) = k*\frac{1}{n}\)}
+\label{sec:org69c0cc6}
+\section{14. Exercise: Discrete probability calculations}
+\label{sec:org2a42a63}
+\subsection{Consider the same model of two rolls of a tetrahedral die, with all 16 outcomes equally likely. Find the probability of the following events:}
+\label{sec:orgddb2aaf}
+\subsubsection{The value in the first roll is strictly larger than the value in the second roll.}
+\label{sec:org820bd8c}
+\begin{enumerate}
+\item This event contains the times the first roll is strictly larger than the second. The first will be equal to the second a fourth of the time. The two rolls are not equal \(\frac{3}{4}\) of the time, which in this case means 12 of the 16 rolls will not be equal. In half of these occurences, the first roll will be greater than the second roll, and vice versa in the other half. Thus, we have a \(\frac{6}{16}\) probability that the first roll will be strictly greater than the second.
+\label{sec:orgd725fb5}
+\end{enumerate}
+\subsubsection{The sum of the values obtained in the two rolls is an even number.}
+\label{sec:orgd83d20a}
+\begin{enumerate}
+\item This event will happen half the time, since half our numbers are even numbers and half are odd. So the probability will be \(\frac{8}{16}\)
+\label{sec:org474e4d0}
+\end{enumerate}
+\section{15. A continuous example}
+\label{sec:orgaab2a89}
+\subsection{Probability calculation: Continuous example}
+\label{sec:org4066f05}
+\subsubsection{\(\left( x,y \right)\) such that \(0 \le x,y \le 1\)}
+\label{sec:org341f14b}
+\begin{enumerate}
+\item We need to specify a uniform probability law
+\label{sec:org1e90e5b}
+\begin{enumerate}
+\item Meaning, the probability is equal to the area.
+\label{sec:org96f3989}
+\item \(P( \{\left( x,y \right) | x+y \le \frac{1}{2} \} )\)
+\label{sec:orgce6ffb6}
+\begin{enumerate}
+\item These points form a triangle between the line \(x+y=\frac{1}{2}\)
+\label{sec:orge943757}
+\item So the probability is equal to the area of the triangle which is \(\frac{1}{2} * \frac{1}{2} * \frac{1}{2} = \frac{1}{8}\)
+\label{sec:org8328f73}
+\end{enumerate}
+\item \(P(\{\left( 0.5,0.3 \right)\})\)
+\label{sec:org730bca6}
+\begin{enumerate}
+\item This event consists of only one element, a single point.
+\label{sec:orgc05b44e}
+\item The area of a single point is 0, so the probability of having this single point, or any other single point, is simply 0.
+\label{sec:orgd76ced4}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\subsection{Probability calculation steps}
+\label{sec:org7d7ef1f}
+\subsubsection{Specify the sample space}
+\label{sec:org39db1ea}
+\subsubsection{Specify a probability law}
+\label{sec:org6c6305b}
+\subsubsection{Identify an event of interest}
+\label{sec:orgeaa6241}
+\subsubsection{Calculate}
+\label{sec:orgd4ac1ff}
+\section{16. Exercise: Continuous probability calculations}
+\label{sec:org96c9a14}
+\subsection{Consider a sample space that is the rectangular region [0,1]×[0,2], i.e., the set of all pairs (x,y) that satisfy 0≤x≤1 and 0≤y≤2. Consider a “uniform`` probability law, under which the probability of an event is half of the area of the event. Find the probability of the following events:}
+\label{sec:org0803448}
+\subsubsection{The two components x and y have the same values}
+\label{sec:org61a5499}
+\begin{enumerate}
+\item This event is simply a line, which has no area. Thus the probability of this will be \(0\).
+\label{sec:orgec085fa}
+\end{enumerate}
+\subsubsection{The value, x, of the first component is larger than or equal to the value, y, of the second component.}
+\label{sec:orgd48a526}
+\begin{enumerate}
+\item This would make up a triangle with points at \((0,1),(1,0),(1,1)\). The area of such a triangle is 0.5 and the total area of the region is 2. Thus the probability of the x value being larger than the y value is \(\frac{1}{4}\)
+\label{sec:org62d089d}
+\end{enumerate}
+\subsubsection{The value of x\textsuperscript{2} is larger than or equal to the value of y}
+\label{sec:org562f238}
+\begin{enumerate}
+\item This corresponds to the region below the curve \(y=x^2\), with x from 0 to 1. This can be seen as \(\int_0^1 x^2 dx = \frac{x^3}{3} |_0^1 = \frac{1}{3}\). Given that the total area is 2, the probability of x\textsuperscript{2} being greater than or equal to y is \(\frac{1}{6}\).
+\label{sec:org0a69f1d}
+\end{enumerate}
+\section{17. Countable additivity}
+\label{sec:org2e44841}
+\subsection{Probability calculation: discrete but infinite sample space.}
+\label{sec:org6fc3cb2}
+\subsubsection{Sample space: \(\{1,2,3,...\}\)}
+\label{sec:orgc3b5b85}
+\begin{enumerate}
+\item For example, an experiment with a coin tossed and we are looking for the first time a heads occur. The first heads could be the first toss, second, third, etc so the sample space is discrete and infinite.
+\label{sec:org0b8efab}
+\item Let us specify a probability law.
+\label{sec:org16b170d}
+\begin{enumerate}
+\item We have \(P(n) = \frac{1}{2^n}, n=1,2,3,...\)
+\label{sec:org7cc5937}
+\item Do these add to 1?
+\label{sec:orgf6b9a05}
+\begin{enumerate}
+\item \(\sum_{n=1}^{\infty} \frac{1}{2^n} = \frac{1}{2} \sum_{n=0}^{\infty} \frac{1}{2^n} = \frac{1}{2} * \frac{1}{1-(\frac{1}{2})}=1\)
+\label{sec:org908b69f}
+\end{enumerate}
+\item How can we calculate the probabilty of a general event?
+\label{sec:org9daea9a}
+\begin{enumerate}
+\item Probability that the outcome is even is equal to
+\label{sec:org4eadff5}
+\item \(P(\{2,4,6,...\}) = P(\{2\} \cup \{4\} \cup \{6\} \cup ... ) = P(2)+P(4)+P(6)+... = \frac{1}{2^2} + \frac{1}{2^4} + \frac{1}{2^6} = \frac{1}{4}(1+\frac{1}{4} +\frac{1}{4^2}+...) = \frac{1}{4} \cdot \frac{1}{1-\frac{1}{4}} = \frac{1}{3}\)
+\label{sec:org125d593}
+\item This leads to the Countable Additivity Axiom
+\label{sec:org610da07}
+\begin{enumerate}
+\item If \(A_1,A_2,...\) is an infinite sequence of disjoint events, then \(P(A_1 \cup A_2 \cup ...) = P(A_1)+P(A_2)+...\)
+\label{sec:org70a9e0e}
+\begin{enumerate}
+\item Having a sequence here is important.
+\label{sec:org9e239ee}
+\begin{enumerate}
+\item Otherwise, we could say that a unit square with a union of disjoint single elements, each with a probability of 0, lead to \(P(\Omega )=0\), which cannot be the case.
+\label{sec:org2b904d9}
+\item Since the disjoint elements in the unit square are not countable and cannot be arranged in a sequence, the Countable Additivity Axiom does not apply.
+\label{sec:org2cb7c43}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\section{18. Exercise: Using countable additivity}
+\label{sec:org75b1cc5}
+\subsection{Let the sample space be the set of positive integers and suppose that P(n)=1/2n, for n=1,2,…. Find the probability of the set \{3,6,9,…\}, that is, of the set of of positive integers that are multiples of 3.}
+\label{sec:org5437b55}
+\subsubsection{For this, we can use countable additivity}
+\label{sec:orgab452f0}
+\subsubsection{\(\frac{1}{2^3} + \frac{1}{2^6} + \frac{1}{2^9} +...= \frac{\frac{1}{2^3}}{1-(\frac{1}{2^3})} = 1/7\)}
+\label{sec:orgeaeedc4}
+\section{19. Exercise: Uniform probabilities on the integers}
+\label{sec:orgb3330a9}
+\subsection{Let the sample space be the set of all positive integers. Is it possible to have a “uniform`` probability law, that is, a probability law that assigns the same probability c to each positive integer?}
+\label{sec:orgffadb2e}
+\subsubsection{This cannot be the true. We have the following two cases:}
+\label{sec:org361519f}
+\begin{enumerate}
+\item c=0
+\label{sec:orgafe41a4}
+\begin{enumerate}
+\item If c=0, then we have the following by countable additivity
+\label{sec:org6e49e73}
+\begin{enumerate}
+\item \(1=P(\Omega )=P(\{1\}\cup \{2\}\cup \{3\}\cup ...) = P(\{1\}) + P(\{2\}) +... = 0+0+...=0\)
+\label{sec:orgb41d519}
+\begin{enumerate}
+\item Thus we have \(1=0\) which is a contradiction.
+\label{sec:org4ad4864}
+\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\item c>0
+\label{sec:orga4c9334}
+\begin{enumerate}
+\item If c>0, then there is some integer k such that kc>1. k could simply be \(\frac{1}{c}+1\). This would lead to the total probability being greater than 1, which cannot be the case.
+\label{sec:org2257812}
+\end{enumerate}
+\end{enumerate}
+\section{20. Exercise: On countable additivity}
+\label{sec:org3e48232}
+\subsection{Let the sample space be the two-dimensional plane. For any real number x, let Ax be the subset of the plane that consists of all points of the vertical line through the point \((x,0)\), i.e \(A_x = \{\left( x,y \right): y \in Re\}\)}
+\label{sec:orgf764f83}
+\subsubsection{Do the axioms of probability theory imply that the probability of the union of the sets \(A_x\) (which is the whole plane) is equal to the sum of the probabilities \(P(A_x)\).}
+\label{sec:orgbee8c2b}
+\begin{enumerate}
+\item No, they do not imply this. This is due to the fact that this collection of sets is not countable, as the set of real numbers is not countable. Thus the additivity axiom does not apply.
+\label{sec:org459cb74}
+\end{enumerate}
+\subsubsection{Do the axioms of probability theory imply that}
+\label{sec:org344be6f}
+\(P(A \cup A_2 \cup ...) = \sum_{x=1}^\infty P(A_x)\)
+\begin{enumerate}
+\item Yes, they do imply this. This is due to the fact that we are dealing with a sequence of disjoint events.
+\label{sec:org6f04c63}
+\end{enumerate}
+\section{21. Interpretations and uses of probabilities}
+\label{sec:org9577916}
+\subsection{Narrow view:}
+\label{sec:org4295648}
+\subsubsection{A branch of Mathematics}
+\label{sec:org327645d}
+\begin{enumerate}
+\item Axioms \(\implies\) theorems.
+\label{sec:org9286a8d}
+\item This can be looked at without looking at what probability really means
+\label{sec:org800e0a8}
+\item ``Theorem'': Frequency of event A is \(P(A)\)
+\label{sec:org72e11d3}
+\end{enumerate}
+\subsection{Are probabilities frequency?}
+\label{sec:orgff31172}
+\subsubsection{P(Coin toss yields heads)=1/2}
+\label{sec:org0cd8215}
+\begin{enumerate}
+\item In this case, it makes sense to think of probability as a frequency
+\label{sec:org5240605}
+\end{enumerate}
+\subsubsection{P(The president of \ldots{} will be reelected)=0.7}
+\label{sec:org30b9a34}
+\begin{enumerate}
+\item Thinking of this as a frequency doesn't make as much sense, because there is only a single election.
+\label{sec:org96d060d}
+\end{enumerate}
+\subsection{Probabilities are often interpreted as:}
+\label{sec:orgd34deb5}
+\subsubsection{Description of beliefs}
+\label{sec:orgfc3ef83}
+\subsubsection{Betting preferences}
+\label{sec:orgac3f887}
+\subsection{The role of probability theory}
+\label{sec:orgfebff79}
+\subsubsection{A framework for analyzing phenomena with uncertain outcomes}
+\label{sec:org4f9de17}
+\begin{enumerate}
+\item Rules for consistent reasoning
+\label{sec:org207a71b}
+\item Used for predictions and decisions
+\label{sec:org489f500}
+\end{enumerate}
+\subsection{Real world generates data which can be used by statistics to create models which can then be used by probability theory analysis that can be used to make real world predictions.}
+\label{sec:org8280931}
+\end{document}
