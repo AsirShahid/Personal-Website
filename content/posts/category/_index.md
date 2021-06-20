@@ -1,4 +1,4 @@
----
+  ---
 title: Top Category Sample
 menu:
   sidebar:
