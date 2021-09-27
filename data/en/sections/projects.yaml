@@ -3,7 +3,7 @@ section:
   name: Projects
   id: projects
   enable: true
-  weight: 4
+  weight: 5
   showOnNavbar: true
   # Can optionally hide the title in sections
   # hideTitle: true
@@ -29,6 +29,14 @@ projects:
   #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
   summary: Created a profitable crypto currency trading bot in Python using Coinbase's API. Currently working on further improving the bot using Machine Learning.
   tags: ["hobby", "python", "machine-learning"]
+- name: Homelab
+#  logo: /images/sections/projects/kubernetes.png
+  role: Administrator
+  timeline: " February 2018 - Present"
+ # repo: https://github.com/kubernetes/kubernetes # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: Home Server running several Virtual Machines with different services. Set up a server to run Nextcloud, Plex, VNC, and Nginx in order to create a web server and a media server.
+  tags: ["hobby", "sys-admin"]
 
 #- name: Kubernetes
 #  logo: /images/sections/projects/kubernetes.png
