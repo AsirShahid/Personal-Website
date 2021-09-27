@@ -10,33 +10,32 @@ section:
 
 
 # Your accomplishments
-
 accomplishments:
-- name: Machine Learning with Python: from Linear Models to Deep Learning
+- name: "Machine Learning with Python: from Linear Models to Deep Learning"
   timeline: "September 2021 - Present"
   organization:
     name: MITx
     url: https://www.edx.org/course/fundamentals-of-statistics
   courseOverview: An in-depth introduction to the field of machine learning, from linear models to deep learning and reinforcement learning, through hands-on Python projects.
-  certificateURL: "https://www.edx.org/course/machine-learning-with-python-from-linear-models-to"
+  # certificateURL: "https://www.edx.org/course/machine-learning-with-python-from-linear-models-to"
 
-- name: Data Analysis: Statistical Modeling and Computation in Applications
+- name: "Data Analysis: Statistical Modeling and Computation in Applications"
   timeline: "August 2021 - Present"
   organization:
     name: MITx
     url: https://www.edx.org/course/fundamentals-of-statistics
   courseOverview: A hands-on introduction to the interplay between statistics and computation for the analysis of real data.
-  certificateURL: "https://www.edx.org/course/statistics-computation-and-applications"
+  # certificateURL: "https://www.edx.org/course/statistics-computation-and-applications"
 
 - name: Fundamentals of Statistics
   timeline: "May 2021 - September 2021"
   organization:
     name: MITx
     url: https://www.edx.org/course/fundamentals-of-statistics
-  courseOverview: Develop a deep understanding of the principles that underpin statistical inference: estimation, hypothesis testing and prediction.
+  courseOverview: "Develop a deep understanding of the principles that underpin statistical inference: estimation, hypothesis testing and prediction."
   certificateURL: "https://courses.edx.org/certificates/dadeb28094cb43869dbf58686cb38636"
 
-- name: Probability - The Science of Uncertainty and Data
+- name: "Probability - The Science of Uncertainty and Data"
   timeline: "May 2021 - August 2021"
   organization:
     name: MITx
@@ -51,7 +50,7 @@ accomplishments:
     url: https://www.dataquest.io/
   courseOverview: This course helps to understand the key concepts such as networking, storage, security, maintenance, logging and monitoring, application lifecycle, troubleshooting, API object primitives etc. It also help to grow the ability to establish basic use-cases for end users.
 # This step-by-step learning path teaches you everything you need to know in order to become a Data Analyst in Python. Whether you're just starting out or looking to progress your career, begin here to learn a complete set of in-demand data skills.
-  certificateURL: "https://app.dataquest.io/path/data-scientist"
+  # certificateURL: "https://app.dataquest.io/path/data-scientist"
 
 - name: Data Analyst in R
   timeline: "December 2020 - Present"
@@ -60,7 +59,7 @@ accomplishments:
     url: https://www.dataquest.io/
   courseOverview: This course helps to understand the key concepts such as networking, storage, security, maintenance, logging and monitoring, application lifecycle, troubleshooting, API object primitives etc. It also help to grow the ability to establish basic use-cases for end users.
 # This step-by-step learning path teaches you everything you need to know in order to become a Data Analyst in Python. Whether you're just starting out or looking to progress your career, begin here to learn a complete set of in-demand data skills.
-  certificateURL: "https://app.dataquest.io/path/data-scientist"
+  # certificateURL: "https://app.dataquest.io/path/data-scientist"
 
 # - name: Linux Foundation System Administrator
 #   timeline: "March 2018 - March 2019"
