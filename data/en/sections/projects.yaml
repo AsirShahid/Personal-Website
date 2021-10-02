@@ -12,16 +12,16 @@ section:
 buttons:
 - name: All
   filter: "all"
-- name: Professional
-  filter: "professional"
-# - name: Academic
-#   filter: "academic"
 - name: Hobby
   filter: "hobby"
 - name: Python
   filter: "python"
 - name: System Administration
   filter: "sys-admin"
+- name: Professional
+  filter: "professional"
+- name: Academic
+  filter: "academic"
 
 # your projects
 projects:
