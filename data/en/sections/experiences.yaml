@@ -34,20 +34,19 @@ experiences:
 #     - Support client for abc tool.
 #     - Learn k,d,w technology for xyz.
 #
-# - company:
-#     name: PreExample Co.
-#     url: "https://www.example.com"
-#     location: Nowhere
-#     overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
-#   positions:
-#   - designation: Software Engineer
-#     start: March 2016
-#     end: May 2017
-#     responsibilities:
-#     - Write lots of example codes.
-#     - Read lots of examples.
-#     - See lots of example videos.
-#
+- company:
+    name:  Private Tutor
+    # url: "https://www.example.com"
+    # location: Nowhere
+    # overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
+  positions:
+  - designation: Tutor
+    start: Aug. 2017
+    # end: Present
+    responsibilities:
+    - Teaching college level Computer Science and Mathematics (Statistics, Linear Algebra, Calculus, and Real Analysis) to fellow university students
+    - Teaching Mathematics, Sciences, and Programming to students from Elementary School to High School.
+
 # - company:
 #     name: Intern Counting Company (ICC).
 #     url: "https://www.example.com"
