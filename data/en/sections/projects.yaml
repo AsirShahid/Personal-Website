@@ -12,8 +12,8 @@ section:
 buttons:
 - name: All
   filter: "all"
-# - name: Professional
-#   filter: "professional"
+- name: Professional
+  filter: "professional"
 # - name: Academic
 #   filter: "academic"
 - name: Hobby
@@ -33,6 +33,7 @@ projects:
   #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
   summary: Created a profitable crypto currency trading bot in Python using Coinbase's API. Currently working on further improving the bot using Machine Learning.
   tags: ["hobby", "python", "machine-learning"]
+
 - name: Puppy Picture Bot
 #  logo: /images/sections/projects/kubernetes.png
   role: Developer
@@ -41,6 +42,7 @@ projects:
   #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
   summary: Created a bot that downloads top pictures of puppies from Reddit using PRAW, and periodically texts them to me using Twilio.
   tags: ["hobby", "python"]
+
 - name: Youtube TikTok Bot
 #  logo: /images/sections/projects/kubernetes.png
   role: Developer
@@ -50,6 +52,17 @@ projects:
   #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
   summary: Created a bot that downloads top TikToks, edits them together using ffmpeg, and uploads them to YouTube.
   tags: ["hobby", "python", "bash"]
+
+- name: Personal Website
+#  logo: /images/sections/projects/kubernetes.png
+  role: Developer
+  timeline: "April 2021 - Present"
+ # repo: https://github.com/kubernetes/kubernetes # If your project is a public repo on GitHub, then provide this link. it will show star count.
+  repo: https://github.com/Mohammed-A-Shahid/Personal-Website
+  #url: ""  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  summary: Created a personal website using Hugo and deployed it on Cloudflare Pages.
+  tags: ["hobby", "professional"]
+
 - name: Homelab
 #  logo: /images/sections/projects/kubernetes.png
   role: Administrator
