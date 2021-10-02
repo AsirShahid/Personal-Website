@@ -20,8 +20,8 @@ buttons:
   filter: "sys-admin"
 - name: Professional
   filter: "professional"
-- name: Academic
-  filter: "academic"
+# - name: Academic
+#   filter: "academic"
 
 # your projects
 projects:
