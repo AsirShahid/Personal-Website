@@ -49,12 +49,12 @@ experiences:
 - company:
     name:  Private Tutor
     # url: "https://www.example.com"
-    # location: Nowhere
+    location: Stony Brook, NY
     # overview: PreExample Co. is a gateway company to enter into Example co. So, nothing special here.
   positions:
   - designation: Tutor
     start: Aug. 2017
-    # end: Present
+    end: Nov. 2021
     responsibilities:
     - Teaching college level Computer Science and Mathematics (Statistics, Linear Algebra, Calculus, and Real Analysis) to fellow university students
     - Teaching Mathematics, Sciences, and Programming to students from Elementary School to High School.
