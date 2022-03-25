@@ -11,9 +11,21 @@ section:
 # Your experiences
 experiences:
 - company:
+    name: Zebra Technologies
+    # url: "https://www.example.com"
+    location: Holtsville, NY
+    # company overview
+    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
+  positions:
+  - designation: Automation Engineer
+    start: Nov. 2021
+    end: Present
+    responsibilities:
+
+- company:
     name: Stony Brook University Applied Mathematics Department
     # url: "https://www.example.com"
-    location: Stony Brook
+    location: Stony Brook, NY
     # company overview
     # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
