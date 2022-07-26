@@ -30,7 +30,7 @@ projects:
   role: Developer
   timeline: "June 2022 - Present"
  # repo: https://github.com/kubernetes/kubernetes # If your project is a public repo on GitHub, then provide this link. it will show star count.
-  url: "baseball.asir.dev"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
+  url: "https://baseball.asir.dev"  # If your project is not a public repo but it has a website or any external details url then provide it here. don't provide "repo" and "url" simultaneously.
   summary: Created a web app using Streamlit in Python to visualize Baseball data
   tags: ["hobby", "python"]
 
