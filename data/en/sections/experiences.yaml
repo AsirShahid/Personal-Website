@@ -12,15 +12,15 @@ section:
 experiences:
 - company:
     name: Zebra Technologies
-    # url: "https://www.example.com"
     location: Holtsville, NY
-    # company overview
-    # overview: Example Co. is a widely recognized company for cloud-native development. It builds tools for Kubernetes.
   positions:
   - designation: Automation Engineer
     start: Nov. 2021
-    end: Present
+    end: 2022
     responsibilities:
+    - Developed and maintained automated testing frameworks to validate hardware and software systems.
+    - Wrote Python and shell scripts to streamline QA workflows, reducing manual testing overhead.
+    - Collaborated with cross-functional engineering teams on CI/CD pipeline integration and system reliability.
 
 - company:
     name: Stony Brook University Applied Mathematics Department
