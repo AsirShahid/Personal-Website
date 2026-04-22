@@ -10,6 +10,55 @@ section:
   # hideTitle: true
 
 degrees:
+- name: Doctor of Medicine (MD), Candidate
+  icon: fa-stethoscope
+  timeframe: July 2026 - 2029 (Expected)
+  institution:
+    name: Renaissance School of Medicine at Stony Brook University
+    url: "https://renaissance.stonybrookmedicine.edu/"
+  extracurricularActivities:
+  - 3-Year MD Program with Radiology Pathway
+
+- name: Pre-Medical Post-Baccalaureate Coursework
+  icon: fa-flask
+  timeframe: 2023 - 2026
+  institution:
+    name: Stony Brook University
+    url: "https://www.stonybrook.edu/"
+  takenCourses:
+    showGrades: true
+    courses:
+    - name: General Chemistry I
+      achieved: 4
+      outOf: 4
+    - name: General Chemistry II
+      achieved: 4
+      outOf: 4
+    - name: General Biology I
+      achieved: 4
+      outOf: 4
+    - name: General Biology II
+      achieved: 4
+      outOf: 4
+    - name: Anatomy & Physiology
+      achieved: 4
+      outOf: 4
+    - name: Organic Chemistry I
+      achieved: 4
+      outOf: 4
+    - name: Organic Chemistry II
+      achieved: 4
+      outOf: 4
+    - name: Biochemistry
+      achieved: 4
+      outOf: 4
+    - name: Physics I
+      achieved: 4
+      outOf: 4
+    - name: Physics II
+      achieved: 4
+      outOf: 4
+
 - name: BS, Mathematics & Applied Mathematics and Statistics
   icon: fa-graduation-cap
   timeframe: 2017 - 2020
