@@ -19,15 +19,32 @@ degrees:
   extracurricularActivities:
   - 3-Year MD Program with Radiology Pathway
 
-- name: Pre-Medical Science Coursework
-  icon: fa-flask
-  timeframe: 2023 - 2026
+- name: BS, Applied Mathematics and Statistics
+  icon: fa-graduation-cap
+  timeframe: 2017 – 2020, 2023 – 2026
   institution:
     name: Stony Brook University
     url: "https://www.stonybrook.edu/"
+  grade:
+    scale: GPA
+    achieved: 3.8
+    outOf: 4
+
   takenCourses:
-    showGrades: true
+    showGrades: False
     courses:
+    - name: Data Analysis (Using R and Python)
+      achieved: 3.75
+      outOf: 4
+    - name: Statistical Laboratory (Using R and SAS)
+      achieved: 3.80
+      outOf: 4
+    - name: Computer Science Principals (Using Python)
+      achieved: 3.5
+      outOf: 4
+    - name: Introduction to Object Oriented Programming (Using Java)
+      achieved: 3.75
+      outOf: 4
     - name: General Chemistry I
       achieved: 4
       outOf: 4
@@ -57,34 +74,6 @@ degrees:
       outOf: 4
     - name: Physics II
       achieved: 4
-      outOf: 4
-
-- name: BS, Mathematics & Applied Mathematics and Statistics
-  icon: fa-graduation-cap
-  timeframe: 2017
-  institution:
-    name: Stony Brook University
-    url: "https://www.stonybrook.edu/"
-  grade: #(optional)
-    scale: GPA
-    achieved: 3.8
-    outOf: 4
-
-  takenCourses: #(optional)
-    # if true, the courses will be rendered as a table otherwise it will render as a list and the grades will be hidden.
-    showGrades: False
-    courses:
-    - name: Data Analysis (Using R and Python)
-      achieved: 3.75
-      outOf: 4
-    - name: Statistical Laboratory (Using R and SAS)
-      achieved: 3.80
-      outOf: 4
-    - name: Computer Science Principals (Using Python)
-      achieved: 3.5
-      outOf: 4
-    - name: Introduction to Object Oriented Programming (Using Java)
-      achieved: 3.75
       outOf: 4
 
 
