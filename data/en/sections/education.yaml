@@ -25,11 +25,6 @@ degrees:
   institution:
     name: Stony Brook University
     url: "https://www.stonybrook.edu/"
-  grade:
-    scale: GPA
-    achieved: 3.8
-    outOf: 4
-
   takenCourses:
     showGrades: False
     courses:
