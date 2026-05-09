@@ -25,6 +25,12 @@ export default function ContactSection() {
         <p className="mx-auto max-w-lg text-muted-foreground text-balance">
           {DATA.sections.contact.text}
         </p>
+        <a
+          href={`mailto:${DATA.contact.email}`}
+          className="text-foreground font-medium underline underline-offset-4 hover:text-primary transition-colors"
+        >
+          {DATA.contact.email}
+        </a>
       </div>
     </div>
   );
