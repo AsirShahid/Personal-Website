@@ -6,16 +6,16 @@ import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 import { Java } from "@/components/ui/svgs/java";
 
 export const DATA = {
-  name: "Mohammed Asir Shahid",
+  name: "Asir Shahid",
   initials: "AS",
   url: "https://asir.dev",
   location: "Selden, NY",
   locationLink: "https://www.google.com/maps/place/selden+ny",
   description:
-    "Engineer-turned-physician. Incoming MD student at the Renaissance School of Medicine with clinical experience as a Medical Assistant and EMT-B, and research experience in computational biochemistry.",
+    "Incoming MD candidate at the Renaissance School of Medicine — 3-Year MD Program with a Radiology Pathway. Engineer-turned-physician.",
   summary:
-    "I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education). After working as an [Automation Engineer at Zebra Technologies](/#work), I left my career in tech to pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook — earning straight As across biology, chemistry, organic chemistry, biochemistry, physics, and anatomy — worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
-  avatarUrl: "/picofme.png",
+    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I'm an engineer-turned-physician — I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work) I left my career in tech to pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
+  avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
     about: { order: 1, enabled: true, heading: "About" },
@@ -70,7 +70,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/Mohammed-A-Shahid",
+        url: "https://github.com/AsirShahid",
         icon: Icons.github,
         navbar: true,
       },
@@ -228,7 +228,7 @@ export const DATA = {
     },
     {
       title: "YouTube TikTok Bot",
-      href: "https://github.com/Mohammed-A-Shahid/TikTok-Bot",
+      href: "https://github.com/AsirShahid/TikTok-Bot",
       dates: "February 2021 - June 2021",
       active: false,
       description:
@@ -237,7 +237,7 @@ export const DATA = {
       links: [
         {
           type: "Source",
-          href: "https://github.com/Mohammed-A-Shahid/TikTok-Bot",
+          href: "https://github.com/AsirShahid/TikTok-Bot",
           icon: <Icons.github className="size-3" />,
         },
       ],
