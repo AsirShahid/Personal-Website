@@ -12,9 +12,9 @@ export const DATA = {
   location: "Selden, NY",
   locationLink: "https://www.google.com/maps/place/selden+ny",
   description:
-    "Incoming MD candidate at the Renaissance School of Medicine — 3-Year MD Program with a Radiology Pathway. Engineer-turned-physician.",
+    "Incoming MD student at the Renaissance School of Medicine, on the 3-Year MD program with a Radiology Pathway. I spent my career before medicine in engineering and data science.",
   summary:
-    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I'm an engineer-turned-physician — I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work) I left my career in tech to pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
+    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work) I left engineering to pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
   avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
@@ -42,7 +42,7 @@ export const DATA = {
       order: 8, enabled: true,
       label: "Contact",
       heading: "Get in Touch",
-      text: "Want to chat? The fastest way to reach me is by email — I'll respond when I can.",
+      text: "Want to chat? The fastest way is by email. I'll respond when I can.",
     },
   },
   photos: [],
@@ -93,7 +93,7 @@ export const DATA = {
     {
       school: "Renaissance School of Medicine at Stony Brook University",
       href: "https://renaissance.stonybrookmedicine.edu/",
-      degree: "Doctor of Medicine (MD), Candidate — 3-Year MD Program in Radiology",
+      degree: "Doctor of Medicine (MD), Candidate, 3-Year MD Program with Radiology Pathway",
       logoUrl: "https://www.google.com/s2/favicons?domain=stonybrookmedicine.edu&sz=128",
       start: "2026",
       end: "2029",
@@ -127,15 +127,15 @@ export const DATA = {
       badges: [],
       location: "Farmingdale, NY",
       title: "Medical Assistant",
-      logoUrl: "https://avatar.vercel.sh/integrated-spine-pain-care?size=40",
+      logoUrl: "https://avatar.vercel.sh/integrated-spine-pain?size=40",
       start: "August 2024",
       end: "October 2025",
       description:
-        "Facilitated fluoroscopy-guided interventional pain procedures (epidural steroid injections, nerve blocks) by preparing sterile fields, managing instruments, and monitoring patient vitals. Maintained accurate and comprehensive EHR documentation, capturing detailed patient histories and treatment plans to optimize clinical continuity and provider efficiency.",
+        "Facilitated fluoroscopy-guided interventional pain procedures (epidural steroid injections, nerve blocks) by preparing sterile fields, managing instruments, and monitoring patient vitals. Maintained accurate EHR documentation, capturing patient histories and treatment plans to support clinical continuity.",
     },
     {
       company: "Port Jefferson EMS",
-      href: "",
+      href: "https://www.portjeffersonems.com",
       badges: [],
       location: "Mount Sinai, NY",
       title: "EMT-B",
@@ -146,11 +146,11 @@ export const DATA = {
         "Provided pre-hospital basic life support for medical and trauma emergencies. Commanded emergency scenes, coordinated with paramedic teams, and ensured safe patient transport and handoff to hospital staff.",
     },
     {
-      company: "Nagan Lab — Computational Biochemistry Research",
+      company: "Nagan Lab, Stony Brook University",
       href: "https://www.stonybrook.edu/commcms/chemistry/",
       badges: [],
       location: "Stony Brook, NY",
-      title: "Undergraduate Researcher & System Administrator",
+      title: "Undergraduate Researcher and System Administrator",
       logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
       start: "October 2023",
       end: undefined,
@@ -167,7 +167,7 @@ export const DATA = {
       start: "August 2020",
       end: "March 2023",
       description:
-        "Engineered data processing pipelines using Python (Pandas) to parse and analyze large volumes of automated test logs and device telemetry, extracting actionable metrics to identify failure trends. Developed automation frameworks using Python and Selenium to streamline QA, utilizing Matplotlib for data visualization to present root-cause analysis of complex technical issues to development teams.",
+        "Engineered data processing pipelines using Python and Pandas to parse and analyze large volumes of automated test logs and device telemetry, extracting actionable metrics to identify failure trends. Developed automation frameworks using Python and Selenium to streamline QA, utilizing Matplotlib for data visualization to present root-cause analysis to development teams.",
     },
   ],
 
@@ -178,70 +178,10 @@ export const DATA = {
       dates: "Fall 2025",
       active: false,
       description:
-        "Engineered a geometry-aware filtered back-projection pipeline in Python to reconstruct X-ray CTs. Applied the Radon transform and evaluated reconstructions using structural similarity (SSIM) and peak SNR. Academic project for AMS 325.",
+        "Engineered a geometry-aware filtered back-projection pipeline in Python to reconstruct X-ray CTs from sinogram data. Applied the Radon transform and evaluated reconstructions using structural similarity (SSIM) and peak SNR. Academic project for AMS 325.",
       technologies: ["Python", "NumPy", "SciPy", "Radon Transform", "Image Reconstruction"],
       links: [],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Baseball Stats Dashboard",
-      href: "https://baseball.asir.dev",
-      dates: "June 2022 - Present",
-      active: true,
-      description:
-        "Web app built with Streamlit in Python for visualizing and exploring Baseball statistics across teams, players, and seasons.",
-      technologies: ["Python", "Streamlit", "Pandas", "Data Visualization"],
-      links: [
-        {
-          type: "Website",
-          href: "https://baseball.asir.dev",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Crypto Trading Bot",
-      href: "",
-      dates: "July 2020 - July 2021",
-      active: false,
-      description:
-        "A profitable cryptocurrency trading bot written in Python using the Coinbase API. Explored extending it with machine-learning-driven signal models.",
-      technologies: ["Python", "Coinbase API", "Machine Learning"],
-      links: [],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Puppy Picture Bot",
-      href: "",
-      dates: "July 2021 - September 2021",
-      active: false,
-      description:
-        "A bot that scrapes top puppy pictures from Reddit using PRAW and periodically texts them to me via the Twilio API.",
-      technologies: ["Python", "PRAW", "Twilio"],
-      links: [],
-      image: "",
-      video: "",
-    },
-    {
-      title: "YouTube TikTok Bot",
-      href: "https://github.com/AsirShahid/TikTok-Bot",
-      dates: "February 2021 - June 2021",
-      active: false,
-      description:
-        "Automated pipeline that downloads top TikToks, stitches them together with ffmpeg, and uploads the compilation to YouTube.",
-      technologies: ["Python", "Bash", "ffmpeg", "YouTube API"],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/AsirShahid/TikTok-Bot",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
+      image: "/ct-sinogram.png",
       video: "",
     },
     {
@@ -250,7 +190,7 @@ export const DATA = {
       dates: "April 2021 - Present",
       active: true,
       description:
-        "This site. Originally built with Hugo, now rebuilt with Astro v6, React, and Tailwind v4, deployed on Cloudflare.",
+        "This site. Originally built with Hugo, now rebuilt with Astro v6, React, and Tailwind v4, deployed on Cloudflare Pages.",
       technologies: ["Astro", "React", "TypeScript", "TailwindCSS", "Cloudflare"],
       links: [
         {
@@ -268,7 +208,7 @@ export const DATA = {
       dates: "February 2018 - Present",
       active: true,
       description:
-        "Home server running multiple virtual machines for self-hosted services — Nextcloud, Plex, VNC, and Nginx — backed by a MariaDB database, exposed as both a web server and media server.",
+        "Home server running multiple virtual machines for self-hosted services including Nextcloud, Plex, VNC, and Nginx, backed by a MariaDB database.",
       technologies: ["Linux", "KVM", "Nextcloud", "Plex", "Nginx", "MariaDB"],
       links: [],
       image: "",
