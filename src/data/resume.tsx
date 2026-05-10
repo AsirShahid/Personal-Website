@@ -154,8 +154,20 @@ export const DATA = {
         "Provided pre-hospital basic life support for medical and trauma emergencies. Commanded emergency scenes, coordinated with paramedic teams, and ensured safe patient transport and handoff to hospital staff.",
     },
     {
+      company: "Wang Neuroimaging Lab, Stony Brook University",
+      href: "https://renaissance.stonybrookmedicine.edu/radiology/research/laboratories/Yicun-Wang",
+      badges: [],
+      location: "Stony Brook, NY",
+      title: "Clinical Research Assistant",
+      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrookmedicine.edu&sz=128",
+      start: "July 2026",
+      end: undefined,
+      description:
+        "Assisting with MRI scan sessions investigating neurofluidic dynamics in idiopathic normal pressure hydrocephalus (iNPH) versus matched controls. Quantifying arteriovenous blood flow and CSF dynamics using real-time phase-contrast MRI and measuring brain tissue motion and subarachnoid space CSF pulsations to develop novel biomarkers for iNPH diagnosis and shunt patient selection.",
+    },
+    {
       company: "Nagan Lab, Stony Brook University",
-      href: "https://www.stonybrook.edu/commcms/chemistry/",
+      href: "https://sites.google.com/view/mnagan",
       badges: [],
       location: "Stony Brook, NY",
       title: "Undergraduate Researcher and System Administrator",
@@ -163,7 +175,7 @@ export const DATA = {
       start: "October 2023",
       end: undefined,
       description:
-        "Investigated force field accuracy for RNA molecular dynamics simulations in AMBER, developing custom Python scripts to analyze stem-loop simulations and validate computational models. Served as System Administrator for the lab's Linux-based computing cluster, writing Bash scripts to automate software deployments, streamline job scheduling, and maintain hardware infrastructure. Co-author on Linzer JT et al., \"Accurately Modeling RNA Stem-Loops in an Implicit Solvent Environment,\" J. Chem. Inf. Model. 2024;64(15):6092–6104.",
+        "Investigated force field accuracy for RNA molecular dynamics simulations in AMBER, developing custom Python scripts to analyze stem-loop simulations and validate computational models. Served as System Administrator for the lab's Linux-based computing cluster, writing Bash scripts to automate software deployments, streamline job scheduling, and maintain hardware infrastructure.",
     },
     {
       company: "Zebra Technologies",
