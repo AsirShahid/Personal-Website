@@ -102,7 +102,7 @@ export const DATA = {
       school: "Renaissance School of Medicine at Stony Brook University",
       href: "https://renaissance.stonybrookmedicine.edu/",
       degree: "Doctor of Medicine (MD), Candidate, 3-Year MD Program with Radiology Pathway",
-      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrookmedicine.edu&sz=128",
+      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
       start: "2026",
       end: "2029",
     },
@@ -159,7 +159,7 @@ export const DATA = {
       badges: [],
       location: "Stony Brook, NY",
       title: "Clinical Research Assistant",
-      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrookmedicine.edu&sz=128",
+      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
       start: "July 2026",
       end: undefined,
       description:
