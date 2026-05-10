@@ -118,6 +118,18 @@ export const DATA = {
 
   work: [
     {
+      company: "Wang Neuroimaging Lab, Stony Brook University",
+      href: "https://renaissance.stonybrookmedicine.edu/radiology/research/laboratories/Yicun-Wang",
+      badges: [],
+      location: "Stony Brook, NY",
+      title: "Clinical Research Assistant",
+      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
+      start: "July 2026",
+      end: undefined,
+      description:
+        "Assisting with MRI scan sessions investigating neurofluidic dynamics in idiopathic normal pressure hydrocephalus (iNPH) versus matched controls. Quantifying arteriovenous blood flow and CSF dynamics using real-time phase-contrast MRI and measuring brain tissue motion and subarachnoid space CSF pulsations to develop novel biomarkers for iNPH diagnosis and shunt patient selection.",
+    },
+    {
       company: "Station Medical",
       href: "",
       badges: [],
@@ -152,18 +164,6 @@ export const DATA = {
       end: "April 2025",
       description:
         "Provided pre-hospital basic life support for medical and trauma emergencies. Commanded emergency scenes, coordinated with paramedic teams, and ensured safe patient transport and handoff to hospital staff.",
-    },
-    {
-      company: "Wang Neuroimaging Lab, Stony Brook University",
-      href: "https://renaissance.stonybrookmedicine.edu/radiology/research/laboratories/Yicun-Wang",
-      badges: [],
-      location: "Stony Brook, NY",
-      title: "Clinical Research Assistant",
-      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
-      start: "July 2026",
-      end: undefined,
-      description:
-        "Assisting with MRI scan sessions investigating neurofluidic dynamics in idiopathic normal pressure hydrocephalus (iNPH) versus matched controls. Quantifying arteriovenous blood flow and CSF dynamics using real-time phase-contrast MRI and measuring brain tissue motion and subarachnoid space CSF pulsations to develop novel biomarkers for iNPH diagnosis and shunt patient selection.",
     },
     {
       company: "Nagan Lab, Stony Brook University",
