@@ -142,6 +142,18 @@ export const DATA = {
         "Performed phlebotomy, 12-lead EKGs, and vital signs assessment in a high-volume primary care setting. Facilitated uninterrupted patient care by independently managing prior authorizations and specialty medication appeals to resolve complex insurance coverage disputes.",
     },
     {
+      company: "Nagan Lab, Stony Brook University",
+      href: "https://sites.google.com/view/mnagan",
+      badges: [],
+      location: "Stony Brook, NY",
+      title: "Undergraduate Researcher and System Administrator",
+      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
+      start: "October 2023",
+      end: undefined,
+      description:
+        "Investigated force field accuracy for RNA molecular dynamics simulations in AMBER, developing custom Python scripts to analyze stem-loop simulations and validate computational models. Served as System Administrator for the lab's Linux-based computing cluster, writing Bash scripts to automate software deployments, streamline job scheduling, and maintain hardware infrastructure.",
+    },
+    {
       company: "Integrated Spine and Pain Care",
       href: "",
       badges: [],
@@ -164,18 +176,6 @@ export const DATA = {
       end: "April 2025",
       description:
         "Provided pre-hospital basic life support for medical and trauma emergencies. Commanded emergency scenes, coordinated with paramedic teams, and ensured safe patient transport and handoff to hospital staff.",
-    },
-    {
-      company: "Nagan Lab, Stony Brook University",
-      href: "https://sites.google.com/view/mnagan",
-      badges: [],
-      location: "Stony Brook, NY",
-      title: "Undergraduate Researcher and System Administrator",
-      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
-      start: "October 2023",
-      end: undefined,
-      description:
-        "Investigated force field accuracy for RNA molecular dynamics simulations in AMBER, developing custom Python scripts to analyze stem-loop simulations and validate computational models. Served as System Administrator for the lab's Linux-based computing cluster, writing Bash scripts to automate software deployments, streamline job scheduling, and maintain hardware infrastructure.",
     },
     {
       company: "Zebra Technologies",
