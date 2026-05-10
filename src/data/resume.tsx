@@ -135,7 +135,7 @@ export const DATA = {
       badges: [],
       location: "Farmingdale, NY",
       title: "Medical Assistant",
-      logoUrl: "https://avatar.vercel.sh/integrated-spine-pain?size=40",
+      logoUrl: "/ispc.png",
       start: "August 2024",
       end: "October 2025",
       description:
