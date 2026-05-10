@@ -9,5 +9,15 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"routes": [
+		{
+			"pattern": "asir.dev",
+			"custom_domain": true
+		},
+		{
+			"pattern": "www.asir.dev",
+			"custom_domain": true
+		}
+	]
 }

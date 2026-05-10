@@ -4,6 +4,13 @@ import { Python } from "@/components/ui/svgs/python";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
 import { Java } from "@/components/ui/svgs/java";
+import { R } from "@/components/ui/svgs/r";
+import { Git } from "@/components/ui/svgs/git";
+import { Linux } from "@/components/ui/svgs/linux";
+import { Bash } from "@/components/ui/svgs/bash";
+import { Matlab } from "@/components/ui/svgs/matlab";
+import { Pandas } from "@/components/ui/svgs/pandas";
+import { Selenium } from "@/components/ui/svgs/selenium";
 
 export const DATA = {
   name: "Asir Shahid",
@@ -48,16 +55,17 @@ export const DATA = {
   photos: [],
   skills: [
     { name: "Python", icon: Python },
-    { name: "R" },
-    { name: "C" },
-    { name: "C++" },
+    { name: "R", icon: R },
+    { name: "Matlab", icon: Matlab },
     { name: "Java", icon: Java },
     { name: "SQL" },
-    { name: "Linux" },
-    { name: "Git" },
+    { name: "Bash", icon: Bash },
+    { name: "Linux", icon: Linux },
+    { name: "Git", icon: Git },
     { name: "Docker", icon: Docker },
     { name: "Kubernetes", icon: Kubernetes },
-    { name: "Hadoop" },
+    { name: "Pandas", icon: Pandas },
+    { name: "Selenium", icon: Selenium },
     { name: "Cloud Computing" },
   ],
   navbar: [
@@ -115,7 +123,7 @@ export const DATA = {
       badges: [],
       location: "Brentwood, NY",
       title: "Medical Assistant",
-      logoUrl: "https://avatar.vercel.sh/station-medical?size=40",
+      logoUrl: "https://www.google.com/s2/favicons?domain=station-medical.com&sz=128",
       start: "October 2025",
       end: undefined,
       description:
@@ -139,7 +147,7 @@ export const DATA = {
       badges: [],
       location: "Mount Sinai, NY",
       title: "EMT-B",
-      logoUrl: "https://avatar.vercel.sh/port-jefferson-ems?size=40",
+      logoUrl: "https://www.google.com/s2/favicons?domain=portjeffersonems.com&sz=128",
       start: "October 2024",
       end: "April 2025",
       description:
