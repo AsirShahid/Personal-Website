@@ -147,7 +147,7 @@ export const DATA = {
       badges: [],
       location: "Mount Sinai, NY",
       title: "EMT-B",
-      logoUrl: "https://www.google.com/s2/favicons?domain=pjems.org&sz=128",
+      logoUrl: "/pjems.png",
       start: "October 2024",
       end: "April 2025",
       description:
@@ -207,7 +207,7 @@ export const DATA = {
         "Engineered a geometry-aware filtered back-projection pipeline in Python to reconstruct X-ray CTs from sinogram data. Applied the Radon transform and evaluated reconstructions using structural similarity (SSIM) and peak SNR. Academic project for AMS 325.",
       technologies: ["Python", "NumPy", "SciPy", "Radon Transform", "Image Reconstruction"],
       links: [],
-      image: "/ct-sinogram.png",
+      image: "/sinogram.png",
       video: "",
     },
     {
