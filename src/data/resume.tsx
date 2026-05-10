@@ -139,7 +139,7 @@ export const DATA = {
       badges: [],
       location: "Mount Sinai, NY",
       title: "EMT-B",
-      logoUrl: "https://avatar.vercel.sh/port-jefferson-ems?size=40",
+      logoUrl: "https://www.google.com/s2/favicons?domain=portjeffersonems.com&sz=128",
       start: "October 2024",
       end: "April 2025",
       description:
