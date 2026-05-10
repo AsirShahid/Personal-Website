@@ -143,11 +143,11 @@ export const DATA = {
     },
     {
       company: "Port Jefferson EMS",
-      href: "https://www.portjeffersonems.com",
+      href: "https://pjems.org",
       badges: [],
       location: "Mount Sinai, NY",
       title: "EMT-B",
-      logoUrl: "https://www.google.com/s2/favicons?domain=portjeffersonems.com&sz=128",
+      logoUrl: "https://www.google.com/s2/favicons?domain=pjems.org&sz=128",
       start: "October 2024",
       end: "April 2025",
       description:
@@ -180,6 +180,24 @@ export const DATA = {
   ],
 
   projects: [
+    {
+      title: "RNA Stem-Loop Force Field Research",
+      href: "https://doi.org/10.1021/acs.jcim.4c00756",
+      dates: "2024",
+      active: false,
+      description:
+        "Co-authored peer-reviewed research investigating force field accuracy for RNA stem-loop molecular dynamics simulations in AMBER using implicit solvent. Identified that CH···O force field modifications combined with a nonpolar solvent correction were necessary to reproduce experimental loop structures. Published in the Journal of Chemical Information and Modeling.",
+      technologies: ["Python", "AMBER", "Molecular Dynamics", "RNA", "Implicit Solvent", "Bash"],
+      links: [
+        {
+          type: "Paper",
+          href: "https://doi.org/10.1021/acs.jcim.4c00756",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
     {
       title: "CT Image Reconstruction Pipeline",
       href: "",
