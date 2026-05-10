@@ -3,11 +3,8 @@
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "astrofolio",
 	"main": "@astrojs/cloudflare/entrypoints/server",
-	"build": {
-		"command": "pnpm build"
-	},
 	"assets": {
-		"directory": "./dist",
+		"directory": "./dist/client",
 		"binding": "ASSETS"
 	},
 	"observability": {
