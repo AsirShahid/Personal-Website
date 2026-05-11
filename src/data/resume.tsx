@@ -160,7 +160,7 @@ export const DATA = {
       badges: [],
       location: "Farmingdale, NY",
       title: "Medical Assistant",
-      logoUrl: "/ispc.png",
+      logoUrl: "",
       start: "August 2024",
       end: "October 2025",
       description:
