@@ -3,13 +3,11 @@ import { House, Library } from "lucide-react";
 import { Python } from "@/components/ui/svgs/python";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Java } from "@/components/ui/svgs/java";
 import { R } from "@/components/ui/svgs/r";
 import { Git } from "@/components/ui/svgs/git";
 import { Linux } from "@/components/ui/svgs/linux";
 import { Bash } from "@/components/ui/svgs/bash";
 import { Matlab } from "@/components/ui/svgs/matlab";
-import { Pandas } from "@/components/ui/svgs/pandas";
 import { Selenium } from "@/components/ui/svgs/selenium";
 
 export const DATA = {
@@ -21,7 +19,7 @@ export const DATA = {
   description:
     "Incoming MD student at the Renaissance School of Medicine, on the 3-Year MD program with a Radiology Pathway. I spent my career before medicine in engineering and data science.",
   summary:
-    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work) I left engineering to pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
+    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work) and a [Data Scientist at Goldman Sachs](/#work), I left to return to Stony Brook and pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
   avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
@@ -57,14 +55,17 @@ export const DATA = {
     { name: "Python", icon: Python },
     { name: "R", icon: R },
     { name: "Matlab", icon: Matlab },
-    { name: "Java", icon: Java },
-    { name: "SQL" },
+    { name: "SQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+    { name: "NumPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
+    { name: "SciPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scipy/scipy-original.svg" },
+    { name: "Jupyter", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" },
+    { name: "Pandas", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" },
+    { name: "Bloomberg", iconUrl: "https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128" },
     { name: "Bash", icon: Bash },
     { name: "Linux", icon: Linux },
     { name: "Git", icon: Git },
     { name: "Docker", icon: Docker },
     { name: "Kubernetes", icon: Kubernetes },
-    { name: "Pandas", icon: Pandas },
     { name: "Selenium", icon: Selenium },
     { name: "Cloud Computing" },
   ],
@@ -102,7 +103,7 @@ export const DATA = {
       school: "Renaissance School of Medicine at Stony Brook University",
       href: "https://renaissance.stonybrookmedicine.edu/",
       degree: "Doctor of Medicine (MD), Candidate, 3-Year MD Program with Radiology Pathway",
-      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrookmedicine.edu&sz=128",
+      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
       start: "2026",
       end: "2029",
     },
@@ -111,8 +112,8 @@ export const DATA = {
       href: "https://www.stonybrook.edu/",
       degree: "BS, Applied Mathematics and Statistics",
       logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
-      start: "2017–2020",
-      end: "2023–2026",
+      start: "2017–2020, 2023–2026",
+      end: undefined,
     },
   ],
 
@@ -159,7 +160,7 @@ export const DATA = {
       badges: [],
       location: "Stony Brook, NY",
       title: "Clinical Research Assistant",
-      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrookmedicine.edu&sz=128",
+      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
       start: "July 2026",
       end: undefined,
       description:
@@ -178,6 +179,18 @@ export const DATA = {
         "Investigated force field accuracy for RNA molecular dynamics simulations in AMBER, developing custom Python scripts to analyze stem-loop simulations and validate computational models. Served as System Administrator for the lab's Linux-based computing cluster, writing Bash scripts to automate software deployments, streamline job scheduling, and maintain hardware infrastructure.",
     },
     {
+      company: "Goldman Sachs",
+      href: "https://www.goldmansachs.com",
+      badges: [],
+      location: "Philadelphia, PA",
+      title: "Data Scientist",
+      logoUrl: "https://www.google.com/s2/favicons?domain=goldmansachs.com&sz=128",
+      start: "February 2023",
+      end: "July 2023",
+      description:
+        "Developed quantitative models and data pipelines in Python, NumPy, SciPy, and SQL to support trading algorithm research and strategy analysis. Applied statistical modeling and time series analysis to financial data sourced via Bloomberg Terminal, surfacing insights for trading teams using Jupyter notebooks.",
+    },
+    {
       company: "Zebra Technologies",
       href: "https://www.zebra.com",
       badges: [],
@@ -185,7 +198,7 @@ export const DATA = {
       title: "Automation Engineer",
       logoUrl: "https://www.google.com/s2/favicons?domain=zebra.com&sz=128",
       start: "August 2020",
-      end: "March 2023",
+      end: "February 2023",
       description:
         "Engineered data processing pipelines using Python and Pandas to parse and analyze large volumes of automated test logs and device telemetry, extracting actionable metrics to identify failure trends. Developed automation frameworks using Python and Selenium to streamline QA, utilizing Matplotlib for data visualization to present root-cause analysis to development teams.",
     },

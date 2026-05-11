@@ -1,8 +1,28 @@
-# hugo-toha.github.io
+# asir.dev
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b1b93b02-f278-440b-ae1b-304e9f4c4ab5/deploy-status)](https://app.netlify.com/sites/toha/deploys) [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fhugo-toha%2Fhugo-toha.github.io%2Fbadge%3Fref%3Dsource&style=flat)](https://actions-badge.atrox.dev/hugo-toha/hugo-toha.github.io/goto?ref=source) ![Repository Size](https://img.shields.io/github/repo-size/hugo-toha/hugo-toha.github.io) ![Contributor](https://img.shields.io/github/contributors/hugo-toha/hugo-toha.github.io) ![Last Commit](https://img.shields.io/github/last-commit/hugo-toha/hugo-toha.github.io) ![License](https://img.shields.io/github/license/hugo-toha/hugo-toha.github.io) ![Open Issues](https://img.shields.io/github/issues/hugo-toha/hugo-toha.github.io?color=important) ![Open Pull Requests](https://img.shields.io/github/issues-pr/hugo-toha/hugo-toha.github.io?color=yellowgreen) ![Security Headers](https://img.shields.io/security-headers?url=https%3A%2F%2Fhugo-toha.github.io%2F) [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/b7cb60ab/hugo-toha.github.io)
+Personal website for Asir Shahid — incoming MD student at the Renaissance School of Medicine at Stony Brook University (3-Year MD, Radiology Pathway). Previously a data scientist and automation engineer.
 
-An example hugo static site with Toha theme.
+Live at [asir.dev](https://asir.dev).
 
-Attributions:
-- <a href='https://www.freepik.com/vectors/business'>Business vector created by studiogstock - www.freepik.com</a>
+## Stack
+
+- [Astro v6](https://astro.build) — static site framework
+- [React](https://react.dev) — interactive components
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [TypeScript](https://www.typescriptlang.org)
+- Deployed on [Cloudflare Workers](https://workers.cloudflare.com)
+
+## Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+## Build
+
+```bash
+pnpm build
+```
+
+All site content lives in `src/data/resume.tsx`.

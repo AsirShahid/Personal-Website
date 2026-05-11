@@ -74,7 +74,7 @@ const sectionComponents: Record<string, React.ReactNode> = {
                   </div>
                 </div>
                 <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
-                  <span>{education.start} - {education.end}</span>
+                  <span>{education.start}{education.end ? ` - ${education.end}` : ""}</span>
                 </div>
               </a>
             </BlurFade>
@@ -94,6 +94,7 @@ const sectionComponents: Record<string, React.ReactNode> = {
             <BlurFade key={skill.name} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
               <div className="border bg-background border-border ring-2 ring-border/20 rounded-xl h-8 w-fit px-4 flex items-center gap-2">
                 {skill.icon && <skill.icon className="size-4 rounded overflow-hidden object-contain" />}
+                {!skill.icon && skill.iconUrl && <img src={skill.iconUrl} className="size-4 rounded overflow-hidden object-contain" alt={skill.name} />}
                 <span className="text-foreground text-sm font-medium">{skill.name}</span>
               </div>
             </BlurFade>
