@@ -11,11 +11,6 @@ import { Bash } from "@/components/ui/svgs/bash";
 import { Matlab } from "@/components/ui/svgs/matlab";
 import { Pandas } from "@/components/ui/svgs/pandas";
 import { Selenium } from "@/components/ui/svgs/selenium";
-import { Jupyter } from "@/components/ui/svgs/jupyter";
-import { NumPy } from "@/components/ui/svgs/numpy";
-import { SciPy } from "@/components/ui/svgs/scipy";
-import { SQL } from "@/components/ui/svgs/sql";
-import { Bloomberg } from "@/components/ui/svgs/bloomberg";
 
 export const DATA = {
   name: "Asir Shahid",
@@ -63,11 +58,11 @@ export const DATA = {
     { name: "R", icon: R },
     { name: "Matlab", icon: Matlab },
     { name: "Java", icon: Java },
-    { name: "SQL", icon: SQL },
-    { name: "NumPy", icon: NumPy },
-    { name: "SciPy", icon: SciPy },
-    { name: "Jupyter", icon: Jupyter },
-    { name: "Bloomberg", icon: Bloomberg },
+    { name: "SQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" },
+    { name: "NumPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" },
+    { name: "SciPy", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scipy/scipy-original.svg" },
+    { name: "Jupyter", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" },
+    { name: "Bloomberg", iconUrl: "https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128" },
     { name: "Bash", icon: Bash },
     { name: "Linux", icon: Linux },
     { name: "Git", icon: Git },
