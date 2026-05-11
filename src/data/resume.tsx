@@ -11,6 +11,11 @@ import { Bash } from "@/components/ui/svgs/bash";
 import { Matlab } from "@/components/ui/svgs/matlab";
 import { Pandas } from "@/components/ui/svgs/pandas";
 import { Selenium } from "@/components/ui/svgs/selenium";
+import { Jupyter } from "@/components/ui/svgs/jupyter";
+import { NumPy } from "@/components/ui/svgs/numpy";
+import { SciPy } from "@/components/ui/svgs/scipy";
+import { SQL } from "@/components/ui/svgs/sql";
+import { Bloomberg } from "@/components/ui/svgs/bloomberg";
 
 export const DATA = {
   name: "Asir Shahid",
@@ -58,7 +63,11 @@ export const DATA = {
     { name: "R", icon: R },
     { name: "Matlab", icon: Matlab },
     { name: "Java", icon: Java },
-    { name: "SQL" },
+    { name: "SQL", icon: SQL },
+    { name: "NumPy", icon: NumPy },
+    { name: "SciPy", icon: SciPy },
+    { name: "Jupyter", icon: Jupyter },
+    { name: "Bloomberg", icon: Bloomberg },
     { name: "Bash", icon: Bash },
     { name: "Linux", icon: Linux },
     { name: "Git", icon: Git },
@@ -184,7 +193,7 @@ export const DATA = {
       location: "Philadelphia, PA",
       title: "Data Scientist",
       logoUrl: "https://www.google.com/s2/favicons?domain=goldmansachs.com&sz=128",
-      start: "January 2023",
+      start: "February 2023",
       end: "July 2023",
       description:
         "Developed quantitative models and data pipelines in Python, NumPy, SciPy, and SQL to support trading algorithm research and strategy analysis. Applied statistical modeling and time series analysis to financial data sourced via Bloomberg Terminal, surfacing insights for trading teams using Jupyter notebooks.",
@@ -197,7 +206,7 @@ export const DATA = {
       title: "Automation Engineer",
       logoUrl: "https://www.google.com/s2/favicons?domain=zebra.com&sz=128",
       start: "August 2020",
-      end: "December 2022",
+      end: "February 2023",
       description:
         "Engineered data processing pipelines using Python and Pandas to parse and analyze large volumes of automated test logs and device telemetry, extracting actionable metrics to identify failure trends. Developed automation frameworks using Python and Selenium to streamline QA, utilizing Matplotlib for data visualization to present root-cause analysis to development teams.",
     },
