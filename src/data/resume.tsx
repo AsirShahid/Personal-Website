@@ -89,6 +89,12 @@ export const DATA = {
         icon: Icons.linkedin,
         navbar: true,
       },
+      ORCID: {
+        name: "ORCID",
+        url: "https://orcid.org/0009-0009-6232-387X",
+        icon: Icons.orcid,
+        navbar: false,
+      },
       email: {
         name: "Send Email",
         url: "mailto:mohammedshahid@protonmail.com",

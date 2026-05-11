@@ -2,8 +2,34 @@
 export const prerender = true;
 import Layout from "../layouts/Layout.astro";
 import HomePage from "@/components/HomePage";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Asir Shahid",
+  alternateName: "Mohammed Asir Shahid",
+  url: "https://asir.dev",
+  sameAs: [
+    "https://orcid.org/0009-0009-6232-387X",
+    "https://github.com/AsirShahid",
+    "https://www.linkedin.com/in/mohammed---shahid/",
+  ],
+  jobTitle: "MD Candidate",
+  affiliation: {
+    "@type": "EducationalOrganization",
+    name: "Renaissance School of Medicine at Stony Brook University",
+    url: "https://renaissance.stonybrookmedicine.edu/",
+  },
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: "Stony Brook University",
+    url: "https://www.stonybrook.edu/",
+  },
+  knowsAbout: ["Radiology", "Medical Imaging", "Data Science", "Applied Mathematics"],
+};
 ---
 
 <Layout>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <HomePage client:only="react" />
 </Layout>
