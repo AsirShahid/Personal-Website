@@ -160,7 +160,7 @@ export const DATA = {
       badges: [],
       location: "Farmingdale, NY",
       title: "Medical Assistant",
-      logoUrl: "",
+      logoUrl: "/ispc.png",
       start: "August 2024",
       end: "October 2025",
       description:
@@ -233,36 +233,6 @@ export const DATA = {
       technologies: ["Python", "NumPy", "SciPy", "Radon Transform", "Image Reconstruction"],
       links: [],
       image: "/sinogram.png",
-      video: "",
-    },
-    {
-      title: "Personal Website",
-      href: "https://asir.dev",
-      dates: "April 2021 - Present",
-      active: true,
-      description:
-        "This site. Originally built with Hugo, now rebuilt with Astro v6, React, and Tailwind v4, deployed on Cloudflare Pages.",
-      technologies: ["Astro", "React", "TypeScript", "TailwindCSS", "Cloudflare"],
-      links: [
-        {
-          type: "Source",
-          href: "https://github.com/AsirShahid/Personal-Website",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "Homelab",
-      href: "",
-      dates: "February 2018 - Present",
-      active: true,
-      description:
-        "Home server running multiple virtual machines for self-hosted services including Nextcloud, Plex, VNC, and Nginx, backed by a MariaDB database.",
-      technologies: ["Linux", "KVM", "Nextcloud", "Plex", "Nginx", "MariaDB"],
-      links: [],
-      image: "",
       video: "",
     },
   ],
