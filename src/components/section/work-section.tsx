@@ -65,9 +65,12 @@ export default function WorkSection() {
                 <div className="font-sans text-sm text-muted-foreground">
                   {work.title}
                 </div>
-                <div className="text-xs tabular-nums text-muted-foreground">
+                <div className="text-xs tabular-nums text-muted-foreground md:hidden">
                   {work.start} - {work.end ?? DATA.sections.work.presentLabel}
                 </div>
+              </div>
+              <div className="hidden md:block text-xs tabular-nums text-muted-foreground text-right flex-none">
+                {work.start} - {work.end ?? DATA.sections.work.presentLabel}
               </div>
             </div>
           </AccordionTrigger>
