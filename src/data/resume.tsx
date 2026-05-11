@@ -178,6 +178,18 @@ export const DATA = {
         "Provided pre-hospital basic life support for medical and trauma emergencies. Commanded emergency scenes, coordinated with paramedic teams, and ensured safe patient transport and handoff to hospital staff.",
     },
     {
+      company: "Goldman Sachs",
+      href: "https://www.goldmansachs.com",
+      badges: [],
+      location: "Philadelphia, PA",
+      title: "Data Scientist",
+      logoUrl: "https://www.google.com/s2/favicons?domain=goldmansachs.com&sz=128",
+      start: "January 2023",
+      end: "July 2023",
+      description:
+        "Developed quantitative models and data pipelines in Python to support trading algorithm research and strategy analysis. Applied statistical modeling and time series analysis to financial data to surface insights for trading teams.",
+    },
+    {
       company: "Zebra Technologies",
       href: "https://www.zebra.com",
       badges: [],
@@ -185,7 +197,7 @@ export const DATA = {
       title: "Automation Engineer",
       logoUrl: "https://www.google.com/s2/favicons?domain=zebra.com&sz=128",
       start: "August 2020",
-      end: "March 2023",
+      end: "December 2022",
       description:
         "Engineered data processing pipelines using Python and Pandas to parse and analyze large volumes of automated test logs and device telemetry, extracting actionable metrics to identify failure trends. Developed automation frameworks using Python and Selenium to streamline QA, utilizing Matplotlib for data visualization to present root-cause analysis to development teams.",
     },
