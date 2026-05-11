@@ -21,7 +21,7 @@ export const DATA = {
   description:
     "Incoming MD student at the Renaissance School of Medicine, on the 3-Year MD program with a Radiology Pathway. I spent my career before medicine in engineering and data science.",
   summary:
-    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work) I left engineering to pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
+    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work), I left engineering to pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
   avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
@@ -111,8 +111,8 @@ export const DATA = {
       href: "https://www.stonybrook.edu/",
       degree: "BS, Applied Mathematics and Statistics",
       logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
-      start: "2017–2020",
-      end: "2023–2026",
+      start: "2017–2020, 2023–2026",
+      end: undefined,
     },
   ],
 
