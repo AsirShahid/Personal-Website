@@ -187,7 +187,7 @@ export const DATA = {
       start: "January 2023",
       end: "July 2023",
       description:
-        "Developed quantitative models and data pipelines in Python and industry-standard financial tools to support trading algorithm research and strategy analysis. Applied statistical modeling and time series analysis to financial data to surface insights for trading teams.",
+        "Developed quantitative models and data pipelines in Python, NumPy, SciPy, and SQL to support trading algorithm research and strategy analysis. Applied statistical modeling and time series analysis to financial data sourced via Bloomberg Terminal, surfacing insights for trading teams using Jupyter notebooks.",
     },
     {
       company: "Zebra Technologies",
