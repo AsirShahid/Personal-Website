@@ -14,7 +14,7 @@ const personSchema = {
     "https://orcid.org/0009-0009-6232-387X",
     "https://github.com/AsirShahid",
     "https://www.linkedin.com/in/mohammed---shahid/",
-    "https://pubmed.ncbi.nlm.nih.gov/?term=Asir+Shahid",
+    "https://pubmed.ncbi.nlm.nih.gov/39002142/",
   ],
   jobTitle: "MD Candidate",
   affiliation: {
@@ -46,11 +46,17 @@ const personSchema = {
   subjectOf: [
     {
       "@type": "ScholarlyArticle",
-      headline:
-        "Evaluating Force Field Accuracy for RNA Stem-Loop Structures Using Implicit Solvent Molecular Dynamics",
-      name: "RNA Stem-Loop Force Field Research",
+      headline: "Accurately Modeling RNA Stem-Loops in an Implicit Solvent Environment",
       url: "https://doi.org/10.1021/acs.jcim.4c00756",
-      sameAs: "https://doi.org/10.1021/acs.jcim.4c00756",
+      sameAs: [
+        "https://doi.org/10.1021/acs.jcim.4c00756",
+        "https://pubmed.ncbi.nlm.nih.gov/39002142/",
+      ],
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "PMID",
+        value: "39002142",
+      },
       datePublished: "2024",
       publisher: {
         "@type": "Organization",
