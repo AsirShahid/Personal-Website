@@ -10,9 +10,11 @@ const personSchema = {
   alternateName: "Mohammed Asir Shahid",
   url: "https://asir.dev",
   sameAs: [
+    "https://asirshahid.com",
     "https://orcid.org/0009-0009-6232-387X",
     "https://github.com/AsirShahid",
     "https://www.linkedin.com/in/mohammed---shahid/",
+    "https://pubmed.ncbi.nlm.nih.gov/?term=Asir+Shahid",
   ],
   jobTitle: "MD Candidate",
   affiliation: {
@@ -20,16 +22,54 @@ const personSchema = {
     name: "Renaissance School of Medicine at Stony Brook University",
     url: "https://renaissance.stonybrookmedicine.edu/",
   },
-  alumniOf: {
-    "@type": "EducationalOrganization",
-    name: "Stony Brook University",
-    url: "https://www.stonybrook.edu/",
-  },
-  knowsAbout: ["Radiology", "Medical Imaging", "Data Science", "Applied Mathematics"],
+  alumniOf: [
+    {
+      "@type": "EducationalOrganization",
+      name: "Stony Brook University",
+      url: "https://www.stonybrook.edu/",
+    },
+  ],
+  knowsAbout: [
+    "Radiology",
+    "Medical Imaging",
+    "Data Science",
+    "Applied Mathematics",
+    "Molecular Dynamics",
+    "RNA Biophysics",
+    "Computational Biochemistry",
+    "MRI",
+    "CT Image Reconstruction",
+  ],
+  description:
+    "MD Candidate at the Renaissance School of Medicine at Stony Brook University, 3-Year MD Program with Radiology Pathway. Former Data Scientist at Goldman Sachs and Automation Engineer at Zebra Technologies. Published researcher in RNA molecular dynamics.",
+  email: "mohammedshahid@protonmail.com",
+  subjectOf: [
+    {
+      "@type": "ScholarlyArticle",
+      headline:
+        "Evaluating Force Field Accuracy for RNA Stem-Loop Structures Using Implicit Solvent Molecular Dynamics",
+      name: "RNA Stem-Loop Force Field Research",
+      url: "https://doi.org/10.1021/acs.jcim.4c00756",
+      sameAs: "https://doi.org/10.1021/acs.jcim.4c00756",
+      datePublished: "2024",
+      publisher: {
+        "@type": "Organization",
+        name: "Journal of Chemical Information and Modeling",
+        url: "https://pubs.acs.org/journal/jcisd8",
+      },
+      author: {
+        "@type": "Person",
+        name: "Asir Shahid",
+      },
+    },
+  ],
 };
 ---
 
-<Layout>
+<Layout
+  title="Medical Student, 3-Year MD Radiology Pathway"
+  description="Asir Shahid – MD Candidate at Renaissance School of Medicine, Stony Brook. Former Data Scientist (Goldman Sachs) and published researcher in RNA molecular dynamics and medical imaging."
+>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   <HomePage client:only="react" />
 </Layout>

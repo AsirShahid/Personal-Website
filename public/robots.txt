@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asir.dev/sitemap-index.xml
