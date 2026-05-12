@@ -17,9 +17,9 @@ export const DATA = {
   location: "Selden, NY",
   locationLink: "https://www.google.com/maps/place/selden+ny",
   description:
-    "Incoming MD student at the Renaissance School of Medicine, on the 3-Year MD program with a Radiology Pathway. I spent my career before medicine in engineering and data science.",
+    "Engineer, data scientist, and incoming medical student in the 3YMD program in Radiology at the Renaissance School of Medicine.",
   summary:
-    "I'll be starting the [3-Year MD Program with a Radiology Pathway at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. I have a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education), and after working as an [Automation Engineer at Zebra Technologies](/#work) and a [Data Scientist at Goldman Sachs](/#work), I left to return to Stony Brook and pursue medicine. Over the last few years I've completed my pre-medical prerequisites at Stony Brook, worked as a [Medical Assistant](/#work) and [EMT-B](/#work), and contributed to [computational biochemistry research in the Nagan Lab](/#work). My background in quantitative analysis, data, and engineering directly informs my interest in radiology and medical imaging.",
+    "I am beginning my medical training in the [3-Year Accelerated Radiology Track at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. Prior to medicine, I earned a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education) and worked as an [Automation Engineer at Zebra Technologies](/#work) and a [Data Scientist at Goldman Sachs](/#work). Seeking a more direct impact, I transitioned into healthcare, working clinically as an [EMT](/#work) and [Medical Assistant](/#work) while conducting [computational biochemistry research in the Nagan Lab](/#work). I am passionate about the intersection of technology and healthcare, and I look forward to applying my background in quantitative analysis and engineering to the future of medical imaging.",
   avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
