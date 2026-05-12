@@ -19,7 +19,7 @@ export const DATA = {
   description:
     "Engineer, data scientist, and incoming medical student in the 3YMD program in Radiology at the Renaissance School of Medicine.",
   summary:
-    "I am beginning my medical training in the [3-Year Accelerated Radiology Track at the Renaissance School of Medicine](/#education) at Stony Brook University in July 2026. Prior to medicine, I earned a BS in Applied Mathematics and Statistics from [Stony Brook University](/#education) and worked as an [Automation Engineer at Zebra Technologies](/#work) and a [Data Scientist at Goldman Sachs](/#work). Seeking a more direct impact, I transitioned into healthcare, working clinically as an [EMT](/#work) and [Medical Assistant](/#work) while conducting [computational biochemistry research in the Nagan Lab](/#work). I am passionate about the intersection of technology and healthcare, and I look forward to applying my background in quantitative analysis and engineering to the future of medical imaging.",
+    "I am beginning my medical training in the [3-Year Accelerated Radiology Track](https://renaissance.stonybrookmedicine.edu/Three-Year-MD) at the [Renaissance School of Medicine](https://renaissance.stonybrookmedicine.edu/) at Stony Brook University in July 2026. Prior to medicine, I earned a BS in Applied Mathematics and Statistics from the [Department of Applied Mathematics and Statistics](https://www.stonybrook.edu/commcms/ams/) at Stony Brook University and worked as an Automation Engineer at [Zebra Technologies](https://www.zebra.com) and a Data Scientist at [Goldman Sachs](https://www.goldmansachs.com). Seeking a more direct impact, I transitioned into healthcare, working clinically as an [EMT at Port Jefferson EMS](https://pjems.org) and Medical Assistant while conducting [computational biochemistry research in the Nagan Lab](https://sites.google.com/view/mnagan). I am passionate about the intersection of technology and healthcare, and I look forward to applying my background in quantitative analysis and engineering to the future of medical imaging.",
   avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
@@ -138,7 +138,7 @@ export const DATA = {
     },
     {
       company: "Station Medical",
-      href: "",
+      href: "https://station-medical.com",
       badges: [],
       location: "Brentwood, NY",
       title: "Medical Assistant",

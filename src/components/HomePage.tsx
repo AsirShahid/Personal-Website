@@ -22,7 +22,22 @@ const sectionComponents: Record<string, React.ReactNode> = {
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <div className="prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
-            <Markdown>{DATA.summary}</Markdown>
+            <Markdown
+              components={{
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
+                    {...(href?.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                  >
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {DATA.summary}
+            </Markdown>
           </div>
         </BlurFade>
       </div>

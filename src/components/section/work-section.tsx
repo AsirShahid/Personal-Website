@@ -7,7 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { DATA } from "@/data/resume";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 function LogoImage({ src, alt }: { src: string; alt: string }) {
@@ -44,6 +44,18 @@ export default function WorkSection() {
               <div className="flex-1 min-w-0 gap-0.5 flex flex-col">
                 <div className="font-semibold leading-none flex items-center gap-2">
                   {work.company}
+                  {work.href && (
+                    <a
+                      href={work.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`Visit ${work.company} website`}
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                    </a>
+                  )}
                   <span className="relative inline-flex items-center w-3.5 h-3.5">
                     <ChevronRight
                       className={cn(
