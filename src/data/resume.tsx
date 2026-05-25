@@ -162,7 +162,7 @@ export const DATA = {
     },
     {
       company: "Integrated Spine and Pain Care",
-      href: "",
+      href: undefined,
       badges: [],
       location: "Farmingdale, NY",
       title: "Medical Assistant",
@@ -231,8 +231,8 @@ export const DATA = {
     },
     {
       title: "CT Image Reconstruction Pipeline",
-      href: "",
-      dates: "Fall 2025",
+      href: undefined,
+      dates: "2025",
       active: false,
       description:
         "Engineered a geometry-aware filtered back-projection pipeline in Python to reconstruct X-ray CTs from sinogram data. Applied the Radon transform and evaluated reconstructions using structural similarity (SSIM) and peak SNR. Academic project for AMS 325.",
