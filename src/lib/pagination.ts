@@ -58,6 +58,7 @@ export function getPaginationMeta(
 }
 
 export function normalizePage(page: number | string | undefined, maxPage: number): number {
+  if (maxPage < 1) return 1;
   if (typeof page === "string") {
     const parsed = parseInt(page, 10);
     if (isNaN(parsed) || parsed < 1) return 1;

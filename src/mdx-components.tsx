@@ -8,7 +8,11 @@ type CodeProps = ComponentProps<"code"> & {
 
 export const mdxComponents = {
   MediaContainer,
-  pre: (props: ComponentProps<"pre">) => <CodeBlock {...props} />,
+  pre: (props: ComponentProps<"pre">) => {
+    const codeChild = props.children as any;
+    const dataTitle = (props as any)["data-title"] ?? codeChild?.props?.["data-title"];
+    return <CodeBlock {...props} data-title={dataTitle} />;
+  },
   hr: (props: ComponentProps<"hr">) => (
     <div className="my-10 flex w-full items-center" {...props}>
       <div

@@ -4,7 +4,7 @@ export const onRequest = defineMiddleware((context, next) => {
   const host = context.request.headers.get("host") ?? "";
   const canonical = "asir.dev";
 
-  if (host === "asirshahid.com" || host === "www.asirshahid.com") {
+  if (host === "asirshahid.com" || host === "www.asirshahid.com" || host === "www.asir.dev") {
     const url = new URL(context.request.url);
     url.hostname = canonical;
     return Response.redirect(url.toString(), 301);

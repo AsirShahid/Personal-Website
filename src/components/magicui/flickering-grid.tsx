@@ -178,6 +178,12 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
     const animate = (time: number) => {
       if (!isInView) return
 
+      if (lastTime === 0) {
+        lastTime = time
+        animationFrameId = requestAnimationFrame(animate)
+        return
+      }
+
       const deltaTime = (time - lastTime) / 1000
       lastTime = time
 
