@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { motion, type Variants } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import { useMemo } from "react";
 
 interface BlurFadeTextProps {
@@ -31,6 +31,15 @@ const BlurFadeText = ({
   };
   const combinedVariants = variant || defaultVariants;
   const characters = useMemo(() => Array.from(text), [text]);
+  const reducedMotion = useReducedMotion();
+
+  if (reducedMotion) {
+    return (
+      <div className="flex">
+        <span className={cn("inline-block", className)}>{text}</span>
+      </div>
+    );
+  }
 
   if (animateByCharacter) {
     return (
