@@ -40,7 +40,7 @@ export const DATA = {
   description:
     "Engineer, data scientist, and incoming medical student in the 3YMD program in Radiology at the Renaissance School of Medicine.",
   summary:
-    "I am beginning my medical training in the [3-Year Accelerated Radiology Track](https://renaissance.stonybrookmedicine.edu/Three-Year-MD) at the [Renaissance School of Medicine](https://renaissance.stonybrookmedicine.edu/) at Stony Brook University in July 2026. Prior to medicine, I earned a BS in Applied Mathematics and Statistics from the [Department of Applied Mathematics and Statistics](https://www.stonybrook.edu/commcms/ams/) at Stony Brook University and worked as an Automation Engineer at [Zebra Technologies](https://www.zebra.com) and a Data Scientist at [Goldman Sachs](https://www.goldmansachs.com). Seeking a more direct impact, I transitioned into healthcare, working clinically as an [EMT at Port Jefferson EMS](https://pjems.org) and Medical Assistant while conducting [computational biochemistry research in the Nagan Lab](https://sites.google.com/view/mnagan). I am passionate about the intersection of technology and healthcare, and I look forward to applying my background in quantitative analysis and engineering to the future of medical imaging.",
+    "I am beginning my medical training in the [3-Year Accelerated Radiology Track](https://renaissance.stonybrookmedicine.edu/Three-Year-MD) at the [Renaissance School of Medicine](https://renaissance.stonybrookmedicine.edu/) at Stony Brook University in July 2026. Prior to medicine, I earned a BS from the [Department of Applied Mathematics and Statistics](https://www.stonybrook.edu/commcms/ams/) at Stony Brook University and worked as an Automation Engineer at [Zebra Technologies](https://www.zebra.com) and a Data Scientist at [Goldman Sachs](https://www.goldmansachs.com). Seeking a more direct impact, I transitioned into healthcare, working clinically as an [EMT at Port Jefferson EMS](https://pjems.org) and Medical Assistant while conducting [computational biochemistry research in the Nagan Lab](https://sites.google.com/view/mnagan). I am passionate about the intersection of technology and healthcare, and I look forward to applying my background in quantitative analysis and engineering to the future of medical imaging.",
   avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
@@ -144,18 +144,18 @@ export const DATA = {
   ],
 
   work: [
-    {
-      company: "Wang Neuroimaging Lab, Stony Brook University",
-      href: "https://renaissance.stonybrookmedicine.edu/radiology/research/laboratories/Yicun-Wang",
-      badges: [],
-      location: "Stony Brook, NY",
-      title: "Clinical Research Assistant",
-      logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
-      start: "July 2026",
-      end: undefined,
-      description:
-        "Assisting with MRI scan sessions investigating neurofluidic dynamics in idiopathic normal pressure hydrocephalus (iNPH) versus matched controls. Quantifying arteriovenous blood flow and CSF dynamics using real-time phase-contrast MRI and measuring brain tissue motion and subarachnoid space CSF pulsations to develop novel biomarkers for iNPH diagnosis and shunt patient selection.",
-    },
+    // {
+    //   company: "Wang Neuroimaging Lab, Stony Brook University",
+    //   href: "https://renaissance.stonybrookmedicine.edu/radiology/research/laboratories/Yicun-Wang",
+    //   badges: [],
+    //   location: "Stony Brook, NY",
+    //   title: "Clinical Research Assistant",
+    //   logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
+    //   start: "July 2026",
+    //   end: undefined,
+    //   description:
+    //     "Assisting with MRI scan sessions investigating neurofluidic dynamics in idiopathic normal pressure hydrocephalus (iNPH) versus matched controls. Quantifying arteriovenous blood flow and CSF dynamics using real-time phase-contrast MRI and measuring brain tissue motion and subarachnoid space CSF pulsations to develop novel biomarkers for iNPH diagnosis and shunt patient selection.",
+    // },
     {
       company: "Station Medical",
       href: "https://station-medical.com",
