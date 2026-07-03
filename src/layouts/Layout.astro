@@ -10,13 +10,26 @@ interface Props {
   description?: string;
   image?: string;
   canonicalURL?: string;
+  type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
 }
+
+// Always canonicalize onto the primary domain, regardless of which host the
+// request came in on (e.g. www).
+const defaultCanonical = new URL(
+  Astro.url.pathname + Astro.url.search,
+  CONFIG.site.url
+).href;
 
 const {
   title,
   description = DATA.description,
   image,
-  canonicalURL = Astro.url.href,
+  canonicalURL = defaultCanonical,
+  type = "website",
+  publishedTime,
+  modifiedTime,
 } = Astro.props;
 
 const pageTitle = title
@@ -105,6 +118,15 @@ const { baseFontSize } = CONFIG.typography;
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- RSS -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${DATA.name} — Blog`}
+      href={new URL("rss.xml", CONFIG.site.url)}
+    />
 
     <!-- Primary meta -->
     <title>{pageTitle}</title>
@@ -119,19 +141,34 @@ const { baseFontSize } = CONFIG.typography;
     />
 
     <!-- OpenGraph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={DATA.name} />
     <meta property="og:locale" content={CONFIG.site.locale} />
     <meta property="og:image" content={ogImage} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
     <!-- Twitter -->
     <meta name="twitter:card" content={CONFIG.seo.twitterCard} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- Server-rendered content uses motion.dev enter animations that start at
+         opacity 0; without JS they would never animate in. -->
+    <noscript>
+      <style>
+        [style*="opacity:0"],
+        [style*="opacity: 0"] {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+        }
+      </style>
+    </noscript>
   </head>
   <body class="min-h-screen bg-background font-sans antialiased relative">
     <!-- FlickeringGrid header background - matches template exactly -->

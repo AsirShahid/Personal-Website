@@ -26,3 +26,15 @@ pnpm build
 ```
 
 All site content lives in `src/data/resume.tsx`.
+
+## Deploy
+
+```bash
+pnpm run deploy
+```
+
+Deploys to Cloudflare Workers via Wrangler (requires `wrangler login` or a `CLOUDFLARE_API_TOKEN`).
+
+## Credits
+
+Based on the Starfolio Astro template by websiterating.
