@@ -1,9 +1,9 @@
 {
-  "name": "starfolio",
+  "name": "asir-dev",
   "type": "module",
-  "description": "Starfolio - Create a personal or professional portfolio site just from a single config file. Built with Astro.",
-  "author": "websiterating",
-  "version": "0.0.1",
+  "description": "Personal website of Asir Shahid — asir.dev. Built with Astro, deployed on Cloudflare Workers.",
+  "author": "Asir Shahid",
+  "version": "1.0.0",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -12,12 +12,15 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "astro check",
+    "deploy": "astro build && wrangler deploy",
     "generate-types": "wrangler types"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^13.3.0",
     "@astrojs/mdx": "^5.0.4",
     "@astrojs/react": "^5.0.4",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource-variable/geist-mono": "^5.2.7",
     "@fontsource-variable/outfit": "^5.2.8",
@@ -57,7 +60,11 @@
         "tsconfck>typescript": "6"
       }
     },
-    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

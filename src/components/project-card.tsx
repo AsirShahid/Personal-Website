@@ -85,7 +85,7 @@ export function ProjectCard({
             {media}
           </a>
         ) : (
-          <div className="block">{media}</div>
+          media
         )}
         {links && links.length > 0 && (
           <div className="absolute top-2 right-2 flex flex-wrap gap-2">
