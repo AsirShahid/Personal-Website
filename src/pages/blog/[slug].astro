@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 const { post, previousPost, nextPost } = Astro.props;
-const { title, publishedAt, summary, image } = post.data;
+const { title, publishedAt, updatedAt, summary, image } = post.data;
 const slug = post.id;
 
 const { Content } = await render(post);
@@ -34,7 +34,7 @@ const jsonLd = JSON.stringify({
   "@type": "BlogPosting",
   headline: title,
   datePublished: publishedAt,
-  dateModified: publishedAt,
+  dateModified: updatedAt ?? publishedAt,
   description: summary,
   image: image
     ? image.startsWith("http")
@@ -54,6 +54,9 @@ const jsonLd = JSON.stringify({
   description={summary}
   image={image}
   canonicalURL={`${DATA.url}/blog/${slug}`}
+  type="article"
+  publishedTime={publishedAt}
+  modifiedTime={updatedAt ?? publishedAt}
 >
   <section id="blog">
     <script is:inline type="application/ld+json" set:html={jsonLd} />
@@ -91,6 +94,28 @@ const jsonLd = JSON.stringify({
     >
       <Content components={mdxComponents} />
     </article>
+
+    <!-- CodeBlock is rendered statically by MDX, so copy buttons are wired up here -->
+    <script>
+      document.querySelectorAll("[data-copy-button]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const code = button.parentElement?.querySelector("pre code")?.textContent ?? "";
+          try {
+            await navigator.clipboard.writeText(code);
+          } catch {
+            return;
+          }
+          const copyIcon = button.querySelector("[data-copy-icon]");
+          const copiedIcon = button.querySelector("[data-copied-icon]");
+          copyIcon?.classList.add("hidden");
+          copiedIcon?.classList.remove("hidden");
+          setTimeout(() => {
+            copyIcon?.classList.remove("hidden");
+            copiedIcon?.classList.add("hidden");
+          }, 2000);
+        });
+      });
+    </script>
 
     <nav class="mt-12 pt-8 max-w-2xl">
       <div class="flex flex-col sm:flex-row justify-between gap-4">

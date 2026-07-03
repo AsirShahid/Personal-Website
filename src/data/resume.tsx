@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import { House, Library } from "lucide-react";
+import type { ComponentType, ReactNode } from "react";
 import { Python } from "@/components/ui/svgs/python";
 import { Docker } from "@/components/ui/svgs/docker";
 import { Kubernetes } from "@/components/ui/svgs/kubernetes";
@@ -9,6 +10,26 @@ import { Linux } from "@/components/ui/svgs/linux";
 import { Bash } from "@/components/ui/svgs/bash";
 import { Matlab } from "@/components/ui/svgs/matlab";
 import { Selenium } from "@/components/ui/svgs/selenium";
+
+interface Skill {
+  name: string;
+  icon?: ComponentType<{ className?: string }>;
+  iconUrl?: string;
+}
+
+interface Photo {
+  src: string;
+  alt: string;
+}
+
+interface Hackathon {
+  title: string;
+  dates: string;
+  location: string;
+  description: string;
+  image?: string;
+  links?: readonly { title: string; icon: ReactNode; href: string }[];
+}
 
 export const DATA = {
   name: "Asir Shahid",
@@ -50,7 +71,7 @@ export const DATA = {
       text: "Want to chat? The fastest way is by email. I'll respond when I can.",
     },
   },
-  photos: [],
+  photos: [] as readonly Photo[],
   skills: [
     { name: "Python", icon: Python },
     { name: "R", icon: R },
@@ -68,14 +89,13 @@ export const DATA = {
     { name: "Kubernetes", icon: Kubernetes },
     { name: "Selenium", icon: Selenium },
     { name: "Cloud Computing" },
-  ],
+  ] as readonly Skill[],
   navbar: [
     { href: "/", icon: House, label: "Home" },
     { href: "/blog", icon: Library, label: "Blog" },
   ],
   contact: {
     email: "mohammedshahid@protonmail.com",
-    tel: "+1 516 514 5047",
     social: {
       GitHub: {
         name: "GitHub",
@@ -247,5 +267,5 @@ export const DATA = {
       video: "",
     },
   ],
-  hackathons: [],
+  hackathons: [] as readonly Hackathon[],
 } as const;
