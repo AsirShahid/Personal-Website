@@ -2,9 +2,11 @@ import { defineMiddleware } from "astro:middleware";
 
 const CANONICAL_HOST = "asir.dev";
 
-// Mirrors public/_headers, which only covers responses served directly from
-// static assets. With run_worker_first enabled, every response passes through
-// here, so SSR pages get the same headers.
+// Astro middleware only runs for server-rendered routes — the Cloudflare
+// adapter serves prerendered pages straight from static assets, where
+// public/_headers supplies these same headers and a zone-level Redirect Rule
+// (Cloudflare dashboard) must handle the www -> apex redirect. This
+// middleware covers the SSR routes, which _headers and _redirects never see.
 const SECURITY_HEADERS: Record<string, string> = {
   "X-Content-Type-Options": "nosniff",
   "X-Frame-Options": "DENY",
