@@ -3,8 +3,9 @@ import Layout from "@/layouts/Layout.astro";
 import BlogList from "@/components/BlogList";
 import { getCollection } from "astro:content";
 import { paginate, normalizePage } from "@/lib/pagination";
+import { CONFIG } from "@/data/config";
 
-const PAGE_SIZE = 5;
+const PAGE_SIZE = CONFIG.blog.postsPerPage;
 
 const allPosts = await getCollection("blog");
 const sortedPosts = [...allPosts].sort((a, b) => {

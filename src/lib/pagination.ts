@@ -40,32 +40,16 @@ export function paginate<T>(
   };
 }
 
-export function getPaginationMeta(
-  totalItems: number,
-  options: PaginationOptions
-) {
-  const { page, pageSize } = options;
-  const totalPages = Math.ceil(totalItems / pageSize);
-
-  return {
-    page,
-    pageSize,
-    totalItems,
-    totalPages,
-    hasNextPage: page < totalPages,
-    hasPreviousPage: page > 1,
-  };
-}
-
 export function normalizePage(page: number | string | undefined, maxPage: number): number {
+  const max = Math.max(1, maxPage);
   if (typeof page === "string") {
     const parsed = parseInt(page, 10);
     if (isNaN(parsed) || parsed < 1) return 1;
-    return Math.min(parsed, maxPage);
+    return Math.min(parsed, max);
   }
   if (typeof page === "number") {
     if (page < 1) return 1;
-    return Math.min(page, maxPage);
+    return Math.min(page, max);
   }
   return 1;
 }
