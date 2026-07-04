@@ -50,10 +50,25 @@ export function ProjectCard({
   links,
   className,
 }: Props) {
+  const media = video ? (
+    <video
+      src={video}
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-48 object-cover"
+    />
+  ) : image ? (
+    <ProjectImage src={image} alt={title} />
+  ) : (
+    <div className="w-full h-48 bg-muted" />
+  );
+
   return (
     <div
       className={cn(
-        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 cursor-pointer hover:ring-muted transition-all duration-200",
+        "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 hover:ring-muted transition-all duration-200",
         className
       )}
     >
@@ -65,38 +80,10 @@ export function ProjectCard({
             rel="noopener noreferrer"
             className="block"
           >
-            {video ? (
-              <video
-                src={video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-48 object-cover"
-              />
-            ) : image ? (
-              <ProjectImage src={image} alt={title} />
-            ) : (
-              <div className="w-full h-48 bg-muted" />
-            )}
+            {media}
           </a>
         ) : (
-          <div className="block">
-            {video ? (
-              <video
-                src={video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-48 object-cover"
-              />
-            ) : image ? (
-              <ProjectImage src={image} alt={title} />
-            ) : (
-              <div className="w-full h-48 bg-muted" />
-            )}
-          </div>
+          media
         )}
         {links && links.length > 0 && (
           <div className="absolute top-2 right-2 flex flex-wrap gap-2">

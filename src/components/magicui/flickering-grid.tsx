@@ -174,10 +174,30 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
 
     updateCanvasSize()
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+
     let lastTime = 0
     const animate = (time: number) => {
       if (!isInView) return
 
+      // Draw a single static frame instead of continuously flickering
+      if (prefersReducedMotion) {
+        drawGrid(
+          ctx,
+          canvas.width,
+          canvas.height,
+          gridParams.cols,
+          gridParams.rows,
+          gridParams.squares,
+          gridParams.dpr
+        )
+        return
+      }
+
+      // Seed lastTime on the first frame (or after re-entering the viewport)
+      // so deltaTime doesn't spike and flash every square at once.
       if (lastTime === 0) {
         lastTime = time
         animationFrameId = requestAnimationFrame(animate)

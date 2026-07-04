@@ -26,3 +26,24 @@ pnpm build
 ```
 
 All site content lives in `src/data/resume.tsx`.
+
+## Deploy
+
+```bash
+pnpm run deploy
+```
+
+Deploys to Cloudflare Workers via Wrangler (requires `wrangler login` or a `CLOUDFLARE_API_TOKEN`).
+
+### Domains
+
+`asir.dev` and `www.asir.dev` are attached to the Worker as custom domains
+(`wrangler.jsonc`). The `www → asir.dev` redirect for prerendered pages must
+be a zone-level **Redirect Rule** in the Cloudflare dashboard (Rules →
+Redirect Rules), because static assets are served before any Worker or
+middleware code runs. The middleware in `src/middleware.ts` only covers
+server-rendered routes.
+
+## Credits
+
+Based on the Starfolio Astro template by websiterating.

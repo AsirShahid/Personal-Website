@@ -30,14 +30,6 @@
 		{
 			"pattern": "www.asir.dev",
 			"custom_domain": true
-		},
-		{
-			"pattern": "asirshahid.com",
-			"custom_domain": true
-		},
-		{
-			"pattern": "www.asirshahid.com",
-			"custom_domain": true
 		}
 	]
 }

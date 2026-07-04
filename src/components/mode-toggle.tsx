@@ -3,16 +3,17 @@ import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 export function ModeToggle({ className }: { className?: string }) {
-  const { setTheme, resolvedTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <button
+      type="button"
+      aria-label="Toggle theme"
       className={cn("size-full flex items-center justify-center", className)}
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
     >
-      <SunIcon className="h-full w-full hidden dark:block" />
-      <MoonIcon className="h-full w-full block dark:hidden" />
+      <SunIcon className="hidden dark:block h-full w-full" />
+      <MoonIcon className="block dark:hidden h-full w-full" />
     </button>
   );
 }
