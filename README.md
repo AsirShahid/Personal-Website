@@ -1,6 +1,6 @@
 # asir.dev
 
-Personal website for Asir Shahid — engineer, data scientist, and incoming medical student in the 3-Year MD Radiology program at the Renaissance School of Medicine at Stony Brook University.
+Personal website for Asir Shahid — medical student on the radiology track of the three-year MD program at Stony Brook's Renaissance School of Medicine. Formerly a Data Scientist at Goldman Sachs and an Automation Engineer at Zebra Technologies.
 
 Live at [asir.dev](https://asir.dev).
 
