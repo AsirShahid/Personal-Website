@@ -38,9 +38,9 @@ export const DATA = {
   location: "Selden, NY",
   locationLink: "https://www.google.com/maps/place/selden+ny",
   description:
-    "Medical student on the radiology track of the three-year MD program at Stony Brook's Renaissance School of Medicine. Formerly a Data Scientist at Goldman Sachs and an Automation Engineer at Zebra Technologies.",
+    "Medical student in the Class of 2030 at Stony Brook's Renaissance School of Medicine. Formerly a Data Scientist at Goldman Sachs and an Automation Engineer at Zebra Technologies.",
   summary:
-    "I'm a medical student in the radiology track of the [Three-Year MD program](https://renaissance.stonybrookmedicine.edu/Three-Year-MD) at Stony Brook University's [Renaissance School of Medicine](https://renaissance.stonybrookmedicine.edu/), Class of 2029. I earned a BS in [Applied Mathematics and Statistics](https://www.stonybrook.edu/commcms/ams/) at Stony Brook, then worked as an Automation Engineer at Zebra Technologies and a Data Scientist at Goldman Sachs. I changed course because I wanted to work directly with patients. Before starting medical school, I volunteered as an [EMT with Port Jefferson EMS](https://pjems.org), worked as a medical assistant, and conducted [computational biochemistry research in the Nagan Lab](https://sites.google.com/view/mnagan). My interests now are in the computational side of medical imaging, especially CT reconstruction and quantitative methods.",
+    "I'm a medical student at Stony Brook University's [Renaissance School of Medicine](https://renaissance.stonybrookmedicine.edu/), Class of 2030. I earned a BS in [Applied Mathematics and Statistics](https://www.stonybrook.edu/commcms/ams/) at Stony Brook, then worked as an Automation Engineer at Zebra Technologies and a Data Scientist at Goldman Sachs. I changed course because I wanted to work directly with patients. Before starting medical school, I volunteered as an [EMT with Port Jefferson EMS](https://pjems.org), worked as a medical assistant, and conducted [computational biochemistry research in the Nagan Lab](https://sites.google.com/view/mnagan). My interests now are in the computational side of medical imaging, especially CT reconstruction and quantitative methods.",
   avatarUrl: "",
   ogImage: "/og_image.png",
   sections: {
@@ -128,10 +128,10 @@ export const DATA = {
     {
       school: "Renaissance School of Medicine at Stony Brook University",
       href: "https://renaissance.stonybrookmedicine.edu/",
-      degree: "Doctor of Medicine (MD), Candidate, 3-Year MD Program with Radiology Pathway",
+      degree: "Doctor of Medicine (MD), Candidate",
       logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
       start: "2026",
-      end: "2029",
+      end: "2030",
     },
     {
       school: "Stony Brook University",
