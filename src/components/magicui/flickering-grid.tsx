@@ -196,6 +196,14 @@ export const FlickeringGrid: React.FC<FlickeringGridProps> = ({
         return
       }
 
+      // Seed lastTime on the first frame (or after re-entering the viewport)
+      // so deltaTime doesn't spike and flash every square at once.
+      if (lastTime === 0) {
+        lastTime = time
+        animationFrameId = requestAnimationFrame(animate)
+        return
+      }
+
       const deltaTime = (time - lastTime) / 1000
       lastTime = time
 
