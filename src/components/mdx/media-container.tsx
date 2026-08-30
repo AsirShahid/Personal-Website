@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 interface MediaContainerProps {
   src: string;
   alt?: string;
@@ -19,6 +17,7 @@ export function MediaContainer({
         <img
           src={src}
           alt={alt}
+          loading="lazy"
           className="w-full h-full object-cover object-center max-w-full max-h-full"
         />
       ) : (

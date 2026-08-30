@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
@@ -17,6 +15,7 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
     <img
       src={src}
       alt={alt}
+      loading="lazy"
       className="w-full h-48 object-cover"
       onError={() => setImageError(true)}
     />
@@ -57,6 +56,7 @@ export function ProjectCard({
       loop
       muted
       playsInline
+      aria-label={`Demo video for ${title}`}
       className="w-full h-48 object-cover"
     />
   ) : image ? (
@@ -69,6 +69,7 @@ export function ProjectCard({
     <div
       className={cn(
         "flex flex-col h-full border border-border rounded-xl overflow-hidden hover:ring-2 hover:ring-muted transition-all duration-200",
+        href && "cursor-pointer",
         className
       )}
     >
@@ -78,6 +79,7 @@ export function ProjectCard({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`View project: ${title}`}
             className="block"
           >
             {media}
