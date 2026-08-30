@@ -241,8 +241,13 @@ export const DATA = {
       technologies: ["Python", "AMBER", "Molecular Dynamics", "RNA", "Implicit Solvent", "Bash"],
       links: [
         {
-          type: "Paper",
+          type: "DOI",
           href: "https://doi.org/10.1021/acs.jcim.4c00756",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "PubMed",
+          href: "https://pubmed.ncbi.nlm.nih.gov/39002142/",
           icon: <Icons.globe className="size-3" />,
         },
       ],
