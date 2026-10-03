@@ -6,7 +6,7 @@ import data from "@/data/outside-studies.json";
 type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
 type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
-type Alias = { studyId: string; indices: number[] };
+type Alias = { studyId: string; indices: (number | null)[]; defaultIndex?: number };
 type SourceData = { studies?: Study[]; aliases?: Record<string, Alias> };
 
 const sourceData = data as SourceData;
@@ -37,6 +37,13 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preload" as="image" href={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-l.webp`} media="(min-width: 900px)" />
+    <script is:inline>
+      if (location.hash) document.documentElement.classList.add("oz-route-fragment-pending");
+    </script>
+    <style is:global>
+      html.oz-route-fragment-pending .oz-reader,
+      html.oz-route-unavailable .oz-reader { visibility: hidden !important; }
+    </style>
   </head>
   <body class="oz">
     <div class="oz-shell">
@@ -58,6 +65,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
             const k = studyCover(s);
             return (
               <li>
+
                 <a class="oz-row" href={`#${s.id}`} data-study={idx} aria-label={`${s.place}, ${dateLabel(s)}, ${s.images.length} images`}>
                   <span class="oz-thumb" style={`--avg:${k.avg}`}>
                     <img
@@ -154,6 +162,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       </dl>
     </dialog>
     <div class="oz-sr" aria-live="polite" data-live></div>
+    <div class="oz-route-error" data-route-error role="alert" aria-live="assertive" hidden>This Outside Studies link is no longer available.</div>
 
     <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases })}></script>
 
@@ -161,7 +170,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
       type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
-      type Alias = { studyId: string; indices: number[] };
+      type Alias = { studyId: string; indices: (number | null)[]; defaultIndex?: number };
 
       const pageData = JSON.parse(document.getElementById("oz-data")!.textContent || "{}");
       const studies: Study[] = pageData.studies;
@@ -181,6 +190,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       const stackBar = $("[data-stackbar]");
       const hint = $("[data-hint]");
       const live = $("[data-live]");
+      const routeError = $("[data-route-error]");
       const toolTitle = $("[data-tooltitle]");
       const helpDialog = $<HTMLDialogElement>("[data-help]");
       const ov = {
@@ -467,6 +477,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       };
 
       const openStudy = (s: number, i?: number, opts: { push?: boolean } = {}) => {
+        clearRouteError();
         stopCine();
         cancelPendingTap();
         const changed = s !== state.s;
@@ -750,7 +761,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
 
       // ---------- routing ----------
       const parseHash = () => {
-        const m = location.hash.slice(1).match(/^([\w-]+)(?:\/(\d+))?$/);
+        const m = location.hash.slice(1).match(/^([\w-]+)(?:\/([1-9]\d*))?$/);
         if (!m) return null;
         const s = studies.findIndex((st) => st.id === m[1]);
         const oldIndex = m[2] ? Number(m[2]) - 1 : undefined;
@@ -759,14 +770,42 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         if (!alias) return null;
         const target = studies.findIndex((st) => st.id === alias.studyId);
         if (target < 0) return null;
-        return { s: target, i: oldIndex === undefined ? undefined : alias.indices[oldIndex] };
+        if (oldIndex === undefined) {
+          const defaultIndex = alias.defaultIndex ?? alias.indices.find((index) => typeof index === "number" && Number.isInteger(index) && index >= 0);
+          if (typeof defaultIndex !== "number" || !Number.isInteger(defaultIndex) || defaultIndex < 0 || defaultIndex >= studies[target].images.length) return null;
+          return { s: target, i: defaultIndex };
+        }
+        if (!Number.isSafeInteger(oldIndex) || oldIndex < 0 || oldIndex >= alias.indices.length) return null;
+        const mappedIndex = alias.indices[oldIndex];
+        if (typeof mappedIndex !== "number" || !Number.isInteger(mappedIndex) || mappedIndex < 0 || mappedIndex >= studies[target].images.length) return null;
+        return { s: target, i: mappedIndex };
+      };
+      const unavailableLinkText = "This Outside Studies link is no longer available.";
+      const showRouteError = () => {
+        window.clearTimeout(hashTimer);
+        hashTimer = 0;
+        routeError.hidden = false;
+        routeError.textContent = unavailableLinkText;
+        live.textContent = unavailableLinkText;
+        document.documentElement.classList.add("oz-route-unavailable");
+      };
+      const clearRouteError = () => {
+        routeError.hidden = true;
+        routeError.textContent = "";
+        if (live.textContent === unavailableLinkText) live.textContent = "";
+        document.documentElement.classList.remove("oz-route-unavailable", "oz-route-fragment-pending");
       };
       window.addEventListener("popstate", () => {
         const target = parseHash();
+        if (!target) {
+          if (location.hash) showRouteError();
+          if (!desktopMQ.matches && state.open) closeReader();
+          return;
+        }
+        clearRouteError();
         if (!desktopMQ.matches) {
-          if (!target && state.open) closeReader();
-          else if (target && !state.open) openStudy(target.s, target.i, { push: false });
-        } else if (target) openStudy(target.s, target.i);
+          if (!state.open) openStudy(target.s, target.i, { push: false });
+        } else openStudy(target.s, target.i);
       });
       let resizeTimer = 0;
       window.addEventListener("resize", () => {
@@ -782,8 +821,10 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       // ---------- boot ----------
       syncButtons();
       const initial = parseHash();
+      if (!initial && location.hash) showRouteError();
       if (desktopMQ.matches) {
-        openStudy(initial?.s ?? 0, initial?.i);
+        if (initial) openStudy(initial.s, initial.i);
+        else if (!location.hash) openStudy(0);
       } else {
         // Prepare the viewer without opening it; the worklist is the phone's landing view.
         if (initial) {
@@ -820,6 +861,8 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       .oz kbd { font-family: var(--mono); font-size: .92em; }
       .oz button { font: inherit; color: inherit; }
       .oz-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+      .oz-route-error[hidden] { display: none; }
+      .oz-route-error { position: fixed; z-index: 100; top: 62px; left: 50%; transform: translateX(-50%); max-width: min(640px, calc(100vw - 24px)); padding: 12px 16px; border: 1px solid #9b4f4f; border-radius: 6px; background: #251313; color: #ffe8e8; font: 13px/1.45 var(--sans); box-shadow: 0 8px 28px rgb(0 0 0 / 55%); }
 
       /* ---------- shell ---------- */
       .oz-shell { display: grid; grid-template-columns: 348px minmax(0, 1fr); grid-template-rows: 52px minmax(0, 1fr); height: 100dvh; }
@@ -838,7 +881,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       .oz-worklist { overflow-y: auto; border-right: 1px solid var(--line); background: var(--panel); scrollbar-width: thin; scrollbar-color: #2a2a2a transparent; }
       .oz-wlhead { display: flex; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid var(--line); color: var(--dim); font: 9.5px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
       .oz-rows { margin: 0; padding: 0; list-style: none; }
-      .oz-journey { display: block; padding: 12px 20px 2px; color: var(--dim); font: 9.5px/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+
       .oz-row { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 12px 20px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: background .15s; }
       .oz-row:hover { background: #0f0f0f; }
       .oz-row[aria-current="true"] { background: var(--panel-2); }
@@ -944,7 +987,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         .oz-worklist { overflow: visible; border: 0; background: var(--bg); }
         .oz-wlhead { display: none; }
         .oz-rows { display: grid; gap: 14px; padding: 0 12px; }
-        .oz-journey { padding: 0 2px; }
+
         .oz-row { display: block; overflow: hidden; padding: 0; border: 0; aspect-ratio: 4 / 3; background: #0d0d0d; }
         .oz-row[aria-current="true"] { background: #0d0d0d; }
         .oz-thumb { position: absolute; inset: 0; aspect-ratio: auto; }
