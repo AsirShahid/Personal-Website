@@ -1,41 +1,411 @@
 {
   "studies": [
     {
-      "id": "pakistan-2026",
+      "id": "projection-new-zealand-2026",
+      "place": "New Zealand",
+      "region": "New Zealand",
+      "country": "NZ",
+      "status": "PRELIM",
+      "journey": {
+        "id": "summer-2026",
+        "title": "Summer 2026",
+        "state": "optional_user-confirmed_journey_heading",
+        "study_ids_forward_chronological": [
+          "rome-2026",
+          "albania-2026",
+          "pakistan-2026",
+          "australia-2026",
+          "new-zealand-2026"
+        ],
+        "study_ids_worklist_contract_order": [
+          "new-zealand-2026",
+          "australia-2026",
+          "pakistan-2026",
+          "albania-2026",
+          "rome-2026"
+        ],
+        "note": "Optional heading only; studies remain independently addressable; no empty Turkey/Thailand placeholders. Country/date membership is still distinct from proof of each frame’s exact place."
+      },
+      "date": "2026-07-17",
+      "dateEnd": "2026-07-18",
+      "tz": "UTC+12",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 2,
+          "time": "12:52",
+          "title": "July 17, 2026",
+          "date": "2026-07-17",
+          "key": 0
+        },
+        {
+          "start": 2,
+          "count": 3,
+          "time": "11:36",
+          "title": "July 18, 2026",
+          "date": "2026-07-18",
+          "key": 2
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/summer-2026/1035",
+          "w": 3072,
+          "h": 4096,
+          "d": "2026-07-17",
+          "t": "12:52:46",
+          "se": 1,
+          "ex": "ISO 50  1/1730 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+12"
+        },
+        {
+          "src": "/outside/assets/summer-2026/1049",
+          "w": 4000,
+          "h": 3000,
+          "d": "2026-07-17",
+          "t": "14:02:10",
+          "se": 1,
+          "ex": "ISO 64  1/505 s  f/2.2",
+          "fl": "2.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+12"
+        },
+        {
+          "src": "/outside/assets/summer-2026/1065",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-07-18",
+          "t": "11:36:06",
+          "se": 2,
+          "ex": "ISO 50  1/2677 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+12"
+        },
+        {
+          "src": "/outside/assets/summer-2026/1095",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-07-18",
+          "t": "12:32:40",
+          "se": 2,
+          "ex": "ISO 50  1/3513 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+12"
+        },
+        {
+          "src": "/outside/assets/summer-2026/1121",
+          "w": 3072,
+          "h": 4096,
+          "d": "2026-07-18",
+          "t": "14:18:47",
+          "se": 2,
+          "ex": "ISO 100  1/84 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+12"
+        }
+      ]
+    },
+    {
+      "id": "projection-australia-2026",
+      "place": "Australia",
+      "region": "Western Australia (archived state label)",
+      "country": "AU",
+      "status": "PRELIM",
+      "journey": {
+        "id": "summer-2026",
+        "title": "Summer 2026",
+        "state": "optional_user-confirmed_journey_heading",
+        "study_ids_forward_chronological": [
+          "rome-2026",
+          "albania-2026",
+          "pakistan-2026",
+          "australia-2026",
+          "new-zealand-2026"
+        ],
+        "study_ids_worklist_contract_order": [
+          "new-zealand-2026",
+          "australia-2026",
+          "pakistan-2026",
+          "albania-2026",
+          "rome-2026"
+        ],
+        "note": "Optional heading only; studies remain independently addressable; no empty Turkey/Thailand placeholders. Country/date membership is still distinct from proof of each frame’s exact place."
+      },
+      "date": "2026-07-07",
+      "dateEnd": "2026-07-16",
+      "tz": "UTC+8",
+      "key": 1,
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "16:43",
+          "title": "July 7, 2026",
+          "date": "2026-07-07",
+          "key": 0
+        },
+        {
+          "start": 1,
+          "count": 1,
+          "time": "12:04",
+          "title": "July 8, 2026",
+          "date": "2026-07-08",
+          "key": 1
+        },
+        {
+          "start": 2,
+          "count": 2,
+          "time": "13:06",
+          "title": "July 10, 2026",
+          "date": "2026-07-10",
+          "key": 2
+        },
+        {
+          "start": 4,
+          "count": 1,
+          "time": "16:46",
+          "title": "July 13, 2026",
+          "date": "2026-07-13",
+          "key": 4
+        },
+        {
+          "start": 5,
+          "count": 3,
+          "time": "14:20",
+          "title": "July 16, 2026",
+          "date": "2026-07-16",
+          "key": 5
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/summer-2026/0404",
+          "w": 2352,
+          "h": 3136,
+          "d": "2026-07-07",
+          "t": "16:43:56",
+          "se": 1,
+          "ex": "ISO 50  1/1158 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0447",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-07-08",
+          "t": "12:04:49",
+          "se": 2,
+          "ex": "ISO 50  1/1583 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0554",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-07-10",
+          "t": "13:06:13",
+          "se": 3,
+          "ex": "ISO 64  1/5110 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0653",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-07-10",
+          "t": "16:32:43",
+          "se": 3,
+          "ex": "ISO 64  1/4324 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0847",
+          "w": 3136,
+          "h": 2352,
+          "d": "2026-07-13",
+          "t": "16:46:43",
+          "se": 4,
+          "ex": "ISO 50  1/533 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0975",
+          "w": 3072,
+          "h": 4096,
+          "d": "2026-07-16",
+          "t": "14:20:42",
+          "se": 5,
+          "ex": "ISO 64  1/57 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0981",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-07-16",
+          "t": "15:46:37",
+          "se": 5,
+          "ex": "ISO 50  1/297 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        },
+        {
+          "src": "/outside/assets/summer-2026/1023",
+          "w": 3072,
+          "h": 4096,
+          "d": "2026-07-16",
+          "t": "16:54:46",
+          "se": 5,
+          "ex": "ISO 100  1/56 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+8"
+        }
+      ]
+    },
+    {
+      "id": "projection-pakistan-2026",
       "place": "Pakistan",
       "region": "Pakistan",
       "country": "PK",
       "status": "PRELIM",
-      "date": "2026-07-02",
+      "journey": {
+        "id": "summer-2026",
+        "title": "Summer 2026",
+        "state": "optional_user-confirmed_journey_heading",
+        "study_ids_forward_chronological": [
+          "rome-2026",
+          "albania-2026",
+          "pakistan-2026",
+          "australia-2026",
+          "new-zealand-2026"
+        ],
+        "study_ids_worklist_contract_order": [
+          "new-zealand-2026",
+          "australia-2026",
+          "pakistan-2026",
+          "albania-2026",
+          "rome-2026"
+        ],
+        "note": "Optional heading only; studies remain independently addressable; no empty Turkey/Thailand placeholders. Country/date membership is still distinct from proof of each frame’s exact place."
+      },
+      "date": "2026-06-28",
       "dateEnd": "2026-07-05",
-      "tz": "UTC+05:00",
-      "key": 6,
+      "tz": "",
+      "key": 0,
       "series": [
         {
           "start": 0,
-          "count": 4,
-          "time": "11:36",
-          "title": "Ayubia National Park",
-          "date": "2026-07-02",
-          "key": 1
+          "count": 2,
+          "time": "18:03",
+          "title": "June 28, 2026",
+          "date": "2026-06-28",
+          "key": 0
         },
         {
-          "start": 4,
+          "start": 2,
+          "count": 1,
+          "time": "16:24",
+          "title": "July 1, 2026",
+          "date": "2026-07-01",
+          "key": 2
+        },
+        {
+          "start": 3,
           "count": 4,
+          "time": "11:36",
+          "title": "July 2, 2026",
+          "date": "2026-07-02",
+          "key": 3
+        },
+        {
+          "start": 7,
+          "count": 5,
           "time": "18:55",
-          "title": "Lahore",
+          "title": "July 5, 2026",
           "date": "2026-07-05",
-          "key": 6
+          "key": 7
         }
       ],
       "images": [
+        {
+          "src": "/outside/assets/summer-2026/0098",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-06-28",
+          "t": "18:03:06",
+          "se": 1,
+          "ex": "ISO 64  1/2959 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+5"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0126",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-06-28",
+          "t": "19:05:49",
+          "se": 1,
+          "ex": "ISO 50  1/546 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+5"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0152",
+          "w": 3072,
+          "h": 4096,
+          "d": "2026-07-01",
+          "t": "16:24:56",
+          "se": 2,
+          "ex": "ISO 50  1/180 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+5"
+        },
         {
           "src": "/outside/ayubia/014",
           "w": 1920,
           "h": 1440,
           "d": "2026-07-02",
           "t": "11:36:20",
-          "se": 1,
+          "se": 3,
           "ex": "ISO 50  1/3039 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -48,7 +418,7 @@
           "h": 1920,
           "d": "2026-07-02",
           "t": "12:07:25",
-          "se": 1,
+          "se": 3,
           "ex": "ISO 50  1/3513 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -61,7 +431,7 @@
           "h": 1920,
           "d": "2026-07-02",
           "t": "14:48:02",
-          "se": 1,
+          "se": 3,
           "ex": "ISO 50  1/1499 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -74,7 +444,7 @@
           "h": 1920,
           "d": "2026-07-02",
           "t": "16:24:09",
-          "se": 1,
+          "se": 3,
           "ex": "ISO 250  1/50 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -87,7 +457,7 @@
           "h": 1440,
           "d": "2026-07-05",
           "t": "18:55:02",
-          "se": 2,
+          "se": 4,
           "ex": "ISO 64  1/50 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -95,12 +465,25 @@
           "tz": "UTC+05:00"
         },
         {
+          "src": "/outside/assets/summer-2026/0383",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-07-05",
+          "t": "19:23:00",
+          "se": 4,
+          "ex": "ISO 160  1/50 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+5"
+        },
+        {
           "src": "/outside/lahore/032",
           "w": 1920,
           "h": 1440,
           "d": "2026-07-05",
           "t": "19:28:53",
-          "se": 2,
+          "se": 4,
           "ex": "ISO 640  1/50 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -113,7 +496,7 @@
           "h": 1086,
           "d": "2026-07-05",
           "t": "19:31:39",
-          "se": 2,
+          "se": 4,
           "ex": "ISO 500  1/20 s  f/1.8",
           "fl": "24 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -126,67 +509,527 @@
           "h": 1920,
           "d": "2026-07-05",
           "t": "19:34:31",
-          "se": 2,
+          "se": 4,
           "ex": "ISO 640  1/20 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
           "avg": "#5d4f46",
           "tz": "UTC+05:00"
         }
-      ],
-      "journey": {
-        "id": "summer-2026",
-        "title": "Summer 2026"
-      }
+      ]
     },
     {
-      "id": "american-southwest-2025",
-      "place": "American Southwest",
-      "region": "American Southwest",
-      "country": "US",
-      "status": "PENDING",
-      "date": "2025-10-10",
-      "dateEnd": "2025-10-14",
-      "key": 8,
+      "id": "projection-albania-2026",
+      "place": "Albania",
+      "region": "Albania",
+      "country": "AL",
+      "status": "PRELIM",
+      "journey": {
+        "id": "summer-2026",
+        "title": "Summer 2026",
+        "state": "optional_user-confirmed_journey_heading",
+        "study_ids_forward_chronological": [
+          "rome-2026",
+          "albania-2026",
+          "pakistan-2026",
+          "australia-2026",
+          "new-zealand-2026"
+        ],
+        "study_ids_worklist_contract_order": [
+          "new-zealand-2026",
+          "australia-2026",
+          "pakistan-2026",
+          "albania-2026",
+          "rome-2026"
+        ],
+        "note": "Optional heading only; studies remain independently addressable; no empty Turkey/Thailand placeholders. Country/date membership is still distinct from proof of each frame’s exact place."
+      },
+      "date": "2026-06-25",
+      "dateEnd": "2026-06-25",
+      "tz": "UTC+2",
+      "key": 0,
       "series": [
         {
           "start": 0,
           "count": 1,
-          "time": "10:22",
-          "title": "Desert approach",
-          "date": "2025-10-10",
+          "time": "11:10",
+          "title": "June 25, 2026",
+          "date": "2026-06-25",
           "key": 0
-        },
-        {
-          "start": 1,
-          "count": 5,
-          "time": "12:36",
-          "title": "Zion National Park",
-          "date": "2025-10-12",
-          "key": 3
-        },
-        {
-          "start": 6,
-          "count": 5,
-          "time": "12:08",
-          "title": "Hoover Dam",
-          "date": "2025-10-14",
-          "key": 8
         }
       ],
       "images": [
         {
-          "src": "/outside/hoover-dam/003",
-          "w": 1920,
-          "h": 1440,
-          "d": "2025-10-10",
-          "t": "10:22:57",
+          "src": "/outside/assets/summer-2026/0084",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-06-25",
+          "t": "11:10:29",
           "se": 1,
-          "ex": "ISO 64  1/1134 s  f/2.2",
-          "fl": "2.59 mm  (14 mm eq)",
+          "ex": "ISO 125  1/50 s  f/1.8",
+          "fl": "5.59 mm",
           "cam": "OnePlus 11 5G",
-          "avg": "#898f91",
-          "tz": "UTC-07:00"
+          "avg": "#111111",
+          "tz": "UTC+2"
+        }
+      ]
+    },
+    {
+      "id": "projection-rome-2026",
+      "place": "Rome",
+      "region": "Rome / Vatican City metadata cluster",
+      "country": "IT / VA",
+      "status": "PRELIM",
+      "journey": {
+        "id": "summer-2026",
+        "title": "Summer 2026",
+        "state": "optional_user-confirmed_journey_heading",
+        "study_ids_forward_chronological": [
+          "rome-2026",
+          "albania-2026",
+          "pakistan-2026",
+          "australia-2026",
+          "new-zealand-2026"
+        ],
+        "study_ids_worklist_contract_order": [
+          "new-zealand-2026",
+          "australia-2026",
+          "pakistan-2026",
+          "albania-2026",
+          "rome-2026"
+        ],
+        "note": "Optional heading only; studies remain independently addressable; no empty Turkey/Thailand placeholders. Country/date membership is still distinct from proof of each frame’s exact place."
+      },
+      "date": "2026-06-24",
+      "dateEnd": "2026-06-24",
+      "tz": "UTC+2",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 5,
+          "time": "17:53",
+          "title": "June 24, 2026",
+          "date": "2026-06-24",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/summer-2026/0005",
+          "w": 3000,
+          "h": 4000,
+          "d": "2026-06-24",
+          "t": "17:53:39",
+          "se": 1,
+          "ex": "ISO 64  1/471 s  f/2.2",
+          "fl": "2.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+2"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0012",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-06-24",
+          "t": "18:16:18",
+          "se": 1,
+          "ex": "ISO 50  1/945 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+2"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0020",
+          "w": 3136,
+          "h": 2352,
+          "d": "2026-06-24",
+          "t": "18:43:41",
+          "se": 1,
+          "ex": "ISO 50  1/574 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+2"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0022",
+          "w": 3072,
+          "h": 4096,
+          "d": "2026-06-24",
+          "t": "18:48:06",
+          "se": 1,
+          "ex": "ISO 400  1/20 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+2"
+        },
+        {
+          "src": "/outside/assets/summer-2026/0053",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-06-24",
+          "t": "19:37:02",
+          "se": 1,
+          "ex": "ISO 50  1/528 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC+2"
+        }
+      ]
+    },
+    {
+      "id": "projection-galapagos-2026",
+      "place": "Galápagos",
+      "region": "Galápagos / Ecuador",
+      "country": "EC",
+      "status": "PRELIM",
+      "date": "2026-01-17",
+      "dateEnd": "2026-01-21",
+      "tz": "UTC-06:00",
+      "key": 3,
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "12:50",
+          "title": "January 17, 2026",
+          "date": "2026-01-17",
+          "key": 0
+        },
+        {
+          "start": 1,
+          "count": 1,
+          "time": "18:29",
+          "title": "January 19, 2026",
+          "date": "2026-01-19",
+          "key": 1
+        },
+        {
+          "start": 2,
+          "count": 1,
+          "time": "15:15",
+          "title": "January 20, 2026",
+          "date": "2026-01-20",
+          "key": 2
+        },
+        {
+          "start": 3,
+          "count": 2,
+          "time": "10:24",
+          "title": "January 21, 2026",
+          "date": "2026-01-21",
+          "key": 3
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/galapagos/0363",
+          "w": 2352,
+          "h": 3136,
+          "d": "2026-01-17",
+          "t": "12:50:17",
+          "se": 1,
+          "ex": "ISO 50  1/604 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-06:00"
+        },
+        {
+          "src": "/outside/assets/galapagos/0516",
+          "w": 2352,
+          "h": 3136,
+          "d": "2026-01-19",
+          "t": "18:29:04",
+          "se": 2,
+          "ex": "ISO 2000  1/33 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-06:00"
+        },
+        {
+          "src": "/outside/assets/galapagos/0592",
+          "w": 3136,
+          "h": 2352,
+          "d": "2026-01-20",
+          "t": "15:15:10",
+          "se": 3,
+          "ex": "ISO 125  1/200 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-06:00"
+        },
+        {
+          "src": "/outside/assets/galapagos/0642",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-01-21",
+          "t": "10:24:15",
+          "se": 4,
+          "ex": "ISO 50  1/3039 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-06:00"
+        },
+        {
+          "src": "/outside/assets/galapagos/0679",
+          "w": 2352,
+          "h": 3136,
+          "d": "2026-01-21",
+          "t": "11:43:25",
+          "se": 4,
+          "ex": "ISO 64  1/2280 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-06:00"
+        }
+      ]
+    },
+    {
+      "id": "projection-metadata-candidate-foreign-canada-20251127-20251130",
+      "place": "Canada · November 2025",
+      "region": "",
+      "country": "",
+      "status": "PENDING",
+      "date": "2025-11-28",
+      "dateEnd": "2025-11-29",
+      "tz": "UTC-5",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 3,
+          "time": "18:11",
+          "title": "November 28, 2025",
+          "date": "2025-11-28",
+          "key": 0
+        },
+        {
+          "start": 3,
+          "count": 2,
+          "time": "10:30",
+          "title": "November 29, 2025",
+          "date": "2025-11-29",
+          "key": 3
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0193",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-28",
+          "t": "18:11:50",
+          "se": 1,
+          "ex": "ISO 125  1/60 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0197",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-28",
+          "t": "22:12:32",
+          "se": 1,
+          "ex": "ISO 3200  1/11 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0201",
+          "w": 3000,
+          "h": 4000,
+          "d": "2025-11-28",
+          "t": "22:14:34",
+          "se": 1,
+          "ex": "ISO 2000  1/17 s  f/2.2",
+          "fl": "2.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0220",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-29",
+          "t": "10:30:13",
+          "se": 2,
+          "ex": "ISO 50  1/745 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0227",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-29",
+          "t": "10:42:58",
+          "se": 2,
+          "ex": "ISO 50  1/1323 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        }
+      ]
+    },
+    {
+      "id": "projection-metadata-candidate-us-georgia-20251025-20251025",
+      "place": "Georgia · October 2025",
+      "region": "United States",
+      "country": "US",
+      "status": "PENDING",
+      "date": "2025-10-25",
+      "dateEnd": "2025-10-25",
+      "tz": "UTC-4",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "13:52",
+          "title": "October 25, 2025",
+          "date": "2025-10-25",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0464",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-10-25",
+          "t": "13:52:02",
+          "se": 1,
+          "ex": "ISO 50  1/412 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        }
+      ]
+    },
+    {
+      "id": "projection-american-southwest-2025",
+      "place": "American Southwest",
+      "region": "American Southwest",
+      "country": "US",
+      "status": "PRELIM",
+      "date": "2025-10-09",
+      "dateEnd": "2025-10-14",
+      "tz": "",
+      "key": 3,
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "14:55",
+          "title": "October 9, 2025",
+          "date": "2025-10-09",
+          "key": 0
+        },
+        {
+          "start": 1,
+          "count": 3,
+          "time": "08:12",
+          "title": "October 11, 2025",
+          "date": "2025-10-11",
+          "key": 3
+        },
+        {
+          "start": 4,
+          "count": 5,
+          "time": "12:36",
+          "title": "October 12, 2025",
+          "date": "2025-10-12",
+          "key": 4
+        },
+        {
+          "start": 9,
+          "count": 8,
+          "time": "08:35",
+          "title": "October 13, 2025",
+          "date": "2025-10-13",
+          "key": 9
+        },
+        {
+          "start": 17,
+          "count": 5,
+          "time": "12:08",
+          "title": "October 14, 2025",
+          "date": "2025-10-14",
+          "key": 17
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/core-trips/0072",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-10-09",
+          "t": "14:55:56",
+          "se": 1,
+          "ex": "ISO 50  1/899 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
+        },
+        {
+          "src": "/outside/assets/core-trips/0214",
+          "w": 4000,
+          "h": 3000,
+          "d": "2025-10-11",
+          "t": "08:12:39",
+          "se": 2,
+          "ex": "ISO 64  1/1112 s  f/2.2",
+          "fl": "2.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
+        },
+        {
+          "src": "/outside/assets/core-trips/0245",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-10-11",
+          "t": "09:33:11",
+          "se": 2,
+          "ex": "ISO 50  1/3307 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
+        },
+        {
+          "src": "/outside/assets/core-trips/0307",
+          "w": 3136,
+          "h": 2352,
+          "d": "2025-10-11",
+          "t": "15:52:16",
+          "se": 2,
+          "ex": "ISO 50  1/2085 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
         },
         {
           "src": "/outside/zion/010",
@@ -194,24 +1037,11 @@
           "h": 1440,
           "d": "2025-10-12",
           "t": "12:36:07",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 50  1/1730 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
           "avg": "#849298",
-          "tz": "UTC-06:00"
-        },
-        {
-          "src": "/outside/zion/018",
-          "w": 1920,
-          "h": 1440,
-          "d": "2025-10-12",
-          "t": "13:26:48",
-          "se": 2,
-          "ex": "ISO 50  1/1540 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "cam": "OnePlus 11 5G",
-          "avg": "#7d9199",
           "tz": "UTC-06:00"
         },
         {
@@ -220,7 +1050,7 @@
           "h": 1440,
           "d": "2025-10-12",
           "t": "13:26:55",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 50  1/1292 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -233,7 +1063,7 @@
           "h": 1440,
           "d": "2025-10-12",
           "t": "15:01:48",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 50  1/1757 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -241,12 +1071,25 @@
           "tz": "UTC-06:00"
         },
         {
+          "src": "/outside/assets/core-trips/0398",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-10-12",
+          "t": "15:05:40",
+          "se": 3,
+          "ex": "ISO 50  1/1629 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
           "src": "/outside/zion/032",
           "w": 1920,
           "h": 1440,
           "d": "2025-10-12",
           "t": "15:20:46",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 50  1/1703 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -254,12 +1097,116 @@
           "tz": "UTC-06:00"
         },
         {
+          "src": "/outside/assets/core-trips/0431",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-10-13",
+          "t": "08:35:30",
+          "se": 4,
+          "ex": "ISO 50  1/315 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0436",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-10-13",
+          "t": "08:49:49",
+          "se": 4,
+          "ex": "ISO 50  1/311 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0458",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-10-13",
+          "t": "09:37:12",
+          "se": 4,
+          "ex": "ISO 64  1/200 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0479",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-10-13",
+          "t": "10:13:12",
+          "se": 4,
+          "ex": "ISO 64  1/4164 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0487",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-10-13",
+          "t": "10:29:17",
+          "se": 4,
+          "ex": "ISO 50  1/2555 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0562",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-10-13",
+          "t": "13:06:41",
+          "se": 4,
+          "ex": "ISO 64  1/4888 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0586",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-10-13",
+          "t": "14:55:45",
+          "se": 4,
+          "ex": "ISO 50  1/632 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0608",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-10-13",
+          "t": "17:13:21",
+          "se": 4,
+          "ex": "ISO 50  1/5110 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
           "src": "/outside/hoover-dam/005",
           "w": 1440,
           "h": 1920,
           "d": "2025-10-14",
           "t": "12:08:07",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 200  1/60 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -267,29 +1214,29 @@
           "tz": "UTC-07:00"
         },
         {
+          "src": "/outside/assets/core-trips/0614",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-10-14",
+          "t": "12:29:35",
+          "se": 5,
+          "ex": "ISO 64  1/5621 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
+        },
+        {
           "src": "/outside/hoover-dam/013",
           "w": 1440,
           "h": 1920,
           "d": "2025-10-14",
           "t": "12:42:02",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 1000  1/15 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
           "avg": "#675546",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/hoover-dam/014",
-          "w": 1920,
-          "h": 1440,
-          "d": "2025-10-14",
-          "t": "12:51:40",
-          "se": 3,
-          "ex": "ISO 64  1/5621 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "cam": "OnePlus 11 5G",
-          "avg": "#757875",
           "tz": "UTC-07:00"
         },
         {
@@ -298,7 +1245,7 @@
           "h": 1920,
           "d": "2025-10-14",
           "t": "12:52:40",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 64  1/2316 s  f/2.2",
           "fl": "2.59 mm  (14 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -311,7 +1258,7 @@
           "h": 1440,
           "d": "2025-10-14",
           "t": "12:56:07",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 50  1/6246 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "cam": "OnePlus 11 5G",
@@ -321,23 +1268,23 @@
       ]
     },
     {
-      "id": "old-san-juan-2025",
-      "place": "Old San Juan",
+      "id": "projection-puerto-rico-october-2025",
+      "place": "Puerto Rico",
       "region": "Puerto Rico",
       "country": "PR",
-      "status": "FINAL",
+      "status": "PRELIM",
       "date": "2025-10-04",
       "dateEnd": "2025-10-04",
-      "tz": "UTC-04:00",
-      "key": 2,
+      "tz": "",
+      "key": 0,
       "series": [
         {
           "start": 0,
           "count": 3,
           "time": "10:29",
-          "title": "Old San Juan",
+          "title": "October 4, 2025",
           "date": "2025-10-04",
-          "key": 2
+          "key": 0
         }
       ],
       "images": [
@@ -368,38 +1315,38 @@
           "tz": "UTC-04:00"
         },
         {
-          "src": "/outside/old-san-juan/006",
-          "w": 1920,
-          "h": 1440,
+          "src": "/outside/assets/core-trips/0940",
+          "w": 4096,
+          "h": 3072,
           "d": "2025-10-04",
-          "t": "11:47:28",
+          "t": "11:47:31",
           "se": 1,
-          "ex": "ISO 64  1/2138 s  f/2.2",
-          "fl": "2.59 mm  (14 mm eq)",
+          "ex": "ISO 64  1/5354 s  f/1.8",
+          "fl": "5.59 mm",
           "cam": "OnePlus 11 5G",
-          "avg": "#6b829f",
-          "tz": "UTC-04:00"
+          "avg": "#111111",
+          "tz": "UTC-4"
         }
       ]
     },
     {
-      "id": "woodland-walk-2025",
-      "place": "Woodland walk",
+      "id": "projection-legacy-woodland-walk-2025",
+      "place": "Rocky Woodland Paths · August 2025",
       "region": "",
       "country": "",
       "status": "PENDING",
       "date": "2025-08-09",
       "dateEnd": "2025-08-09",
       "tz": "UTC-04:00",
-      "key": 3,
+      "key": 0,
       "series": [
         {
           "start": 0,
-          "count": 5,
+          "count": 4,
           "time": "14:54",
-          "title": "Woodland walk",
+          "title": "August 9, 2025",
           "date": "2025-08-09",
-          "key": 3
+          "key": 0
         }
       ],
       "images": [
@@ -454,43 +1401,43 @@
           "cam": "OnePlus 11 5G",
           "avg": "#4e5326",
           "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/study-0809/015",
-          "w": 1920,
-          "h": 1440,
-          "d": "2025-08-09",
-          "t": "17:01:26",
-          "se": 1,
-          "ex": "ISO 50  1/1092 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "cam": "OnePlus 11 5G",
-          "avg": "#596038",
-          "tz": "UTC-04:00"
         }
       ]
     },
     {
-      "id": "garden-visit-2025",
-      "place": "Garden visit",
-      "region": "",
-      "country": "",
-      "status": "PENDING",
+      "id": "projection-colorado-july-2025",
+      "place": "Colorado",
+      "region": "Colorado",
+      "country": "US",
+      "status": "PRELIM",
       "date": "2025-07-26",
       "dateEnd": "2025-07-26",
-      "tz": "UTC-06:00",
-      "key": 5,
+      "tz": "",
+      "key": 0,
       "series": [
         {
           "start": 0,
-          "count": 7,
-          "time": "16:09",
-          "title": "Garden visit",
+          "count": 8,
+          "time": "12:21",
+          "title": "July 26, 2025",
           "date": "2025-07-26",
-          "key": 5
+          "key": 0
         }
       ],
       "images": [
+        {
+          "src": "/outside/assets/core-trips/0836",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-07-26",
+          "t": "12:21:56",
+          "se": 1,
+          "ex": "ISO 64  1/3307 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
         {
           "src": "/outside/study-0726/004",
           "w": 1920,
@@ -585,23 +1532,134 @@
       ]
     },
     {
+      "id": "projection-metadata-candidate-us-georgia-20250618-20250618",
+      "place": "Georgia · June 2025",
+      "region": "United States",
+      "country": "US",
+      "status": "PENDING",
+      "date": "2025-06-18",
+      "dateEnd": "2025-06-18",
+      "tz": "UTC-4",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 3,
+          "time": "10:44",
+          "title": "June 18, 2025",
+          "date": "2025-06-18",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0322",
+          "w": 3136,
+          "h": 2352,
+          "d": "2025-06-18",
+          "t": "10:44:16",
+          "se": 1,
+          "ex": "ISO 50  1/1216 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0375",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-18",
+          "t": "12:04:19",
+          "se": 1,
+          "ex": "ISO 50  1/1092 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0381",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-18",
+          "t": "12:23:55",
+          "se": 1,
+          "ex": "ISO 64  1/2392 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        }
+      ]
+    },
+    {
+      "id": "projection-metadata-candidate-us-nevada-20250614-20250614",
+      "place": "Nevada · June 2025",
+      "region": "United States",
+      "country": "US",
+      "status": "PENDING",
+      "date": "2025-06-14",
+      "dateEnd": "2025-06-14",
+      "tz": "UTC-7",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 2,
+          "time": "15:33",
+          "title": "June 14, 2025",
+          "date": "2025-06-14",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0507",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-14",
+          "t": "15:33:09",
+          "se": 1,
+          "ex": "ISO 50  1/2121 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0522",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-14",
+          "t": "18:17:35",
+          "se": 1,
+          "ex": "ISO 50  1/429 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
+        }
+      ]
+    },
+    {
       "id": "city-interiors-2025",
-      "place": "City interiors",
+      "place": "Fountains and Architectural Interiors · June 2025",
       "region": "",
       "country": "",
       "status": "PENDING",
       "date": "2025-06-14",
       "dateEnd": "2025-06-14",
       "tz": "UTC-07:00",
-      "key": 2,
+      "key": 0,
       "series": [
         {
           "start": 0,
           "count": 3,
           "time": "15:16",
-          "title": "City interiors",
+          "title": "June 14, 2025",
           "date": "2025-06-14",
-          "key": 2
+          "key": 0
         }
       ],
       "images": [
@@ -647,23 +1705,39 @@
       ]
     },
     {
-      "id": "garden-of-the-gods-2025",
-      "place": "Garden of the Gods",
+      "id": "projection-colorado-june-2025",
+      "place": "Colorado",
       "region": "Colorado",
       "country": "US",
-      "status": "FINAL",
+      "status": "PRELIM",
       "date": "2025-06-07",
-      "dateEnd": "2025-06-07",
-      "tz": "UTC-06:00",
-      "key": 0,
+      "dateEnd": "2025-06-10",
+      "tz": "",
+      "key": 6,
       "series": [
         {
           "start": 0,
           "count": 3,
           "time": "14:41",
-          "title": "Garden of the Gods",
+          "title": "June 7, 2025",
           "date": "2025-06-07",
           "key": 0
+        },
+        {
+          "start": 3,
+          "count": 1,
+          "time": "11:38",
+          "title": "June 8, 2025",
+          "date": "2025-06-08",
+          "key": 3
+        },
+        {
+          "start": 4,
+          "count": 3,
+          "time": "08:11",
+          "title": "June 10, 2025",
+          "date": "2025-06-10",
+          "key": 6
         }
       ],
       "images": [
@@ -694,38 +1768,463 @@
           "tz": "UTC-06:00"
         },
         {
-          "src": "/outside/garden-of-the-gods/004",
-          "w": 1920,
-          "h": 1440,
+          "src": "/outside/assets/core-trips/0714",
+          "w": 4096,
+          "h": 3072,
           "d": "2025-06-07",
-          "t": "14:49:10",
+          "t": "17:12:19",
           "se": 1,
-          "ex": "ISO 64  1/3307 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
+          "ex": "ISO 50  1/3039 s  f/1.8",
+          "fl": "5.59 mm",
           "cam": "OnePlus 11 5G",
-          "avg": "#818a86",
-          "tz": "UTC-06:00"
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0724",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-08",
+          "t": "11:38:28",
+          "se": 2,
+          "ex": "ISO 500  1/17 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0781",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-10",
+          "t": "08:11:02",
+          "se": 3,
+          "ex": "ISO 50  1/1355 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0798",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-10",
+          "t": "08:36:47",
+          "se": 3,
+          "ex": "ISO 50  1/2342 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
+        },
+        {
+          "src": "/outside/assets/core-trips/0830",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-10",
+          "t": "16:03:00",
+          "se": 3,
+          "ex": "ISO 50  1/3877 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-6"
         }
       ]
     },
     {
-      "id": "point-lookout-2015",
-      "place": "Point Lookout",
+      "id": "projection-december-cruise-2024",
+      "place": "December Cruise, 2024",
       "region": "",
-      "country": "AU",
-      "status": "PRELIM",
-      "date": "2015-08-12",
-      "dateEnd": "2015-08-12",
-      "tz": "UTC+10:00",
-      "key": 1,
+      "country": "",
+      "status": "PENDING",
+      "date": "2024-12-15",
+      "dateEnd": "2024-12-19",
+      "tz": "",
+      "key": 0,
       "series": [
         {
           "start": 0,
-          "count": 6,
-          "time": "13:32",
-          "title": "Point Lookout",
-          "date": "2015-08-12",
+          "count": 1,
+          "time": "16:50",
+          "title": "Beside the ship",
+          "date": "2024-12-15",
+          "key": 0
+        },
+        {
+          "start": 1,
+          "count": 1,
+          "time": "10:21",
+          "title": "On deck",
+          "date": "2024-12-17",
           "key": 1
+        },
+        {
+          "start": 2,
+          "count": 2,
+          "time": "16:40",
+          "title": "Coast and ship",
+          "date": "2024-12-18",
+          "key": 2
+        },
+        {
+          "start": 4,
+          "count": 1,
+          "time": "13:54",
+          "title": "A stone passage",
+          "date": "2024-12-19",
+          "key": 4
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0555",
+          "w": 3072,
+          "h": 4096,
+          "d": "2024-12-15",
+          "t": "16:50:38",
+          "se": 1,
+          "ex": "ISO 1000  1/19 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0559",
+          "w": 4096,
+          "h": 3072,
+          "d": "2024-12-17",
+          "t": "10:21:50",
+          "se": 2,
+          "ex": "ISO 50  1/1606 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        },
+        {
+          "src": "/outside/assets/december-cruise-2024/0001",
+          "w": 4096,
+          "h": 3072,
+          "d": "2024-12-18",
+          "t": "16:40:30",
+          "se": 3,
+          "ex": "ISO 64  1/11243 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#728181",
+          "tz": "UTC-05:00",
+          "title": "Lighthouse on the coast",
+          "caption": "A striped lighthouse rises above the shoreline."
+        },
+        {
+          "src": "/outside/assets/december-cruise-2024/0002",
+          "w": 4096,
+          "h": 3072,
+          "d": "2024-12-18",
+          "t": "18:05:40",
+          "se": 3,
+          "ex": "ISO 2000  1/13 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#3b4654",
+          "tz": "UTC-05:00",
+          "title": "Ship at dusk",
+          "caption": "A passenger ship glows beside the shore."
+        },
+        {
+          "src": "/outside/assets/additional-trips/0175",
+          "w": 3072,
+          "h": 4096,
+          "d": "2024-12-19",
+          "t": "13:54:57",
+          "se": 4,
+          "ex": "ISO 50  1/117 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        }
+      ]
+    },
+    {
+      "id": "projection-metadata-candidate-us-connecticut-20240719-20240719",
+      "place": "Connecticut · July 2024",
+      "region": "United States",
+      "country": "US",
+      "status": "PENDING",
+      "date": "2024-07-19",
+      "dateEnd": "2024-07-19",
+      "tz": "UTC-4",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "20:09",
+          "title": "July 19, 2024",
+          "date": "2024-07-19",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0292",
+          "w": 4096,
+          "h": 3072,
+          "d": "2024-07-19",
+          "t": "20:09:22",
+          "se": 1,
+          "ex": "ISO 50  1/1292 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        }
+      ]
+    },
+    {
+      "id": "projection-metadata-candidate-us-new-jersey-20230508-20230508",
+      "place": "New Jersey · May 2023",
+      "region": "United States",
+      "country": "US",
+      "status": "PENDING",
+      "date": "2023-05-08",
+      "dateEnd": "2023-05-08",
+      "tz": "UTC-4",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "01:25",
+          "title": "May 8, 2023",
+          "date": "2023-05-08",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0549",
+          "w": 4096,
+          "h": 3072,
+          "d": "2023-05-08",
+          "t": "01:25:33",
+          "se": 1,
+          "ex": "ISO 919  1/17 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        }
+      ]
+    },
+    {
+      "id": "projection-philadelphia-spring-2023",
+      "place": "Philadelphia · Spring 2023",
+      "region": "Pennsylvania",
+      "country": "US",
+      "status": "PENDING",
+      "description": "A spring sequence of night-lit architecture, climbing, and an early aviation display.",
+      "date": "2023-04-02",
+      "dateEnd": "2023-04-30",
+      "tz": "UTC-4",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "20:34",
+          "title": "Early April · City After Dark",
+          "date": "2023-04-02",
+          "key": 0,
+          "description": "An illuminated façade and clock tower after dark."
+        },
+        {
+          "start": 1,
+          "count": 2,
+          "time": "18:28",
+          "title": "Late April · Activity and Aviation",
+          "date": "2023-04-23",
+          "key": 1,
+          "dateEnd": "2023-04-30",
+          "description": "A mid-climb moment and a suspended early aircraft."
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0604",
+          "w": 4000,
+          "h": 3000,
+          "d": "2023-04-02",
+          "t": "20:34:42",
+          "se": 1,
+          "ex": "ISO 6325  1/12 s  f/2.2",
+          "fl": "2.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0666",
+          "w": 3072,
+          "h": 4096,
+          "d": "2023-04-23",
+          "t": "18:28:50",
+          "se": 2,
+          "ex": "ISO 1225  1/50 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0672",
+          "w": 4096,
+          "h": 3072,
+          "d": "2023-04-30",
+          "t": "16:05:23",
+          "se": 2,
+          "ex": "ISO 1128  1/30 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        }
+      ]
+    },
+    {
+      "id": "projection-bala-cynwyd-spring-2023",
+      "place": "Bala Cynwyd · April 2023",
+      "region": "Pennsylvania",
+      "country": "US",
+      "status": "PENDING",
+      "date": "2023-04-06",
+      "dateEnd": "2023-04-06",
+      "tz": "UTC-4",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 3,
+          "time": "13:19",
+          "title": "April 6, 2023",
+          "date": "2023-04-06",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0622",
+          "w": 4096,
+          "h": 3072,
+          "d": "2023-04-06",
+          "t": "13:19:12",
+          "se": 1,
+          "ex": "ISO 100  1/344 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0634",
+          "w": 4096,
+          "h": 3072,
+          "d": "2023-04-06",
+          "t": "13:53:12",
+          "se": 1,
+          "ex": "ISO 101  1/1388 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0640",
+          "w": 3072,
+          "h": 4096,
+          "d": "2023-04-06",
+          "t": "14:01:04",
+          "se": 1,
+          "ex": "ISO 101  1/865 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-4"
+        }
+      ]
+    },
+    {
+      "id": "projection-metadata-candidate-us-new-jersey-20230226-20230226",
+      "place": "New Jersey · February 2023",
+      "region": "United States",
+      "country": "US",
+      "status": "PENDING",
+      "date": "2023-02-26",
+      "dateEnd": "2023-02-26",
+      "tz": "UTC-5",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 2,
+          "time": "12:26",
+          "title": "February 26, 2023",
+          "date": "2023-02-26",
+          "key": 0
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/additional-trips/0541",
+          "w": 3000,
+          "h": 4000,
+          "d": "2023-02-26",
+          "t": "12:26:30",
+          "se": 1,
+          "ex": "ISO 112  1/199 s  f/2.2",
+          "fl": "2.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0542",
+          "w": 4096,
+          "h": 3072,
+          "d": "2023-02-26",
+          "t": "13:51:24",
+          "se": 1,
+          "ex": "ISO 100  1/3407 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-5"
+        }
+      ]
+    },
+    {
+      "id": "projection-legacy-point-lookout-2015",
+      "place": "Coastal Views · August 2015",
+      "region": "",
+      "country": "",
+      "status": "PENDING",
+      "date": "2015-08-12",
+      "dateEnd": "2015-08-12",
+      "tz": "UTC+10:00",
+      "key": 0,
+      "series": [
+        {
+          "start": 0,
+          "count": 5,
+          "time": "13:32",
+          "title": "August 12, 2015",
+          "date": "2015-08-12",
+          "key": 0
         }
       ],
       "images": [
@@ -740,19 +2239,6 @@
           "fl": "4.73 mm  (5 mm eq)",
           "cam": "HTC One M9",
           "avg": "#6a7674",
-          "tz": "UTC+10:00"
-        },
-        {
-          "src": "/outside/point-lookout/003",
-          "w": 1920,
-          "h": 1080,
-          "d": "2015-08-12",
-          "t": "13:45:15",
-          "se": 1,
-          "ex": "ISO 50  1/929 s  f/2.2",
-          "fl": "4.73 mm  (5 mm eq)",
-          "cam": "HTC One M9",
-          "avg": "#7b7260",
           "tz": "UTC+10:00"
         },
         {
@@ -812,125 +2298,8 @@
   ],
   "aliases": {
     "lahore": {
-      "studyId": "pakistan-2026",
+      "studyId": "projection-pakistan-2026",
       "indices": [
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        4,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        6,
-        6,
-        6,
-        6,
-        6,
-        7,
-        7,
-        7
-      ]
-    },
-    "ayubia": {
-      "studyId": "pakistan-2026",
-      "indices": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3,
-        3
-      ]
-    },
-    "hoover-dam": {
-      "studyId": "american-southwest-2025",
-      "indices": [
-        6,
         7,
         7,
         7,
@@ -939,53 +2308,151 @@
         7,
         7,
         7,
-        8,
-        8,
-        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
+        9,
         9,
         10,
         10,
         10,
-        10
-      ]
+        10,
+        10,
+        11,
+        11,
+        11
+      ],
+      "defaultIndex": 7
+    },
+    "ayubia": {
+      "studyId": "projection-pakistan-2026",
+      "indices": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "defaultIndex": 3
+    },
+    "hoover-dam": {
+      "studyId": "projection-american-southwest-2025",
+      "indices": [
+        17,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        19,
+        null,
+        null,
+        null,
+        20,
+        21,
+        21,
+        21,
+        21
+      ],
+      "defaultIndex": 17
     },
     "study-0614-2025-10-14": {
-      "studyId": "american-southwest-2025",
+      "studyId": "projection-american-southwest-2025",
       "indices": [
-        10,
-        10,
-        10,
-        10,
-        10,
-        10
-      ]
+        21,
+        21,
+        21,
+        21,
+        21,
+        21
+      ],
+      "defaultIndex": 21
     },
     "zion": {
-      "studyId": "american-southwest-2025",
+      "studyId": "projection-american-southwest-2025",
       "indices": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        3,
-        3,
-        3,
-        3,
-        3,
         4,
         4,
         4,
@@ -993,37 +2460,53 @@
         4,
         4,
         4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
         5,
         5,
-        5
-      ]
-    },
-    "hoover-dam-2025-10-10": {
-      "studyId": "american-southwest-2025",
-      "indices": [
-        0,
-        0,
-        0,
-        0
-      ]
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        8,
+        8,
+        8
+      ],
+      "defaultIndex": 4
     },
     "old-san-juan": {
-      "studyId": "old-san-juan-2025",
+      "studyId": "projection-puerto-rico-october-2025",
       "indices": [
         0,
         1,
         1,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2
-      ]
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "defaultIndex": 0
     },
     "study-0809": {
-      "studyId": "woodland-walk-2025",
+      "studyId": "projection-legacy-woodland-walk-2025",
       "indices": [
         0,
         0,
@@ -1039,17 +2522,14 @@
         3,
         3,
         3,
-        4,
-        4
-      ]
+        null,
+        null
+      ],
+      "defaultIndex": 0
     },
     "study-0726": {
-      "studyId": "garden-visit-2025",
+      "studyId": "projection-colorado-july-2025",
       "indices": [
-        0,
-        0,
-        0,
-        0,
         1,
         1,
         1,
@@ -1057,13 +2537,18 @@
         2,
         2,
         2,
+        2,
+        3,
         3,
         3,
         4,
         4,
         5,
-        6
-      ]
+        5,
+        6,
+        7
+      ],
+      "defaultIndex": 1
     },
     "study-0614": {
       "studyId": "city-interiors-2025",
@@ -1083,46 +2568,179 @@
         2,
         2,
         2
-      ]
+      ],
+      "defaultIndex": 0
     },
     "garden-of-the-gods": {
-      "studyId": "garden-of-the-gods-2025",
+      "studyId": "projection-colorado-june-2025",
       "indices": [
         0,
         1,
         1,
-        2
-      ]
+        null
+      ],
+      "defaultIndex": 0
     },
     "point-lookout": {
-      "studyId": "point-lookout-2015",
+      "studyId": "projection-legacy-point-lookout-2015",
       "indices": [
         0,
         0,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         1,
         2,
         2,
         2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
+        3,
+        3,
+        3,
         3,
         3,
         3,
         4,
         4,
         4,
-        4,
-        4,
+        4
+      ],
+      "defaultIndex": 0
+    },
+    "pakistan-2026": {
+      "studyId": "projection-pakistan-2026",
+      "indices": [
+        3,
         4,
         5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "defaultIndex": 3
+    },
+    "american-southwest-2025": {
+      "studyId": "projection-american-southwest-2025",
+      "indices": [
+        null,
+        4,
+        null,
         5,
+        6,
+        8,
+        17,
+        19,
+        null,
+        20,
+        21
+      ],
+      "defaultIndex": 4
+    },
+    "old-san-juan-2025": {
+      "studyId": "projection-puerto-rico-october-2025",
+      "indices": [
+        0,
+        1,
+        null
+      ],
+      "defaultIndex": 0
+    },
+    "woodland-walk-2025": {
+      "studyId": "projection-legacy-woodland-walk-2025",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        null
+      ],
+      "defaultIndex": 0
+    },
+    "garden-visit-2025": {
+      "studyId": "projection-colorado-july-2025",
+      "indices": [
+        1,
+        2,
+        3,
+        4,
         5,
-        5
-      ]
+        6,
+        7
+      ],
+      "defaultIndex": 1
+    },
+    "garden-of-the-gods-2025": {
+      "studyId": "projection-colorado-june-2025",
+      "indices": [
+        0,
+        1,
+        null
+      ],
+      "defaultIndex": 0
+    },
+    "point-lookout-2015": {
+      "studyId": "projection-legacy-point-lookout-2015",
+      "indices": [
+        0,
+        null,
+        1,
+        2,
+        3,
+        4
+      ],
+      "defaultIndex": 0
+    },
+    "projection-metadata-candidate-foreign-bahamas-20241219-20241220": {
+      "studyId": "projection-december-cruise-2024",
+      "indices": [
+        4
+      ],
+      "defaultIndex": 4
+    },
+    "projection-metadata-candidate-us-new-jersey-20241217-20241217": {
+      "studyId": "projection-december-cruise-2024",
+      "indices": [
+        1
+      ],
+      "defaultIndex": 1
+    },
+    "projection-metadata-candidate-us-new-jersey-20241215-20241215": {
+      "studyId": "projection-december-cruise-2024",
+      "indices": [
+        0
+      ],
+      "defaultIndex": 0
+    },
+    "projection-metadata-candidate-us-pennsylvania-20230429-20230430": {
+      "studyId": "projection-philadelphia-spring-2023",
+      "indices": [
+        2
+      ],
+      "defaultIndex": 2
+    },
+    "projection-metadata-candidate-us-pennsylvania-20230423-20230423": {
+      "studyId": "projection-philadelphia-spring-2023",
+      "indices": [
+        1
+      ],
+      "defaultIndex": 1
+    },
+    "projection-metadata-candidate-us-pennsylvania-20230331-20230406": {
+      "studyId": "projection-bala-cynwyd-spring-2023",
+      "indices": [
+        null,
+        0,
+        1,
+        2
+      ],
+      "defaultIndex": 0
     }
   }
 }
