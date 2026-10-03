@@ -58,7 +58,6 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
             const k = studyCover(s);
             return (
               <li>
-                {s.journey?.title && (idx === 0 || studies[idx - 1]?.journey?.id !== s.journey.id) && <span class="oz-journey">{s.journey.title}</span>}
                 <a class="oz-row" href={`#${s.id}`} data-study={idx} aria-label={`${s.place}, ${dateLabel(s)}, ${s.images.length} images`}>
                   <span class="oz-thumb" style={`--avg:${k.avg}`}>
                     <img
