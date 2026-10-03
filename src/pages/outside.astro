@@ -1,0 +1,995 @@
+---
+export const prerender = true;
+import "../styles/global.css";
+import data from "@/data/outside-studies.json";
+
+type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string };
+type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
+type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
+type Alias = { studyId: string; indices: number[] };
+type SourceData = { studies?: Study[]; aliases?: Record<string, Alias> };
+
+const sourceData = data as SourceData;
+const fallbackImg: Img = { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 240'%3E%3Crect width='320' height='240' fill='%23050505'/%3E%3Ctext x='50%25' y='50%25' fill='%238d8b86' font-size='12' text-anchor='middle'%3ENO IMAGE DATA%3C/text%3E%3C/svg%3E", w: 320, h: 240, d: "", t: "", se: 1, ex: "", fl: "", cam: "", avg: "#050505" };
+const fallbackStudy: Study = { id: "no-studies", place: "No studies available", region: "", country: "", status: "PENDING", date: "", dateEnd: "", tz: "", key: 0, series: [{ start: 0, count: 1, time: "" }], images: [fallbackImg] };
+const validStudies = (sourceData.studies ?? []).filter((s) => Array.isArray(s.images) && s.images.length > 0);
+const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().sort((a, b) => (b.dateEnd || b.date || "").localeCompare(a.dateEnd || a.date || ""));
+const aliases = sourceData.aliases ?? {};
+const totalImages = studies.reduce((n, s) => n + s.images.length, 0);
+const first = studies[0];
+const firstImg = first.images[0] ?? fallbackImg;
+const studyCover = (s: Study) => s.images[s.key] ?? s.images[0] ?? fallbackImg;
+const pad = (n: number) => String(n).padStart(2, "0");
+const title = "Outside Studies | Asir Shahid";
+const dateLabel = (s: Study) => (s.dateEnd !== s.date ? `${s.date} to ${s.dateEnd.slice(5)}` : s.date);
+const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content="Photographs from elsewhere, hung like imaging studies." />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preload" as="image" href={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-l.webp`} media="(min-width: 900px)" />
+  </head>
+  <body class="oz">
+    <div class="oz-shell">
+      <header class="oz-top">
+        <div class="oz-brand">
+          <a href="/" class="oz-home">asir.dev</a>
+          <span class="oz-slash" aria-hidden="true">/</span>
+          <h1>Outside Studies</h1>
+        </div>
+        <p class="oz-topmeta"><span>XC</span><span>{studies.length} studies</span><span>{totalImages} images</span></p>
+        <button class="oz-helpbtn" type="button" data-help-open aria-label="Viewer shortcuts">?</button>
+      </header>
+
+      <aside class="oz-worklist" aria-label="Worklist">
+
+        <div class="oz-wlhead" aria-hidden="true"><span>Study</span><span>Status</span></div>
+        <ol class="oz-rows">
+          {studies.map((s, idx) => {
+            const k = studyCover(s);
+            return (
+              <li>
+                {s.journey?.title && (idx === 0 || studies[idx - 1]?.journey?.id !== s.journey.id) && <span class="oz-journey">{s.journey.title}</span>}
+                <a class="oz-row" href={`#${s.id}`} data-study={idx} aria-label={`${s.place}, ${dateLabel(s)}, ${s.images.length} images`}>
+                  <span class="oz-thumb" style={`--avg:${k.avg}`}>
+                    <img
+                      src={`${k.src}-s.webp`}
+                      srcset={`${k.src}-s.webp 360w, ${k.src}-m.webp 1080w`}
+                      sizes="(max-width: 899px) 100vw, 84px"
+                      width={k.w}
+                      height={k.h}
+                      alt=""
+                      loading={idx < 3 ? "eager" : "lazy"}
+                      decoding="async"
+                    />
+                  </span>
+                  <span class="oz-rowtext">
+                    <span class="oz-place">{s.place}</span>
+                    <span class="oz-sub">{dateLabel(s)} · {s.images.length} im</span>
+                    <span class="oz-sub oz-region">{where(s) || "Location pending"}</span>
+                  </span>
+                  <span class="oz-status" data-status={s.status}>{s.status}</span>
+                  <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{where(s) || "Location pending"}</span>
+                  <span class="oz-card-ov oz-card-tr" aria-hidden="true">XC · {pad(idx + 1)}/{pad(studies.length)}<br />{s.images.length} IM · {s.series.length} SE</span>
+                  <span class="oz-card-ov oz-card-bl" aria-hidden="true">{dateLabel(s)}</span>
+                  <span class="oz-card-ov oz-card-br" aria-hidden="true"><span data-status={s.status}>{s.status}</span></span>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+
+      </aside>
+
+      <section class="oz-reader" data-reader aria-label="Study viewer">
+        <div class="oz-tools" role="toolbar" aria-label="Viewer tools">
+          <button type="button" class="oz-close" data-close aria-label="Back to worklist"><span aria-hidden="true">←</span><span class="oz-close-label">Worklist</span></button>
+          <span class="oz-tooltitle" data-tooltitle>{first.place}</span>
+          <div class="oz-toolset">
+            <button type="button" data-tool="stack" aria-pressed="true"><kbd>S</kbd>Stack</button>
+            <button type="button" data-tool="wl" aria-pressed="false"><kbd>W</kbd>W/L</button>
+            <button type="button" data-cine aria-pressed="false"><kbd>C</kbd>Cine</button>
+            <button type="button" data-layout aria-pressed="false" class="oz-desktop-only"><kbd>L</kbd>2×2</button>
+            <button type="button" data-invert aria-pressed="false" class="oz-desktop-only"><kbd>I</kbd>Invert</button>
+            <button type="button" data-info aria-pressed="true"><kbd>O</kbd>Info</button>
+            <button type="button" data-reset class="oz-desktop-only"><kbd>R</kbd>Reset</button>
+          </div>
+        </div>
+
+        <div
+          class="oz-viewport"
+          data-viewport
+          tabindex="0"
+          role="application"
+          aria-roledescription="image stack viewer"
+          aria-label="Image stack. Arrow keys page through images. Page up and page down change series. N and P change study."
+        >
+          <div class="oz-cells" data-cells data-layout="1">
+            <div class="oz-cell" style={`--avg:${firstImg.avg}`}>
+              <img src={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-m.webp`} width={firstImg.w} height={firstImg.h} alt={`Photograph 1 of ${first.images.length}, ${first.place}`} draggable="false" decoding="async" loading="lazy" />
+              <span class="oz-cell-label"></span>
+            </div>
+          </div>
+          <div class="oz-ov oz-ov-tl" data-ov="tl"></div>
+          <div class="oz-ov oz-ov-tr" data-ov="tr"></div>
+          <div class="oz-ov oz-ov-bl" data-ov="bl"></div>
+          <div class="oz-ov oz-ov-br" data-ov="br"></div>
+          <div class="oz-stackbar" data-stackbar aria-hidden="true">
+            <div class="oz-stacktrack" data-stacktrack></div>
+            <div class="oz-stackthumb" data-stackthumb></div>
+          </div>
+          <p class="oz-hint" data-hint><span class="oz-hint-desk">Scroll or drag to page through · <kbd>?</kbd> for keys</span><span class="oz-hint-touch">Drag to scrub · tap the edges to step</span></p>
+        </div>
+
+        <nav class="oz-series" data-series aria-label="Series in this study"></nav>
+      </section>
+    </div>
+
+    <dialog class="oz-help" data-help>
+      <div class="oz-help-head">
+        <h2>Reading room shortcuts</h2>
+        <button type="button" data-help-close aria-label="Close shortcuts">×</button>
+      </div>
+      <dl>
+        <dt><kbd>↑</kbd><kbd>↓</kbd> <kbd>←</kbd><kbd>→</kbd> or wheel</dt><dd>Previous / next image</dd>
+        <dt>Drag on image</dt><dd>Scrub through the stack</dd>
+        <dt><kbd>PgUp</kbd><kbd>PgDn</kbd></dt><dd>Previous / next series</dd>
+        <dt><kbd>Home</kbd><kbd>End</kbd></dt><dd>First / last image</dd>
+        <dt><kbd>P</kbd><kbd>N</kbd></dt><dd>Previous / next study</dd>
+        <dt><kbd>C</kbd> or <kbd>Space</kbd></dt><dd>Cine loop; <kbd>[</kbd> <kbd>]</kbd> change speed</dd>
+        <dt><kbd>W</kbd></dt><dd>Window / level: drag sideways for contrast, up and down for brightness</dd>
+        <dt><kbd>S</kbd></dt><dd>Back to stack scrolling</dd>
+        <dt><kbd>L</kbd></dt><dd>Toggle 1×1 / 2×2 layout</dd>
+        <dt><kbd>I</kbd></dt><dd>Invert</dd>
+        <dt><kbd>O</kbd></dt><dd>Hide or show overlays</dd>
+        <dt><kbd>R</kbd> or double-click</dt><dd>Reset window / level</dd>
+      </dl>
+    </dialog>
+    <div class="oz-sr" aria-live="polite" data-live></div>
+
+    <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases })}></script>
+
+    <script>
+      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string };
+      type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
+      type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
+      type Alias = { studyId: string; indices: number[] };
+
+      const pageData = JSON.parse(document.getElementById("oz-data")!.textContent || "{}");
+      const studies: Study[] = pageData.studies;
+      const aliases: Record<string, Alias> = pageData.aliases ?? {};
+      const $ = <T extends HTMLElement = HTMLElement>(sel: string) => document.querySelector<T>(sel)!;
+      const desktopMQ = window.matchMedia("(min-width: 900px)");
+      const reduceMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const pad = (n: number) => String(n).padStart(2, "0");
+      const clamp = (v: number, lo: number, hi: number) => Math.max(lo, Math.min(hi, v));
+
+      const body = document.body;
+      const viewport = $("[data-viewport]");
+      const cells = $("[data-cells]");
+      const seriesNav = $("[data-series]");
+      const stackTrack = $("[data-stacktrack]");
+      const stackThumb = $("[data-stackthumb]");
+      const stackBar = $("[data-stackbar]");
+      const hint = $("[data-hint]");
+      const live = $("[data-live]");
+      const toolTitle = $("[data-tooltitle]");
+      const helpDialog = $<HTMLDialogElement>("[data-help]");
+      const ov = {
+        tl: $("[data-ov=tl]"),
+        tr: $("[data-ov=tr]"),
+        bl: $("[data-ov=bl]"),
+        br: $("[data-ov=br]"),
+      };
+      const rows = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-study]"));
+
+      const state = {
+        s: 0,
+        i: 0,
+        tool: "stack" as "stack" | "wl",
+        layout: 1 as 1 | 4,
+        cine: 0 as number,
+        fps: 0.5,
+        invert: false,
+        info: true,
+        W: 255,
+        L: 128,
+        open: false,
+        interacted: false,
+      };
+
+      const study = () => studies[state.s];
+      const seriesList = () => study().series.slice().sort((a, b) => a.start - b.start);
+      const seriesIndex = (i: number) => {
+        const list = seriesList();
+        let k = 0;
+        for (let j = 0; j < list.length; j++) if (list[j].start <= i) k = j;
+        return k;
+      };
+
+      // ---------- image cache: show a light proxy instantly, swap to full when decoded ----------
+      const cache = new Map<string, Promise<void>>();
+      const ready = new Set<string>();
+      const load = (url: string) => {
+        let p = cache.get(url);
+        if (!p) {
+          p = new Promise<void>((resolve, reject) => {
+            const im = new Image();
+            im.decoding = "async";
+            im.onload = () => { ready.add(url); resolve(); };
+            im.onerror = () => { cache.delete(url); reject(new Error(url)); };
+            im.src = url;
+          });
+          cache.set(url, p);
+        }
+        return p;
+      };
+      const fullUrl = (img: Img) => {
+        if (img.src.startsWith("data:")) return img.src;
+        const px = (viewport.clientWidth / (state.layout === 4 ? 2 : 1)) * (window.devicePixelRatio || 1);
+        return `${img.src}${px > 1400 ? "-l" : "-m"}.webp`;
+      };
+      const thumbUrl = (img: Img) => img.src.startsWith("data:") ? img.src : `${img.src}-s.webp`;
+
+      // ---------- rendering ----------
+      const makeCell = () => {
+        const cell = document.createElement("div");
+        cell.className = "oz-cell";
+        const im = document.createElement("img");
+        im.draggable = false;
+        im.decoding = "async";
+        const label = document.createElement("span");
+        label.className = "oz-cell-label";
+        cell.append(im, label);
+        return cell;
+      };
+      const ensureCells = () => {
+        const n = state.layout;
+        while (cells.children.length < n) cells.append(makeCell());
+        while (cells.children.length > n) cells.lastElementChild!.remove();
+        cells.dataset.layout = String(n);
+      };
+      const paintCell = (cell: HTMLElement, idx: number) => {
+        const st = study();
+        const img = st.images[idx];
+        const el = cell.querySelector("img")!;
+        const label = cell.querySelector<HTMLElement>(".oz-cell-label")!;
+        if (!img) {
+          cell.classList.add("is-empty");
+          el.removeAttribute("src");
+          el.alt = "";
+          label.textContent = "";
+          return;
+        }
+        cell.classList.remove("is-empty");
+        cell.style.setProperty("--avg", img.avg);
+        const full = fullUrl(img);
+        el.dataset.want = full;
+        el.width = img.w;
+        el.height = img.h;
+        el.alt = `Photograph ${idx + 1} of ${st.images.length}, ${st.place}`;
+        if (ready.has(full)) {
+          if (el.getAttribute("src") !== full) el.src = full;
+          el.classList.remove("is-proxy");
+        } else {
+          el.src = thumbUrl(img);
+          el.classList.add("is-proxy");
+          load(full).then(() => {
+            if (el.dataset.want === full) {
+              el.src = full;
+              el.classList.remove("is-proxy");
+            }
+          }).catch(() => {});
+        }
+        label.textContent = state.layout === 4 ? `IM ${idx + 1}` : "";
+      };
+
+      const line = (box: HTMLElement, items: Array<string | [string, string]>) => {
+        box.replaceChildren(
+          ...items.filter(Boolean).map((item) => {
+            const div = document.createElement("div");
+            if (Array.isArray(item)) {
+              div.className = item[1];
+              div.textContent = item[0];
+            } else div.textContent = item;
+            return div;
+          }),
+        );
+      };
+      const renderOverlay = () => {
+        const st = study();
+        const img = st.images[state.i];
+        const se = seriesIndex(state.i);
+        const where = [st.region, st.country].filter(Boolean).join(" · ") || "Location pending";
+        const date = st.dateEnd !== st.date ? `${st.date} to ${st.dateEnd.slice(5)}` : st.date;
+        line(ov.tl, [[st.place.toUpperCase(), "oz-ov-strong"], where.toUpperCase(), `STUDY ${date}`, `XC · ${pad(state.s + 1)}/${pad(studies.length)}`]);
+        line(ov.tr, [
+          "ASIR SHAHID",
+          `SE ${se + 1}/${st.series.length}   IM ${state.i + 1}/${st.images.length}`,
+          `${img.d}  ${img.t}`,
+          img.tz || st.tz,
+          state.i === st.key ? ["KEY IMAGE", "oz-ov-key"] : "",
+        ]);
+        line(ov.bl, [img.ex, img.fl, img.cam.toUpperCase()]);
+        line(ov.br, [
+          state.cine ? [`CINE ${state.fps} FPS`, "oz-ov-key"] : "",
+          state.invert ? "INVERTED" : "",
+          `W ${state.W}  L ${state.L}`,
+          [st.status, `oz-ov-status oz-st-${st.status.toLowerCase()}`],
+        ]);
+      };
+
+      const renderStackTicks = () => {
+        const st = study();
+        const n = st.images.length;
+        const pos = (k: number) => (n > 1 ? (k / (n - 1)) * 100 : 0);
+        stackTrack.replaceChildren(
+          ...seriesList().map((s, k) => {
+            const t = document.createElement("span");
+            t.className = k === 0 ? "oz-tick oz-tick-first" : "oz-tick";
+            t.style.top = `${pos(s.start)}%`;
+            return t;
+          }),
+          (() => {
+            const key = document.createElement("span");
+            key.className = "oz-tick oz-tick-key";
+            key.style.top = `${pos(st.key)}%`;
+            return key;
+          })(),
+        );
+      };
+      const renderStack = () => {
+        const n = study().images.length;
+        stackThumb.style.top = `${n > 1 ? (state.i / (n - 1)) * 100 : 0}%`;
+        stackThumb.dataset.label = String(state.i + 1);
+      };
+
+      const renderSeriesNav = () => {
+        const st = study();
+        seriesNav.replaceChildren(
+          ...seriesList().map((s, k) => {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "oz-se";
+            b.dataset.se = String(k);
+            const cover = Number.isInteger(s.key) && st.images[s.key!] ? s.key! : clamp(s.start, 0, st.images.length - 1);
+            const chapterDate = s.date ? (s.dateEnd && s.dateEnd !== s.date ? `${s.date} to ${s.dateEnd.slice(5)}` : s.date) : s.time;
+            const chapterName = s.title || `Series ${k + 1}`;
+            b.dataset.start = String(s.start);
+            b.dataset.key = String(cover);
+            b.setAttribute("aria-label", `Series ${k + 1}, ${chapterName}, ${chapterDate}, ${s.count} images, cover image ${cover + 1}`);
+            const im = document.createElement("img");
+            im.src = thumbUrl(st.images[cover] ?? st.images[s.start] ?? st.images[0]);
+            im.alt = "";
+            im.loading = "lazy";
+            im.decoding = "async";
+            const cap = document.createElement("span");
+            cap.className = "oz-se-cap";
+            const name = document.createElement("b");
+            name.textContent = `SE ${k + 1} · ${chapterName}`;
+            const detail = document.createElement("span");
+            detail.textContent = `${chapterDate} · ${s.count} im · KEY ${cover + 1}`;
+            cap.append(name, detail);
+            b.append(im, cap);
+            b.addEventListener("click", () => { cancelPendingTap(); touch(); stopCine(); state.i = clamp(s.start, 0, st.images.length - 1); render(); });
+            return b;
+          }),
+        );
+      };
+      const renderSeriesActive = () => {
+        const active = seriesIndex(state.i);
+        seriesNav.querySelectorAll<HTMLElement>(".oz-se").forEach((b, k) => {
+          const on = k === active;
+          b.classList.toggle("is-active", on);
+          if (on) b.setAttribute("aria-current", "true");
+          else b.removeAttribute("aria-current");
+        });
+        const activeEl = seriesNav.querySelector<HTMLElement>(".oz-se.is-active");
+        if (activeEl) {
+          const r = activeEl.getBoundingClientRect();
+          const nr = seriesNav.getBoundingClientRect();
+          if (r.left < nr.left || r.right > nr.right) {
+            seriesNav.scrollTo({ left: activeEl.offsetLeft - nr.width / 2 + r.width / 2, behavior: reduceMQ.matches ? "auto" : "smooth" });
+          }
+        }
+      };
+
+      const applyFilters = () => {
+        const c = 255 / state.W;
+        const b = 1 + (128 - state.L) / 160;
+        const parts = [];
+        if (state.invert) parts.push("invert(1)");
+        if (state.W !== 255) parts.push(`contrast(${c.toFixed(3)})`);
+        if (state.L !== 128) parts.push(`brightness(${b.toFixed(3)})`);
+        cells.style.filter = parts.join(" ");
+      };
+
+      const preloadAround = () => {
+        const imgs = study().images;
+        for (const k of [1, 2, -1, 3, -2, 4, 5]) {
+          const img = imgs[state.i + k];
+          if (img) load(fullUrl(img)).catch(() => {});
+        }
+      };
+
+      let hashTimer = 0;
+      const updateHash = () => {
+        window.clearTimeout(hashTimer);
+        hashTimer = window.setTimeout(() => {
+          const h = `#${study().id}/${state.i + 1}`;
+          if (location.hash !== h && (desktopMQ.matches || state.open)) history.replaceState(history.state, "", h);
+        }, 220);
+      };
+
+      let liveTimer = 0;
+      const announce = () => {
+        window.clearTimeout(liveTimer);
+        liveTimer = window.setTimeout(() => {
+          live.textContent = `${study().place}. Series ${seriesIndex(state.i) + 1}. Image ${state.i + 1} of ${study().images.length}.`;
+        }, 400);
+      };
+
+      const render = () => {
+        ensureCells();
+        Array.from(cells.children).forEach((c, k) => paintCell(c as HTMLElement, state.i + k));
+        renderOverlay();
+        renderStack();
+        renderSeriesActive();
+        applyFilters();
+        preloadAround();
+        updateHash();
+        announce();
+      };
+
+      // ---------- navigation ----------
+      const go = (delta: number, wrap = false) => {
+        const n = study().images.length;
+        let i = state.i + delta;
+        i = wrap ? ((i % n) + n) % n : clamp(i, 0, n - 1);
+        if (i !== state.i) {
+          state.i = i;
+          render();
+        }
+      };
+      const goSeries = (delta: number) => {
+        const list = seriesList();
+        const k = clamp(seriesIndex(state.i) + delta, 0, list.length - 1);
+        state.i = list[k].start;
+        render();
+      };
+
+      const openStudy = (s: number, i?: number, opts: { push?: boolean } = {}) => {
+        stopCine();
+        cancelPendingTap();
+        const changed = s !== state.s;
+        state.s = clamp(s, 0, studies.length - 1);
+        const st = study();
+        state.i = clamp(i ?? 0, 0, st.images.length - 1);
+        if (changed) { state.W = 255; state.L = 128; state.invert = false; syncButtons(); }
+        rows.forEach((r, k) => {
+          if (k === state.s) r.setAttribute("aria-current", "true");
+          else r.removeAttribute("aria-current");
+        });
+        toolTitle.textContent = st.place;
+        renderSeriesNav();
+        renderStackTicks();
+        if (changed && !reduceMQ.matches) {
+          cells.classList.remove("is-switching");
+          void cells.offsetWidth;
+          cells.classList.add("is-switching");
+        }
+        render();
+        st.images.forEach((img, k) => window.setTimeout(() => load(thumbUrl(img)).catch(() => {}), 40 + k * 12));
+        if (!desktopMQ.matches && !state.open) {
+          state.open = true;
+          body.classList.add("is-reading");
+          if (opts.push !== false) history.pushState({ oz: 1 }, "", `#${st.id}/${state.i + 1}`);
+          window.setTimeout(() => viewport.focus({ preventScroll: true }), 60);
+        }
+      };
+      const closeReader = () => {
+        if (!state.open) return;
+        cancelPendingTap();
+        stopCine();
+        state.open = false;
+        body.classList.remove("is-reading");
+        const row = rows[state.s];
+        if (row) row.focus({ preventScroll: true });
+      };
+
+      // ---------- tools ----------
+      const toolButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-tool]"));
+      const syncButtons = () => {
+        toolButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.tool === state.tool)));
+        $("[data-cine]").setAttribute("aria-pressed", String(Boolean(state.cine)));
+        $("[data-layout]").setAttribute("aria-pressed", String(state.layout === 4));
+        $("[data-invert]").setAttribute("aria-pressed", String(state.invert));
+        $("[data-info]").setAttribute("aria-pressed", String(state.info));
+        viewport.dataset.tool = state.tool;
+        body.classList.toggle("oz-noinfo", !state.info);
+      };
+      const setTool = (t: "stack" | "wl") => { state.tool = t; syncButtons(); };
+      const stopCine = () => {
+        if (state.cine) {
+          window.clearInterval(state.cine);
+          state.cine = 0;
+          syncButtons();
+          renderOverlay();
+        }
+      };
+      const startCine = () => {
+        stopCine();
+        state.cine = window.setInterval(() => go(1, true), 1000 / state.fps);
+        syncButtons();
+        renderOverlay();
+      };
+      const toggleCine = () => (state.cine ? stopCine() : startCine());
+      const cineRates = [0.25, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      const setFps = (direction: -1 | 1) => {
+        const index = Math.max(0, cineRates.indexOf(state.fps));
+        state.fps = cineRates[clamp(index + direction, 0, cineRates.length - 1)];
+        if (state.cine) startCine();
+      };
+      const toggleLayout = () => {
+        if (!desktopMQ.matches) return;
+        state.layout = state.layout === 1 ? 4 : 1;
+        syncButtons();
+        render();
+      };
+      const resetView = () => {
+        state.W = 255;
+        state.L = 128;
+        state.invert = false;
+        syncButtons();
+        applyFilters();
+        renderOverlay();
+      };
+      const resetWindowLevel = () => {
+        state.W = 255;
+        state.L = 128;
+        applyFilters();
+        renderOverlay();
+      };
+      const touch = () => {
+        if (!state.interacted) {
+          state.interacted = true;
+          hint.classList.add("is-gone");
+        }
+      };
+
+      toolButtons.forEach((b) => b.addEventListener("click", () => setTool(b.dataset.tool as "stack" | "wl")));
+      $("[data-cine]").addEventListener("click", () => { touch(); toggleCine(); });
+      $("[data-layout]").addEventListener("click", toggleLayout);
+      $("[data-invert]").addEventListener("click", () => { state.invert = !state.invert; syncButtons(); applyFilters(); renderOverlay(); });
+      $("[data-info]").addEventListener("click", () => { state.info = !state.info; syncButtons(); });
+      $("[data-reset]").addEventListener("click", resetView);
+      $("[data-close]").addEventListener("click", () => {
+        if (history.state && history.state.oz) history.back();
+        else { closeReader(); history.replaceState(null, "", location.pathname); }
+      });
+      $("[data-help-open]").addEventListener("click", () => helpDialog.showModal());
+      $("[data-help-close]").addEventListener("click", () => helpDialog.close());
+      helpDialog.addEventListener("click", (e) => { if (e.target === helpDialog) helpDialog.close(); });
+
+      rows.forEach((row) =>
+        row.addEventListener("click", (e) => {
+          e.preventDefault();
+          openStudy(Number(row.dataset.study));
+          if (desktopMQ.matches) viewport.focus({ preventScroll: true });
+        }),
+      );
+
+      // ---------- input: wheel, drag, taps ----------
+      let wheelAcc = 0;
+      viewport.addEventListener(
+        "wheel",
+        (e) => {
+          e.preventDefault();
+          touch();
+          stopCine();
+          const unit = e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? 800 : 1;
+          const d = (Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * unit;
+          if (Math.abs(d) >= 60) { wheelAcc = 0; go(Math.sign(d)); return; }
+          wheelAcc += d;
+          while (Math.abs(wheelAcc) >= 26) {
+            go(Math.sign(wheelAcc));
+            wheelAcc -= Math.sign(wheelAcc) * 26;
+          }
+        },
+        { passive: false },
+      );
+
+      type Drag = { id: number; x: number; y: number; lx: number; ly: number; acc: number; W: number; L: number; moved: boolean; type: string; t: number };
+      let drag: Drag | null = null;
+      let pendingTap: { x: number; y: number; t: number; timer: number } | null = null;
+      const cancelPendingTap = () => {
+        if (pendingTap) window.clearTimeout(pendingTap.timer);
+        pendingTap = null;
+      };
+      const activateTap = (x: number) => {
+        if (state.tool !== "stack") return;
+        const r = viewport.getBoundingClientRect();
+        const fx = (x - r.left) / r.width;
+        if (fx > 0.62) go(1);
+        else if (fx < 0.38) go(-1);
+        else { state.info = !state.info; syncButtons(); }
+      };
+      viewport.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        if ((e.target as HTMLElement).closest(".oz-stackbar")) return;
+        viewport.setPointerCapture(e.pointerId);
+        drag = { id: e.pointerId, x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY, acc: 0, W: state.W, L: state.L, moved: false, type: e.pointerType, t: performance.now() };
+        viewport.classList.add("is-dragging");
+      });
+      viewport.addEventListener("pointermove", (e) => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const dx = e.clientX - drag.x;
+        const dy = e.clientY - drag.y;
+        if (!drag.moved && Math.hypot(dx, dy) > 6) { drag.moved = true; cancelPendingTap(); touch(); stopCine(); }
+        if (!drag.moved) return;
+        if (state.tool === "wl") {
+          state.W = clamp(Math.round(drag.W + dx * 1.1), 32, 510);
+          state.L = clamp(Math.round(drag.L - dy * 0.7), 0, 255);
+          applyFilters();
+          renderOverlay();
+          return;
+        }
+        const mdx = e.clientX - drag.lx;
+        const mdy = e.clientY - drag.ly;
+        drag.lx = e.clientX;
+        drag.ly = e.clientY;
+        const d = Math.abs(mdy) >= Math.abs(mdx) ? mdy : -mdx;
+        drag.acc += d;
+        const step = drag.type === "touch" ? 20 : 14;
+        while (Math.abs(drag.acc) >= step) {
+          go(Math.sign(drag.acc));
+          drag.acc -= Math.sign(drag.acc) * step;
+        }
+      });
+      const endDrag = (e: PointerEvent, cancelled = false) => {
+        if (!drag || e.pointerId !== drag.id) return;
+        if (cancelled) {
+          drag = null;
+          viewport.classList.remove("is-dragging");
+          cancelPendingTap();
+          return;
+        }
+        const wasTap = !drag.moved && performance.now() - drag.t < 450;
+        const type = drag.type;
+        drag = null;
+        viewport.classList.remove("is-dragging");
+        if (wasTap && type !== "mouse") {
+          touch();
+          stopCine();
+          const now = performance.now();
+          if (pendingTap && now - pendingTap.t <= 340 && Math.hypot(e.clientX - pendingTap.x, e.clientY - pendingTap.y) <= 40) {
+            cancelPendingTap();
+            resetWindowLevel();
+            return;
+          }
+          if (pendingTap) {
+            const previous = pendingTap;
+            cancelPendingTap();
+            activateTap(previous.x);
+          }
+          const tap = { x: e.clientX, y: e.clientY, t: now, timer: 0 };
+          tap.timer = window.setTimeout(() => {
+            if (pendingTap === tap) {
+              pendingTap = null;
+              activateTap(tap.x);
+            }
+          }, 340);
+          pendingTap = tap;
+        }
+      };
+      viewport.addEventListener("pointerup", (e) => endDrag(e));
+      viewport.addEventListener("pointercancel", (e) => endDrag(e, true));
+      viewport.addEventListener("dblclick", resetWindowLevel);
+
+      // stack position bar: click or drag to jump
+      let barDrag = false;
+      const barJump = (clientY: number) => {
+        const r = stackBar.getBoundingClientRect();
+        const n = study().images.length;
+        const i = Math.round(clamp((clientY - r.top) / r.height, 0, 1) * (n - 1));
+        if (i !== state.i) { state.i = i; render(); }
+      };
+      stackBar.addEventListener("pointerdown", (e) => {
+        e.stopPropagation();
+        barDrag = true;
+        stackBar.setPointerCapture(e.pointerId);
+        touch();
+        stopCine();
+        barJump(e.clientY);
+      });
+      stackBar.addEventListener("pointermove", (e) => { if (barDrag) barJump(e.clientY); });
+      stackBar.addEventListener("pointerup", () => { barDrag = false; });
+      stackBar.addEventListener("pointercancel", () => { barDrag = false; });
+
+      // ---------- keyboard ----------
+      document.addEventListener("keydown", (e) => {
+        if (helpDialog.open) return;
+        if (e.metaKey || e.ctrlKey || e.altKey) return;
+        const target = e.target as HTMLElement;
+        if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
+        if (e.key === "?") { e.preventDefault(); helpDialog.showModal(); return; }
+        if (!desktopMQ.matches && !state.open) return;
+        const k = e.key;
+        const handled = () => { e.preventDefault(); touch(); };
+        if (k === "ArrowDown" || k === "ArrowRight" || k === "j") { handled(); stopCine(); go(1); }
+        else if (k === "ArrowUp" || k === "ArrowLeft" || k === "k") { handled(); stopCine(); go(-1); }
+        else if (k === "PageDown") { handled(); stopCine(); goSeries(1); }
+        else if (k === "PageUp") { handled(); stopCine(); goSeries(-1); }
+        else if (k === "Home") { handled(); stopCine(); state.i = 0; render(); }
+        else if (k === "End") { handled(); stopCine(); state.i = study().images.length - 1; render(); }
+        else if (k === "n" || k === "N") { handled(); openStudy((state.s + 1) % studies.length); }
+        else if (k === "p" || k === "P") { handled(); openStudy((state.s - 1 + studies.length) % studies.length); }
+        else if (k === "c" || k === "C" || (k === " " && (target === viewport || target === body))) { handled(); toggleCine(); }
+        else if (k === "]") { handled(); setFps(1); renderOverlay(); }
+        else if (k === "[") { handled(); setFps(-1); renderOverlay(); }
+        else if (k === "w" || k === "W") { handled(); setTool("wl"); }
+        else if (k === "s" || k === "S") { handled(); setTool("stack"); }
+        else if (k === "l" || k === "L") { handled(); toggleLayout(); }
+        else if (k === "i" || k === "I") { handled(); state.invert = !state.invert; syncButtons(); applyFilters(); renderOverlay(); }
+        else if (k === "o" || k === "O") { handled(); state.info = !state.info; syncButtons(); }
+        else if (k === "r" || k === "R") { handled(); resetView(); }
+        else if (k === "Escape" && state.open) {
+          e.preventDefault();
+          if (history.state && history.state.oz) history.back();
+          else closeReader();
+        }
+      });
+
+      // ---------- routing ----------
+      const parseHash = () => {
+        const m = location.hash.slice(1).match(/^([\w-]+)(?:\/(\d+))?$/);
+        if (!m) return null;
+        const s = studies.findIndex((st) => st.id === m[1]);
+        const oldIndex = m[2] ? Number(m[2]) - 1 : undefined;
+        if (s >= 0) return { s, i: oldIndex };
+        const alias = aliases[m[1]];
+        if (!alias) return null;
+        const target = studies.findIndex((st) => st.id === alias.studyId);
+        if (target < 0) return null;
+        return { s: target, i: oldIndex === undefined ? undefined : alias.indices[oldIndex] };
+      };
+      window.addEventListener("popstate", () => {
+        const target = parseHash();
+        if (!desktopMQ.matches) {
+          if (!target && state.open) closeReader();
+          else if (target && !state.open) openStudy(target.s, target.i, { push: false });
+        } else if (target) openStudy(target.s, target.i);
+      });
+      let resizeTimer = 0;
+      window.addEventListener("resize", () => {
+        window.clearTimeout(resizeTimer);
+        resizeTimer = window.setTimeout(() => {
+          if (!desktopMQ.matches && state.layout === 4) state.layout = 1;
+          if (desktopMQ.matches && state.open) { state.open = false; body.classList.remove("is-reading"); }
+          syncButtons();
+          render();
+        }, 120);
+      });
+
+      // ---------- boot ----------
+      syncButtons();
+      const initial = parseHash();
+      if (desktopMQ.matches) {
+        openStudy(initial?.s ?? 0, initial?.i);
+      } else {
+        // Prepare the viewer without opening it; the worklist is the phone's landing view.
+        if (initial) {
+          history.replaceState(null, "", location.pathname);
+          state.s = -1;
+          openStudy(initial.s, initial.i);
+        }
+      }
+      window.setTimeout(() => hint.classList.add("is-gone"), 9000);
+      body.classList.add("is-ready");
+    </script>
+
+    <style is:global>
+      :root { color-scheme: dark; }
+      body.oz {
+        --bg: #050505;
+        --panel: #0a0a0a;
+        --panel-2: #121212;
+        --line: rgb(255 255 255 / 8%);
+        --line-2: rgb(255 255 255 / 15%);
+        --ink: #ebe9e4;
+        --mute: #8d8b86;
+        --dim: #5f5e5a;
+        --amber: #e7b25d;
+        --sans: "Outfit Variable", system-ui, sans-serif;
+        --mono: "Geist Mono Variable", ui-monospace, monospace;
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+        overscroll-behavior: none;
+      }
+      .oz kbd { font-family: var(--mono); font-size: .92em; }
+      .oz button { font: inherit; color: inherit; }
+      .oz-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+      /* ---------- shell ---------- */
+      .oz-shell { display: grid; grid-template-columns: 348px minmax(0, 1fr); grid-template-rows: 52px minmax(0, 1fr); height: 100dvh; }
+      .oz-top { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; padding: 0 18px; border-bottom: 1px solid var(--line); background: var(--bg); }
+      .oz-brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+      .oz-home { color: var(--mute); font-size: 14px; text-decoration: none; transition: color .15s; }
+      .oz-home:hover, .oz-home:focus-visible { color: var(--ink); }
+      .oz-slash { color: var(--dim); }
+      .oz-brand h1 { margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -.01em; white-space: nowrap; }
+      .oz-topmeta { display: flex; gap: 14px; margin: 0 0 0 auto; color: var(--mute); font: 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+      .oz-topmeta span:first-child { color: var(--amber); }
+      .oz-helpbtn { width: 30px; height: 30px; border: 1px solid var(--line-2); border-radius: 50%; background: transparent; color: var(--mute); font: 12px var(--mono); cursor: pointer; }
+      .oz-helpbtn:hover, .oz-helpbtn:focus-visible { color: var(--ink); border-color: var(--mute); }
+
+      /* ---------- worklist (desktop) ---------- */
+      .oz-worklist { overflow-y: auto; border-right: 1px solid var(--line); background: var(--panel); scrollbar-width: thin; scrollbar-color: #2a2a2a transparent; }
+      .oz-wlhead { display: flex; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid var(--line); color: var(--dim); font: 9.5px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+      .oz-rows { margin: 0; padding: 0; list-style: none; }
+      .oz-journey { display: block; padding: 12px 20px 2px; color: var(--dim); font: 9.5px/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+      .oz-row { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 12px 20px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: background .15s; }
+      .oz-row:hover { background: #0f0f0f; }
+      .oz-row[aria-current="true"] { background: var(--panel-2); }
+      .oz-row:focus-visible { outline: 1px solid var(--amber); outline-offset: -1px; }
+      .oz-thumb { display: block; overflow: hidden; aspect-ratio: 4 / 3; background: var(--avg, #111); }
+      .oz-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: .82; transition: opacity .2s; }
+      .oz-row:hover .oz-thumb img, .oz-row[aria-current="true"] .oz-thumb img { opacity: 1; }
+      .oz-row[aria-current="true"] .oz-thumb { box-shadow: 0 0 0 1px var(--amber); }
+      .oz-rowtext { display: flex; min-width: 0; flex-direction: column; gap: 3px; padding-top: 1px; }
+      .oz-place { overflow: hidden; font-size: 15.5px; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
+      .oz-sub { overflow: hidden; color: var(--mute); font: 10.5px/1.45 var(--mono); text-overflow: ellipsis; white-space: nowrap; }
+      .oz-region { color: var(--dim); text-transform: uppercase; letter-spacing: .04em; }
+      .oz-status { padding-top: 3px; font: 9.5px var(--mono); letter-spacing: .1em; }
+      [data-status="FINAL"] { color: var(--ink); }
+      [data-status="PRELIM"] { color: var(--amber); }
+      [data-status="PENDING"] { color: var(--dim); }
+      .oz-card-ov { display: none; }
+
+
+      /* ---------- reader ---------- */
+      .oz-reader { display: grid; grid-template-rows: 44px minmax(0, 1fr) 104px; min-width: 0; min-height: 0; background: #000; }
+      .oz-tools { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 0 12px 0 16px; border-bottom: 1px solid var(--line); background: var(--bg); }
+      .oz-close { display: none; }
+      .oz-tooltitle { overflow: hidden; color: var(--mute); font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
+      .oz-toolset { display: flex; margin-left: auto; }
+      .oz-toolset button { display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 11px; border: 0; background: none; color: var(--mute); font: 10.5px var(--mono); letter-spacing: .09em; text-transform: uppercase; cursor: pointer; transition: color .15s; }
+      .oz-toolset button kbd { color: var(--dim); font-size: 9.5px; }
+      .oz-toolset button:hover, .oz-toolset button:focus-visible { color: var(--ink); }
+      .oz-toolset button[aria-pressed="true"] { color: var(--amber); }
+      .oz-toolset button[aria-pressed="true"] kbd { color: color-mix(in srgb, var(--amber) 60%, transparent); }
+      .oz-toolset button:focus-visible { outline: 1px solid var(--amber); outline-offset: -6px; }
+
+      .oz-viewport { position: relative; overflow: hidden; min-height: 0; background: #000; cursor: ns-resize; touch-action: none; user-select: none; -webkit-user-select: none; outline: none; }
+      .oz-viewport[data-tool="wl"] { cursor: crosshair; }
+      .oz-viewport:focus-visible { box-shadow: inset 0 0 0 1px rgb(231 178 93 / 45%); }
+      .oz-cells { position: absolute; inset: 0; display: grid; gap: 1px; background: #1a1a1a; }
+      .oz-cells[data-layout="1"] { grid-template: 1fr / 1fr; background: #000; }
+      .oz-cells[data-layout="4"] { grid-template: 1fr 1fr / 1fr 1fr; }
+      .oz-cells.is-switching { animation: oz-switch .22s ease-out; }
+      @keyframes oz-switch { from { opacity: .25; } to { opacity: 1; } }
+      .oz-cell { position: relative; overflow: hidden; min-width: 0; min-height: 0; background: #000; }
+      .oz-cell img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+      .oz-cell img.is-proxy { image-rendering: auto; }
+      .oz-cell.is-empty::after { position: absolute; inset: 0; display: grid; place-items: center; color: var(--dim); font: 10px var(--mono); letter-spacing: .14em; content: "END OF STACK"; }
+      .oz-cell-label { position: absolute; bottom: 8px; left: 10px; color: rgb(235 233 228 / 80%); font: 10px var(--mono); text-shadow: 0 1px 2px #000; }
+
+      .oz-ov { position: absolute; z-index: 2; max-width: 46%; color: rgb(235 233 228 / 88%); font: 10.5px/1.55 var(--mono); letter-spacing: .04em; text-shadow: 0 0 2px #000, 0 1px 3px rgb(0 0 0 / 90%); pointer-events: none; transition: opacity .2s; white-space: pre; }
+      .oz-ov div { overflow: hidden; text-overflow: ellipsis; }
+      .oz-ov-tl { top: 12px; left: 16px; }
+      .oz-ov-tr { top: 12px; right: 40px; text-align: right; }
+      .oz-ov-bl { bottom: 12px; left: 16px; }
+      .oz-ov-br { bottom: 12px; right: 40px; text-align: right; }
+      .oz-ov-strong { color: #fff; font-weight: 600; }
+      .oz-ov-key { color: var(--amber); }
+      .oz-st-final { color: #fff; }
+      .oz-st-prelim { color: var(--amber); }
+      .oz-st-pending { color: var(--mute); }
+      .oz-noinfo .oz-ov, .oz-noinfo .oz-cell-label { opacity: 0; }
+      .oz-viewport:has(.oz-cells[data-layout="4"]) .oz-ov-bl { opacity: 0; }
+
+      .oz-stackbar { position: absolute; z-index: 3; top: 76px; right: 6px; bottom: 76px; width: 24px; cursor: pointer; touch-action: none; }
+      .oz-stacktrack { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: rgb(255 255 255 / 16%); }
+      .oz-tick { position: absolute; left: -4px; width: 9px; height: 1px; background: rgb(255 255 255 / 45%); }
+      .oz-tick-key { left: -2px; width: 5px; height: 5px; margin-top: -2px; background: var(--amber); }
+      .oz-stackthumb { position: absolute; left: 50%; width: 14px; height: 3px; margin: -1px 0 0 -7px; background: var(--ink); box-shadow: 0 0 0 1px #000; pointer-events: none; }
+      .oz-stackthumb::after { position: absolute; top: 50%; right: 18px; color: var(--ink); font: 9.5px var(--mono); text-shadow: 0 1px 2px #000; transform: translateY(-50%); content: attr(data-label); }
+
+      .oz-hint { position: absolute; z-index: 3; bottom: 64px; left: 50%; margin: 0; padding: 7px 12px; border: 1px solid var(--line-2); border-radius: 999px; background: rgb(5 5 5 / 78%); color: var(--mute); font: 10.5px var(--mono); white-space: nowrap; transform: translateX(-50%); transition: opacity .5s; pointer-events: none; }
+      .oz-hint.is-gone { opacity: 0; }
+      .oz-hint-touch { display: none; }
+      @media (hover: none) and (pointer: coarse) { .oz-hint-desk { display: none; } .oz-hint-touch { display: inline; } }
+
+      .oz-series { display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px; border-top: 1px solid var(--line); background: var(--bg); scrollbar-width: none; }
+      .oz-series::-webkit-scrollbar { display: none; }
+      .oz-se { display: flex; flex: 0 0 auto; flex-direction: column; gap: 5px; width: 104px; min-width: 0; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+      .oz-se img { display: block; width: 104px; height: 58px; object-fit: cover; opacity: .6; outline: 1px solid transparent; outline-offset: 0; transition: opacity .15s; }
+      .oz-se:hover img, .oz-se.is-active img { opacity: 1; }
+      .oz-se.is-active img { outline-color: var(--amber); }
+      .oz-se-cap { display: flex; flex-direction: column; gap: 1px; min-width: 0; color: var(--mute); font: 9.5px/1.35 var(--mono); letter-spacing: .04em; white-space: nowrap; }
+      .oz-se-cap > * { overflow: hidden; text-overflow: ellipsis; }
+      .oz-se-cap b { color: var(--ink); font-weight: 500; }
+      .oz-se.is-active .oz-se-cap b { color: var(--amber); }
+      .oz-se:focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; }
+
+      /* ---------- help dialog ---------- */
+      .oz-help { width: min(560px, calc(100vw - 32px)); margin: auto; padding: 22px 24px 18px; border: 1px solid var(--line-2); background: #0b0b0b; color: var(--ink); }
+      .oz-help::backdrop { background: rgb(0 0 0 / 70%); }
+      .oz-help-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+      .oz-help h2 { margin: 0; font-size: 17px; font-weight: 500; }
+      .oz-help-head button { width: 32px; height: 32px; border: 0; background: none; color: var(--mute); font-size: 20px; cursor: pointer; }
+      .oz-help dl { display: grid; grid-template-columns: max-content 1fr; gap: 9px 22px; margin: 0; font-size: 13px; }
+      .oz-help dt { color: var(--mute); font: 11px/1.7 var(--mono); }
+      .oz-help dd { margin: 0; line-height: 1.5; }
+      .oz-help kbd { display: inline-block; min-width: 18px; margin-right: 3px; padding: 0 4px; border: 1px solid var(--line-2); border-radius: 3px; color: var(--ink); text-align: center; }
+
+      /* ---------- phone ---------- */
+      @media (max-width: 899px) {
+        .oz-shell { display: block; height: auto; min-height: 100dvh; }
+        .oz-top { position: sticky; z-index: 5; top: 0; height: 52px; padding: 0 16px; padding-top: env(safe-area-inset-top); background: rgb(5 5 5 / 92%); }
+        .oz-topmeta { display: none; }
+        .oz-helpbtn { display: none; }
+        .oz-brand { flex: 1; }
+        .oz-worklist { overflow: visible; border: 0; background: var(--bg); }
+        .oz-wlhead { display: none; }
+        .oz-rows { display: grid; gap: 14px; padding: 0 12px; }
+        .oz-journey { padding: 0 2px; }
+        .oz-row { display: block; overflow: hidden; padding: 0; border: 0; aspect-ratio: 4 / 3; background: #0d0d0d; }
+        .oz-row[aria-current="true"] { background: #0d0d0d; }
+        .oz-thumb { position: absolute; inset: 0; aspect-ratio: auto; }
+        .oz-thumb img { opacity: 1; }
+        .oz-row[aria-current="true"] .oz-thumb { box-shadow: none; }
+        .oz-row::before, .oz-row::after { position: absolute; z-index: 1; right: 0; left: 0; height: 38%; content: ""; pointer-events: none; }
+        .oz-row::before { top: 0; background: linear-gradient(rgb(0 0 0 / 55%), transparent); }
+        .oz-row::after { bottom: 0; background: linear-gradient(transparent, rgb(0 0 0 / 55%)); }
+        .oz-rowtext, .oz-row > .oz-status { display: none; }
+        .oz-card-ov { position: absolute; z-index: 2; display: block; color: rgb(240 238 233 / 92%); font: 10px/1.5 var(--mono); letter-spacing: .05em; text-shadow: 0 1px 2px rgb(0 0 0 / 80%); text-transform: uppercase; }
+        .oz-card-ov b { color: #fff; font: 500 19px/1.15 var(--sans); letter-spacing: -.01em; text-transform: none; }
+        .oz-card-tl { top: 12px; left: 14px; max-width: 62%; }
+        .oz-card-tr { top: 14px; right: 14px; text-align: right; }
+        .oz-card-bl { bottom: 12px; left: 14px; }
+        .oz-card-br { bottom: 12px; right: 14px; }
+
+
+        .oz-reader { position: fixed; z-index: 20; inset: 0; display: none; grid-template-rows: calc(48px + env(safe-area-inset-top)) minmax(0, 1fr) calc(92px + env(safe-area-inset-bottom)); }
+        body.is-reading { overflow: hidden; }
+        body.is-reading .oz-reader { display: grid; animation: oz-open .22s ease-out; }
+        @keyframes oz-open { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
+        .oz-tools { gap: 4px; padding: env(safe-area-inset-top) 4px 0 0; }
+        .oz-close { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 6px; height: 48px; padding: 0 10px 0 14px; border: 0; background: none; color: var(--ink); font: 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+        .oz-close span:first-child { font-size: 17px; }
+        .oz-close-label { display: none; }
+        .oz-tooltitle { flex: 1; color: var(--ink); font-size: 14px; }
+        .oz-desktop-only { display: none !important; }
+        .oz-toolset button { height: 48px; padding: 0 9px; }
+        .oz-toolset button kbd { display: none; }
+        .oz-ov { font-size: 9.5px; max-width: 58%; }
+        .oz-ov-tl { top: 10px; left: 12px; }
+        .oz-ov-tr { top: 10px; right: 34px; }
+        .oz-ov-bl { bottom: 10px; left: 12px; }
+        .oz-ov-br { bottom: 10px; right: 34px; }
+        .oz-ov-bl div:nth-child(3) { display: none; }
+        .oz-stackbar { top: 92px; bottom: 92px; right: 2px; }
+        .oz-hint { bottom: 72px; }
+        .oz-series { padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
+        .oz-se { width: 84px; }
+        .oz-se img { width: 84px; height: 48px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .oz *, .oz *::before, .oz *::after { animation: none !important; transition: none !important; }
+      }
+    </style>
+  </body>
+</html>
