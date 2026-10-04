@@ -17,6 +17,8 @@ NEW_DUPLICATE_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C484",
     "/outside/assets/owner-review/additional-trips/A460",
     "/outside/assets/owner-review/additional-trips/A508",
+    "/outside/assets/owner-review/additional-trips/A505",
+    "/outside/assets/owner-review/additional-trips/A514",
 }
 DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-scout-browser"))

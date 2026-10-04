@@ -5081,7 +5081,7 @@
       "series": [
         {
           "start": 0,
-          "count": 16,
+          "count": 14,
           "time": "12:50:40",
           "title": "Resort interiors & displays",
           "key": 0,
@@ -5169,19 +5169,6 @@
           "tz": "UTC-07:00"
         },
         {
-          "src": "/outside/assets/owner-review/additional-trips/A505",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-14",
-          "t": "15:16:34",
-          "se": 1,
-          "ex": "ISO 500  1/60 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
           "tz": "UTC-07:00",
           "cam": "OnePlus 11 5G",
           "h": 1920,
@@ -5216,19 +5203,6 @@
           "se": 1,
           "ex": "ISO 50  1/115 s  f/2",
           "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A514",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-14",
-          "t": "16:30:56",
-          "se": 1,
-          "ex": "ISO 200  1/60 s  f/1.8",
-          "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC-07:00"
@@ -7281,28 +7255,28 @@
       "targets": [
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
+          "index": 6
+        },
+        {
+          "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 7
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 8
+          "index": 9
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 11
+          "index": 12
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 15
+          "index": 13
         }
       ],
       "defaultTarget": {
         "studyId": "las-vegas-2025-june-gallery-20261004",
-        "index": 7
+        "index": 6
       }
     },
     "projection-colorado-june-2025": {
@@ -8182,68 +8156,68 @@
       "targets": [
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 11
+          "index": 9
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 11
+          "index": 9
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
+          "index": 12
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
+          "index": 12
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
+          "index": 12
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
+          "index": 12
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
+          "index": 12
         }
       ],
       "defaultTarget": {
         "studyId": "las-vegas-2025-june-gallery-20261004",
-        "index": 7
+        "index": 6
       }
     },
     "garden-of-the-gods": {
@@ -8607,36 +8581,36 @@
       "targets": [
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 7
+          "index": 6
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 11
+          "index": 9
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
+          "index": 12
         }
       ],
       "defaultTarget": {
         "studyId": "las-vegas-2025-june-gallery-20261004",
-        "index": 7
+        "index": 6
       }
     },
     "projection-metadata-candidate-us-nevada-20250614-20250614": {
       "targets": [
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 8
+          "index": 7
         },
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 15
+          "index": 13
         }
       ],
       "defaultTarget": {
         "studyId": "las-vegas-2025-june-gallery-20261004",
-        "index": 8
+        "index": 7
       }
     },
     "projection-australia-2026-expanded": {
@@ -9708,6 +9682,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 3
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 6
@@ -9716,6 +9691,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 7
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 8
@@ -9740,19 +9716,11 @@
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 13
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 15
         }
       ],
       "defaultTarget": {
         "studyId": "las-vegas-2025-june-gallery-20261004",
-        "index": 7
+        "index": 6
       }
     },
     "projection-colorado-june-2025-expanded": {
@@ -11550,6 +11518,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 3
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 6
@@ -11558,6 +11527,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 7
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 8
@@ -11582,14 +11552,6 @@
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 13
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 15
         }
       ],
       "defaultTarget": {
@@ -13042,6 +13004,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 3
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 6
@@ -13050,6 +13013,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 7
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 8
@@ -13074,14 +13038,6 @@
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 13
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 15
         }
       ],
       "defaultTarget": {
@@ -15799,6 +15755,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 5
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 6
@@ -15807,6 +15764,7 @@
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 7
         },
+        null,
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 8
@@ -15831,14 +15789,6 @@
         {
           "studyId": "las-vegas-2025-june-gallery-20261004",
           "index": 13
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 14
-        },
-        {
-          "studyId": "las-vegas-2025-june-gallery-20261004",
-          "index": 15
         }
       ],
       "defaultTarget": {

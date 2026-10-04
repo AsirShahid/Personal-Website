@@ -19,6 +19,8 @@ DUPLICATE_GROUPS = {
     "/outside/assets/owner-review/core-trips/C484": "/outside/assets/owner-review/core-trips/C483",
     "/outside/assets/owner-review/additional-trips/A460": "/outside/assets/owner-review/additional-trips/A459",
     "/outside/assets/owner-review/additional-trips/A508": "/outside/assets/additional-trips/0507",
+    "/outside/assets/owner-review/additional-trips/A505": "/outside/study-0614/007",
+    "/outside/assets/owner-review/additional-trips/A514": "/outside/study-0614/012",
 }
 OWNER_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C538",
@@ -45,7 +47,7 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 443))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 441))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
@@ -220,7 +222,7 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_approved_vegas_and_atlanta_groups_are_chronological_and_source_bound(self):
         vegas = self.studies["las-vegas-2025-june-gallery-20261004"]
-        self.assertEqual((vegas["date"], vegas["dateEnd"], len(vegas["images"]), vegas["status"]), ("2025-06-14", "2025-06-14", 16, "PENDING"))
+        self.assertEqual((vegas["date"], vegas["dateEnd"], len(vegas["images"]), vegas["status"]), ("2025-06-14", "2025-06-14", 14, "PENDING"))
         vegas_sources = [image["src"] for image in vegas["images"]]
         resort_sources = [
             "/outside/assets/owner-review/additional-trips/A484",

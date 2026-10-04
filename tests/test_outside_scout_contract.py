@@ -27,6 +27,8 @@ DUPLICATE_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C484",
     "/outside/assets/owner-review/additional-trips/A460",
     "/outside/assets/owner-review/additional-trips/A508",
+    "/outside/assets/owner-review/additional-trips/A505",
+    "/outside/assets/owner-review/additional-trips/A514",
 }
 PARENT_ROUTES = json.loads((ROOT / "tests/fixtures/outside-20261004-parent-route-bindings.json").read_text())
 
