@@ -1,10 +1,10 @@
 {
   "studies": [
     {
-      "id": "projection-new-zealand-2026-expanded",
+      "id": "new-zealand-2026-july",
       "place": "New Zealand",
       "region": "New Zealand",
-      "country": "NZ",
+      "country": "New Zealand",
       "status": "PRELIM",
       "date": "2026-07-17",
       "dateEnd": "2026-07-19",
@@ -14,8 +14,8 @@
         {
           "start": 0,
           "count": 4,
-          "time": "12:52",
-          "title": "July 17, 2026",
+          "time": "12:52:46",
+          "title": "Auckland streets & tower",
           "key": 0,
           "date": "2026-07-17",
           "dateEnd": "2026-07-17"
@@ -23,8 +23,8 @@
         {
           "start": 4,
           "count": 16,
-          "time": "11:13",
-          "title": "July 18, 2026",
+          "time": "11:13:58",
+          "title": "Woodland streams",
           "key": 4,
           "date": "2026-07-18",
           "dateEnd": "2026-07-18"
@@ -32,8 +32,8 @@
         {
           "start": 20,
           "count": 1,
-          "time": "08:08",
-          "title": "July 19, 2026",
+          "time": "08:08:51",
+          "title": "Rural pastures",
           "key": 20,
           "date": "2026-07-19",
           "dateEnd": "2026-07-19"
@@ -336,10 +336,10 @@
       }
     },
     {
-      "id": "projection-australia-2026-expanded-retained-20261004",
+      "id": "australia-2026-july",
       "place": "Australia",
-      "region": "Western Australia (archived state label)",
-      "country": "AU",
+      "region": "Western Australia",
+      "country": "Australia",
       "status": "PRELIM",
       "date": "2026-07-07",
       "dateEnd": "2026-07-16",
@@ -349,8 +349,8 @@
         {
           "start": 0,
           "count": 2,
-          "time": "16:43",
-          "title": "July 7, 2026",
+          "time": "16:43:56",
+          "title": "Busselton Jetty",
           "key": 0,
           "date": "2026-07-07",
           "dateEnd": "2026-07-07"
@@ -358,8 +358,8 @@
         {
           "start": 2,
           "count": 6,
-          "time": "11:23",
-          "title": "July 8, 2026",
+          "time": "11:23:55",
+          "title": "Lighthouse & rocky shore",
           "key": 2,
           "date": "2026-07-08",
           "dateEnd": "2026-07-08"
@@ -367,8 +367,8 @@
         {
           "start": 8,
           "count": 5,
-          "time": "12:41",
-          "title": "July 10, 2026",
+          "time": "12:41:11",
+          "title": "Rocky surf & lakeside",
           "key": 8,
           "date": "2026-07-10",
           "dateEnd": "2026-07-10"
@@ -376,8 +376,8 @@
         {
           "start": 13,
           "count": 3,
-          "time": "14:59",
-          "title": "July 11, 2026",
+          "time": "14:59:36",
+          "title": "Turquoise bays & art",
           "key": 13,
           "date": "2026-07-11",
           "dateEnd": "2026-07-11"
@@ -385,8 +385,8 @@
         {
           "start": 16,
           "count": 6,
-          "time": "12:12",
-          "title": "July 13, 2026",
+          "time": "12:12:37",
+          "title": "Beaches & sunset coast",
           "key": 16,
           "date": "2026-07-13",
           "dateEnd": "2026-07-13"
@@ -394,8 +394,8 @@
         {
           "start": 22,
           "count": 5,
-          "time": "13:32",
-          "title": "July 14, 2026",
+          "time": "13:32:01",
+          "title": "Rock pools & waterfall",
           "key": 22,
           "date": "2026-07-14",
           "dateEnd": "2026-07-14"
@@ -403,8 +403,8 @@
         {
           "start": 27,
           "count": 9,
-          "time": "11:59",
-          "title": "July 16, 2026",
+          "time": "11:59:34",
+          "title": "Public art & towns",
           "key": 27,
           "date": "2026-07-16",
           "dateEnd": "2026-07-16"
@@ -902,10 +902,10 @@
       }
     },
     {
-      "id": "metadata-review-foreign-thailand-20260706-20260706",
-      "place": "Metadata review · Lat Krabang",
-      "region": "Bangkok",
-      "country": "TH",
+      "id": "thailand-2026-july",
+      "place": "Thailand",
+      "region": "Location unconfirmed",
+      "country": "Thailand",
       "status": "PENDING",
       "date": "2026-07-06",
       "dateEnd": "2026-07-06",
@@ -915,8 +915,8 @@
         {
           "start": 0,
           "count": 1,
-          "time": "06:49",
-          "title": "July 6, 2026",
+          "time": "06:49:57",
+          "title": "Gilded shrine & garden",
           "key": 0,
           "date": "2026-07-06",
           "dateEnd": "2026-07-06"
@@ -939,10 +939,10 @@
       ]
     },
     {
-      "id": "projection-pakistan-2026-expanded",
+      "id": "pakistan-2026-summer",
       "place": "Pakistan",
       "region": "Pakistan",
-      "country": "PK",
+      "country": "Pakistan",
       "status": "PRELIM",
       "date": "2026-06-28",
       "dateEnd": "2026-07-05",
@@ -952,8 +952,8 @@
         {
           "start": 0,
           "count": 7,
-          "time": "18:03",
-          "title": "June 28, 2026",
+          "time": "18:03:06",
+          "title": "Gardens & heritage",
           "key": 0,
           "date": "2026-06-28",
           "dateEnd": "2026-06-28"
@@ -961,8 +961,8 @@
         {
           "start": 7,
           "count": 1,
-          "time": "16:24",
-          "title": "July 1, 2026",
+          "time": "16:24:56",
+          "title": "Misty hillside cable car",
           "key": 7,
           "date": "2026-07-01",
           "dateEnd": "2026-07-01"
@@ -970,8 +970,8 @@
         {
           "start": 8,
           "count": 10,
-          "time": "10:36",
-          "title": "July 2, 2026",
+          "time": "10:36:37",
+          "title": "Hill-station & market",
           "key": 8,
           "date": "2026-07-02",
           "dateEnd": "2026-07-02"
@@ -979,8 +979,8 @@
         {
           "start": 18,
           "count": 2,
-          "time": "13:47",
-          "title": "July 3, 2026",
+          "time": "13:47:20",
+          "title": "Forest trails",
           "key": 18,
           "date": "2026-07-03",
           "dateEnd": "2026-07-03"
@@ -988,8 +988,8 @@
         {
           "start": 20,
           "count": 2,
-          "time": "19:24",
-          "title": "July 4, 2026",
+          "time": "19:24:04",
+          "title": "Geometric mosque interior",
           "key": 20,
           "date": "2026-07-04",
           "dateEnd": "2026-07-04"
@@ -997,8 +997,8 @@
         {
           "start": 22,
           "count": 8,
-          "time": "18:55",
-          "title": "July 5, 2026",
+          "time": "18:55:02",
+          "title": "Courtyard & arches",
           "key": 22,
           "date": "2026-07-05",
           "dateEnd": "2026-07-05"
@@ -1418,10 +1418,80 @@
       }
     },
     {
-      "id": "projection-rome-2026-expanded",
-      "place": "Rome",
-      "region": "Rome / Vatican City metadata cluster",
-      "country": "IT / VA",
+      "id": "albania-2026-june",
+      "place": "Albania",
+      "region": "Albania",
+      "country": "Albania",
+      "status": "PRELIM",
+      "date": "2026-06-25",
+      "dateEnd": "2026-06-25",
+      "tz": "",
+      "key": 1,
+      "series": [
+        {
+          "start": 0,
+          "count": 2,
+          "time": "11:04:32",
+          "title": "Albanian valley & hills",
+          "key": 0,
+          "date": "2026-06-25",
+          "dateEnd": "2026-06-25"
+        }
+      ],
+      "images": [
+        {
+          "src": "/outside/assets/owner-review/summer-2026/S0076",
+          "w": 4096,
+          "h": 3072,
+          "d": "2026-06-25",
+          "t": "11:04:32",
+          "se": 1,
+          "ex": "ISO 50  1/2615 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC+02:00"
+        },
+        {
+          "tz": "UTC+2",
+          "cam": "OnePlus 11 5G",
+          "h": 3072,
+          "avg": "#111111",
+          "t": "11:10:29",
+          "src": "/outside/assets/summer-2026/0084",
+          "ex": "ISO 125  1/50 s  f/1.8",
+          "d": "2026-06-25",
+          "se": 1,
+          "w": 4096,
+          "fl": "5.59 mm"
+        }
+      ],
+      "journey": {
+        "id": "summer-2026",
+        "title": "Summer 2026",
+        "state": "optional_user-confirmed_journey_heading",
+        "study_ids_forward_chronological": [
+          "rome-2026",
+          "albania-2026",
+          "pakistan-2026",
+          "australia-2026",
+          "new-zealand-2026"
+        ],
+        "study_ids_worklist_contract_order": [
+          "new-zealand-2026",
+          "australia-2026",
+          "pakistan-2026",
+          "albania-2026",
+          "rome-2026"
+        ],
+        "note": "Optional heading only; studies remain independently addressable; no empty Turkey/Thailand placeholders. Country/date membership is still distinct from proof of each frame’s exact place."
+      }
+    },
+    {
+      "id": "rome-vatican-2026-june",
+      "place": "Rome & Vatican City",
+      "region": "",
+      "country": "Italy · Vatican City",
       "status": "PRELIM",
       "date": "2026-06-24",
       "dateEnd": "2026-06-25",
@@ -1431,8 +1501,8 @@
         {
           "start": 0,
           "count": 9,
-          "time": "17:53",
-          "title": "June 24, 2026",
+          "time": "17:53:39",
+          "title": "Trevi Fountain & piazza",
           "key": 0,
           "date": "2026-06-24",
           "dateEnd": "2026-06-24"
@@ -1440,8 +1510,8 @@
         {
           "start": 9,
           "count": 1,
-          "time": "05:01",
-          "title": "June 25, 2026",
+          "time": "05:01:50",
+          "title": "Rome rooftops at dusk",
           "key": 9,
           "date": "2026-06-25",
           "dateEnd": "2026-06-25"
@@ -1601,80 +1671,10 @@
       }
     },
     {
-      "id": "projection-albania-2026-expanded-retained-20261004",
-      "place": "Albania",
-      "region": "Albania",
-      "country": "AL",
-      "status": "PRELIM",
-      "date": "2026-06-25",
-      "dateEnd": "2026-06-25",
-      "tz": "",
-      "key": 1,
-      "series": [
-        {
-          "start": 0,
-          "count": 2,
-          "time": "11:04",
-          "title": "June 25, 2026",
-          "key": 0,
-          "date": "2026-06-25",
-          "dateEnd": "2026-06-25"
-        }
-      ],
-      "images": [
-        {
-          "src": "/outside/assets/owner-review/summer-2026/S0076",
-          "w": 4096,
-          "h": 3072,
-          "d": "2026-06-25",
-          "t": "11:04:32",
-          "se": 1,
-          "ex": "ISO 50  1/2615 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC+02:00"
-        },
-        {
-          "tz": "UTC+2",
-          "cam": "OnePlus 11 5G",
-          "h": 3072,
-          "avg": "#111111",
-          "t": "11:10:29",
-          "src": "/outside/assets/summer-2026/0084",
-          "ex": "ISO 125  1/50 s  f/1.8",
-          "d": "2026-06-25",
-          "se": 1,
-          "w": 4096,
-          "fl": "5.59 mm"
-        }
-      ],
-      "journey": {
-        "id": "summer-2026",
-        "title": "Summer 2026",
-        "state": "optional_user-confirmed_journey_heading",
-        "study_ids_forward_chronological": [
-          "rome-2026",
-          "albania-2026",
-          "pakistan-2026",
-          "australia-2026",
-          "new-zealand-2026"
-        ],
-        "study_ids_worklist_contract_order": [
-          "new-zealand-2026",
-          "australia-2026",
-          "pakistan-2026",
-          "albania-2026",
-          "rome-2026"
-        ],
-        "note": "Optional heading only; studies remain independently addressable; no empty Turkey/Thailand placeholders. Country/date membership is still distinct from proof of each frame’s exact place."
-      }
-    },
-    {
-      "id": "projection-galapagos-2026-expanded-retained-20261004",
+      "id": "galapagos-2026-january",
       "place": "Galápagos",
-      "region": "Galápagos / Ecuador",
-      "country": "EC",
+      "region": "Galápagos",
+      "country": "Ecuador",
       "status": "PRELIM",
       "date": "2026-01-13",
       "dateEnd": "2026-01-22",
@@ -1684,8 +1684,8 @@
         {
           "start": 0,
           "count": 5,
-          "time": "14:23",
-          "title": "January 13, 2026",
+          "time": "14:23:14",
+          "title": "Bay & rocky shore",
           "key": 0,
           "date": "2026-01-13",
           "dateEnd": "2026-01-13"
@@ -1693,8 +1693,8 @@
         {
           "start": 5,
           "count": 21,
-          "time": "09:04",
-          "title": "January 14, 2026",
+          "time": "09:04:54",
+          "title": "Harbor & waterfront",
           "key": 5,
           "date": "2026-01-14",
           "dateEnd": "2026-01-14"
@@ -1702,8 +1702,8 @@
         {
           "start": 26,
           "count": 1,
-          "time": "17:06",
-          "title": "January 15, 2026",
+          "time": "17:06:25",
+          "title": "Sea lion at shore",
           "key": 26,
           "date": "2026-01-15",
           "dateEnd": "2026-01-15"
@@ -1711,8 +1711,8 @@
         {
           "start": 27,
           "count": 8,
-          "time": "10:53",
-          "title": "January 16, 2026",
+          "time": "10:53:39",
+          "title": "Wildlife by shore",
           "key": 27,
           "date": "2026-01-16",
           "dateEnd": "2026-01-16"
@@ -1720,8 +1720,8 @@
         {
           "start": 35,
           "count": 10,
-          "time": "10:57",
-          "title": "January 17, 2026",
+          "time": "10:57:05",
+          "title": "Pond & wading birds",
           "key": 35,
           "date": "2026-01-17",
           "dateEnd": "2026-01-17"
@@ -1729,8 +1729,8 @@
         {
           "start": 45,
           "count": 17,
-          "time": "08:08",
-          "title": "January 18, 2026",
+          "time": "08:08:29",
+          "title": "Highland trail & coast",
           "key": 45,
           "date": "2026-01-18",
           "dateEnd": "2026-01-18"
@@ -1738,8 +1738,8 @@
         {
           "start": 62,
           "count": 6,
-          "time": "14:03",
-          "title": "January 19, 2026",
+          "time": "14:03:54",
+          "title": "Lizard on island path",
           "key": 62,
           "date": "2026-01-19",
           "dateEnd": "2026-01-19"
@@ -1747,8 +1747,8 @@
         {
           "start": 68,
           "count": 14,
-          "time": "13:45",
-          "title": "January 20, 2026",
+          "time": "13:45:07",
+          "title": "Green hills boardwalk",
           "key": 68,
           "date": "2026-01-20",
           "dateEnd": "2026-01-20"
@@ -1756,8 +1756,8 @@
         {
           "start": 82,
           "count": 11,
-          "time": "08:19",
-          "title": "January 21, 2026",
+          "time": "08:19:12",
+          "title": "Sea lions & boulders",
           "key": 82,
           "date": "2026-01-21",
           "dateEnd": "2026-01-21"
@@ -1765,8 +1765,8 @@
         {
           "start": 93,
           "count": 4,
-          "time": "09:24",
-          "title": "January 22, 2026",
+          "time": "09:24:15",
+          "title": "Scrub-covered headland",
           "key": 93,
           "date": "2026-01-22",
           "dateEnd": "2026-01-22"
@@ -3037,42 +3037,51 @@
       ]
     },
     {
-      "id": "projection-metadata-candidate-foreign-canada-20251127-20251130-expanded-retained-20261004",
-      "place": "Canada · November 2025",
+      "id": "montreal-november-2025",
+      "place": "Montréal",
       "region": "",
-      "country": "",
+      "country": "Canada",
       "status": "PENDING",
       "date": "2025-11-27",
-      "dateEnd": "2025-11-29",
+      "dateEnd": "2025-11-30",
       "tz": "",
-      "key": 1,
+      "key": 2,
       "series": [
         {
           "start": 0,
           "count": 1,
-          "time": "15:05",
-          "title": "November 27, 2025",
+          "time": "15:05:23",
+          "title": "Church & street",
           "key": 0,
           "date": "2025-11-27",
           "dateEnd": "2025-11-27"
         },
         {
           "start": 1,
-          "count": 3,
-          "time": "18:11",
-          "title": "November 28, 2025",
-          "key": 1,
+          "count": 6,
+          "time": "12:44:13",
+          "title": "Atrium & lights",
+          "key": 2,
           "date": "2025-11-28",
           "dateEnd": "2025-11-28"
         },
         {
-          "start": 4,
-          "count": 4,
-          "time": "10:30",
-          "title": "November 29, 2025",
-          "key": 4,
+          "start": 7,
+          "count": 15,
+          "time": "08:53:02",
+          "title": "Conservatory & displays",
+          "key": 7,
           "date": "2025-11-29",
           "dateEnd": "2025-11-29"
+        },
+        {
+          "start": 22,
+          "count": 1,
+          "time": "09:04:22",
+          "title": "Snowy skyline overlook",
+          "key": 22,
+          "date": "2025-11-30",
+          "dateEnd": "2025-11-30"
         }
       ],
       "images": [
@@ -3088,6 +3097,20 @@
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC-05:00"
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/9f66ed3d10fc475a8f42abfb575be76d",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-28",
+          "t": "12:44:13",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/153 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#8C8372",
+          "alt": "Pools and a small stream among large rocks beneath the conservatory canopy.",
+          "se": 2
         },
         {
           "tz": "UTC-5",
@@ -3116,6 +3139,20 @@
           "fl": "5.59 mm"
         },
         {
+          "src": "/outside/assets/montreal-november-album-gap/554160d1b6974b60b8e76578d8dea053",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-28",
+          "t": "22:12:39",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 2500  1/12 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#3D3B46",
+          "alt": "A blue-lit wheel rises beyond a railed walkway beneath a clouded night sky.",
+          "se": 2
+        },
+        {
           "tz": "UTC-5",
           "cam": "OnePlus 11 5G",
           "h": 4000,
@@ -3127,6 +3164,34 @@
           "se": 2,
           "w": 3000,
           "fl": "2.59 mm"
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/41cf508f486b4da9b03be64cdbff2a5e",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-28",
+          "t": "22:38:19",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 200  1/40 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#62584C",
+          "alt": "A full illuminated reindeer display with warm lights and holiday accents.",
+          "se": 2
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/34e357635b5342598897ced546289bde",
+          "w": 4000,
+          "h": 3000,
+          "d": "2025-11-29",
+          "t": "08:53:02",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 100  1/60 s  f/2.2",
+          "fl": "2.59 mm",
+          "avg": "#575B6C",
+          "alt": "A blue winter display in a multilevel indoor atrium, framed by balconies.",
+          "se": 3
         },
         {
           "tz": "UTC-5",
@@ -3168,6 +3233,62 @@
           "fl": "5.59 mm"
         },
         {
+          "src": "/outside/assets/montreal-november-album-gap/b22bfc4984d84c3da436b340ced226d2",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-11-29",
+          "t": "10:43:14",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/549 s  f/2",
+          "fl": "7.08 mm",
+          "avg": "#78786D",
+          "alt": "A miniature shaped tree is displayed above yellow flowers and orange-red foliage.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/ffb478d8dc7149fa9d63cfd50474c6be",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-29",
+          "t": "10:44:44",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus 11 5G",
+          "ex": "ISO 50  1/340 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#737367",
+          "alt": "Barrel cacti and succulents fill a dry garden bed, with agaves behind.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/4f447a01a3c149f2b00a15a8949aaba7",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-29",
+          "t": "10:45:03",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/969 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#696C6A",
+          "alt": "A large agave and other succulents rise beneath a glass conservatory roof.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/1d1b7cf25e154d238e7a2040d0c6a1f7",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-29",
+          "t": "10:45:55",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/546 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#717270",
+          "alt": "Barrel cacti and branching succulents spread across a desert-style bed beneath glass.",
+          "se": 3
+        },
+        {
           "src": "/outside/assets/owner-review/additional-trips/A237",
           "w": 3072,
           "h": 4096,
@@ -3179,14 +3300,112 @@
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC-05:00"
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/310d75581c1b4617ac0bf0992d7ef3ce",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-29",
+          "t": "10:47:23",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/355 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#6A7673",
+          "alt": "Water cascades over dark stones among broad leaves beneath the conservatory roof.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/4a9d46fd8bf945e2967862509e4f2f68",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-11-29",
+          "t": "11:39:36",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/1292 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#727265",
+          "alt": "A broad arched glass roof spans a planted rock garden and fern-filled floor.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/92d81d07c9f94ed2ad3f98c20a69be97",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-29",
+          "t": "11:39:41",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/1061 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#6C705D",
+          "alt": "Dense greenery and a rock feature sit beside a garden path inside the conservatory.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/cbb5878dfa614fb6b3a7a11b32069f3c",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-29",
+          "t": "11:43:29",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/1249 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#646F57",
+          "alt": "A broad leaf frames lush indoor planting beneath the glass roof.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/349bca4aafe94ef7b5a0ff0f28a1bb97",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-29",
+          "t": "21:00:57",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/191 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#576162",
+          "alt": "Colorful strands of lights hang above reflections in a nighttime installation.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/88533b795fdb4d7990b4d94054341906",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-29",
+          "t": "21:24:51",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 320  1/21 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#800C12",
+          "alt": "A tall red-lit, tree-like installation glows at night.",
+          "se": 3
+        },
+        {
+          "src": "/outside/assets/montreal-november-album-gap/50687dc46ae34c23be92b217abb3de9f",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-11-30",
+          "t": "09:04:22",
+          "tz": "UTC-05:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 50  1/340 s  f/1.8",
+          "fl": "5.59 mm",
+          "avg": "#999D9C",
+          "alt": "Bare winter trees and snow frame a hazy city skyline from an elevated overlook.",
+          "se": 4
         }
       ]
     },
     {
-      "id": "projection-metadata-candidate-us-georgia-20251025-20251025-expanded",
-      "place": "Georgia · October 2025",
-      "region": "United States",
-      "country": "US",
+      "id": "georgia-2025-october",
+      "place": "Georgia",
+      "region": "Georgia",
+      "country": "United States",
       "status": "PENDING",
       "date": "2025-10-25",
       "dateEnd": "2025-10-25",
@@ -3196,8 +3415,8 @@
         {
           "start": 0,
           "count": 1,
-          "time": "13:52",
-          "title": "October 25, 2025",
+          "time": "13:52:02",
+          "title": "Garden walk",
           "key": 0,
           "date": "2025-10-25",
           "dateEnd": "2025-10-25"
@@ -3220,10 +3439,10 @@
       ]
     },
     {
-      "id": "projection-american-southwest-2025-expanded-retained-20261004",
+      "id": "american-southwest-2025-october",
       "place": "American Southwest",
       "region": "American Southwest",
-      "country": "US",
+      "country": "United States",
       "status": "PRELIM",
       "date": "2025-10-09",
       "dateEnd": "2025-10-14",
@@ -3233,54 +3452,63 @@
         {
           "start": 0,
           "count": 21,
-          "time": "11:41",
-          "title": "October 9, 2025",
           "key": 0,
+          "time": "11:41:14",
+          "title": "Desert plants & rocks",
           "date": "2025-10-09",
           "dateEnd": "2025-10-09"
         },
         {
           "start": 21,
           "count": 14,
-          "time": "15:32",
-          "title": "October 10, 2025",
           "key": 21,
+          "time": "15:32:02",
+          "title": "Canyon & layered cliffs",
           "date": "2025-10-10",
           "dateEnd": "2025-10-10"
         },
         {
           "start": 35,
           "count": 19,
-          "time": "08:06",
-          "title": "October 11, 2025",
           "key": 35,
+          "time": "08:06:34",
+          "title": "Red-rock canyon",
           "date": "2025-10-11",
           "dateEnd": "2025-10-11"
         },
         {
           "start": 54,
           "count": 18,
-          "time": "11:35",
-          "title": "October 12, 2025",
           "key": 54,
+          "time": "11:35:45",
+          "title": "Peaks & green valley",
           "date": "2025-10-12",
           "dateEnd": "2025-10-12"
         },
         {
           "start": 72,
-          "count": 33,
-          "time": "08:04",
-          "title": "October 13, 2025",
+          "count": 1,
           "key": 72,
+          "time": "22:42:19",
+          "title": "Utah night sky",
+          "date": "2025-10-12",
+          "dateEnd": "2025-10-12"
+        },
+        {
+          "start": 73,
+          "count": 31,
+          "key": 73,
+          "time": "08:04:23",
+          "title": "Red-rock creek walk",
           "date": "2025-10-13",
           "dateEnd": "2025-10-13"
         },
         {
-          "start": 105,
-          "count": 6,
-          "time": "12:08",
-          "title": "October 14, 2025",
-          "key": 105,
+          "start": 104,
+          "count": 5,
+          "key": 104,
+          "time": "12:29:35",
+          "title": "Dam tunnel & views",
           "date": "2025-10-14",
           "dateEnd": "2025-10-14"
         }
@@ -4223,12 +4451,26 @@
           "fl": "5.59 mm  (24 mm eq)"
         },
         {
+          "src": "/outside/assets/utah-night-sky-2025/utah-night-sky-01",
+          "w": 1536,
+          "h": 2048,
+          "d": "2025-10-12",
+          "t": "22:42:19",
+          "tz": "UTC-06:00",
+          "cam": "OnePlus OnePlus 11 5G",
+          "ex": "ISO 6400  30 s  f/1.8",
+          "fl": "5.6 mm",
+          "avg": "#3065b9",
+          "alt": "A field of stars against a blue night sky in Utah.",
+          "se": 5
+        },
+        {
           "src": "/outside/assets/owner-review/core-trips/C416",
           "w": 4096,
           "h": 3072,
           "d": "2025-10-13",
           "t": "08:04:23",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/260 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4241,7 +4483,7 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "08:12:06",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/154 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4257,7 +4499,7 @@
           "src": "/outside/assets/core-trips/0431",
           "ex": "ISO 50  1/315 s  f/1.8",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 4096,
           "fl": "5.59 mm"
         },
@@ -4267,7 +4509,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "08:35:30",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/315 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4283,7 +4525,7 @@
           "src": "/outside/assets/core-trips/0436",
           "ex": "ISO 50  1/311 s  f/1.8",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 3072,
           "fl": "5.59 mm"
         },
@@ -4293,7 +4535,7 @@
           "h": 4000,
           "d": "2025-10-13",
           "t": "09:04:31",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/108 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4306,7 +4548,7 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "09:04:35",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/105 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4319,7 +4561,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "09:29:58",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/3877 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4332,7 +4574,7 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "09:32:43",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/2527 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4348,7 +4590,7 @@
           "src": "/outside/assets/core-trips/0458",
           "ex": "ISO 64  1/200 s  f/2",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 2352,
           "fl": "7.08 mm"
         },
@@ -4358,7 +4600,7 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "09:59:05",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/2527 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4371,7 +4613,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "09:59:07",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/7027 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4384,7 +4626,7 @@
           "h": 4096,
           "d": "2025-10-13",
           "t": "10:03:30",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/1081 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4397,7 +4639,7 @@
           "h": 4000,
           "d": "2025-10-13",
           "t": "10:05:15",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/1112 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4413,7 +4655,7 @@
           "src": "/outside/assets/core-trips/0479",
           "ex": "ISO 64  1/4164 s  f/1.8",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 3072,
           "fl": "5.59 mm"
         },
@@ -4423,7 +4665,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "10:15:57",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/1730 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4436,7 +4678,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "10:15:57",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/1730 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4452,7 +4694,7 @@
           "src": "/outside/assets/core-trips/0487",
           "ex": "ISO 50  1/2555 s  f/1.8",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 3072,
           "fl": "5.59 mm"
         },
@@ -4462,7 +4704,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "10:35:50",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/2204 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4475,7 +4717,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "11:15:27",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/2677 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4488,7 +4730,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "11:31:29",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/5621 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4501,7 +4743,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "12:26:23",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/4324 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4514,7 +4756,7 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "12:26:39",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/1183 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4527,35 +4769,9 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "12:27:50",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/1090 s  f/2.2",
           "fl": "2.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-06:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C538",
-          "w": 3000,
-          "h": 4000,
-          "d": "2025-10-13",
-          "t": "12:35:59",
-          "se": 5,
-          "ex": "ISO 64  1/1183 s  f/2.2",
-          "fl": "2.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-06:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C542",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-10-13",
-          "t": "12:36:07",
-          "se": 5,
-          "ex": "ISO 64  1/3039 s  f/1.8",
-          "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC-06:00"
@@ -4566,7 +4782,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "12:39:55",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/2959 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4582,7 +4798,7 @@
           "src": "/outside/assets/core-trips/0562",
           "ex": "ISO 64  1/4888 s  f/1.8",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 4096,
           "fl": "5.59 mm"
         },
@@ -4592,7 +4808,7 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "13:45:27",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/4324 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4608,7 +4824,7 @@
           "src": "/outside/assets/core-trips/0586",
           "ex": "ISO 50  1/632 s  f/1.8",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 3072,
           "fl": "5.59 mm"
         },
@@ -4618,7 +4834,7 @@
           "h": 4000,
           "d": "2025-10-13",
           "t": "15:00:27",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/855 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4631,7 +4847,7 @@
           "h": 4000,
           "d": "2025-10-13",
           "t": "15:02:40",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 64  1/279 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4647,22 +4863,9 @@
           "src": "/outside/assets/core-trips/0608",
           "ex": "ISO 50  1/5110 s  f/1.8",
           "d": "2025-10-13",
-          "se": 5,
+          "se": 6,
           "w": 4096,
           "fl": "5.59 mm"
-        },
-        {
-          "tz": "UTC-07:00",
-          "cam": "OnePlus 11 5G",
-          "h": 1920,
-          "avg": "#635f57",
-          "t": "12:08:07",
-          "src": "/outside/hoover-dam/005",
-          "ex": "ISO 200  1/60 s  f/1.8",
-          "d": "2025-10-14",
-          "se": 6,
-          "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
         },
         {
           "tz": "UTC-7",
@@ -4673,7 +4876,7 @@
           "src": "/outside/assets/core-trips/0614",
           "ex": "ISO 64  1/5621 s  f/1.8",
           "d": "2025-10-14",
-          "se": 6,
+          "se": 7,
           "w": 4096,
           "fl": "5.59 mm"
         },
@@ -4686,7 +4889,7 @@
           "src": "/outside/hoover-dam/013",
           "ex": "ISO 1000  1/15 s  f/1.8",
           "d": "2025-10-14",
-          "se": 6,
+          "se": 7,
           "w": 1440,
           "fl": "5.59 mm  (24 mm eq)"
         },
@@ -4696,7 +4899,7 @@
           "h": 3072,
           "d": "2025-10-14",
           "t": "12:51:40",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 64  1/5621 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
@@ -4712,7 +4915,7 @@
           "src": "/outside/hoover-dam/017",
           "ex": "ISO 64  1/2316 s  f/2.2",
           "d": "2025-10-14",
-          "se": 6,
+          "se": 7,
           "w": 1440,
           "fl": "2.59 mm  (14 mm eq)"
         },
@@ -4725,17 +4928,17 @@
           "src": "/outside/hoover-dam/020",
           "ex": "ISO 50  1/6246 s  f/1.8",
           "d": "2025-10-14",
-          "se": 6,
+          "se": 7,
           "w": 1920,
           "fl": "5.59 mm  (24 mm eq)"
         }
       ]
     },
     {
-      "id": "projection-puerto-rico-october-2025-expanded-retained-20261004",
+      "id": "puerto-rico-2025-october",
       "place": "Puerto Rico",
       "region": "Puerto Rico",
-      "country": "PR",
+      "country": "Puerto Rico",
       "status": "PRELIM",
       "date": "2025-10-04",
       "dateEnd": "2025-10-04",
@@ -4744,9 +4947,9 @@
       "series": [
         {
           "start": 0,
-          "count": 5,
-          "time": "10:29",
-          "title": "October 4, 2025",
+          "count": 4,
+          "time": "10:29:39",
+          "title": "Surf & rocky shore",
           "key": 0,
           "date": "2025-10-04",
           "dateEnd": "2025-10-04"
@@ -4804,27 +5007,14 @@
           "se": 1,
           "w": 4096,
           "fl": "5.59 mm"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C941",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-10-04",
-          "t": "12:42:31",
-          "se": 1,
-          "ex": "ISO 250  1/40 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
         }
       ]
     },
     {
-      "id": "metadata-review-us-florida-20250913-20250913",
-      "place": "Metadata review · Celebration",
+      "id": "celebration-2025-september",
+      "place": "Celebration",
       "region": "Florida",
-      "country": "US",
+      "country": "United States",
       "status": "PENDING",
       "date": "2025-09-13",
       "dateEnd": "2025-09-13",
@@ -4834,8 +5024,8 @@
         {
           "start": 0,
           "count": 2,
-          "time": "18:06",
-          "title": "September 13, 2025",
+          "time": "18:06:24",
+          "title": "Aquarium & reef exhibits",
           "key": 0,
           "date": "2025-09-13",
           "dateEnd": "2025-09-13"
@@ -4870,8 +5060,8 @@
       ]
     },
     {
-      "id": "projection-legacy-woodland-walk-2025-expanded",
-      "place": "Rocky Woodland Paths · August 2025",
+      "id": "woodland-paths-2025-august",
+      "place": "Woodland paths",
       "region": "",
       "country": "",
       "status": "PENDING",
@@ -4883,8 +5073,8 @@
         {
           "start": 0,
           "count": 4,
-          "time": "14:54",
-          "title": "August 9, 2025",
+          "time": "14:54:38",
+          "title": "Woodland paths & overlooks",
           "key": 0,
           "date": "2025-08-09",
           "dateEnd": "2025-08-09"
@@ -4946,10 +5136,10 @@
       ]
     },
     {
-      "id": "projection-colorado-july-2025-expanded",
+      "id": "colorado-2025-july",
       "place": "Colorado",
       "region": "Colorado",
-      "country": "US",
+      "country": "United States",
       "status": "PRELIM",
       "date": "2025-07-26",
       "dateEnd": "2025-07-26",
@@ -4958,9 +5148,9 @@
       "series": [
         {
           "start": 0,
-          "count": 10,
-          "time": "12:21",
-          "title": "July 26, 2025",
+          "count": 9,
+          "time": "12:21:56",
+          "title": "Foothill trail & meadow",
           "key": 0,
           "date": "2025-07-26",
           "dateEnd": "2025-07-26"
@@ -5018,19 +5208,6 @@
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC-06:00"
-        },
-        {
-          "tz": "UTC-06:00",
-          "cam": "OnePlus 11 5G",
-          "h": 1440,
-          "avg": "#606259",
-          "t": "18:05:26",
-          "src": "/outside/study-0726/006",
-          "ex": "ISO 80  1/50 s  f/2.2",
-          "d": "2025-07-26",
-          "se": 1,
-          "w": 1920,
-          "fl": "2.59 mm  (14 mm eq)"
         },
         {
           "tz": "UTC-06:00",
@@ -5100,10 +5277,10 @@
       ]
     },
     {
-      "id": "metadata-puerto-rico-june-2025",
-      "place": "Puerto Rico · June 2025",
+      "id": "puerto-rico-2025-june",
+      "place": "Puerto Rico",
       "region": "Puerto Rico",
-      "country": "PR",
+      "country": "Puerto Rico",
       "status": "PENDING",
       "date": "2025-06-22",
       "dateEnd": "2025-06-22",
@@ -5113,8 +5290,8 @@
         {
           "start": 0,
           "count": 2,
-          "time": "10:09",
-          "title": "June 22, 2025",
+          "time": "10:09:05",
+          "title": "Beach & open water",
           "key": 0,
           "date": "2025-06-22",
           "dateEnd": "2025-06-22"
@@ -5150,351 +5327,10 @@
       ]
     },
     {
-      "id": "unsorted-review",
-      "place": "Unsorted review",
-      "region": "",
-      "country": "",
-      "status": "PENDING",
-      "date": "2023-05-14",
-      "dateEnd": "2025-06-18",
-      "tz": "",
-      "key": 0,
-      "series": [
-        {
-          "start": 0,
-          "count": 1,
-          "time": "16:03",
-          "title": "May 14, 2023",
-          "key": 0,
-          "date": "2023-05-14",
-          "dateEnd": "2023-05-14"
-        },
-        {
-          "start": 1,
-          "count": 4,
-          "time": "12:50",
-          "title": "June 14, 2025",
-          "key": 1,
-          "date": "2025-06-14",
-          "dateEnd": "2025-06-14"
-        },
-        {
-          "start": 5,
-          "count": 18,
-          "time": "15:37",
-          "title": "June 18, 2025",
-          "key": 5,
-          "date": "2025-06-18",
-          "dateEnd": "2025-06-18"
-        }
-      ],
-      "images": [
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A551",
-          "w": 4096,
-          "h": 3072,
-          "d": "2023-05-14",
-          "t": "16:03:57",
-          "se": 1,
-          "ex": "ISO 101  1/1235 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A484",
-          "w": 3000,
-          "h": 4000,
-          "d": "2025-06-14",
-          "t": "12:50:40",
-          "se": 2,
-          "ex": "ISO 800  1/24 s  f/2.2",
-          "fl": "2.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A488",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-06-14",
-          "t": "13:33:15",
-          "se": 2,
-          "ex": "ISO 50  1/1757 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A502",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-06-14",
-          "t": "14:29:55",
-          "se": 2,
-          "ex": "ISO 100  1/60 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A504",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-06-14",
-          "t": "14:30:05",
-          "se": 2,
-          "ex": "ISO 100  1/50 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A404",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-18",
-          "t": "15:37:19",
-          "se": 3,
-          "ex": "ISO 640  1/20 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A408",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-06-18",
-          "t": "15:38:55",
-          "se": 3,
-          "ex": "ISO 50  1/241 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A410",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-18",
-          "t": "15:49:27",
-          "se": 3,
-          "ex": "ISO 250  1/50 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A412",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-18",
-          "t": "15:52:54",
-          "se": 3,
-          "ex": "ISO 50  1/126 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A414",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-06-18",
-          "t": "16:07:22",
-          "se": 3,
-          "ex": "ISO 500  1/20 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A416",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-06-18",
-          "t": "16:07:24",
-          "se": 3,
-          "ex": "ISO 500  1/20 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A418",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:09:41",
-          "se": 3,
-          "ex": "ISO 400  1/46 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A420",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:09:44",
-          "se": 3,
-          "ex": "ISO 320  1/52 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A422",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:11:34",
-          "se": 3,
-          "ex": "ISO 400  1/46 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A426",
-          "w": 3136,
-          "h": 2352,
-          "d": "2025-06-18",
-          "t": "17:14:10",
-          "se": 3,
-          "ex": "ISO 500  1/40 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A428",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:14:26",
-          "se": 3,
-          "ex": "ISO 640  1/60 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A430",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:14:28",
-          "se": 3,
-          "ex": "ISO 640  1/60 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A432",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:15:01",
-          "se": 3,
-          "ex": "ISO 500  1/40 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A434",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-18",
-          "t": "17:16:19",
-          "se": 3,
-          "ex": "ISO 400  1/20 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A440",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:17:12",
-          "se": 3,
-          "ex": "ISO 640  1/40 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A443",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-18",
-          "t": "17:19:02",
-          "se": 3,
-          "ex": "ISO 1000  1/20 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A449",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:39:11",
-          "se": 3,
-          "ex": "ISO 160  1/60 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/additional-trips/A451",
-          "w": 2352,
-          "h": 3136,
-          "d": "2025-06-18",
-          "t": "17:39:14",
-          "se": 3,
-          "ex": "ISO 160  1/60 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-04:00"
-        }
-      ]
-    },
-    {
-      "id": "projection-metadata-candidate-us-georgia-20250618-20250618-expanded-retained-20261004",
-      "place": "Georgia · June 2025",
-      "region": "United States",
-      "country": "US",
+      "id": "georgia-2025-june",
+      "place": "Georgia",
+      "region": "Georgia",
+      "country": "United States",
       "status": "PENDING",
       "date": "2025-06-18",
       "dateEnd": "2025-06-18",
@@ -5504,8 +5340,8 @@
         {
           "start": 0,
           "count": 14,
-          "time": "10:44",
-          "title": "June 18, 2025",
+          "time": "10:44:16",
+          "title": "Fountain & gardens",
           "key": 0,
           "date": "2025-06-18",
           "dateEnd": "2025-06-18"
@@ -5697,10 +5533,268 @@
       ]
     },
     {
-      "id": "las-vegas-june-2025-expanded-retained-20261004",
-      "place": "Las Vegas · June 2025",
+      "status": "PENDING",
+      "tz": "",
+      "id": "aquarium-scenes-2025-june",
+      "place": "Aquarium scenes",
+      "region": "",
+      "country": "",
+      "key": 0,
+      "images": [
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A404",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-18",
+          "t": "15:37:19",
+          "se": 1,
+          "ex": "ISO 640  1/20 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A408",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-18",
+          "t": "15:38:55",
+          "se": 1,
+          "ex": "ISO 50  1/241 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A410",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-18",
+          "t": "15:49:27",
+          "se": 1,
+          "ex": "ISO 250  1/50 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A412",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-18",
+          "t": "15:52:54",
+          "se": 1,
+          "ex": "ISO 50  1/126 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A414",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-18",
+          "t": "16:07:22",
+          "se": 1,
+          "ex": "ISO 500  1/20 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A416",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-18",
+          "t": "16:07:24",
+          "se": 1,
+          "ex": "ISO 500  1/20 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A418",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:09:41",
+          "se": 1,
+          "ex": "ISO 400  1/46 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A420",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:09:44",
+          "se": 1,
+          "ex": "ISO 320  1/52 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A422",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:11:34",
+          "se": 1,
+          "ex": "ISO 400  1/46 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A426",
+          "w": 3136,
+          "h": 2352,
+          "d": "2025-06-18",
+          "t": "17:14:10",
+          "se": 1,
+          "ex": "ISO 500  1/40 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A428",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:14:26",
+          "se": 1,
+          "ex": "ISO 640  1/60 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A430",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:14:28",
+          "se": 1,
+          "ex": "ISO 640  1/60 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A432",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:15:01",
+          "se": 1,
+          "ex": "ISO 500  1/40 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A434",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-18",
+          "t": "17:16:19",
+          "se": 1,
+          "ex": "ISO 400  1/20 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A440",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:17:12",
+          "se": 1,
+          "ex": "ISO 640  1/40 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A443",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-18",
+          "t": "17:19:02",
+          "se": 1,
+          "ex": "ISO 1000  1/20 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A449",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:39:11",
+          "se": 1,
+          "ex": "ISO 160  1/60 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A451",
+          "w": 2352,
+          "h": 3136,
+          "d": "2025-06-18",
+          "t": "17:39:14",
+          "se": 1,
+          "ex": "ISO 160  1/60 s  f/2",
+          "fl": "7.08 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        }
+      ],
+      "date": "2025-06-18",
+      "dateEnd": "2025-06-18",
+      "series": [
+        {
+          "start": 0,
+          "count": 18,
+          "time": "15:37:19",
+          "title": "Aquarium & marine life",
+          "key": 0,
+          "date": "2025-06-18",
+          "dateEnd": "2025-06-18"
+        }
+      ]
+    },
+    {
+      "id": "las-vegas-june-14-2025",
+      "place": "Las Vegas",
       "region": "Nevada",
-      "country": "US",
+      "country": "United States",
       "status": "PENDING",
       "date": "2025-06-14",
       "dateEnd": "2025-06-14",
@@ -5710,8 +5804,8 @@
         {
           "start": 0,
           "count": 13,
-          "time": "13:49",
-          "title": "June 14, 2025",
+          "time": "13:49:18",
+          "title": "Resort interiors & displays",
           "key": 0,
           "date": "2025-06-14",
           "dateEnd": "2025-06-14"
@@ -5890,10 +5984,86 @@
       ]
     },
     {
-      "id": "projection-colorado-june-2025-expanded-retained-20261004",
+      "status": "PENDING",
+      "tz": "",
+      "id": "resort-scenes-2025-june",
+      "place": "Resort scenes",
+      "region": "",
+      "country": "",
+      "key": 0,
+      "images": [
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A484",
+          "w": 3000,
+          "h": 4000,
+          "d": "2025-06-14",
+          "t": "12:50:40",
+          "se": 1,
+          "ex": "ISO 800  1/24 s  f/2.2",
+          "fl": "2.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-07:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A488",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-14",
+          "t": "13:33:15",
+          "se": 1,
+          "ex": "ISO 50  1/1757 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-07:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A502",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-14",
+          "t": "14:29:55",
+          "se": 1,
+          "ex": "ISO 100  1/60 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-07:00"
+        },
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A504",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-14",
+          "t": "14:30:05",
+          "se": 1,
+          "ex": "ISO 100  1/50 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-07:00"
+        }
+      ],
+      "date": "2025-06-14",
+      "dateEnd": "2025-06-14",
+      "series": [
+        {
+          "start": 0,
+          "count": 4,
+          "time": "12:50:40",
+          "title": "Resort & fountains",
+          "key": 0,
+          "date": "2025-06-14",
+          "dateEnd": "2025-06-14"
+        }
+      ]
+    },
+    {
+      "id": "colorado-2025-june",
       "place": "Colorado",
       "region": "Colorado",
-      "country": "US",
+      "country": "United States",
       "status": "PRELIM",
       "date": "2025-06-07",
       "dateEnd": "2025-06-10",
@@ -5903,8 +6073,8 @@
         {
           "start": 0,
           "count": 10,
-          "time": "11:54",
-          "title": "June 7, 2025",
+          "time": "11:54:52",
+          "title": "Ski slopes & mountains",
           "key": 0,
           "date": "2025-06-07",
           "dateEnd": "2025-06-07"
@@ -5912,8 +6082,8 @@
         {
           "start": 10,
           "count": 2,
-          "time": "11:38",
-          "title": "June 8, 2025",
+          "time": "11:38:28",
+          "title": "Cave formations",
           "key": 10,
           "date": "2025-06-08",
           "dateEnd": "2025-06-08"
@@ -5921,8 +6091,8 @@
         {
           "start": 12,
           "count": 4,
-          "time": "14:07",
-          "title": "June 9, 2025",
+          "time": "14:07:05",
+          "title": "Pine ridge & valley",
           "key": 12,
           "date": "2025-06-09",
           "dateEnd": "2025-06-09"
@@ -5930,8 +6100,8 @@
         {
           "start": 16,
           "count": 8,
-          "time": "08:01",
-          "title": "June 10, 2025",
+          "time": "08:01:45",
+          "title": "Creek & whitewater",
           "key": 16,
           "date": "2025-06-10",
           "dateEnd": "2025-06-10"
@@ -6253,10 +6423,10 @@
       ]
     },
     {
-      "id": "metadata-review-us-massachusetts-20250504-20250504-retained-20261004",
-      "place": "Metadata review · Marlborough",
+      "id": "marlborough-2025-may",
+      "place": "Marlborough",
       "region": "Massachusetts",
-      "country": "US",
+      "country": "United States",
       "status": "PENDING",
       "date": "2025-05-04",
       "dateEnd": "2025-05-04",
@@ -6266,8 +6436,8 @@
         {
           "start": 0,
           "count": 1,
-          "time": "10:09",
-          "title": "May 4, 2025",
+          "time": "17:40:48",
+          "title": "Street market & fair",
           "key": 0,
           "date": "2025-05-04",
           "dateEnd": "2025-05-04"
@@ -6290,8 +6460,8 @@
       ]
     },
     {
-      "id": "projection-december-cruise-2024-expanded-retained-20261004",
-      "place": "December Cruise, 2024",
+      "id": "cruise-2024-december",
+      "place": "Cruise",
       "region": "",
       "country": "",
       "status": "PENDING",
@@ -6303,8 +6473,8 @@
         {
           "start": 0,
           "count": 1,
-          "time": "16:50",
-          "title": "December 15, 2024",
+          "time": "",
+          "title": "Pool deck at night",
           "key": 0,
           "date": "2024-12-15",
           "dateEnd": "2024-12-15"
@@ -6312,8 +6482,8 @@
         {
           "start": 1,
           "count": 1,
-          "time": "10:21",
-          "title": "December 17, 2024",
+          "time": "10:21:50",
+          "title": "Ship & open water",
           "key": 1,
           "date": "2024-12-17",
           "dateEnd": "2024-12-17"
@@ -6321,8 +6491,8 @@
         {
           "start": 2,
           "count": 2,
-          "time": "16:40",
-          "title": "December 18, 2024",
+          "time": "16:40:30",
+          "title": "Lighthouse at dusk",
           "key": 2,
           "date": "2024-12-18",
           "dateEnd": "2024-12-18"
@@ -6330,8 +6500,8 @@
         {
           "start": 4,
           "count": 2,
-          "time": "13:54",
-          "title": "December 19, 2024",
+          "time": "13:54:57",
+          "title": "Shore walk",
           "key": 4,
           "date": "2024-12-19",
           "dateEnd": "2024-12-19"
@@ -6339,8 +6509,8 @@
         {
           "start": 6,
           "count": 1,
-          "time": "17:03",
-          "title": "December 20, 2024",
+          "time": "17:03:22",
+          "title": "Cruise sunset",
           "key": 6,
           "date": "2024-12-20",
           "dateEnd": "2024-12-20"
@@ -6440,21 +6610,380 @@
       ]
     },
     {
-      "id": "projection-philadelphia-2023-retained-20261004",
-      "place": "Philadelphia · 2023",
+      "date": "2023-08-08",
+      "dateEnd": "2023-08-13",
+      "id": "august-2023-photos",
+      "images": [
+        {
+          "d": "2023-08-08",
+          "h": 4096,
+          "se": 1,
+          "src": "/outside/assets/montreal-august-2023/ma23-53861ee23544db00989e",
+          "t": "11:28:43",
+          "tz": "UTC-4",
+          "w": 3072,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-08",
+          "h": 3072,
+          "se": 1,
+          "src": "/outside/assets/montreal-august-2023/ma23-f795961661e9518e2029",
+          "t": "11:32:31",
+          "tz": "UTC-4",
+          "w": 4096,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-13",
+          "h": 3072,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-e4c5925d3331b3e15c75",
+          "t": "16:04:53",
+          "tz": "UTC-4",
+          "w": 4096,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        }
+      ],
+      "key": 0,
+      "place": "Location unconfirmed",
+      "region": "",
+      "series": [
+        {
+          "count": 2,
+          "date": "2023-08-08",
+          "key": 0,
+          "start": 0,
+          "time": "11:28:43",
+          "title": "Garden gate & paths",
+          "dateEnd": "2023-08-08"
+        },
+        {
+          "count": 1,
+          "date": "2023-08-13",
+          "key": 2,
+          "start": 2,
+          "time": "16:04:53",
+          "title": "Ferris wheel",
+          "dateEnd": "2023-08-13"
+        }
+      ],
+      "status": "PRELIM",
+      "tz": "UTC-4",
+      "country": ""
+    },
+    {
+      "country": "Canada",
+      "date": "2023-08-06",
+      "dateEnd": "2023-08-08",
+      "id": "montreal-2023-august",
+      "images": [
+        {
+          "d": "2023-08-06",
+          "h": 4096,
+          "se": 1,
+          "src": "/outside/assets/montreal-august-2023/ma23-df52bd9dee70af81571c",
+          "t": "20:14:23",
+          "tz": "UTC-4",
+          "w": 3072,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-06",
+          "h": 4096,
+          "se": 1,
+          "src": "/outside/assets/montreal-august-2023/ma23-b4eaa19629ad72dd2abf",
+          "t": "20:28:03",
+          "tz": "UTC-4",
+          "w": 3072,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-06",
+          "h": 4000,
+          "se": 1,
+          "src": "/outside/assets/montreal-august-2023/ma23-0c92ae7484f713c2694b",
+          "t": "21:00:31",
+          "tz": "UTC-4",
+          "w": 3000,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-07",
+          "h": 3072,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-c9caf66c46d533d1a6f6",
+          "t": "00:31:11",
+          "tz": "UTC-4",
+          "w": 4096,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-07",
+          "h": 4096,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-92dab3972df1cc9cd777",
+          "t": "00:46:36",
+          "tz": "UTC-4",
+          "w": 3072,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-07",
+          "h": 4096,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-a79e906efaff39e5d5d7",
+          "t": "12:08:47",
+          "tz": "UTC-4",
+          "w": 3072,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-07",
+          "h": 2352,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-00709817b16d5614c240",
+          "t": "14:32:20",
+          "tz": "UTC-4",
+          "w": 3136,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-07",
+          "h": 4096,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-b6f1d32a787239007097",
+          "t": "16:04:21",
+          "tz": "UTC-4",
+          "w": 3072,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-07",
+          "h": 3072,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-0ed7046be30b599214a9",
+          "t": "16:58:52",
+          "tz": "UTC-4",
+          "w": 4096,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-07",
+          "h": 4096,
+          "se": 2,
+          "src": "/outside/assets/montreal-august-2023/ma23-deb75a32a9584ce9440b",
+          "t": "22:57:31",
+          "tz": "UTC-4",
+          "w": 3072,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-08",
+          "h": 3072,
+          "se": 3,
+          "src": "/outside/assets/montreal-august-2023/ma23-6b5c533851ecdd260ccc",
+          "t": "15:42:11",
+          "tz": "UTC-4",
+          "w": 4096,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "d": "2023-08-08",
+          "h": 3072,
+          "se": 3,
+          "src": "/outside/assets/montreal-august-2023/ma23-2e44fe8db1b2b7998092",
+          "t": "15:46:21",
+          "tz": "UTC-4",
+          "w": 4096,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-529f8c72a5bc4f7c3233",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-d3097e97c5181359d2bb",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-adfdada258f2899fa661",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-dd73c12b9fbfd26ca850",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-0948d66471f9fa1a4c19",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-cecf837cb46c302e41d9",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-77102b8052d5329f34fe",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        },
+        {
+          "h": 1024,
+          "se": 4,
+          "src": "/outside/assets/montreal-august-2023/ma23-f8b5712820c2df7c08c6",
+          "w": 768,
+          "cam": "",
+          "ex": "",
+          "fl": "",
+          "avg": ""
+        }
+      ],
+      "key": 7,
+      "place": "Montréal",
+      "region": "Québec",
+      "series": [
+        {
+          "count": 3,
+          "date": "2023-08-06",
+          "key": 0,
+          "start": 0,
+          "time": "20:14:23",
+          "title": "Skyline from lookout",
+          "dateEnd": "2023-08-06"
+        },
+        {
+          "count": 7,
+          "date": "2023-08-07",
+          "key": 3,
+          "start": 3,
+          "time": "00:31:11",
+          "title": "Park & Biosphere",
+          "dateEnd": "2023-08-07"
+        },
+        {
+          "count": 2,
+          "date": "2023-08-08",
+          "key": 10,
+          "start": 10,
+          "time": "15:42:11",
+          "title": "Church & city streets",
+          "dateEnd": "2023-08-08"
+        },
+        {
+          "count": 8,
+          "key": 12,
+          "start": 12,
+          "title": "Waterfront & Old Port",
+          "date": "",
+          "dateEnd": "",
+          "time": ""
+        }
+      ],
+      "status": "PRELIM",
+      "tz": ""
+    },
+    {
+      "id": "philadelphia-2023-spring",
+      "place": "Philadelphia",
       "region": "Pennsylvania",
-      "country": "US",
+      "country": "United States",
       "status": "PENDING",
       "date": "2023-03-08",
-      "dateEnd": "2023-05-25",
+      "dateEnd": "2023-05-23",
       "tz": "",
       "key": 4,
       "series": [
         {
           "start": 0,
           "count": 1,
-          "time": "20:47",
-          "title": "March 8, 2023",
+          "time": "20:47:44",
+          "title": "City Hall at night",
           "key": 0,
           "date": "2023-03-08",
           "dateEnd": "2023-03-08"
@@ -6462,8 +6991,8 @@
         {
           "start": 1,
           "count": 1,
-          "time": "16:51",
-          "title": "March 14, 2023",
+          "time": "16:51:53",
+          "title": "Downtown architecture",
           "key": 1,
           "date": "2023-03-14",
           "dateEnd": "2023-03-14"
@@ -6471,8 +7000,8 @@
         {
           "start": 2,
           "count": 1,
-          "time": "00:36",
-          "title": "March 27, 2023",
+          "time": "00:36:59",
+          "title": "Blossoms after dark",
           "key": 2,
           "date": "2023-03-27",
           "dateEnd": "2023-03-27"
@@ -6480,8 +7009,8 @@
         {
           "start": 3,
           "count": 1,
-          "time": "08:00",
-          "title": "April 1, 2023",
+          "time": "08:00:09",
+          "title": "Spring blossoms in park",
           "key": 3,
           "date": "2023-04-01",
           "dateEnd": "2023-04-01"
@@ -6489,8 +7018,8 @@
         {
           "start": 4,
           "count": 1,
-          "time": "20:34",
-          "title": "April 2, 2023",
+          "time": "20:34:42",
+          "title": "City Hall & clock tower",
           "key": 4,
           "date": "2023-04-02",
           "dateEnd": "2023-04-02"
@@ -6498,8 +7027,8 @@
         {
           "start": 5,
           "count": 1,
-          "time": "21:32",
-          "title": "April 3, 2023",
+          "time": "21:32:16",
+          "title": "City Hall above streets",
           "key": 5,
           "date": "2023-04-03",
           "dateEnd": "2023-04-03"
@@ -6507,8 +7036,8 @@
         {
           "start": 6,
           "count": 6,
-          "time": "18:48",
-          "title": "April 4, 2023",
+          "time": "18:48:19",
+          "title": "Civic buildings & streets",
           "key": 6,
           "date": "2023-04-04",
           "dateEnd": "2023-04-04"
@@ -6516,8 +7045,8 @@
         {
           "start": 12,
           "count": 11,
-          "time": "13:19",
-          "title": "April 6, 2023",
+          "time": "13:19:12",
+          "title": "Gardens & museum interiors",
           "key": 12,
           "date": "2023-04-06",
           "dateEnd": "2023-04-06"
@@ -6525,8 +7054,8 @@
         {
           "start": 23,
           "count": 3,
-          "time": "11:46",
-          "title": "April 17, 2023",
+          "time": "11:46:12",
+          "title": "Neighborhood streets & traffic",
           "key": 23,
           "date": "2023-04-17",
           "dateEnd": "2023-04-17"
@@ -6534,8 +7063,8 @@
         {
           "start": 26,
           "count": 1,
-          "time": "16:05",
-          "title": "April 30, 2023",
+          "time": "16:05:23",
+          "title": "Museum & aircraft display",
           "key": 26,
           "date": "2023-04-30",
           "dateEnd": "2023-04-30"
@@ -6543,8 +7072,8 @@
         {
           "start": 27,
           "count": 1,
-          "time": "03:19",
-          "title": "May 8, 2023",
+          "time": "03:19:27",
+          "title": "Crosswalks & night architecture",
           "key": 27,
           "date": "2023-05-08",
           "dateEnd": "2023-05-08"
@@ -6552,8 +7081,8 @@
         {
           "start": 28,
           "count": 1,
-          "time": "14:47",
-          "title": "May 23, 2023",
+          "time": "14:47:50",
+          "title": "Neighborhood street & traffic",
           "key": 28,
           "date": "2023-05-23",
           "dateEnd": "2023-05-23"
@@ -6940,8 +7469,45 @@
       ]
     },
     {
-      "id": "projection-legacy-point-lookout-2015-expanded-retained-20261004",
-      "place": "Coastal Views · August 2015",
+      "status": "PENDING",
+      "tz": "",
+      "id": "baseball-stadium-2023-may",
+      "place": "Baseball stadium",
+      "region": "",
+      "country": "",
+      "key": 0,
+      "images": [
+        {
+          "src": "/outside/assets/owner-review/additional-trips/A551",
+          "w": 4096,
+          "h": 3072,
+          "d": "2023-05-14",
+          "t": "16:03:57",
+          "se": 1,
+          "ex": "ISO 101  1/1235 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus OnePlus 11 5G",
+          "avg": "",
+          "tz": "UTC-04:00"
+        }
+      ],
+      "date": "2023-05-14",
+      "dateEnd": "2023-05-14",
+      "series": [
+        {
+          "start": 0,
+          "count": 1,
+          "time": "16:03:57",
+          "title": "Baseball stadium",
+          "key": 0,
+          "date": "2023-05-14",
+          "dateEnd": "2023-05-14"
+        }
+      ]
+    },
+    {
+      "id": "point-lookout-2015-august",
+      "place": "Coastal views",
       "region": "",
       "country": "",
       "status": "PENDING",
@@ -6953,8 +7519,8 @@
         {
           "start": 0,
           "count": 4,
-          "time": "13:32",
-          "title": "August 12, 2015",
+          "time": "13:32:11",
+          "title": "Beach & coastal overlook",
           "key": 0,
           "date": "2015-08-12",
           "dateEnd": "2015-08-12"
@@ -7016,360 +7582,6 @@
       ]
     },
     {
-      "country": "CA",
-      "date": "2023-08-06",
-      "dateEnd": "2023-08-08",
-      "id": "montreal-august-2023-review-supplement",
-      "images": [
-        {
-          "d": "2023-08-06",
-          "h": 4096,
-          "se": 1,
-          "src": "/outside/assets/montreal-august-2023/ma23-df52bd9dee70af81571c",
-          "t": "20:14:23",
-          "tz": "UTC-4",
-          "w": 3072,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-06",
-          "h": 4096,
-          "se": 1,
-          "src": "/outside/assets/montreal-august-2023/ma23-b4eaa19629ad72dd2abf",
-          "t": "20:28:03",
-          "tz": "UTC-4",
-          "w": 3072,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-06",
-          "h": 4000,
-          "se": 1,
-          "src": "/outside/assets/montreal-august-2023/ma23-0c92ae7484f713c2694b",
-          "t": "21:00:31",
-          "tz": "UTC-4",
-          "w": 3000,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-07",
-          "h": 3072,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-c9caf66c46d533d1a6f6",
-          "t": "00:31:11",
-          "tz": "UTC-4",
-          "w": 4096,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-07",
-          "h": 4096,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-92dab3972df1cc9cd777",
-          "t": "00:46:36",
-          "tz": "UTC-4",
-          "w": 3072,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-07",
-          "h": 4096,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-a79e906efaff39e5d5d7",
-          "t": "12:08:47",
-          "tz": "UTC-4",
-          "w": 3072,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-07",
-          "h": 2352,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-00709817b16d5614c240",
-          "t": "14:32:20",
-          "tz": "UTC-4",
-          "w": 3136,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-07",
-          "h": 4096,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-b6f1d32a787239007097",
-          "t": "16:04:21",
-          "tz": "UTC-4",
-          "w": 3072,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-07",
-          "h": 3072,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-0ed7046be30b599214a9",
-          "t": "16:58:52",
-          "tz": "UTC-4",
-          "w": 4096,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-07",
-          "h": 4096,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-deb75a32a9584ce9440b",
-          "t": "22:57:31",
-          "tz": "UTC-4",
-          "w": 3072,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-08",
-          "h": 3072,
-          "se": 3,
-          "src": "/outside/assets/montreal-august-2023/ma23-6b5c533851ecdd260ccc",
-          "t": "15:42:11",
-          "tz": "UTC-4",
-          "w": 4096,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-08",
-          "h": 3072,
-          "se": 3,
-          "src": "/outside/assets/montreal-august-2023/ma23-2e44fe8db1b2b7998092",
-          "t": "15:46:21",
-          "tz": "UTC-4",
-          "w": 4096,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-529f8c72a5bc4f7c3233",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-d3097e97c5181359d2bb",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-adfdada258f2899fa661",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-dd73c12b9fbfd26ca850",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-0948d66471f9fa1a4c19",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-cecf837cb46c302e41d9",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-77102b8052d5329f34fe",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 4,
-          "src": "/outside/assets/montreal-august-2023/ma23-f8b5712820c2df7c08c6",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        }
-      ],
-      "key": 7,
-      "place": "Montréal",
-      "region": "Québec",
-      "series": [
-        {
-          "count": 3,
-          "date": "2023-08-06",
-          "key": 0,
-          "start": 0,
-          "time": "20:14",
-          "title": "2023-08-06"
-        },
-        {
-          "count": 7,
-          "date": "2023-08-07",
-          "key": 3,
-          "start": 3,
-          "time": "00:31",
-          "title": "2023-08-07"
-        },
-        {
-          "count": 2,
-          "date": "2023-08-08",
-          "key": 10,
-          "start": 10,
-          "time": "15:42",
-          "title": "2023-08-08"
-        },
-        {
-          "count": 8,
-          "key": 12,
-          "start": 12,
-          "title": "Capture time unresolved",
-          "date": "",
-          "dateEnd": "",
-          "time": ""
-        }
-      ],
-      "status": "PRELIM",
-      "tz": ""
-    },
-    {
-      "date": "2023-08-08",
-      "dateEnd": "2023-08-13",
-      "id": "unsorted-august-2023-review-supplement",
-      "images": [
-        {
-          "d": "2023-08-08",
-          "h": 4096,
-          "se": 1,
-          "src": "/outside/assets/montreal-august-2023/ma23-53861ee23544db00989e",
-          "t": "11:28:43",
-          "tz": "UTC-4",
-          "w": 3072,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-08",
-          "h": 3072,
-          "se": 1,
-          "src": "/outside/assets/montreal-august-2023/ma23-f795961661e9518e2029",
-          "t": "11:32:31",
-          "tz": "UTC-4",
-          "w": 4096,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "d": "2023-08-13",
-          "h": 3072,
-          "se": 2,
-          "src": "/outside/assets/montreal-august-2023/ma23-e4c5925d3331b3e15c75",
-          "t": "16:04:53",
-          "tz": "UTC-4",
-          "w": 4096,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        }
-      ],
-      "key": 8,
-      "place": "Unsorted August review",
-      "region": "Unsorted August review",
-      "series": [
-        {
-          "count": 2,
-          "date": "2023-08-08",
-          "key": 0,
-          "start": 0,
-          "time": "11:28",
-          "title": "2023-08-08"
-        },
-        {
-          "count": 1,
-          "date": "2023-08-13",
-          "key": 2,
-          "start": 2,
-          "time": "16:04",
-          "title": "2023-08-13"
-        }
-      ],
-      "status": "PRELIM",
-      "tz": "UTC-4",
-      "country": ""
-    },
-    {
       "id": "europe-shared-album",
       "place": "Europe",
       "region": "Europe",
@@ -7380,7 +7592,7 @@
           "start": 0,
           "count": 5,
           "time": "09:54:30",
-          "title": "EXIF date: February 19, 2023",
+          "title": "Palaces & riverfront",
           "key": 0,
           "date": "2023-02-19",
           "dateEnd": "2023-02-19"
@@ -7389,7 +7601,7 @@
           "start": 5,
           "count": 17,
           "time": "",
-          "title": "Date unknown",
+          "title": "Landmarks & architecture",
           "key": 5,
           "date": "",
           "dateEnd": ""
@@ -7691,7 +7903,7 @@
   ],
   "aliases": {
     "projection-new-zealand-2026": {
-      "studyId": "projection-new-zealand-2026-expanded",
+      "studyId": "new-zealand-2026-july",
       "indices": [
         0,
         3,
@@ -7702,7 +7914,7 @@
       "defaultIndex": 0
     },
     "projection-australia-2026": {
-      "studyId": "projection-australia-2026-expanded-retained-20261004",
+      "studyId": "australia-2026-july",
       "indices": [
         0,
         4,
@@ -7716,7 +7928,7 @@
       "defaultIndex": 4
     },
     "projection-pakistan-2026": {
-      "studyId": "projection-pakistan-2026-expanded",
+      "studyId": "pakistan-2026-summer",
       "indices": [
         0,
         4,
@@ -7734,14 +7946,14 @@
       "defaultIndex": 0
     },
     "projection-albania-2026": {
-      "studyId": "projection-albania-2026-expanded-retained-20261004",
+      "studyId": "albania-2026-june",
       "indices": [
         1
       ],
       "defaultIndex": 1
     },
     "projection-rome-2026": {
-      "studyId": "projection-rome-2026-expanded",
+      "studyId": "rome-vatican-2026-june",
       "indices": [
         0,
         3,
@@ -7752,7 +7964,7 @@
       "defaultIndex": 0
     },
     "projection-galapagos-2026": {
-      "studyId": "projection-galapagos-2026-expanded-retained-20261004",
+      "studyId": "galapagos-2026-january",
       "indices": [
         40,
         63,
@@ -7763,25 +7975,25 @@
       "defaultIndex": 87
     },
     "projection-metadata-candidate-foreign-canada-20251127-20251130": {
-      "studyId": "projection-metadata-candidate-foreign-canada-20251127-20251130-expanded-retained-20261004",
+      "studyId": "montreal-november-2025",
       "indices": [
-        1,
         2,
         3,
-        4,
-        6
+        5,
+        8,
+        10
       ],
-      "defaultIndex": 1
+      "defaultIndex": 2
     },
     "projection-metadata-candidate-us-georgia-20251025-20251025": {
-      "studyId": "projection-metadata-candidate-us-georgia-20251025-20251025-expanded",
+      "studyId": "georgia-2025-october",
       "indices": [
         0
       ],
       "defaultIndex": 0
     },
     "projection-american-southwest-2025": {
-      "studyId": "projection-american-southwest-2025-expanded-retained-20261004",
+      "studyId": "american-southwest-2025-october",
       "indices": [
         9,
         36,
@@ -7792,24 +8004,24 @@
         66,
         68,
         71,
-        74,
-        76,
-        81,
-        86,
-        89,
-        99,
-        101,
+        75,
+        77,
+        82,
+        87,
+        90,
+        98,
+        100,
+        103,
+        null,
         104,
         105,
-        106,
         107,
-        109,
-        110
+        108
       ],
       "defaultIndex": 45
     },
     "projection-puerto-rico-october-2025": {
-      "studyId": "projection-puerto-rico-october-2025-expanded-retained-20261004",
+      "studyId": "puerto-rico-2025-october",
       "indices": [
         1,
         2,
@@ -7818,7 +8030,7 @@
       "defaultIndex": 1
     },
     "projection-legacy-woodland-walk-2025": {
-      "studyId": "projection-legacy-woodland-walk-2025-expanded",
+      "studyId": "woodland-paths-2025-august",
       "indices": [
         0,
         1,
@@ -7828,21 +8040,21 @@
       "defaultIndex": 0
     },
     "projection-colorado-july-2025": {
-      "studyId": "projection-colorado-july-2025-expanded",
+      "studyId": "colorado-2025-july",
       "indices": [
         0,
         2,
+        null,
         4,
         5,
         6,
         7,
-        8,
-        9
+        8
       ],
       "defaultIndex": 0
     },
     "projection-metadata-candidate-us-georgia-20250618-20250618": {
-      "studyId": "projection-metadata-candidate-us-georgia-20250618-20250618-expanded-retained-20261004",
+      "studyId": "georgia-2025-june",
       "indices": [
         0,
         2,
@@ -7851,7 +8063,7 @@
       "defaultIndex": 0
     },
     "las-vegas-june-2025": {
-      "studyId": "las-vegas-june-2025-expanded-retained-20261004",
+      "studyId": "las-vegas-june-14-2025",
       "indices": [
         3,
         4,
@@ -7862,7 +8074,7 @@
       "defaultIndex": 3
     },
     "projection-colorado-june-2025": {
-      "studyId": "projection-colorado-june-2025-expanded-retained-20261004",
+      "studyId": "colorado-2025-june",
       "indices": [
         5,
         6,
@@ -7875,7 +8087,7 @@
       "defaultIndex": 23
     },
     "projection-december-cruise-2024": {
-      "studyId": "projection-december-cruise-2024-expanded-retained-20261004",
+      "studyId": "cruise-2024-december",
       "indices": [
         null,
         1,
@@ -7900,7 +8112,7 @@
       "defaultIndex": -1
     },
     "projection-philadelphia-spring-2023": {
-      "studyId": "projection-philadelphia-2023-retained-20261004",
+      "studyId": "philadelphia-2023-spring",
       "indices": [
         4,
         null,
@@ -7909,7 +8121,7 @@
       "defaultIndex": 4
     },
     "projection-bala-cynwyd-spring-2023": {
-      "studyId": "projection-philadelphia-2023-retained-20261004",
+      "studyId": "philadelphia-2023-spring",
       "indices": [
         12,
         14,
@@ -7926,7 +8138,7 @@
       "defaultIndex": -1
     },
     "projection-legacy-point-lookout-2015": {
-      "studyId": "projection-legacy-point-lookout-2015-expanded-retained-20261004",
+      "studyId": "point-lookout-2015-august",
       "indices": [
         0,
         1,
@@ -7937,7 +8149,7 @@
       "defaultIndex": 0
     },
     "lahore": {
-      "studyId": "projection-pakistan-2026-expanded",
+      "studyId": "pakistan-2026-summer",
       "indices": [
         22,
         22,
@@ -7983,7 +8195,7 @@
       "defaultIndex": 22
     },
     "ayubia": {
-      "studyId": "projection-pakistan-2026-expanded",
+      "studyId": "pakistan-2026-summer",
       "indices": [
         11,
         11,
@@ -8055,42 +8267,42 @@
       "defaultIndex": 11
     },
     "hoover-dam": {
-      "studyId": "projection-american-southwest-2025-expanded-retained-20261004",
+      "studyId": "american-southwest-2025-october",
       "indices": [
+        null,
         105,
-        107,
-        107,
-        107,
-        107,
-        107,
-        107,
-        107,
-        107,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
+        105,
         null,
         null,
         null,
-        109,
-        110,
-        110,
-        110,
-        110
+        107,
+        108,
+        108,
+        108,
+        108
       ],
-      "defaultIndex": 105
+      "defaultIndex": -1
     },
     "study-0614-2025-10-14": {
-      "studyId": "projection-american-southwest-2025-expanded-retained-20261004",
+      "studyId": "american-southwest-2025-october",
       "indices": [
-        110,
-        110,
-        110,
-        110,
-        110,
-        110
+        108,
+        108,
+        108,
+        108,
+        108,
+        108
       ],
-      "defaultIndex": 110
+      "defaultIndex": 108
     },
     "zion": {
-      "studyId": "projection-american-southwest-2025-expanded-retained-20261004",
+      "studyId": "american-southwest-2025-october",
       "indices": [
         58,
         58,
@@ -8129,7 +8341,7 @@
       "defaultIndex": 58
     },
     "old-san-juan": {
-      "studyId": "projection-puerto-rico-october-2025-expanded-retained-20261004",
+      "studyId": "puerto-rico-2025-october",
       "indices": [
         1,
         2,
@@ -8145,7 +8357,7 @@
       "defaultIndex": 1
     },
     "study-0809": {
-      "studyId": "projection-legacy-woodland-walk-2025-expanded",
+      "studyId": "woodland-paths-2025-august",
       "indices": [
         0,
         0,
@@ -8167,30 +8379,30 @@
       "defaultIndex": 0
     },
     "study-0726": {
-      "studyId": "projection-colorado-july-2025-expanded",
+      "studyId": "colorado-2025-july",
       "indices": [
         2,
         2,
         2,
         2,
+        null,
+        null,
+        null,
+        null,
         4,
         4,
         4,
-        4,
-        5,
         5,
         5,
         6,
         6,
         7,
-        7,
-        8,
-        9
+        8
       ],
       "defaultIndex": 2
     },
     "study-0614": {
-      "studyId": "las-vegas-june-2025-expanded-retained-20261004",
+      "studyId": "las-vegas-june-14-2025",
       "indices": [
         3,
         3,
@@ -8211,7 +8423,7 @@
       "defaultIndex": 3
     },
     "garden-of-the-gods": {
-      "studyId": "projection-colorado-june-2025-expanded-retained-20261004",
+      "studyId": "colorado-2025-june",
       "indices": [
         5,
         6,
@@ -8221,7 +8433,7 @@
       "defaultIndex": 5
     },
     "point-lookout": {
-      "studyId": "projection-legacy-point-lookout-2015-expanded-retained-20261004",
+      "studyId": "point-lookout-2015-august",
       "indices": [
         0,
         0,
@@ -8252,7 +8464,7 @@
       "defaultIndex": 0
     },
     "pakistan-2026": {
-      "studyId": "projection-pakistan-2026-expanded",
+      "studyId": "pakistan-2026-summer",
       "indices": [
         11,
         13,
@@ -8266,7 +8478,7 @@
       "defaultIndex": 11
     },
     "american-southwest-2025": {
-      "studyId": "projection-american-southwest-2025-expanded-retained-20261004",
+      "studyId": "american-southwest-2025-october",
       "indices": [
         null,
         58,
@@ -8274,16 +8486,16 @@
         65,
         66,
         71,
-        105,
-        107,
         null,
-        109,
-        110
+        105,
+        null,
+        107,
+        108
       ],
       "defaultIndex": 58
     },
     "old-san-juan-2025": {
-      "studyId": "projection-puerto-rico-october-2025-expanded-retained-20261004",
+      "studyId": "puerto-rico-2025-october",
       "indices": [
         1,
         2,
@@ -8292,7 +8504,7 @@
       "defaultIndex": 1
     },
     "woodland-walk-2025": {
-      "studyId": "projection-legacy-woodland-walk-2025-expanded",
+      "studyId": "woodland-paths-2025-august",
       "indices": [
         0,
         1,
@@ -8303,20 +8515,20 @@
       "defaultIndex": 0
     },
     "garden-visit-2025": {
-      "studyId": "projection-colorado-july-2025-expanded",
+      "studyId": "colorado-2025-july",
       "indices": [
         2,
+        null,
         4,
         5,
         6,
         7,
-        8,
-        9
+        8
       ],
       "defaultIndex": 2
     },
     "garden-of-the-gods-2025": {
-      "studyId": "projection-colorado-june-2025-expanded-retained-20261004",
+      "studyId": "colorado-2025-june",
       "indices": [
         5,
         6,
@@ -8325,7 +8537,7 @@
       "defaultIndex": 5
     },
     "point-lookout-2015": {
-      "studyId": "projection-legacy-point-lookout-2015-expanded-retained-20261004",
+      "studyId": "point-lookout-2015-august",
       "indices": [
         0,
         null,
@@ -8337,14 +8549,14 @@
       "defaultIndex": 0
     },
     "projection-metadata-candidate-foreign-bahamas-20241219-20241220": {
-      "studyId": "projection-december-cruise-2024-expanded-retained-20261004",
+      "studyId": "cruise-2024-december",
       "indices": [
         4
       ],
       "defaultIndex": 4
     },
     "projection-metadata-candidate-us-new-jersey-20241217-20241217": {
-      "studyId": "projection-december-cruise-2024-expanded-retained-20261004",
+      "studyId": "cruise-2024-december",
       "indices": [
         1
       ],
@@ -8358,7 +8570,7 @@
       "defaultIndex": -1
     },
     "projection-metadata-candidate-us-pennsylvania-20230429-20230430": {
-      "studyId": "projection-philadelphia-2023-retained-20261004",
+      "studyId": "philadelphia-2023-spring",
       "indices": [
         26
       ],
@@ -8372,7 +8584,7 @@
       "defaultIndex": -1
     },
     "projection-metadata-candidate-us-pennsylvania-20230331-20230406": {
-      "studyId": "projection-philadelphia-2023-retained-20261004",
+      "studyId": "philadelphia-2023-spring",
       "indices": [
         null,
         12,
@@ -8382,7 +8594,7 @@
       "defaultIndex": 12
     },
     "city-interiors-2025": {
-      "studyId": "las-vegas-june-2025-expanded-retained-20261004",
+      "studyId": "las-vegas-june-14-2025",
       "indices": [
         3,
         8,
@@ -8391,7 +8603,7 @@
       "defaultIndex": 3
     },
     "projection-metadata-candidate-us-nevada-20250614-20250614": {
-      "studyId": "las-vegas-june-2025-expanded-retained-20261004",
+      "studyId": "las-vegas-june-14-2025",
       "indices": [
         4,
         12
@@ -8399,7 +8611,7 @@
       "defaultIndex": 4
     },
     "projection-australia-2026-expanded": {
-      "studyId": "projection-australia-2026-expanded-retained-20261004",
+      "studyId": "australia-2026-july",
       "indices": [
         0,
         1,
@@ -8443,7 +8655,7 @@
       "defaultIndex": 4
     },
     "projection-albania-2026-expanded": {
-      "studyId": "projection-albania-2026-expanded-retained-20261004",
+      "studyId": "albania-2026-june",
       "indices": [
         0,
         1
@@ -8451,7 +8663,7 @@
       "defaultIndex": 1
     },
     "projection-galapagos-2026-expanded": {
-      "studyId": "projection-galapagos-2026-expanded-retained-20261004",
+      "studyId": "galapagos-2026-january",
       "indices": [
         0,
         1,
@@ -8564,7 +8776,21 @@
       "defaultIndex": 87
     },
     "projection-metadata-candidate-foreign-canada-20251127-20251130-expanded": {
-      "studyId": "projection-metadata-candidate-foreign-canada-20251127-20251130-expanded-retained-20261004",
+      "studyId": "montreal-november-2025",
+      "indices": [
+        0,
+        2,
+        3,
+        5,
+        8,
+        9,
+        10,
+        15
+      ],
+      "defaultIndex": 2
+    },
+    "projection-american-southwest-2025-expanded": {
+      "studyId": "american-southwest-2025-october",
       "indices": [
         0,
         1,
@@ -8573,12 +8799,436 @@
         4,
         5,
         6,
-        7
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        null,
+        null,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        null,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "defaultIndex": 45
+    },
+    "projection-puerto-rico-october-2025-expanded": {
+      "studyId": "puerto-rico-2025-october",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        null
       ],
       "defaultIndex": 1
     },
-    "projection-american-southwest-2025-expanded": {
-      "studyId": "projection-american-southwest-2025-expanded-retained-20261004",
+    "projection-metadata-candidate-us-georgia-20250618-20250618-expanded": {
+      "studyId": "georgia-2025-june",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        null,
+        null,
+        11,
+        null,
+        null,
+        12,
+        13
+      ],
+      "defaultIndex": 0
+    },
+    "las-vegas-june-2025-expanded": {
+      "studyId": "las-vegas-june-14-2025",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "defaultIndex": 3
+    },
+    "projection-colorado-june-2025-expanded": {
+      "studyId": "colorado-2025-june",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "defaultIndex": 23
+    },
+    "metadata-review-us-massachusetts-20250504-20250504": {
+      "studyId": "marlborough-2025-may",
+      "indices": [
+        null,
+        0
+      ],
+      "defaultIndex": -1
+    },
+    "projection-december-cruise-2024-expanded": {
+      "studyId": "cruise-2024-december",
+      "indices": [
+        null,
+        null,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "defaultIndex": -1
+    },
+    "metadata-review-us-florida-20241217-20241218": {
+      "studyId": "metadata-review-us-florida-20241217-20241218-retired-20261004",
+      "indices": [
+        null
+      ],
+      "defaultIndex": -1
+    },
+    "projection-metadata-candidate-us-connecticut-20240719-20240719-expanded": {
+      "studyId": "projection-metadata-candidate-us-connecticut-20240719-20240719-expanded-retired-20261004",
+      "indices": [
+        null
+      ],
+      "defaultIndex": -1
+    },
+    "projection-philadelphia-2023": {
+      "studyId": "philadelphia-2023-spring",
+      "indices": [
+        0,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        null,
+        10,
+        11,
+        12,
+        13,
+        null,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        null,
+        24,
+        25,
+        26,
+        27,
+        28,
+        null
+      ],
+      "defaultIndex": 4
+    },
+    "metadata-review-foreign-canada-20180821-20180825": {
+      "studyId": "metadata-review-foreign-canada-20180821-20180825-retired-20261004",
+      "indices": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "defaultIndex": -1
+    },
+    "projection-legacy-point-lookout-2015-expanded": {
+      "studyId": "point-lookout-2015-august",
+      "indices": [
+        0,
+        1,
+        2,
+        null,
+        3
+      ],
+      "defaultIndex": 0
+    },
+    "projection-new-zealand-2026-expanded": {
+      "studyId": "new-zealand-2026-july",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "defaultIndex": 0
+    },
+    "projection-australia-2026-expanded-retained-20261004": {
+      "studyId": "australia-2026-july",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "defaultIndex": 0
+    },
+    "metadata-review-foreign-thailand-20260706-20260706": {
+      "studyId": "thailand-2026-july",
+      "indices": [
+        0
+      ],
+      "defaultIndex": 0
+    },
+    "projection-pakistan-2026-expanded": {
+      "studyId": "pakistan-2026-summer",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "defaultIndex": 0
+    },
+    "projection-rome-2026-expanded": {
+      "studyId": "rome-vatican-2026-june",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "defaultIndex": 0
+    },
+    "projection-albania-2026-expanded-retained-20261004": {
+      "studyId": "albania-2026-june",
+      "indices": [
+        0,
+        1
+      ],
+      "defaultIndex": 0
+    },
+    "projection-galapagos-2026-expanded-retained-20261004": {
+      "studyId": "galapagos-2026-january",
       "indices": [
         0,
         1,
@@ -8676,37 +9326,33 @@
         93,
         94,
         95,
-        96,
-        97,
-        98,
-        99,
-        100,
-        101,
-        102,
-        103,
-        104,
-        105,
-        106,
-        107,
-        108,
-        109,
-        110
+        96
       ],
-      "defaultIndex": 45
+      "defaultIndex": 0
     },
-    "projection-puerto-rico-october-2025-expanded": {
-      "studyId": "projection-puerto-rico-october-2025-expanded-retained-20261004",
+    "projection-metadata-candidate-foreign-canada-20251127-20251130-expanded-retained-20261004": {
+      "studyId": "montreal-november-2025",
       "indices": [
         0,
-        1,
         2,
         3,
-        4
+        5,
+        8,
+        9,
+        10,
+        15
       ],
-      "defaultIndex": 1
+      "defaultIndex": 0
     },
-    "projection-metadata-candidate-us-georgia-20250618-20250618-expanded": {
-      "studyId": "projection-metadata-candidate-us-georgia-20250618-20250618-expanded-retained-20261004",
+    "projection-metadata-candidate-us-georgia-20251025-20251025-expanded": {
+      "studyId": "georgia-2025-october",
+      "indices": [
+        0
+      ],
+      "defaultIndex": 0
+    },
+    "projection-american-southwest-2025-expanded-retained-20261004": {
+      "studyId": "american-southwest-2025-october",
       "indices": [
         0,
         1,
@@ -8719,18 +9365,284 @@
         8,
         9,
         10,
-        null,
-        null,
         11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
         null,
         null,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        null,
+        104,
+        105,
+        106,
+        107,
+        108
+      ],
+      "defaultIndex": 0
+    },
+    "projection-puerto-rico-october-2025-expanded-retained-20261004": {
+      "studyId": "puerto-rico-2025-october",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        null
+      ],
+      "defaultIndex": 0
+    },
+    "metadata-review-us-florida-20250913-20250913": {
+      "studyId": "celebration-2025-september",
+      "indices": [
+        0,
+        1
+      ],
+      "defaultIndex": 0
+    },
+    "projection-legacy-woodland-walk-2025-expanded": {
+      "studyId": "woodland-paths-2025-august",
+      "indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "defaultIndex": 0
+    },
+    "projection-colorado-july-2025-expanded": {
+      "studyId": "colorado-2025-july",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        null,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "defaultIndex": 0
+    },
+    "metadata-puerto-rico-june-2025": {
+      "studyId": "puerto-rico-2025-june",
+      "indices": [
+        0,
+        1
+      ],
+      "defaultIndex": 0
+    },
+    "unsorted-review": {
+      "targets": [
+        {
+          "studyId": "baseball-stadium-2023-may",
+          "index": 0
+        },
+        {
+          "studyId": "resort-scenes-2025-june",
+          "index": 0
+        },
+        {
+          "studyId": "resort-scenes-2025-june",
+          "index": 1
+        },
+        {
+          "studyId": "resort-scenes-2025-june",
+          "index": 2
+        },
+        {
+          "studyId": "resort-scenes-2025-june",
+          "index": 3
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 0
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 1
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 2
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 3
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 4
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 5
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 6
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 7
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 8
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 9
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 10
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 11
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 12
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 13
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 14
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 15
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 16
+        },
+        {
+          "studyId": "aquarium-scenes-2025-june",
+          "index": 17
+        }
+      ],
+      "defaultTarget": {
+        "studyId": "baseball-stadium-2023-may",
+        "index": 0
+      }
+    },
+    "projection-metadata-candidate-us-georgia-20250618-20250618-expanded-retained-20261004": {
+      "studyId": "georgia-2025-june",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
         12,
         13
       ],
       "defaultIndex": 0
     },
-    "las-vegas-june-2025-expanded": {
-      "studyId": "las-vegas-june-2025-expanded-retained-20261004",
+    "las-vegas-june-2025-expanded-retained-20261004": {
+      "studyId": "las-vegas-june-14-2025",
       "indices": [
         0,
         1,
@@ -8746,10 +9658,10 @@
         11,
         12
       ],
-      "defaultIndex": 3
+      "defaultIndex": 0
     },
-    "projection-colorado-june-2025-expanded": {
-      "studyId": "projection-colorado-june-2025-expanded-retained-20261004",
+    "projection-colorado-june-2025-expanded-retained-20261004": {
+      "studyId": "colorado-2025-june",
       "indices": [
         0,
         1,
@@ -8776,21 +9688,18 @@
         22,
         23
       ],
-      "defaultIndex": 23
+      "defaultIndex": 0
     },
-    "metadata-review-us-massachusetts-20250504-20250504": {
-      "studyId": "metadata-review-us-massachusetts-20250504-20250504-retained-20261004",
+    "metadata-review-us-massachusetts-20250504-20250504-retained-20261004": {
+      "studyId": "marlborough-2025-may",
       "indices": [
-        null,
         0
       ],
-      "defaultIndex": -1
+      "defaultIndex": 0
     },
-    "projection-december-cruise-2024-expanded": {
-      "studyId": "projection-december-cruise-2024-expanded-retained-20261004",
+    "projection-december-cruise-2024-expanded-retained-20261004": {
+      "studyId": "cruise-2024-december",
       "indices": [
-        null,
-        null,
         0,
         1,
         2,
@@ -8799,30 +9708,12 @@
         5,
         6
       ],
-      "defaultIndex": -1
+      "defaultIndex": 0
     },
-    "metadata-review-us-florida-20241217-20241218": {
-      "studyId": "metadata-review-us-florida-20241217-20241218-retired-20261004",
-      "indices": [
-        null
-      ],
-      "defaultIndex": -1
-    },
-    "projection-metadata-candidate-us-connecticut-20240719-20240719-expanded": {
-      "studyId": "projection-metadata-candidate-us-connecticut-20240719-20240719-expanded-retired-20261004",
-      "indices": [
-        null
-      ],
-      "defaultIndex": -1
-    },
-    "projection-philadelphia-2023": {
-      "studyId": "projection-philadelphia-2023-retained-20261004",
+    "projection-philadelphia-2023-retained-20261004": {
+      "studyId": "philadelphia-2023-spring",
       "indices": [
         0,
-        null,
-        null,
-        null,
-        null,
         1,
         2,
         3,
@@ -8832,12 +9723,10 @@
         7,
         8,
         9,
-        null,
         10,
         11,
         12,
         13,
-        null,
         14,
         15,
         16,
@@ -8848,34 +9737,56 @@
         21,
         22,
         23,
-        null,
         24,
         25,
         26,
         27,
-        28,
-        null
+        28
       ],
-      "defaultIndex": 4
+      "defaultIndex": 0
     },
-    "metadata-review-foreign-canada-20180821-20180825": {
-      "studyId": "metadata-review-foreign-canada-20180821-20180825-retired-20261004",
-      "indices": [
-        null,
-        null,
-        null,
-        null
-      ],
-      "defaultIndex": -1
-    },
-    "projection-legacy-point-lookout-2015-expanded": {
-      "studyId": "projection-legacy-point-lookout-2015-expanded-retained-20261004",
+    "projection-legacy-point-lookout-2015-expanded-retained-20261004": {
+      "studyId": "point-lookout-2015-august",
       "indices": [
         0,
         1,
         2,
-        null,
         3
+      ],
+      "defaultIndex": 0
+    },
+    "montreal-august-2023-review-supplement": {
+      "studyId": "montreal-2023-august",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "defaultIndex": 0
+    },
+    "unsorted-august-2023-review-supplement": {
+      "studyId": "august-2023-photos",
+      "indices": [
+        0,
+        1,
+        2
       ],
       "defaultIndex": 0
     }

@@ -2,18 +2,23 @@
 export const prerender = true;
 import "../styles/global.css";
 import data from "@/data/outside-studies.json";
+import { formatOutsideDateRange } from "../utils/outside-date.js";
 
-type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string };
+type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
 type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
-type Alias = { studyId: string; indices: (number | null)[]; defaultIndex?: number };
+type RouteTarget = { studyId: string; index: number };
+type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
 type SourceData = { studies?: Study[]; aliases?: Record<string, Alias> };
 
 const sourceData = data as SourceData;
 const fallbackImg: Img = { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 240'%3E%3Crect width='320' height='240' fill='%23050505'/%3E%3Ctext x='50%25' y='50%25' fill='%238d8b86' font-size='12' text-anchor='middle'%3ENO IMAGE DATA%3C/text%3E%3C/svg%3E", w: 320, h: 240, d: "", t: "", se: 1, ex: "", fl: "", cam: "", avg: "#050505" };
 const fallbackStudy: Study = { id: "no-studies", place: "No studies available", region: "", country: "", status: "PENDING", date: "", dateEnd: "", tz: "", key: 0, series: [{ start: 0, count: 1, time: "" }], images: [fallbackImg] };
 const validStudies = (sourceData.studies ?? []).filter((s) => Array.isArray(s.images) && s.images.length > 0);
-const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().sort((a, b) => (b.dateEnd || b.date || "").localeCompare(a.dateEnd || a.date || ""));
+const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().sort((a, b) =>
+  (b.dateEnd || b.date || "").localeCompare(a.dateEnd || a.date || "") ||
+  (b.date || "").localeCompare(a.date || ""),
+);
 const aliases = sourceData.aliases ?? {};
 const totalImages = studies.reduce((n, s) => n + s.images.length, 0);
 const first = studies[0];
@@ -21,8 +26,11 @@ const firstImg = first.images[0] ?? fallbackImg;
 const studyCover = (s: Study) => s.images[s.key] ?? s.images[0] ?? fallbackImg;
 const pad = (n: number) => String(n).padStart(2, "0");
 const title = "Outside Studies | Asir Shahid";
-const dateLabel = (s: Study) => (s.dateEnd !== s.date ? `${s.date} to ${s.dateEnd.slice(5)}` : s.date);
-const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
+const dateLabel = (s: Study) => formatOutsideDateRange(s.date, s.dateEnd);
+const where = (s: Study) => {
+  const labels = [s.region, s.country].filter((label, index, all) => Boolean(label) && all.indexOf(label) === index);
+  return labels.join(" · ") || "Location unconfirmed";
+};
 ---
 
 <!doctype html>
@@ -82,10 +90,10 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
                   <span class="oz-rowtext">
                     <span class="oz-place">{s.place}</span>
                     <span class="oz-sub">{dateLabel(s)} · {s.images.length} im</span>
-                    <span class="oz-sub oz-region">{where(s) || "Location pending"}</span>
+                    <span class="oz-sub oz-region">{where(s)}</span>
                   </span>
                   <span class="oz-status" data-status={s.status}>{s.status}</span>
-                  <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{where(s) || "Location pending"}</span>
+                  <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{where(s)}</span>
                   <span class="oz-card-ov oz-card-tr" aria-hidden="true">XC · {pad(idx + 1)}/{pad(studies.length)}<br />{s.images.length} IM · {s.series.length} SE</span>
                   <span class="oz-card-ov oz-card-bl" aria-hidden="true">{dateLabel(s)}</span>
                   <span class="oz-card-ov oz-card-br" aria-hidden="true"><span data-status={s.status}>{s.status}</span></span>
@@ -129,7 +137,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         >
           <div class="oz-cells" data-cells data-layout="1">
             <div class="oz-cell" style={`--avg:${firstImg.avg}`}>
-              <img src={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-m.webp`} width={firstImg.w} height={firstImg.h} alt={`Photograph 1 of ${first.images.length}, ${first.place}`} draggable="false" decoding="async" loading="lazy" />
+              <img src={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-m.webp`} width={firstImg.w} height={firstImg.h} alt={firstImg.alt?.trim() || `Photograph 1 of ${first.images.length}, ${first.place}`} draggable="false" decoding="async" loading="lazy" />
               <span class="oz-cell-label"></span>
             </div>
           </div>
@@ -174,10 +182,12 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
     <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases })}></script>
 
     <script>
-      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string };
+      import { formatOutsideDateRange } from "../utils/outside-date.js";
+      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
       type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
-      type Alias = { studyId: string; indices: (number | null)[]; defaultIndex?: number };
+      type RouteTarget = { studyId: string; index: number };
+      type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
 
       const pageData = JSON.parse(document.getElementById("oz-data")!.textContent || "{}");
       const studies: Study[] = pageData.studies;
@@ -333,7 +343,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         el.dataset.want = full;
         el.width = img.w;
         el.height = img.h;
-        el.alt = `Photograph ${idx + 1} of ${st.images.length}, ${st.place}`;
+        el.alt = img.alt?.trim() || `Photograph ${idx + 1} of ${st.images.length}, ${st.place}`;
         if (ready.has(full)) {
           if (el.getAttribute("src") !== full) el.src = full;
           el.classList.remove("is-proxy");
@@ -366,8 +376,8 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         const st = study();
         const img = st.images[state.i];
         const se = seriesIndex(state.i);
-        const where = [st.region, st.country].filter(Boolean).join(" · ") || "Location pending";
-        const date = st.dateEnd !== st.date ? `${st.date} to ${st.dateEnd.slice(5)}` : st.date;
+        const where = [st.region, st.country].filter((label, index, all) => Boolean(label) && all.indexOf(label) === index).join(" · ") || "Location unconfirmed";
+        const date = formatOutsideDateRange(st.date, st.dateEnd);
         line(ov.tl, [[st.place.toUpperCase(), "oz-ov-strong"], where.toUpperCase(), `STUDY ${date}`, `XC · ${pad(state.s + 1)}/${pad(studies.length)}`]);
         line(ov.tr, [
           "ASIR SHAHID",
@@ -419,7 +429,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
             b.className = "oz-se";
             b.dataset.se = String(k);
             const cover = Number.isInteger(s.key) && st.images[s.key!] ? s.key! : clamp(s.start, 0, st.images.length - 1);
-            const chapterDate = s.date ? (s.dateEnd && s.dateEnd !== s.date ? `${s.date} to ${s.dateEnd.slice(5)}` : s.date) : s.time;
+            const chapterDate = s.date ? formatOutsideDateRange(s.date, s.dateEnd) : s.time;
             const chapterName = s.title || `Series ${k + 1}`;
             b.dataset.start = String(s.start);
             b.dataset.key = String(cover);
@@ -845,6 +855,12 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       });
 
       // ---------- routing ----------
+      const resolveRouteTarget = (route: RouteTarget | null | undefined) => {
+        if (!route || typeof route.studyId !== "string" || !Number.isInteger(route.index) || route.index < 0) return null;
+        const targetStudy = studies.findIndex((st) => st.id === route.studyId);
+        if (targetStudy < 0 || route.index >= studies[targetStudy].images.length) return null;
+        return { s: targetStudy, i: route.index };
+      };
       const parseHash = () => {
         const m = location.hash.slice(1).match(/^([\w-]+)(?:\/([1-9]\d*))?$/);
         if (!m) return null;
@@ -853,6 +869,17 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         if (s >= 0) return { s, i: oldIndex };
         const alias = aliases[m[1]];
         if (!alias) return null;
+        if (Array.isArray(alias.targets)) {
+          if (oldIndex === undefined) {
+            const defaultTarget = Object.prototype.hasOwnProperty.call(alias, "defaultTarget")
+              ? alias.defaultTarget
+              : alias.targets.find((target) => target !== null);
+            return resolveRouteTarget(defaultTarget);
+          }
+          if (!Number.isSafeInteger(oldIndex) || oldIndex < 0 || oldIndex >= alias.targets.length) return null;
+          return resolveRouteTarget(alias.targets[oldIndex]);
+        }
+        if (typeof alias.studyId !== "string" || !Array.isArray(alias.indices)) return null;
         const target = studies.findIndex((st) => st.id === alias.studyId);
         if (target < 0) return null;
         if (oldIndex === undefined) {
