@@ -10,6 +10,14 @@ from playwright.sync_api import sync_playwright
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 ROOT = Path(__file__).parents[1]
 FIXTURE = json.loads((ROOT / "tests/fixtures/outside-pr45-source-route-baseline.json").read_text())
+NEW_DUPLICATE_REMOVALS = {
+    "/outside/assets/owner-review/galapagos/G208",
+    "/outside/assets/owner-review/core-trips/C219",
+    "/outside/assets/owner-review/core-trips/C351",
+    "/outside/assets/owner-review/core-trips/C484",
+    "/outside/assets/owner-review/additional-trips/A460",
+    "/outside/assets/owner-review/additional-trips/A508",
+}
 DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-scout-browser"))
 SCOUTS = [
@@ -140,7 +148,7 @@ class OutsideScoutBrowserTests(unittest.TestCase):
         page = context.new_page()
         page.route("**/*.webp", lambda route: route.abort())
         page.goto(BASE_URL, wait_until="domcontentloaded")
-        pending = set(FIXTURE["pending_removal_sources"])
+        pending = set(FIXTURE["pending_removal_sources"]) | NEW_DUPLICATE_REMOVALS
         restore_src = FIXTURE["authorized_restore_source"]["src"]
         restored = set(FIXTURE["allowed_restored_routes"])
         cases = [{"hash": route["hash"], "expected": restore_src if route["hash"] in restored else (None if route["source"] in pending else route["source"])} for route in FIXTURE["routes"]]

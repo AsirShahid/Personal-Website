@@ -127,13 +127,13 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         data = json.loads((Path(__file__).parents[1] / "src/data/outside-studies.json").read_text())
-        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-gallery-20261004")
+        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-gallery-20261004-2")
         image = next(image for image in study["images"] if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01")
         ordinal = study["images"].index(image) + 1
         stem = image["src"]
         old_hashes = [route_hash for route_hash, source in PARENT_ROUTES["routes"].items() if source == stem and route_hash.startswith("#american-southwest-2025-october-gallery/")]
         self.assertEqual(len(old_hashes), 1)
-        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-gallery-20261004/{ordinal}"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-gallery-20261004-2/{ordinal}"), wait_until="domcontentloaded")
         page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth > 0 && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", arg=stem, timeout=10000)
         image_element = page.locator("[data-cells] img").first
         self.assertTrue(image_element.is_visible())

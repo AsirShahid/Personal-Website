@@ -1,3 +1,4 @@
+import collections
 import hashlib
 import json
 import re
@@ -8,8 +9,17 @@ DATA = Path(__file__).parents[1] / "src/data/outside-studies.json"
 HISTORICAL_ROUTES = Path(__file__).parent / "fixtures/outside-historical-route-contract.json"
 SCOUT_ROUTES = Path(__file__).parent / "fixtures/outside-pr45-source-route-baseline.json"
 SCOUT_BASELINE = json.loads(SCOUT_ROUTES.read_text())
+PR49_ROUTES = json.loads((Path(__file__).parent / "fixtures/outside-pr49-route-source-baseline.json").read_text())
 PENDING_REMOVALS = set(SCOUT_BASELINE["pending_removal_sources"])
 RESTORED_A306 = SCOUT_BASELINE["authorized_restore_source"]["src"]
+DUPLICATE_GROUPS = {
+    "/outside/assets/owner-review/galapagos/G208": "/outside/assets/owner-review/galapagos/G207",
+    "/outside/assets/owner-review/core-trips/C219": "/outside/assets/owner-review/core-trips/C218",
+    "/outside/assets/owner-review/core-trips/C351": "/outside/assets/owner-review/core-trips/C352",
+    "/outside/assets/owner-review/core-trips/C484": "/outside/assets/owner-review/core-trips/C483",
+    "/outside/assets/owner-review/additional-trips/A460": "/outside/assets/owner-review/additional-trips/A459",
+    "/outside/assets/owner-review/additional-trips/A508": "/outside/assets/additional-trips/0507",
+}
 OWNER_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C538",
     "/outside/assets/owner-review/core-trips/C542",
@@ -35,15 +45,15 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 449))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 443))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
         self.assertFalse(ids & set(self.data["aliases"]))
         self.assertFalse(self.sources & OWNER_REMOVALS)
-        self.assertEqual(len(self.data["aliases"]), 117)
+        self.assertEqual(len(self.data["aliases"]), 121)
         baseline_sources = set(SCOUT_BASELINE["image_object_sha256"])
-        self.assertEqual(self.sources, (baseline_sources - PENDING_REMOVALS) | {RESTORED_A306})
+        self.assertEqual(self.sources, (baseline_sources - PENDING_REMOVALS - set(DUPLICATE_GROUPS)) | {RESTORED_A306})
         contract = json.loads(HISTORICAL_ROUTES.read_text())
         self.assertFalse(self.sources & OWNER_REMOVALS)
 
@@ -105,9 +115,11 @@ class OutsideContentContractTests(unittest.TestCase):
             "philadelphia-2023-spring", "baseball-stadium-2023-may", "colorado-2025-june",
             "american-southwest-2025-october-gallery", "american-southwest-2025-october-photos", "celebration-2025-september",
             "woodland-paths-2025-august", "rome-vatican-2026-june", "albania-2026-june", "thailand-2026-july",
+            "galapagos-2026-january-photos", "american-southwest-2025-october-gallery-20261004",
+            "atlanta-2025-june", "las-vegas-2025-june-gallery",
         })
         self.assertEqual(len(self.data["studies"]), 21)
-        removed_sources = set(before["removed_sources_for_this_change"]) | PENDING_REMOVALS
+        removed_sources = set(before["removed_sources_for_this_change"]) | PENDING_REMOVALS | set(DUPLICATE_GROUPS)
         for study_id, binding in old_canonical.items():
             if study_id in self.studies:
                 study = self.studies[study_id]
@@ -130,6 +142,67 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual([image["src"] for image in current["images"]], [src for src in old_canonical["montreal-august-2023-gallery"]["targets"] if src not in removed_sources])
         self.assertEqual(self.data["aliases"]["marlborough-2025-may"], {"targets": [None], "defaultTarget": None})
 
+    def test_public_medium_and_large_derivative_bytes_are_unique(self):
+        public = DATA.parents[2] / "public"
+        for size in ("m", "l"):
+            owners = collections.defaultdict(list)
+            for source in sorted(self.sources):
+                path = public / f"{source.lstrip('/')}\u002d{size}.webp"
+                owners[hashlib.sha256(path.read_bytes()).hexdigest()].append(source)
+            duplicates = {digest: sources for digest, sources in owners.items() if len(sources) > 1}
+            self.assertEqual(duplicates, {}, f"duplicate public {size} derivatives: {duplicates}")
+
+    def test_confirmed_duplicate_groups_retain_the_adjudicated_keepers(self):
+        for removed, keeper in DUPLICATE_GROUPS.items():
+            with self.subTest(removed=removed):
+                self.assertIn(keeper, self.sources)
+                self.assertNotIn(removed, self.sources, f"duplicate member remains: {removed}")
+
+    def test_pr49_historical_routes_keep_exact_sources_or_unavailable_removed_sources(self):
+        self.assertEqual(PR49_ROUTES["base"], "7df338c1b28ab2283f183b817901f2245d88fbdc")
+        self.assertEqual(len(PR49_ROUTES["routes"]), 2635)
+
+        def target_source(target):
+            if not target:
+                return None
+            study = self.studies.get(target.get("studyId"))
+            index = target.get("index")
+            if study is None or not isinstance(index, int) or isinstance(index, bool):
+                return None
+            return study["images"][index]["src"] if 0 <= index < len(study["images"]) else None
+
+        def route_source(fragment):
+            match = re.fullmatch(r"#([\w-]+)(?:/([1-9]\d*))?", fragment)
+            if not match:
+                return None
+            route_id, ordinal = match.groups()
+            study = self.studies.get(route_id)
+            if study is not None:
+                index = 0 if ordinal is None else min(int(ordinal) - 1, len(study["images"]) - 1)
+                return study["images"][index]["src"] if 0 <= index < len(study["images"]) else None
+            alias = self.data["aliases"].get(route_id)
+            if alias is None:
+                return None
+            if isinstance(alias.get("targets"), list):
+                if ordinal is None:
+                    target = alias.get("defaultTarget")
+                    if "defaultTarget" not in alias:
+                        target = next((row for row in alias["targets"] if row is not None), None)
+                else:
+                    index = int(ordinal) - 1
+                    target = alias["targets"][index] if index < len(alias["targets"]) else None
+                return target_source(target)
+            study = self.studies.get(alias.get("studyId"))
+            indices = alias.get("indices", [])
+            index = alias.get("defaultIndex", -1) if ordinal is None else (indices[int(ordinal) - 1] if int(ordinal) <= len(indices) else None)
+            if study is None or not isinstance(index, int) or isinstance(index, bool):
+                return None
+            return study["images"][index]["src"] if 0 <= index < len(study["images"]) else None
+
+        for fragment, source in PR49_ROUTES["routes"].items():
+            expected = None if source in DUPLICATE_GROUPS else source
+            self.assertEqual(route_source(fragment), expected, fragment)
+
     def test_public_copy_is_clean_and_genuine_uncertainty_is_preserved(self):
         forbidden = re.compile(r"archived state label|metadata (?:review|cluster)|unsorted review|review supplement|location pending", re.I)
         for study in self.data["studies"]:
@@ -146,8 +219,8 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual(self.studies["maryland-national-harbor-2023-august"]["status"], "PRELIM")
 
     def test_approved_vegas_and_atlanta_groups_are_chronological_and_source_bound(self):
-        vegas = self.studies["las-vegas-2025-june-gallery"]
-        self.assertEqual((vegas["date"], vegas["dateEnd"], len(vegas["images"]), vegas["status"]), ("2025-06-14", "2025-06-14", 17, "PENDING"))
+        vegas = self.studies["las-vegas-2025-june-gallery-20261004"]
+        self.assertEqual((vegas["date"], vegas["dateEnd"], len(vegas["images"]), vegas["status"]), ("2025-06-14", "2025-06-14", 16, "PENDING"))
         vegas_sources = [image["src"] for image in vegas["images"]]
         resort_sources = [
             "/outside/assets/owner-review/additional-trips/A484",
@@ -159,10 +232,10 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual([vegas_sources.index(source) for source in resort_sources], sorted(vegas_sources.index(source) for source in resort_sources))
         self.assertEqual(vegas["series"][0]["title"], "Resort interiors & displays")
 
-        atlanta = self.studies["atlanta-2025-june"]
+        atlanta = self.studies["atlanta-2025-june-20261004"]
         self.assertEqual((atlanta["place"], atlanta["region"], atlanta["country"], atlanta["status"]), ("Atlanta", "Georgia", "United States", "PENDING"))
-        self.assertEqual((atlanta["date"], atlanta["dateEnd"], len(atlanta["images"])), ("2025-06-18", "2025-06-18", 32))
-        self.assertEqual([(series["start"], series["count"], series["title"]) for series in atlanta["series"]], [(0, 7, "Fountains & gardens"), (7, 4, "Downtown Atlanta"), (11, 21, "Aquarium & marine life")])
+        self.assertEqual((atlanta["date"], atlanta["dateEnd"], len(atlanta["images"])), ("2025-06-18", "2025-06-18", 31))
+        self.assertEqual([(series["start"], series["count"], series["title"]) for series in atlanta["series"]], [(0, 7, "Fountains & gardens"), (7, 4, "Downtown Atlanta"), (11, 20, "Aquarium & marine life")])
 
         aquarium_sources = [
             "/outside/assets/owner-review/additional-trips/" + source
@@ -239,7 +312,7 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual((study["date"], study["dateEnd"]), ("2025-11-27", "2025-11-30"))
 
     def test_owner_approved_utah_night_sky_photo_is_added_once_and_chronological(self):
-        study = self.studies["american-southwest-2025-october-gallery-20261004"]
+        study = self.studies["american-southwest-2025-october-gallery-20261004-2"]
         photos = [i for i, image in enumerate(study["images"]) if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01"]
         self.assertEqual(len(photos), 1)
         index = photos[0]
