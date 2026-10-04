@@ -35,13 +35,13 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 458))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 449))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
         self.assertFalse(ids & set(self.data["aliases"]))
         self.assertFalse(self.sources & OWNER_REMOVALS)
-        self.assertEqual(len(self.data["aliases"]), 116)
+        self.assertEqual(len(self.data["aliases"]), 117)
         baseline_sources = set(SCOUT_BASELINE["image_object_sha256"])
         self.assertEqual(self.sources, (baseline_sources - PENDING_REMOVALS) | {RESTORED_A306})
         contract = json.loads(HISTORICAL_ROUTES.read_text())
@@ -103,7 +103,7 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual(set(self.data["aliases"]), set(old_aliases) | {"montreal-august-2023-gallery"} | {
             "pakistan-2026-summer-photos", "australia-2026-july-photos", "cruise-2024-december",
             "philadelphia-2023-spring", "baseball-stadium-2023-may", "colorado-2025-june",
-            "american-southwest-2025-october-photos", "celebration-2025-september",
+            "american-southwest-2025-october-gallery", "american-southwest-2025-october-photos", "celebration-2025-september",
             "woodland-paths-2025-august", "rome-vatican-2026-june", "albania-2026-june", "thailand-2026-july",
         })
         self.assertEqual(len(self.data["studies"]), 21)
@@ -239,7 +239,7 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual((study["date"], study["dateEnd"]), ("2025-11-27", "2025-11-30"))
 
     def test_owner_approved_utah_night_sky_photo_is_added_once_and_chronological(self):
-        study = self.studies["american-southwest-2025-october-gallery"]
+        study = self.studies["american-southwest-2025-october-gallery-20261004"]
         photos = [i for i, image in enumerate(study["images"]) if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01"]
         self.assertEqual(len(photos), 1)
         index = photos[0]

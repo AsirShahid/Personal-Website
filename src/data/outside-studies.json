@@ -2996,7 +2996,7 @@
       ]
     },
     {
-      "id": "american-southwest-2025-october-gallery",
+      "id": "american-southwest-2025-october-gallery-20261004",
       "place": "American Southwest",
       "region": "American Southwest",
       "country": "United States",
@@ -3008,7 +3008,7 @@
       "series": [
         {
           "start": 0,
-          "count": 19,
+          "count": 15,
           "key": 0,
           "time": "11:41:14",
           "title": "Desert plants & rocks",
@@ -3016,54 +3016,54 @@
           "dateEnd": "2025-10-09"
         },
         {
-          "start": 19,
-          "count": 13,
-          "key": 19,
+          "start": 15,
+          "count": 12,
+          "key": 15,
           "time": "15:32:02",
           "title": "Canyon & layered cliffs",
           "date": "2025-10-10",
           "dateEnd": "2025-10-10"
         },
         {
-          "start": 32,
-          "count": 19,
-          "key": 32,
+          "start": 27,
+          "count": 16,
+          "key": 27,
           "time": "08:06:34",
           "title": "Red-rock canyon",
           "date": "2025-10-11",
           "dateEnd": "2025-10-11"
         },
         {
-          "start": 51,
+          "start": 43,
           "count": 18,
-          "key": 51,
+          "key": 43,
           "time": "11:35:45",
           "title": "Peaks & green valley",
           "date": "2025-10-12",
           "dateEnd": "2025-10-12"
         },
         {
-          "start": 69,
+          "start": 61,
           "count": 1,
-          "key": 69,
+          "key": 61,
           "time": "22:42:19",
           "title": "Utah night sky",
           "date": "2025-10-12",
           "dateEnd": "2025-10-12"
         },
         {
-          "start": 70,
-          "count": 28,
-          "key": 70,
+          "start": 62,
+          "count": 27,
+          "key": 62,
           "time": "08:04:23",
           "title": "Red-rock creek walk",
           "date": "2025-10-13",
           "dateEnd": "2025-10-13"
         },
         {
-          "start": 98,
+          "start": 89,
           "count": 5,
-          "key": 98,
+          "key": 89,
           "time": "12:29:35",
           "title": "Dam tunnel & views",
           "date": "2025-10-14",
@@ -3163,19 +3163,6 @@
           "tz": "UTC-07:00"
         },
         {
-          "src": "/outside/assets/owner-review/core-trips/C066",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-10-09",
-          "t": "14:15:03",
-          "se": 1,
-          "ex": "ISO 50  1/4684 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
           "tz": "UTC-7",
           "cam": "OnePlus 11 5G",
           "h": 4096,
@@ -3241,32 +3228,6 @@
           "tz": "UTC-07:00"
         },
         {
-          "src": "/outside/assets/owner-review/core-trips/C104",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-10-09",
-          "t": "17:27:39",
-          "se": 1,
-          "ex": "ISO 64  1/5621 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C107",
-          "w": 4000,
-          "h": 3000,
-          "d": "2025-10-09",
-          "t": "17:35:45",
-          "se": 1,
-          "ex": "ISO 64  1/515 s  f/2.2",
-          "fl": "2.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
           "src": "/outside/assets/owner-review/core-trips/C108",
           "w": 4000,
           "h": 3000,
@@ -3274,19 +3235,6 @@
           "t": "17:35:45",
           "se": 1,
           "ex": "ISO 64  1/515 s  f/2.2",
-          "fl": "2.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C115",
-          "w": 4000,
-          "h": 3000,
-          "d": "2025-10-09",
-          "t": "18:03:06",
-          "se": 1,
-          "ex": "ISO 64  1/598 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
@@ -3385,19 +3333,6 @@
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C174",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-10-10",
-          "t": "17:19:29",
-          "se": 2,
-          "ex": "ISO 50  1/196 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C175",
           "w": 4096,
           "h": 3072,
           "d": "2025-10-10",
@@ -3553,19 +3488,6 @@
           "fl": "5.59 mm"
         },
         {
-          "src": "/outside/assets/owner-review/core-trips/C256",
-          "w": 3136,
-          "h": 2352,
-          "d": "2025-10-11",
-          "t": "10:15:40",
-          "se": 3,
-          "ex": "ISO 50  1/354 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
           "src": "/outside/assets/owner-review/core-trips/C275",
           "w": 4000,
           "h": 3000,
@@ -3631,19 +3553,6 @@
           "fl": "7.08 mm"
         },
         {
-          "src": "/outside/assets/owner-review/core-trips/C308",
-          "w": 3136,
-          "h": 2352,
-          "d": "2025-10-11",
-          "t": "15:52:16",
-          "se": 3,
-          "ex": "ISO 50  1/2085 s  f/2",
-          "fl": "7.08 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
           "src": "/outside/assets/owner-review/core-trips/C317",
           "w": 4096,
           "h": 3072,
@@ -3651,19 +3560,6 @@
           "t": "16:03:41",
           "se": 3,
           "ex": "ISO 64  1/4324 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-07:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C321",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-10-11",
-          "t": "16:03:47",
-          "se": 3,
-          "ex": "ISO 50  1/4164 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
@@ -4020,19 +3916,6 @@
           "se": 6,
           "w": 4096,
           "fl": "5.59 mm"
-        },
-        {
-          "src": "/outside/assets/owner-review/core-trips/C430",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-10-13",
-          "t": "08:35:30",
-          "se": 6,
-          "ex": "ISO 50  1/315 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-06:00"
         },
         {
           "tz": "UTC-6",
@@ -7281,94 +7164,94 @@
     "projection-american-southwest-2025": {
       "targets": [
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 8
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 7
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 33
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 28
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 31
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 36
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 42
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 62
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 57
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 60
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 64
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 65
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 68
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 70
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 72
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 75
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 74
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 78
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 79
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 83
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 84
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 85
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 87
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 92
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 94
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 97
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 88
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 98
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 89
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 101
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 92
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
-        "index": 42
+        "studyId": "american-southwest-2025-october-gallery-20261004",
+        "index": 36
       }
     },
     "projection-puerto-rico-october-2025": {
@@ -8002,59 +7885,59 @@
       "targets": [
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         null,
         null,
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 101
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 92
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         }
       ],
       "defaultTarget": null
@@ -8062,88 +7945,88 @@
     "study-0614-2025-10-14": {
       "targets": [
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
-        "index": 102
+        "studyId": "american-southwest-2025-october-gallery-20261004",
+        "index": 93
       }
     },
     "zion": {
       "targets": [
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 55
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
         },
         null,
         null,
@@ -8151,69 +8034,69 @@
         null,
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 62
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 62
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 62
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 62
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 62
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 68
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 60
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 68
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 60
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 68
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 60
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
-        "index": 55
+        "studyId": "american-southwest-2025-october-gallery-20261004",
+        "index": 47
       }
     },
     "old-san-juan": {
@@ -8581,40 +8464,40 @@
       "targets": [
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 55
         },
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 62
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 63
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 68
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 60
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 101
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 92
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
-        "index": 55
+        "studyId": "american-southwest-2025-october-gallery-20261004",
+        "index": 47
       }
     },
     "old-san-juan-2025": {
@@ -9420,426 +9303,399 @@
     "projection-american-southwest-2025-expanded": {
       "targets": [
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 0
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 1
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 2
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 3
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 4
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 5
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 6
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 7
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 8
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 9
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 10
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 11
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 12
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 13
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 14
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 15
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 16
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 17
         },
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 18
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 19
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 20
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 21
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 22
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 23
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 20
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 21
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 22
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 23
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 24
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 25
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 26
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 27
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 28
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 29
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 30
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 31
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 32
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 33
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 34
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 35
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 36
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 37
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 38
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 39
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 40
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 41
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 42
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 43
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 44
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 45
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 46
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 48
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 49
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 50
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 51
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 52
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 53
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 56
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 57
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 58
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 59
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 60
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 61
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 62
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 63
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 64
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 65
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 66
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 67
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 68
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 69
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 70
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 71
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 72
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 73
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 74
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 75
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 76
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 77
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 78
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 79
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 80
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 81
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 82
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 83
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 84
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 85
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 86
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 87
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 88
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 89
         },
-        null,
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 90
         },
-        null,
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 91
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 92
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 93
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 94
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 95
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 96
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 97
-        },
-        null,
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 98
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 100
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 101
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
-        "index": 42
+        "studyId": "american-southwest-2025-october-gallery-20261004",
+        "index": 36
       }
     },
     "projection-puerto-rico-october-2025-expanded": {
@@ -11119,425 +10975,398 @@
     "projection-american-southwest-2025-expanded-retained-20261004": {
       "targets": [
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 0
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 1
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 2
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 3
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 4
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 5
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 6
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 7
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 8
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 9
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 10
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 11
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 12
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 13
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 14
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 15
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 16
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 17
         },
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 18
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 19
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 20
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 21
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 22
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 23
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 20
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 21
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 22
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 23
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 24
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 25
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 26
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 27
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 28
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 29
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 30
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 31
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 32
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 33
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 34
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 35
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 36
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 37
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 38
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 39
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 40
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 41
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 42
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 43
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 44
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 45
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 46
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 48
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 49
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 50
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 51
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 52
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 53
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 56
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 57
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 58
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 59
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 60
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 61
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 62
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 63
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 64
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 65
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 66
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 67
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 68
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 69
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 70
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 71
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 72
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 73
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 74
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 75
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 76
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 77
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 78
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 79
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 80
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 81
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 82
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 83
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 84
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 85
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 86
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 87
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 88
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 89
         },
-        null,
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 90
         },
-        null,
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 91
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 92
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 93
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 94
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 95
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 96
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 97
-        },
-        null,
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 98
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 100
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 101
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
+        "studyId": "american-southwest-2025-october-gallery-20261004",
         "index": 0
       }
     },
@@ -12233,426 +12062,399 @@
     "american-southwest-2025-october": {
       "targets": [
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 0
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 1
         },
         null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 2
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 3
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 4
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 5
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 6
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 7
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 8
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 9
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 10
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 11
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 12
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 13
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 14
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 15
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 16
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 17
         },
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 18
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 19
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 20
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 21
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 22
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 23
         },
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 24
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 25
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 26
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 27
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 28
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 29
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 30
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 31
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 32
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 33
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 34
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 35
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 36
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 37
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 38
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 39
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 40
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 41
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 42
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 43
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 44
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 45
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 46
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 48
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 49
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 50
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 51
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 52
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 53
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 56
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 57
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 58
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 59
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 60
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 61
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 62
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 63
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 64
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 65
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 66
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 67
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 68
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 69
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 70
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 71
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 72
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 73
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 74
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 75
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 76
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 77
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 78
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 79
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 80
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 81
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 82
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 83
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 84
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 85
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 86
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 87
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 88
         },
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 89
         },
-        null,
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 91
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 92
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 93
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 94
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 95
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 96
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 97
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 98
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 100
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 101
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
+        "studyId": "american-southwest-2025-october-gallery-20261004",
         "index": 0
       }
     },
@@ -14193,423 +13995,396 @@
     "american-southwest-2025-october-photos": {
       "targets": [
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 0
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 1
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 2
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 3
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 4
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 5
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 6
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 7
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 8
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 9
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 10
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 11
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 12
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 13
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 14
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 15
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 16
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 17
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 18
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 19
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 20
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 21
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 22
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 23
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 24
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 25
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 26
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 27
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 28
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 29
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 30
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 31
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 32
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 33
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 34
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 35
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 36
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 37
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 38
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 39
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 40
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 41
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 42
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 43
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 44
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 45
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 46
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 47
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 48
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 49
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 50
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 51
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 52
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 53
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 54
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 55
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 56
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 57
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 58
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 59
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 60
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 61
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 62
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 63
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 64
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 65
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 66
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 67
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 68
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 69
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 70
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 71
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 72
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 73
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 74
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 75
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 76
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 77
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 78
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 79
         },
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 80
         },
+        null,
+        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 81
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 82
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 83
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 84
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 85
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 86
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 87
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 88
         },
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 89
         },
-        null,
-        null,
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 90
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 91
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 92
         },
         {
-          "studyId": "american-southwest-2025-october-gallery",
+          "studyId": "american-southwest-2025-october-gallery-20261004",
           "index": 93
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 94
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 95
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 96
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 97
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 98
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 99
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 100
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 101
-        },
-        {
-          "studyId": "american-southwest-2025-october-gallery",
-          "index": 102
         }
       ],
       "defaultTarget": {
-        "studyId": "american-southwest-2025-october-gallery",
+        "studyId": "american-southwest-2025-october-gallery-20261004",
         "index": 0
       }
     },
@@ -14889,6 +14664,399 @@
         null
       ],
       "defaultTarget": null
+    },
+    "american-southwest-2025-october-gallery": {
+      "targets": [
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 0
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 1
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 2
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 3
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 4
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 5
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 6
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 7
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 8
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 9
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 10
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 11
+        },
+        null,
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 12
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 13
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 14
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 15
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 16
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 17
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 18
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 19
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 20
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 21
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 22
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 23
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 24
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 25
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 26
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 27
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 28
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 29
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 30
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 31
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 32
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 33
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 34
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 35
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 36
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 37
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 38
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 39
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 40
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 41
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 42
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 43
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 44
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 45
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 46
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 47
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 48
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 49
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 50
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 51
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 52
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 53
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 54
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 55
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 56
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 57
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 58
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 59
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 60
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 61
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 62
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 63
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 64
+        },
+        null,
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 65
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 66
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 67
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 68
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 69
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 70
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 71
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 72
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 73
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 74
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 75
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 76
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 77
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 78
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 79
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 80
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 81
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 82
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 83
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 84
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 85
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 86
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 87
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 88
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 89
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 90
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 91
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 92
+        },
+        {
+          "studyId": "american-southwest-2025-october-gallery-20261004",
+          "index": 93
+        }
+      ],
+      "defaultTarget": {
+        "studyId": "american-southwest-2025-october-gallery-20261004",
+        "index": 0
+      }
     }
   }
 }
