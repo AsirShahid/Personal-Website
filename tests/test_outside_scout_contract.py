@@ -9,6 +9,18 @@ DATA_PATH = ROOT / "src/data/outside-studies.json"
 FROZEN = json.loads((ROOT / "tests/fixtures/outside-pr45-source-route-baseline.json").read_text())
 RESTORED_SOURCE = FROZEN["authorized_restore_source"]["src"]
 REMOVED_SOURCES = set(FROZEN["pending_removal_sources"])
+NEW_REMOVALS = {
+    "/outside/assets/owner-review/core-trips/C066",
+    "/outside/assets/owner-review/core-trips/C104",
+    "/outside/assets/owner-review/core-trips/C107",
+    "/outside/assets/owner-review/core-trips/C115",
+    "/outside/assets/owner-review/core-trips/C175",
+    "/outside/assets/owner-review/core-trips/C256",
+    "/outside/assets/owner-review/core-trips/C308",
+    "/outside/assets/owner-review/core-trips/C321",
+    "/outside/assets/owner-review/core-trips/C430",
+}
+PARENT_ROUTES = json.loads((ROOT / "tests/fixtures/outside-20261004-parent-route-bindings.json").read_text())
 
 
 def route_source(data, route_hash):
@@ -53,7 +65,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         self.assertEqual((len(self.studies), len(self.images)), (expected["studies"], expected["photos"]))
         baseline_sources = set(FROZEN["image_object_sha256"])
         self.assertEqual(set(self.images), (baseline_sources - REMOVED_SOURCES) | {RESTORED_SOURCE})
-        self.assertEqual(len(REMOVED_SOURCES), 16)
+        self.assertEqual(len(REMOVED_SOURCES), 25)
         for source in REMOVED_SOURCES | set(FROZEN["effective_excluded_sources"]):
             if source != RESTORED_SOURCE:
                 self.assertNotIn(source, self.images, source)
@@ -116,6 +128,17 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
             with self.subTest(route=row["hash"]):
                 expected = RESTORED_SOURCE if row["hash"] in allowed_restore else (None if row["source"] in REMOVED_SOURCES else row["source"])
                 self.assertEqual(route_source(self.data, row["hash"]), expected, row["hash"])
+
+    def test_parent_2540_route_bindings_preserve_sources_except_new_removals(self):
+        self.assertEqual(PARENT_ROUTES["base"], "03b49fe4bc8b340cb90c3eb1c7bdbedcbdcd5ba4")
+        routes = PARENT_ROUTES["routes"]
+        self.assertEqual(len(routes), 2540)
+        self.assertEqual(len(set(routes)), 2540)
+        self.assertEqual(NEW_REMOVALS, set(routes.values()) & NEW_REMOVALS)
+        for route_hash, source in routes.items():
+            with self.subTest(route=route_hash):
+                expected = None if source in NEW_REMOVALS else source
+                self.assertEqual(route_source(self.data, route_hash), expected, route_hash)
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-supplement-browser"))
+PARENT_ROUTES = json.loads((Path(__file__).parents[1] / "tests/fixtures/outside-20261004-parent-route-bindings.json").read_text())
 SUPPLEMENTS = {
     "montreal-august-2023-photos": {
         "images": 15,
@@ -126,13 +127,25 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         data = json.loads((Path(__file__).parents[1] / "src/data/outside-studies.json").read_text())
-        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-gallery")
-        ordinal = next(i for i, image in enumerate(study["images"], 1) if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01")
-        stem = study["images"][ordinal - 1]["src"]
-        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-gallery/{ordinal}"), wait_until="domcontentloaded")
+        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-gallery-20261004")
+        image = next(image for image in study["images"] if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01")
+        ordinal = study["images"].index(image) + 1
+        stem = image["src"]
+        old_hashes = [route_hash for route_hash, source in PARENT_ROUTES["routes"].items() if source == stem and route_hash.startswith("#american-southwest-2025-october-gallery/")]
+        self.assertEqual(len(old_hashes), 1)
+        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-gallery-20261004/{ordinal}"), wait_until="domcontentloaded")
         page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth > 0 && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", arg=stem, timeout=10000)
+        image_element = page.locator("[data-cells] img").first
+        self.assertTrue(image_element.is_visible())
+        self.assertTrue(page.evaluate("stem => { const im=document.querySelector('[data-cells] img'); return im && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", stem))
+        page.goto(urljoin(BASE_URL, old_hashes[0]), wait_until="domcontentloaded")
+        page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth > 0 && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", arg=stem, timeout=10000)
+        image_element = page.locator("[data-cells] img").first
+        self.assertTrue(image_element.is_visible())
+        self.assertGreater(image_element.evaluate("im => im.naturalWidth"), 0)
         self.assertTrue(page.evaluate("stem => { const im=document.querySelector('[data-cells] img'); return im && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", stem))
         self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), 768)
+        EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
         page.screenshot(path=str(EVIDENCE_DIR / "tablet-utah-night-sky.png"), full_page=True)
         context.close()
         self.assertEqual(errors, [], errors)
