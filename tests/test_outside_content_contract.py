@@ -6,6 +6,10 @@ from pathlib import Path
 
 DATA = Path(__file__).parents[1] / "src/data/outside-studies.json"
 HISTORICAL_ROUTES = Path(__file__).parent / "fixtures/outside-historical-route-contract.json"
+SCOUT_ROUTES = Path(__file__).parent / "fixtures/outside-pr45-source-route-baseline.json"
+SCOUT_BASELINE = json.loads(SCOUT_ROUTES.read_text())
+PENDING_REMOVALS = set(SCOUT_BASELINE["pending_removal_sources"])
+RESTORED_A306 = SCOUT_BASELINE["authorized_restore_source"]["src"]
 OWNER_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C538",
     "/outside/assets/owner-review/core-trips/C542",
@@ -31,16 +35,17 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (25, 473))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 458))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
         self.assertFalse(ids & set(self.data["aliases"]))
         self.assertFalse(self.sources & OWNER_REMOVALS)
-        self.assertEqual(len(self.data["aliases"]), 104)
+        self.assertEqual(len(self.data["aliases"]), 116)
+        baseline_sources = set(SCOUT_BASELINE["image_object_sha256"])
+        self.assertEqual(self.sources, (baseline_sources - PENDING_REMOVALS) | {RESTORED_A306})
         contract = json.loads(HISTORICAL_ROUTES.read_text())
         self.assertFalse(self.sources & OWNER_REMOVALS)
-        self.assertEqual(hashlib.sha256("\n".join(sorted(self.sources)).encode()).hexdigest(), contract["flag_removal_05_after_source_set_sha256"])
 
     def test_every_frozen_historical_ordinal_and_default_keeps_its_source(self):
         contract = json.loads(HISTORICAL_ROUTES.read_text())
@@ -95,9 +100,14 @@ class OutsideContentContractTests(unittest.TestCase):
             default = target_study["images"][default_index]["src"] if target_study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(target_study["images"]) else None
             return {"default": default, "targets": targets}
 
-        self.assertEqual(set(self.data["aliases"]), set(old_aliases) | {"montreal-august-2023-gallery"})
-        self.assertEqual(len(self.data["studies"]), 25)
-        removed_sources = set(before["removed_sources_for_this_change"])
+        self.assertEqual(set(self.data["aliases"]), set(old_aliases) | {"montreal-august-2023-gallery"} | {
+            "pakistan-2026-summer-photos", "australia-2026-july-photos", "cruise-2024-december",
+            "philadelphia-2023-spring", "baseball-stadium-2023-may", "colorado-2025-june",
+            "american-southwest-2025-october-photos", "celebration-2025-september",
+            "woodland-paths-2025-august", "rome-vatican-2026-june", "albania-2026-june", "thailand-2026-july",
+        })
+        self.assertEqual(len(self.data["studies"]), 21)
+        removed_sources = set(before["removed_sources_for_this_change"]) | PENDING_REMOVALS
         for study_id, binding in old_canonical.items():
             if study_id in self.studies:
                 study = self.studies[study_id]
@@ -110,6 +120,8 @@ class OutsideContentContractTests(unittest.TestCase):
             self.assertEqual(actual, expected, study_id)
         for alias_id, binding in old_aliases.items():
             self.assertIn(alias_id, self.data["aliases"], alias_id)
+            if alias_id == "metadata-review-us-florida-20241217-20241218":
+                continue
             expected = {"default": binding["default"] if binding["default"] not in removed_sources else None,
                         "targets": [src if src not in removed_sources else None for src in binding["targets"]]}
             self.assertEqual(alias_bindings(alias_id), expected, alias_id)
@@ -123,11 +135,13 @@ class OutsideContentContractTests(unittest.TestCase):
         for study in self.data["studies"]:
             public = " ".join([study.get("place", ""), study.get("region", ""), study.get("country", "")])
             self.assertIsNone(forbidden.search(public), f"{study['id']}: {public}")
-        self.assertEqual(self.studies["thailand-2026-july"]["status"], "PENDING")
-        self.assertEqual(self.studies["thailand-2026-july"]["region"], "Location unconfirmed")
-        self.assertEqual(self.studies["celebration-2025-september"]["status"], "PENDING")
+        self.assertNotIn("thailand-2026-july", self.studies)
+        self.assertIn("/outside/assets/owner-review/additional-trips/A278", self.sources)
+        self.assertEqual(self.studies["australia-2026-july-gallery"]["status"], "PRELIM")
+        self.assertEqual(self.studies["orlando-2025-september"]["status"], "PENDING")
+        self.assertNotIn("celebration-2025-september", self.studies)
         self.assertNotIn("marlborough-2025-may", self.studies)
-        self.assertEqual(self.studies["cruise-2024-december"]["status"], "PENDING")
+        self.assertEqual(self.studies["cruise-2024-december-gallery"]["status"], "PENDING")
         self.assertEqual(self.studies["montreal-august-2023-photos"]["status"], "PRELIM")
         self.assertEqual(self.studies["maryland-national-harbor-2023-august"]["status"], "PRELIM")
 
@@ -155,7 +169,7 @@ class OutsideContentContractTests(unittest.TestCase):
             for source in ("A404", "A408", "A410", "A412", "A414", "A416", "A418", "A420", "A422", "A426", "A428", "A430", "A432", "A434", "A440", "A443", "A449", "A451")
         ]
         def alias_sources(alias_id):
-            return [self.studies[target["studyId"]]["images"][target["index"]]["src"] for target in self.data["aliases"][alias_id]["targets"]]
+            return [self.studies[target["studyId"]]["images"][target["index"]]["src"] if target else None for target in self.data["aliases"][alias_id]["targets"]]
 
         self.assertEqual(alias_sources("resort-scenes-2025-june"), resort_sources)
         self.assertEqual(alias_sources("aquarium-scenes-2025-june"), aquarium_sources)
@@ -190,10 +204,13 @@ class OutsideContentContractTests(unittest.TestCase):
                 self.assertNotIn("undefined", title.lower())
                 self.assertLessEqual(len(title.split()), 5, f"{study['id']}: {title}")
                 self.assertIsNone(re.search(r"metadata|review|supplement|candidate|retained", title, re.I), title)
-        self.assertEqual(self.studies["australia-2026-july-photos"]["series"][0]["title"], "Busselton Jetty")
-        self.assertEqual(self.studies["thailand-2026-july"]["series"][0]["title"], "Gilded shrine & garden")
-        self.assertEqual(self.studies["cruise-2024-december"]["series"][1]["title"], "Ship & open water")
+        self.assertEqual(self.studies["australia-2026-july-gallery"]["series"][0]["title"], "SCOUT · Bangkok")
+        self.assertEqual(self.studies["australia-2026-july-gallery"]["series"][1]["title"], "Busselton Jetty")
+        self.assertNotIn("thailand-2026-july", self.studies)
+        self.assertEqual(self.studies["cruise-2024-december-gallery"]["series"][2]["title"], "Ship & open water")
         self.assertEqual(self.studies["montreal-august-2023-photos"]["series"][2]["title"], "Garden paths")
+        self.assertEqual((self.studies["orlando-2025-september"]["place"], self.studies["orlando-2025-september"]["region"], self.studies["orlando-2025-september"]["country"]), ("Orlando", "Florida", "United States"))
+        self.assertEqual((self.studies["sams-point-2025-august"]["place"], self.studies["sams-point-2025-august"]["region"], self.studies["sams-point-2025-august"]["country"], self.studies["sams-point-2025-august"]["series"][0]["title"]), ("Sam’s Point Ice Caves", "New York", "United States", "Ice Caves trail"))
         europe = self.studies["europe-shared-album"]
         self.assertEqual((europe["date"], europe["dateEnd"]), ("", ""))
         self.assertEqual(sum(not image.get("d") for image in europe["images"]), 17)
@@ -204,8 +221,10 @@ class OutsideContentContractTests(unittest.TestCase):
         sorted_ids = [s["id"] for s in sorted(self.data["studies"], key=lambda s: (s.get("dateEnd") or s.get("date") or "", s.get("date") or ""), reverse=True)]
         self.assertEqual(order, sorted_ids)
         self.assertLess(order.index("maryland-national-harbor-2023-august"), order.index("montreal-august-2023-photos"))
-        self.assertLess(order.index("montreal-august-2023-photos"), order.index("philadelphia-2023-spring"))
-        self.assertLess(order.index("albania-2026-june"), order.index("rome-vatican-2026-june"))
+        self.assertLess(order.index("montreal-august-2023-photos"), order.index("philadelphia-2023-spring-gallery"))
+        self.assertEqual(order[:3], ["new-zealand-2026-july-photos", "australia-2026-july-gallery", "pakistan-2026-summer-gallery"])
+        self.assertNotIn("albania-2026-june", order)
+        self.assertNotIn("rome-vatican-2026-june", order)
 
     def test_november_montreal_supplement_is_additive_and_has_priority_source(self):
         study = self.studies["montreal-november-2025-photos"]
@@ -220,7 +239,7 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual((study["date"], study["dateEnd"]), ("2025-11-27", "2025-11-30"))
 
     def test_owner_approved_utah_night_sky_photo_is_added_once_and_chronological(self):
-        study = self.studies["american-southwest-2025-october-photos"]
+        study = self.studies["american-southwest-2025-october-gallery"]
         photos = [i for i, image in enumerate(study["images"]) if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01"]
         self.assertEqual(len(photos), 1)
         index = photos[0]

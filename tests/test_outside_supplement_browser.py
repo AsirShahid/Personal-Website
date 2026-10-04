@@ -126,10 +126,10 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         data = json.loads((Path(__file__).parents[1] / "src/data/outside-studies.json").read_text())
-        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-photos")
+        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-gallery")
         ordinal = next(i for i, image in enumerate(study["images"], 1) if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01")
         stem = study["images"][ordinal - 1]["src"]
-        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-photos/{ordinal}"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-gallery/{ordinal}"), wait_until="domcontentloaded")
         page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth > 0 && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", arg=stem, timeout=10000)
         self.assertTrue(page.evaluate("stem => { const im=document.querySelector('[data-cells] img'); return im && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", stem))
         self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), 768)
