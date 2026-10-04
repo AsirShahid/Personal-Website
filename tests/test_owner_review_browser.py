@@ -7,7 +7,7 @@ from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
-CANONICAL_PAKISTAN = "pakistan-2026-summer"
+CANONICAL_PAKISTAN = "pakistan-2026-summer-photos"
 
 
 class OutsideOwnerReviewBrowserTests(unittest.TestCase):

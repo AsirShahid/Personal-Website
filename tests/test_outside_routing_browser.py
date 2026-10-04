@@ -119,11 +119,11 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
                     self.assert_route_matches_source(fragment, width)
 
     def test_invalid_alias_ordinals_are_rejected_and_new_canonical_clamp_remains(self):
-        for route in ("#lahore/999", "#lahore/0", "#lahore/01", "#projection-pakistan-2026/999", "#projection-pakistan-2026-expanded-retained-20261004/999"):
+        for route in ("#lahore/999", "#lahore/0", "#lahore/01", "#pakistan-2026-summer/999", "#projection-pakistan-2026/999", "#projection-pakistan-2026-expanded-retained-20261004/999"):
             with self.subTest(route=route):
                 self.assert_route_matches_source(route)
-        context, page = self.open_page("#pakistan-2026-summer/999")
-        study = next(s for s in self.payload(page)["studies"] if s["id"] == "pakistan-2026-summer")
+        context, page = self.open_page("#pakistan-2026-summer-photos/999")
+        study = next(s for s in self.payload(page)["studies"] if s["id"] == "pakistan-2026-summer-photos")
         self.assertEqual(self.image_src(page), study["images"][-1]["src"])
         context.close()
 
@@ -182,7 +182,7 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
         context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
         page = context.new_page()
         page.add_init_script("window.__nativePopStates = []; addEventListener('popstate', event => window.__nativePopStates.push({href: location.href, isTrusted: event.isTrusted}));")
-        page.goto(urljoin(BASE_URL, "#pakistan-2026-summer/1"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, "#pakistan-2026-summer-photos/1"), wait_until="domcontentloaded")
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
         page.go_back(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("window.__nativePopStates.some(event => event.isTrusted)", timeout=5000)
