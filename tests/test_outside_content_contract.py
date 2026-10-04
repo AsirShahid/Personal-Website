@@ -12,6 +12,13 @@ OWNER_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C941",
     "/outside/hoover-dam/005",
     "/outside/study-0726/006",
+    "/outside/assets/montreal-august-2023/ma23-529f8c72a5bc4f7c3233",
+    "/outside/assets/montreal-august-2023/ma23-77102b8052d5329f34fe",
+    "/outside/assets/montreal-august-2023/ma23-adfdada258f2899fa661",
+    "/outside/assets/montreal-august-2023/ma23-cecf837cb46c302e41d9",
+    "/outside/assets/montreal-august-2023/ma23-d3097e97c5181359d2bb",
+    "/outside/assets/montreal-august-2023/ma23-dd73c12b9fbfd26ca850",
+    "/outside/assets/montreal-august-2023/ma23-f8b5712820c2df7c08c6",
 }
 
 
@@ -24,22 +31,45 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (25, 480))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (25, 473))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
         self.assertFalse(ids & set(self.data["aliases"]))
         self.assertFalse(self.sources & OWNER_REMOVALS)
-        self.assertEqual(len(self.data["aliases"]), 103)
+        self.assertEqual(len(self.data["aliases"]), 104)
         contract = json.loads(HISTORICAL_ROUTES.read_text())
-        self.assertEqual(hashlib.sha256("\n".join(sorted(self.sources)).encode()).hexdigest(), contract["final_source_set_sha256"])
+        self.assertFalse(self.sources & OWNER_REMOVALS)
+        self.assertEqual(hashlib.sha256("\n".join(sorted(self.sources)).encode()).hexdigest(), contract["flag_removal_05_after_source_set_sha256"])
 
     def test_every_frozen_historical_ordinal_and_default_keeps_its_source(self):
         contract = json.loads(HISTORICAL_ROUTES.read_text())
-        canonical_counts = contract["canonical_ordinals"]
+        old_contract_counts = contract["canonical_ordinals"]
+        before = contract["pr44_beforeimage"]
         self.assertEqual(contract["baseline_commit"], "42c2aebc28dfe450b8a5f93494af04084b0935e7")
-        self.assertEqual(len(canonical_counts), 28)
-        self.assertEqual(len(set(self.data["aliases"]) - set(canonical_counts)), contract["legacy_alias_count"])
+        self.assertEqual(before["baseline_commit"], "dfb21bfc42764334fedab13ece301862d878e587")
+        self.assertEqual(len(old_contract_counts), 28)
+        self.assertEqual(len(before["canonical_bindings"]), 25)
+        self.assertEqual(len(before["alias_bindings"]), before["alias_count"])
+        self.assertEqual(before["alias_count"], 103)
+        self.assertEqual(len(set(before["alias_bindings"]) - set(old_contract_counts)), contract["legacy_alias_count"])
+
+        old_canonical = before["canonical_bindings"]
+        old_aliases = before["alias_bindings"]
+        before_bindings = {"canonical": old_canonical, "aliases": old_aliases}
+        self.assertEqual(hashlib.sha256(json.dumps(before_bindings, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest(), before["source_bindings_sha256"])
+        historic_canonical = {sid: old_canonical.get(sid, old_aliases.get(sid)) for sid in old_contract_counts}
+        historic_aliases = {sid: old_aliases[sid] for sid in sorted(set(old_aliases) - set(old_contract_counts))}
+        historic_payload = {"canonical": historic_canonical, "aliases": historic_aliases}
+        self.assertEqual(hashlib.sha256(json.dumps(historic_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest(), contract["historical_source_bindings_sha256"])
+        removed = set(before["removed_sources_for_this_change"])
+        self.assertEqual(removed, OWNER_REMOVALS - {
+            "/outside/assets/owner-review/core-trips/C538",
+            "/outside/assets/owner-review/core-trips/C542",
+            "/outside/assets/owner-review/core-trips/C941",
+            "/outside/hoover-dam/005",
+            "/outside/study-0726/006",
+        })
 
         def route_source(route):
             if not isinstance(route, dict):
@@ -65,24 +95,27 @@ class OutsideContentContractTests(unittest.TestCase):
             default = target_study["images"][default_index]["src"] if target_study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(target_study["images"]) else None
             return {"default": default, "targets": targets}
 
-        canonical = {}
-        for study_id, old_count in sorted(canonical_counts.items()):
+        self.assertEqual(set(self.data["aliases"]), set(old_aliases) | {"montreal-august-2023-gallery"})
+        self.assertEqual(len(self.data["studies"]), 25)
+        removed_sources = set(before["removed_sources_for_this_change"])
+        for study_id, binding in old_canonical.items():
             if study_id in self.studies:
                 study = self.studies[study_id]
-                self.assertEqual(len(study["images"]), old_count, study_id)
-                sources = [image["src"] for image in study["images"]]
-                canonical[study_id] = {"default": sources[0] if sources else None, "targets": sources}
+                actual = {"default": study["images"][0]["src"] if study["images"] else None, "targets": [image["src"] for image in study["images"]]}
             else:
                 self.assertIn(study_id, self.data["aliases"], study_id)
-                binding = alias_bindings(study_id)
-                self.assertEqual(len(binding["targets"]), old_count, study_id)
-                canonical[study_id] = binding
-
-        legacy_aliases = set(self.data["aliases"]) - set(canonical_counts)
-        aliases = {alias_id: alias_bindings(alias_id) for alias_id in sorted(legacy_aliases)}
-        payload = {"canonical": canonical, "aliases": aliases}
-        digest = hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
-        self.assertEqual(digest, contract["historical_source_bindings_sha256"])
+                actual = alias_bindings(study_id)
+            expected = {"default": binding["default"] if binding["default"] not in removed_sources else None,
+                        "targets": [src if src not in removed_sources else None for src in binding["targets"]]}
+            self.assertEqual(actual, expected, study_id)
+        for alias_id, binding in old_aliases.items():
+            self.assertIn(alias_id, self.data["aliases"], alias_id)
+            expected = {"default": binding["default"] if binding["default"] not in removed_sources else None,
+                        "targets": [src if src not in removed_sources else None for src in binding["targets"]]}
+            self.assertEqual(alias_bindings(alias_id), expected, alias_id)
+        current = self.studies["montreal-august-2023-photos"]
+        self.assertEqual(len(current["images"]), 15)
+        self.assertEqual([image["src"] for image in current["images"]], [src for src in old_canonical["montreal-august-2023-gallery"]["targets"] if src not in removed_sources])
         self.assertEqual(self.data["aliases"]["marlborough-2025-may"], {"targets": [None], "defaultTarget": None})
 
     def test_public_copy_is_clean_and_genuine_uncertainty_is_preserved(self):
@@ -95,7 +128,7 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual(self.studies["celebration-2025-september"]["status"], "PENDING")
         self.assertNotIn("marlborough-2025-may", self.studies)
         self.assertEqual(self.studies["cruise-2024-december"]["status"], "PENDING")
-        self.assertEqual(self.studies["montreal-august-2023-gallery"]["status"], "PRELIM")
+        self.assertEqual(self.studies["montreal-august-2023-photos"]["status"], "PRELIM")
         self.assertEqual(self.studies["maryland-national-harbor-2023-august"]["status"], "PRELIM")
 
     def test_approved_vegas_and_atlanta_groups_are_chronological_and_source_bound(self):
@@ -132,9 +165,10 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual(unsorted_sources[5:], aquarium_sources)
 
     def test_finalized_august_source_map_moves_without_inventing_gps_or_dropping_sources(self):
-        montreal = self.studies["montreal-august-2023-gallery"]
+        montreal = self.studies["montreal-august-2023-photos"]
         self.assertEqual((montreal["place"], montreal["region"], montreal["country"], montreal["status"]), ("Montréal", "Québec", "Canada", "PRELIM"))
-        self.assertEqual((montreal["date"], montreal["dateEnd"], len(montreal["images"])), ("2023-08-06", "2023-08-08", 22))
+        self.assertEqual((montreal["date"], montreal["dateEnd"], len(montreal["images"])), ("2023-08-06", "2023-08-08", 15))
+        self.assertEqual(sum(not image.get("d") for image in montreal["images"]), 1)
         self.assertEqual([image["src"] for image in montreal["images"][10:12]], [
             "/outside/assets/montreal-august-2023/ma23-53861ee23544db00989e",
             "/outside/assets/montreal-august-2023/ma23-f795961661e9518e2029",
@@ -159,7 +193,7 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual(self.studies["australia-2026-july-photos"]["series"][0]["title"], "Busselton Jetty")
         self.assertEqual(self.studies["thailand-2026-july"]["series"][0]["title"], "Gilded shrine & garden")
         self.assertEqual(self.studies["cruise-2024-december"]["series"][1]["title"], "Ship & open water")
-        self.assertEqual(self.studies["montreal-august-2023-gallery"]["series"][2]["title"], "Garden paths")
+        self.assertEqual(self.studies["montreal-august-2023-photos"]["series"][2]["title"], "Garden paths")
         europe = self.studies["europe-shared-album"]
         self.assertEqual((europe["date"], europe["dateEnd"]), ("", ""))
         self.assertEqual(sum(not image.get("d") for image in europe["images"]), 17)
@@ -169,8 +203,8 @@ class OutsideContentContractTests(unittest.TestCase):
         order = [s["id"] for s in self.data["studies"]]
         sorted_ids = [s["id"] for s in sorted(self.data["studies"], key=lambda s: (s.get("dateEnd") or s.get("date") or "", s.get("date") or ""), reverse=True)]
         self.assertEqual(order, sorted_ids)
-        self.assertLess(order.index("maryland-national-harbor-2023-august"), order.index("montreal-august-2023-gallery"))
-        self.assertLess(order.index("montreal-august-2023-gallery"), order.index("philadelphia-2023-spring"))
+        self.assertLess(order.index("maryland-national-harbor-2023-august"), order.index("montreal-august-2023-photos"))
+        self.assertLess(order.index("montreal-august-2023-photos"), order.index("philadelphia-2023-spring"))
         self.assertLess(order.index("albania-2026-june"), order.index("rome-vatican-2026-june"))
 
     def test_november_montreal_supplement_is_additive_and_has_priority_source(self):

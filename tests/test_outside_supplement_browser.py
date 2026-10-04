@@ -10,10 +10,10 @@ from playwright.sync_api import sync_playwright
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-supplement-browser"))
 SUPPLEMENTS = {
-    "montreal-august-2023-gallery": {
-        "images": 22,
+    "montreal-august-2023-photos": {
+        "images": 15,
         "series": 5,
-        "unresolved": 8,
+        "unresolved": 1,
         "series_titles": ["Skyline from lookout", "Park & Biosphere", "Garden paths", "Church & city streets", "Waterfront & Old Port"],
     },
     "maryland-national-harbor-2023-august": {
@@ -76,7 +76,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                     self.assertEqual(study.get("dateEnd"), "")
                     self.assertEqual(study["place"], study["region"])
                     self.assertTrue(all(not image.get("cam") for image in study["images"]))
-                if study_id == "montreal-august-2023-gallery":
+                if study_id == "montreal-august-2023-photos":
                     for image in study["images"][14:]:
                         self.assertFalse(any(key in image for key in ("d", "t", "tz")))
 
@@ -118,7 +118,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                 mobile_page.screenshot(path=str(EVIDENCE_DIR / f"mobile-{study_id}.png"), full_page=True)
                 mobile.close()
                 self.assertEqual(mobile_errors, [], mobile_errors)
-        self.assertEqual(total_painted, 63)
+        self.assertEqual(total_painted, 56)
 
     def test_approved_utah_star_photo_paints_on_tablet_at_exact_source(self):
         context = self.browser.new_context(viewport={"width": 768, "height": 1024}, reduced_motion="reduce")
@@ -138,7 +138,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         self.assertEqual(errors, [], errors)
 
     def test_new_photo_flags_export_exact_source_and_honest_metadata(self):
-        for study_id in ("montreal-august-2023-gallery", "europe-shared-album", "montreal-november-2025-photos"):
+        for study_id in ("montreal-august-2023-photos", "europe-shared-album", "montreal-november-2025-photos"):
             with self.subTest(study=study_id):
                 context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
                 page = context.new_page()

@@ -6189,7 +6189,7 @@
       "country": "Canada",
       "date": "2023-08-06",
       "dateEnd": "2023-08-08",
-      "id": "montreal-august-2023-gallery",
+      "id": "montreal-august-2023-photos",
       "images": [
         {
           "d": "2023-08-06",
@@ -6376,77 +6376,7 @@
         {
           "h": 1024,
           "se": 5,
-          "src": "/outside/assets/montreal-august-2023/ma23-529f8c72a5bc4f7c3233",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 5,
-          "src": "/outside/assets/montreal-august-2023/ma23-d3097e97c5181359d2bb",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 5,
-          "src": "/outside/assets/montreal-august-2023/ma23-adfdada258f2899fa661",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 5,
-          "src": "/outside/assets/montreal-august-2023/ma23-dd73c12b9fbfd26ca850",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 5,
           "src": "/outside/assets/montreal-august-2023/ma23-0948d66471f9fa1a4c19",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 5,
-          "src": "/outside/assets/montreal-august-2023/ma23-cecf837cb46c302e41d9",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 5,
-          "src": "/outside/assets/montreal-august-2023/ma23-77102b8052d5329f34fe",
-          "w": 768,
-          "cam": "",
-          "ex": "",
-          "fl": "",
-          "avg": ""
-        },
-        {
-          "h": 1024,
-          "se": 5,
-          "src": "/outside/assets/montreal-august-2023/ma23-f8b5712820c2df7c08c6",
           "w": 768,
           "cam": "",
           "ex": "",
@@ -6495,7 +6425,7 @@
           "dateEnd": "2023-08-08"
         },
         {
-          "count": 8,
+          "count": 1,
           "key": 14,
           "start": 14,
           "title": "Waterfront & Old Port",
@@ -11815,99 +11745,78 @@
     "montreal-august-2023-review-supplement": {
       "targets": [
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 0
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 1
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 2
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 3
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 4
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 5
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 6
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 7
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 8
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 9
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 12
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 13
         },
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 14
         },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 15
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 16
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 17
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 18
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 19
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 20
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 21
-        }
+        null,
+        null,
+        null
       ],
       "defaultTarget": {
-        "studyId": "montreal-august-2023-gallery",
+        "studyId": "montreal-august-2023-photos",
         "index": 0
       }
     },
     "unsorted-august-2023-review-supplement": {
       "targets": [
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 10
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 11
         },
         {
@@ -11916,7 +11825,7 @@
         }
       ],
       "defaultTarget": {
-        "studyId": "montreal-august-2023-gallery",
+        "studyId": "montreal-august-2023-photos",
         "index": 10
       }
     },
@@ -13420,99 +13329,78 @@
     "montreal-2023-august": {
       "targets": [
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 0
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 1
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 2
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 3
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 4
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 5
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 6
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 7
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 8
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 9
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 12
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 13
         },
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 14
         },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 15
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 16
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 17
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 18
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 19
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 20
-        },
-        {
-          "studyId": "montreal-august-2023-gallery",
-          "index": 21
-        }
+        null,
+        null,
+        null
       ],
       "defaultTarget": {
-        "studyId": "montreal-august-2023-gallery",
+        "studyId": "montreal-august-2023-photos",
         "index": 0
       }
     },
     "august-2023-photos": {
       "targets": [
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 10
         },
         {
-          "studyId": "montreal-august-2023-gallery",
+          "studyId": "montreal-august-2023-photos",
           "index": 11
         },
         {
@@ -13521,8 +13409,83 @@
         }
       ],
       "defaultTarget": {
-        "studyId": "montreal-august-2023-gallery",
+        "studyId": "montreal-august-2023-photos",
         "index": 10
+      }
+    },
+    "montreal-august-2023-gallery": {
+      "targets": [
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 0
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 1
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 2
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 3
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 4
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 5
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 6
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 7
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 8
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 9
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 10
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 11
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 12
+        },
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 13
+        },
+        null,
+        null,
+        null,
+        null,
+        {
+          "studyId": "montreal-august-2023-photos",
+          "index": 14
+        },
+        null,
+        null,
+        null
+      ],
+      "defaultTarget": {
+        "studyId": "montreal-august-2023-photos",
+        "index": 0
       }
     }
   }
