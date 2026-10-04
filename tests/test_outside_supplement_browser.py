@@ -10,17 +10,17 @@ from playwright.sync_api import sync_playwright
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-supplement-browser"))
 SUPPLEMENTS = {
-    "montreal-2023-august": {
-        "images": 20,
-        "series": 4,
+    "montreal-august-2023-gallery": {
+        "images": 22,
+        "series": 5,
         "unresolved": 8,
-        "series_titles": ["Skyline from lookout", "Park & Biosphere", "Church & city streets", "Waterfront & Old Port"],
+        "series_titles": ["Skyline from lookout", "Park & Biosphere", "Garden paths", "Church & city streets", "Waterfront & Old Port"],
     },
-    "august-2023-photos": {
-        "images": 3,
-        "series": 2,
+    "maryland-national-harbor-2023-august": {
+        "images": 1,
+        "series": 1,
         "unresolved": 0,
-        "series_titles": ["Garden gate & paths", "Ferris wheel"],
+        "series_titles": ["Harbor & Capital Wheel"],
     },
     "europe-shared-album": {
         "images": 22,
@@ -28,7 +28,7 @@ SUPPLEMENTS = {
         "unresolved": 17,
         "series_titles": ["Palaces & riverfront", "Landmarks & architecture"],
     },
-    "montreal-november-2025": {"images": 23, "series": 4, "unresolved": 0,
+    "montreal-november-2025-photos": {"images": 18, "series": 4, "unresolved": 0,
         "series_titles": ["Church & street", "Atrium & lights", "Conservatory & displays", "Snowy skyline overlook"]},
 }
 
@@ -76,8 +76,8 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                     self.assertEqual(study.get("dateEnd"), "")
                     self.assertEqual(study["place"], study["region"])
                     self.assertTrue(all(not image.get("cam") for image in study["images"]))
-                if study_id == "montreal-2023-august":
-                    for image in study["images"][12:]:
+                if study_id == "montreal-august-2023-gallery":
+                    for image in study["images"][14:]:
                         self.assertFalse(any(key in image for key in ("d", "t", "tz")))
 
                 for i, item in enumerate(study["images"]):
@@ -97,7 +97,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                     total_painted += 1
                     if i == 0:
                         page.screenshot(path=str(EVIDENCE_DIR / f"desktop-{study_id}.png"), full_page=True)
-                    if study_id == "montreal-november-2025" and "50687dc46ae34c23be92b217abb3de9f" in expected_stem:
+                    if study_id == "montreal-november-2025-photos" and "50687dc46ae34c23be92b217abb3de9f" in expected_stem:
                         page.screenshot(path=str(EVIDENCE_DIR / "desktop-montreal-november-snowy-overlook.png"), full_page=True)
                 context.close()
                 self.assertEqual(js_errors, [], js_errors)
@@ -118,7 +118,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                 mobile_page.screenshot(path=str(EVIDENCE_DIR / f"mobile-{study_id}.png"), full_page=True)
                 mobile.close()
                 self.assertEqual(mobile_errors, [], mobile_errors)
-        self.assertEqual(total_painted, 68)
+        self.assertEqual(total_painted, 63)
 
     def test_approved_utah_star_photo_paints_on_tablet_at_exact_source(self):
         context = self.browser.new_context(viewport={"width": 768, "height": 1024}, reduced_motion="reduce")
@@ -126,10 +126,10 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         data = json.loads((Path(__file__).parents[1] / "src/data/outside-studies.json").read_text())
-        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october")
+        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-photos")
         ordinal = next(i for i, image in enumerate(study["images"], 1) if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01")
         stem = study["images"][ordinal - 1]["src"]
-        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october/{ordinal}"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-photos/{ordinal}"), wait_until="domcontentloaded")
         page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth > 0 && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", arg=stem, timeout=10000)
         self.assertTrue(page.evaluate("stem => { const im=document.querySelector('[data-cells] img'); return im && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", stem))
         self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), 768)
@@ -138,7 +138,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         self.assertEqual(errors, [], errors)
 
     def test_new_photo_flags_export_exact_source_and_honest_metadata(self):
-        for study_id in ("montreal-2023-august", "europe-shared-album", "montreal-november-2025"):
+        for study_id in ("montreal-august-2023-gallery", "europe-shared-album", "montreal-november-2025-photos"):
             with self.subTest(study=study_id):
                 context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
                 page = context.new_page()
