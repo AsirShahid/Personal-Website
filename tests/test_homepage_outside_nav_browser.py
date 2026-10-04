@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/")
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-nav-browser"))
-EXPECTED_PATHS = ["/", "/blog", "/outside"]
+EXPECTED_PATHS = ["/", "/outside"]
 
 
 class HomepageOutsideNavigationTests(unittest.TestCase):
@@ -27,6 +27,8 @@ class HomepageOutsideNavigationTests(unittest.TestCase):
         context = self.browser.new_context(viewport={"width": 1280, "height": 900}, reduced_motion="reduce")
         page = context.new_page()
         page.on("pageerror", lambda error: errors.append(str(error)))
+        blog_response = page.goto(f"{BASE_URL.rstrip('/')}/blog", wait_until="domcontentloaded")
+        self.assertEqual(getattr(blog_response, "status", None), 200)
         response = page.goto(BASE_URL, wait_until="domcontentloaded")
         self.assertEqual(getattr(response, "status", None), 200)
         page.wait_for_function(
@@ -42,11 +44,10 @@ class HomepageOutsideNavigationTests(unittest.TestCase):
         self.assertTrue(all(item["iconHidden"] == "true" for item in links), links)
 
         home_link = page.get_by_role("link", name="/", exact=True)
-        blog_link = page.get_by_role("link", name="/blog", exact=True)
         outside_link = page.get_by_role("link", name="/outside", exact=True)
-        blog_link.hover()
-        page.get_by_role("tooltip").get_by_text("Blog", exact=True).wait_for(state="visible", timeout=3000)
-        for link in (home_link, blog_link, outside_link):
+        outside_link.hover()
+        page.get_by_role("tooltip").get_by_text("/outside", exact=True).wait_for(state="visible", timeout=3000)
+        for link in (home_link, outside_link):
             link.focus()
             self.assertTrue(link.evaluate("element => element === document.activeElement"))
 

@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { Camera, House, Library } from "lucide-react";
+import { Camera, House } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
 import { Python } from "@/components/ui/svgs/python";
 import { Docker } from "@/components/ui/svgs/docker";
@@ -92,7 +92,6 @@ export const DATA = {
   ] as readonly Skill[],
   navbar: [
     { href: "/", icon: House, label: "Home" },
-    { href: "/blog", icon: Library, label: "Blog" },
     { href: "/outside", icon: Camera, label: "/outside" },
   ],
   contact: {
