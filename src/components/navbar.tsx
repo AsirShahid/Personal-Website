@@ -20,11 +20,12 @@ export default function Navbar() {
               <TooltipTrigger asChild>
                 <a
                   href={item.href}
+                  aria-label={item.href}
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
                 >
                   <DockIcon className="rounded-2xl cursor-pointer size-full bg-background p-0 text-foreground hover:text-foreground hover:bg-muted backdrop-blur-3xl border border-border transition-colors">
-                    <item.icon className="size-full rounded-sm overflow-hidden object-contain" />
+                    <item.icon aria-hidden="true" focusable="false" className="size-full rounded-sm overflow-hidden object-contain" />
                   </DockIcon>
                 </a>
               </TooltipTrigger>
