@@ -112,6 +112,13 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
           </div>
         </div>
 
+        <div class="oz-review" role="group" aria-label="Owner photo review">
+          <button type="button" data-review-flag aria-pressed="false">Flag for removal</button>
+          <span data-review-count>0 flagged</span>
+          <span data-review-saved title="Stored in this browser only; does not change the published gallery">Saved in this browser</span>
+          <button type="button" data-review-export aria-label="Export flags">Export flags</button>
+        </div>
+
         <div
           class="oz-viewport"
           data-viewport
@@ -201,6 +208,26 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       };
       const rows = Array.from(document.querySelectorAll<HTMLAnchorElement>("[data-study]"));
 
+      const reviewFlagButton = $<HTMLButtonElement>("[data-review-flag]");
+      const reviewExportButton = $<HTMLButtonElement>("[data-review-export]");
+      const reviewCount = $<HTMLElement>("[data-review-count]");
+      const reviewSaved = $<HTMLElement>("[data-review-saved]");
+      const reviewStorageKey = "outside-studies:photo-review:v1";
+      const reviewFlags = new Set<string>();
+      let reviewStorageAvailable = true;
+      try {
+        const saved = window.localStorage.getItem(reviewStorageKey);
+        if (saved !== null) {
+          const parsed: unknown = JSON.parse(saved);
+          if (!parsed || typeof parsed !== "object" || Array.isArray(parsed) || !("schema" in parsed) || parsed.schema !== "outside-photo-review/v1" || !("flaggedSrcs" in parsed) || !Array.isArray(parsed.flaggedSrcs) || parsed.flaggedSrcs.some((src) => typeof src !== "string" || src.length === 0)) throw new Error("Invalid saved review data");
+          (parsed.flaggedSrcs as string[]).forEach((src) => reviewFlags.add(src));
+        }
+      } catch {
+        reviewStorageAvailable = false;
+        reviewSaved.textContent = "Storage unavailable: this tab only";
+        reviewSaved.title = "Review flags are not stored; the public gallery remains unchanged";
+      }
+
       const state = {
         s: 0,
         i: 0,
@@ -214,6 +241,27 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         L: 128,
         open: false,
         interacted: false,
+      };
+
+      const saveReviewFlags = () => {
+        if (!reviewStorageAvailable) return;
+        try {
+          window.localStorage.setItem(reviewStorageKey, JSON.stringify({ schema: "outside-photo-review/v1", flaggedSrcs: Array.from(reviewFlags) }));
+          reviewSaved.textContent = "Saved in this browser";
+          reviewSaved.title = "Stored in this browser only; does not change the published gallery";
+        } catch {
+          reviewStorageAvailable = false;
+          reviewSaved.textContent = "Storage unavailable: this tab only";
+          reviewSaved.title = "Review flags are not stored; the public gallery remains unchanged";
+        }
+      };
+
+      const renderReview = () => {
+        const src = study().images[state.i]?.src;
+        const flagged = Boolean(src && reviewFlags.has(src));
+        reviewFlagButton.textContent = flagged ? "Unflag" : "Flag for removal";
+        reviewFlagButton.setAttribute("aria-pressed", String(flagged));
+        reviewCount.textContent = `${reviewFlags.size} flagged`;
       };
 
       const study = () => studies[state.s];
@@ -450,6 +498,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       const render = () => {
         ensureCells();
         Array.from(cells.children).forEach((c, k) => paintCell(c as HTMLElement, state.i + k));
+        renderReview();
         renderOverlay();
         renderStack();
         renderSeriesActive();
@@ -575,6 +624,42 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
           hint.classList.add("is-gone");
         }
       };
+
+      reviewFlagButton.addEventListener("click", () => {
+        stopCine();
+        const src = study().images[state.i]?.src;
+        if (!src) return;
+        if (reviewFlags.has(src)) reviewFlags.delete(src);
+        else reviewFlags.add(src);
+        saveReviewFlags();
+        renderReview();
+        live.textContent = reviewFlags.has(src) ? "Photo flagged for removal." : "Photo unflagged.";
+      });
+      reviewExportButton.addEventListener("click", () => {
+        const generatedAt = new Date().toISOString();
+        const flagged = Array.from(reviewFlags, (src) => {
+          const match = studies.map((currentStudy) => ({ study: currentStudy, image: currentStudy.images.find((image) => image.src === src) })).find((item) => item.image);
+          if (!match) return { src };
+          const { study } = match;
+          return {
+            src,
+            studyLabel: study.place,
+            date: study.dateEnd !== study.date ? `${study.date} to ${study.dateEnd.slice(5)}` : study.date,
+            reference: study.id,
+          };
+        });
+        const payload = { schema: "outside-photo-review/v1", generatedAt, flagged };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        const objectUrl = URL.createObjectURL(blob);
+        const download = document.createElement("a");
+        download.href = objectUrl;
+        download.download = `outside-photo-flags-${generatedAt.slice(0, 10)}.json`;
+        download.style.display = "none";
+        document.body.append(download);
+        download.click();
+        download.remove();
+        window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+      });
 
       toolButtons.forEach((b) => b.addEventListener("click", () => setTool(b.dataset.tool as "stack" | "wl")));
       $("[data-cine]").addEventListener("click", () => { touch(); toggleCine(); });
@@ -820,6 +905,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
 
       // ---------- boot ----------
       syncButtons();
+      renderReview();
       const initial = parseHash();
       if (!initial && location.hash) showRouteError();
       if (desktopMQ.matches) {
@@ -902,7 +988,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
 
 
       /* ---------- reader ---------- */
-      .oz-reader { display: grid; grid-template-rows: 44px minmax(0, 1fr) 104px; min-width: 0; min-height: 0; background: #000; }
+      .oz-reader { display: grid; grid-template-rows: 44px 44px minmax(0, 1fr) 104px; min-width: 0; min-height: 0; background: #000; }
       .oz-tools { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 0 12px 0 16px; border-bottom: 1px solid var(--line); background: var(--bg); }
       .oz-close { display: none; }
       .oz-tooltitle { overflow: hidden; color: var(--mute); font-size: 13px; text-overflow: ellipsis; white-space: nowrap; }
@@ -913,6 +999,13 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
       .oz-toolset button[aria-pressed="true"] { color: var(--amber); }
       .oz-toolset button[aria-pressed="true"] kbd { color: color-mix(in srgb, var(--amber) 60%, transparent); }
       .oz-toolset button:focus-visible { outline: 1px solid var(--amber); outline-offset: -6px; }
+
+      .oz-review { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--panel); color: var(--mute); font: 10px var(--mono); }
+      .oz-review button { min-height: 44px; padding: 0 10px; border: 0; background: transparent; color: var(--mute); font: inherit; cursor: pointer; }
+      .oz-review button:hover, .oz-review button:focus-visible { color: var(--ink); }
+      .oz-review [data-review-flag][aria-pressed="true"] { color: var(--amber); }
+      .oz-review [data-review-count] { color: var(--ink); }
+      .oz-review [data-review-saved] { margin-left: auto; color: var(--dim); }
 
       .oz-viewport { position: relative; overflow: hidden; min-height: 0; background: #000; cursor: ns-resize; touch-action: none; user-select: none; -webkit-user-select: none; outline: none; }
       .oz-viewport[data-tool="wl"] { cursor: crosshair; }
@@ -1005,7 +1098,7 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         .oz-card-br { bottom: 12px; right: 14px; }
 
 
-        .oz-reader { position: fixed; z-index: 20; inset: 0; display: none; grid-template-rows: calc(48px + env(safe-area-inset-top)) minmax(0, 1fr) calc(92px + env(safe-area-inset-bottom)); }
+        .oz-reader { position: fixed; z-index: 20; inset: 0; display: none; grid-template-rows: calc(48px + env(safe-area-inset-top)) 44px minmax(0, 1fr) calc(92px + env(safe-area-inset-bottom)); }
         body.is-reading { overflow: hidden; }
         body.is-reading .oz-reader { display: grid; animation: oz-open .22s ease-out; }
         @keyframes oz-open { from { opacity: 0; transform: scale(.985); } to { opacity: 1; transform: none; } }
@@ -1017,6 +1110,9 @@ const where = (s: Study) => [s.region, s.country].filter(Boolean).join(" · ");
         .oz-desktop-only { display: none !important; }
         .oz-toolset button { height: 48px; padding: 0 9px; }
         .oz-toolset button kbd { display: none; }
+        .oz-review { gap: 4px; padding: 0 6px; }
+        .oz-review button { padding: 0 6px; font-size: 9px; }
+        .oz-review [data-review-saved] { font-size: 8px; }
         .oz-ov { font-size: 9.5px; max-width: 58%; }
         .oz-ov-tl { top: 10px; left: 12px; }
         .oz-ov-tr { top: 10px; right: 34px; }
