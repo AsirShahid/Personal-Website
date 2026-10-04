@@ -5,7 +5,7 @@ import data from "@/data/outside-studies.json";
 import { formatOutsideDateRange } from "../utils/outside-date.js";
 
 type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
-type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
+type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
 type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
 type RouteTarget = { studyId: string; index: number };
 type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
@@ -184,7 +184,7 @@ const where = (s: Study) => {
     <script>
       import { formatOutsideDateRange } from "../utils/outside-date.js";
       type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
-      type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number };
+      type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
       type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
       type RouteTarget = { studyId: string; index: number };
       type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
@@ -282,6 +282,8 @@ const where = (s: Study) => {
         for (let j = 0; j < list.length; j++) if (list[j].start <= i) k = j;
         return k;
       };
+      const seriesDisplayNumber = (index: number, list = seriesList()) => list[index]?.displayNumber ?? index + 1;
+      const cameraLabel = (camera: string) => camera.replace(/^(OnePlus)\s+\1\b/i, "$1").toUpperCase();
 
       // ---------- image cache: show a light proxy instantly, swap to full when decoded ----------
       const cache = new Map<string, Promise<void>>();
@@ -376,17 +378,18 @@ const where = (s: Study) => {
         const st = study();
         const img = st.images[state.i];
         const se = seriesIndex(state.i);
+        const seNumber = seriesDisplayNumber(se);
         const where = [st.region, st.country].filter((label, index, all) => Boolean(label) && all.indexOf(label) === index).join(" · ") || "Location unconfirmed";
         const date = formatOutsideDateRange(st.date, st.dateEnd);
         line(ov.tl, [[st.place.toUpperCase(), "oz-ov-strong"], where.toUpperCase(), `STUDY ${date}`, `XC · ${pad(state.s + 1)}/${pad(studies.length)}`]);
         line(ov.tr, [
           "ASIR SHAHID",
-          `SE ${se + 1}/${st.series.length}   IM ${state.i + 1}/${st.images.length}`,
+          `SE ${seNumber}/${st.series.length}   IM ${state.i + 1}/${st.images.length}`,
           `${img.d}  ${img.t}`,
           img.tz || st.tz,
           state.i === st.key ? ["KEY IMAGE", "oz-ov-key"] : "",
         ]);
-        line(ov.bl, [img.ex, img.fl, img.cam.toUpperCase()]);
+        line(ov.bl, [img.ex, img.fl, cameraLabel(img.cam)]);
         line(ov.br, [
           state.cine ? [`CINE ${state.fps} FPS`, "oz-ov-key"] : "",
           state.invert ? "INVERTED" : "",
@@ -422,18 +425,20 @@ const where = (s: Study) => {
 
       const renderSeriesNav = () => {
         const st = study();
+        const list = seriesList();
         seriesNav.replaceChildren(
-          ...seriesList().map((s, k) => {
+          ...list.map((s, k) => {
             const b = document.createElement("button");
             b.type = "button";
             b.className = "oz-se";
             b.dataset.se = String(k);
+            const displayNumber = seriesDisplayNumber(k, list);
             const cover = Number.isInteger(s.key) && st.images[s.key!] ? s.key! : clamp(s.start, 0, st.images.length - 1);
             const chapterDate = s.date ? formatOutsideDateRange(s.date, s.dateEnd) : s.time;
-            const chapterName = s.title || `Series ${k + 1}`;
+            const chapterName = s.title || `Series ${displayNumber}`;
             b.dataset.start = String(s.start);
             b.dataset.key = String(cover);
-            b.setAttribute("aria-label", `Series ${k + 1}, ${chapterName}, ${chapterDate}, ${s.count} images, cover image ${cover + 1}`);
+            b.setAttribute("aria-label", `Series ${displayNumber}, ${chapterName}, ${chapterDate}, ${s.count} images, cover image ${cover + 1}`);
             const im = document.createElement("img");
             im.src = thumbUrl(st.images[cover] ?? st.images[s.start] ?? st.images[0]);
             im.alt = "";
@@ -442,7 +447,7 @@ const where = (s: Study) => {
             const cap = document.createElement("span");
             cap.className = "oz-se-cap";
             const name = document.createElement("b");
-            name.textContent = `SE ${k + 1} · ${chapterName}`;
+            name.textContent = `SE ${displayNumber} · ${chapterName}`;
             const detail = document.createElement("span");
             detail.textContent = `${chapterDate} · ${s.count} im · KEY ${cover + 1}`;
             cap.append(name, detail);
@@ -501,7 +506,8 @@ const where = (s: Study) => {
       const announce = () => {
         window.clearTimeout(liveTimer);
         liveTimer = window.setTimeout(() => {
-          live.textContent = `${study().place}. Series ${seriesIndex(state.i) + 1}. Image ${state.i + 1} of ${study().images.length}.`;
+          const index = seriesIndex(state.i);
+          live.textContent = `${study().place}. Series ${seriesDisplayNumber(index)}. Image ${state.i + 1} of ${study().images.length}.`;
         }, 400);
       };
 
