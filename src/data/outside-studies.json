@@ -1594,59 +1594,10 @@
       ]
     },
     {
-      "id": "projection-metadata-candidate-us-nevada-20250614-20250614",
-      "place": "Nevada · June 2025",
-      "region": "United States",
+      "id": "las-vegas-june-2025",
+      "place": "Las Vegas · June 2025",
+      "region": "Nevada",
       "country": "US",
-      "status": "PENDING",
-      "date": "2025-06-14",
-      "dateEnd": "2025-06-14",
-      "tz": "UTC-7",
-      "key": 0,
-      "series": [
-        {
-          "start": 0,
-          "count": 2,
-          "time": "15:33",
-          "title": "June 14, 2025",
-          "date": "2025-06-14",
-          "key": 0
-        }
-      ],
-      "images": [
-        {
-          "src": "/outside/assets/additional-trips/0507",
-          "w": 4096,
-          "h": 3072,
-          "d": "2025-06-14",
-          "t": "15:33:09",
-          "se": 1,
-          "ex": "ISO 50  1/2121 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus 11 5G",
-          "avg": "#111111",
-          "tz": "UTC-7"
-        },
-        {
-          "src": "/outside/assets/additional-trips/0522",
-          "w": 3072,
-          "h": 4096,
-          "d": "2025-06-14",
-          "t": "18:17:35",
-          "se": 1,
-          "ex": "ISO 50  1/429 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus 11 5G",
-          "avg": "#111111",
-          "tz": "UTC-7"
-        }
-      ]
-    },
-    {
-      "id": "city-interiors-2025",
-      "place": "Fountains and Architectural Interiors · June 2025",
-      "region": "",
-      "country": "",
       "status": "PENDING",
       "date": "2025-06-14",
       "dateEnd": "2025-06-14",
@@ -1655,7 +1606,7 @@
       "series": [
         {
           "start": 0,
-          "count": 3,
+          "count": 5,
           "time": "15:16",
           "title": "June 14, 2025",
           "date": "2025-06-14",
@@ -1675,6 +1626,19 @@
           "cam": "OnePlus 11 5G",
           "avg": "#89756b",
           "tz": "UTC-07:00"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0507",
+          "w": 4096,
+          "h": 3072,
+          "d": "2025-06-14",
+          "t": "15:33:09",
+          "se": 1,
+          "ex": "ISO 50  1/2121 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
         },
         {
           "src": "/outside/study-0614/012",
@@ -1701,6 +1665,19 @@
           "cam": "OnePlus 11 5G",
           "avg": "#6c706b",
           "tz": "UTC-07:00"
+        },
+        {
+          "src": "/outside/assets/additional-trips/0522",
+          "w": 3072,
+          "h": 4096,
+          "d": "2025-06-14",
+          "t": "18:17:35",
+          "se": 1,
+          "ex": "ISO 50  1/429 s  f/1.8",
+          "fl": "5.59 mm",
+          "cam": "OnePlus 11 5G",
+          "avg": "#111111",
+          "tz": "UTC-7"
         }
       ]
     },
@@ -2551,7 +2528,7 @@
       "defaultIndex": 1
     },
     "study-0614": {
-      "studyId": "city-interiors-2025",
+      "studyId": "las-vegas-june-2025",
       "indices": [
         0,
         0,
@@ -2561,13 +2538,13 @@
         0,
         0,
         0,
-        1,
-        1,
         2,
         2,
-        2,
-        2,
-        2
+        3,
+        3,
+        3,
+        3,
+        3
       ],
       "defaultIndex": 0
     },
@@ -2741,6 +2718,23 @@
         2
       ],
       "defaultIndex": 0
+    },
+    "city-interiors-2025": {
+      "studyId": "las-vegas-june-2025",
+      "indices": [
+        0,
+        2,
+        3
+      ],
+      "defaultIndex": 0
+    },
+    "projection-metadata-candidate-us-nevada-20250614-20250614": {
+      "studyId": "las-vegas-june-2025",
+      "indices": [
+        1,
+        4
+      ],
+      "defaultIndex": 1
     }
   }
 }
