@@ -18,7 +18,7 @@ RECENT_IDS = {
     "georgia-2025-october",
     "american-southwest-2025-october-gallery-20261004-2",
     "puerto-rico-2025-october",
-    "puerto-rico-2025-june-gallery",
+    "puerto-rico-2025-june-photos",
 }
 
 
@@ -44,7 +44,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         source_by_id = {study["id"]: study for study in SOURCE["studies"]}
         derived_recent_ids = {
             study["id"] for study in SOURCE["studies"]
-            if study["id"] == "puerto-rico-2025-june-gallery" or (study.get("date") and study["date"] >= "2025-10-01")
+            if study["id"] == "puerto-rico-2025-june-photos" or (study.get("date") and study["date"] >= "2025-10-01")
         }
         self.assertEqual(RECENT_IDS, derived_recent_ids)
         hidden_studies = [study for study in SOURCE["studies"] if study["id"] not in RECENT_IDS]
@@ -53,7 +53,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         expected_photos = sum(len(source_by_id[study_id]["images"]) for study_id in RECENT_IDS)
         rows = page.locator(".oz-rows [data-study]")
         visible_ids = [row.get_attribute("href").lstrip("#") for row in rows.all()]
-        self.assertEqual((len(visible_ids), expected_photos), (9, 334))
+        self.assertEqual((len(visible_ids), expected_photos), (9, 313))
         self.assertEqual(set(visible_ids), RECENT_IDS)
         self.assertIn(f"{len(RECENT_IDS)} studies", page.locator(".oz-topmeta").inner_text().lower())
         self.assertIn(f"{expected_photos} images", page.locator(".oz-topmeta").inner_text().lower())
@@ -94,7 +94,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         hidden_page.goto(urljoin(BASE_URL, "#puerto-rico-2025-june/1"), wait_until="domcontentloaded")
         hidden_page.wait_for_function("document.querySelector('[data-ov=tl]')?.textContent?.includes('STUDY')", timeout=10000)
         self.assertEqual(hidden_page.locator(".oz-row[aria-current=true]").evaluate_all("els => els.map(el => el.getAttribute('href'))"),
-                         ["#puerto-rico-2025-june-gallery"],
+                         ["#puerto-rico-2025-june-photos"],
                          "the current row is selected by canonical study identity, not filtered position")
 
         invalid_page = context.new_page()
@@ -105,7 +105,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         context.close()
 
     def test_exact_camera_alias_changes_only_the_c887_overlay(self):
-        study = next(item for item in SOURCE["studies"] if item["id"] == "puerto-rico-2025-june-gallery")
+        study = next(item for item in SOURCE["studies"] if item["id"] == "puerto-rico-2025-june-photos")
         expected = {"C887": "ONEPLUS 11 5G", "C894": "ONEPLUS 11 5G"}
         errors = []
         for source_suffix, display_label in expected.items():

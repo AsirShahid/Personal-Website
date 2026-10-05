@@ -23,7 +23,7 @@ const aliases = sourceData.aliases ?? {};
 // Set to null to restore the full worklist; source studies, routes and aliases stay intact.
 const RECENT_ONLY: { cutoff: string; includeStudyIds: string[] } | null = {
   cutoff: "2025-10-01",
-  includeStudyIds: ["puerto-rico-2025-june-gallery"],
+  includeStudyIds: ["puerto-rico-2025-june-photos"],
 };
 const recentStudies = RECENT_ONLY
   ? studies.filter((s) => RECENT_ONLY.includeStudyIds.includes(s.id) || (Boolean(s.date) && s.date >= RECENT_ONLY.cutoff))
@@ -185,7 +185,8 @@ const where = (s: Study) => {
         <dt><kbd>L</kbd></dt><dd>Toggle 1×1 / 2×2 layout</dd>
         <dt><kbd>I</kbd></dt><dd>Invert</dd>
         <dt><kbd>O</kbd></dt><dd>Hide or show overlays</dd>
-        <dt><kbd>R</kbd> or double-click</dt><dd>Reset all view modifiers; double-click resets W/L</dd>
+        <dt><kbd>R</kbd></dt><dd>Reset all view modifiers</dd>
+        <dt>Double-tap or double-click</dt><dd>Reset pan, zoom, and W/L; keep inversion</dd>
       </dl>
     </dialog>
     <div class="oz-sr" aria-live="polite" data-live></div>
@@ -743,6 +744,7 @@ const where = (s: Study) => {
         renderOverlay();
       };
       const resetWindowLevel = () => {
+        fitVisiblePhotos();
         state.W = 255;
         state.L = 128;
         applyFilters();

@@ -10,7 +10,8 @@ from playwright.sync_api import sync_playwright
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 ROOT = Path(__file__).parents[1]
 FIXTURE = json.loads((ROOT / "tests/fixtures/outside-pr45-source-route-baseline.json").read_text())
-NEW_DUPLICATE_REMOVALS = {
+PR_ROUTE_BASELINE = json.loads((ROOT / "tests/fixtures/outside-puerto-rico-prechange-routes.json").read_text())
+NEW_DUPLICATE_REMOVALS = set(PR_ROUTE_BASELINE["removed_sources"]) | {
     "/outside/assets/owner-review/galapagos/G208",
     "/outside/assets/owner-review/core-trips/C219",
     "/outside/assets/owner-review/core-trips/C351",

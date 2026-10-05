@@ -1,0 +1,323 @@
+{
+  "baseline_commit": "a9825f71982b1aa8f28790727a9fc5c88987cd2c",
+  "baseline_data_sha256": "84c53f56e0ee9440520aa37dd6f399a8aa8f463a3999c3d9bb62829544b9abb5",
+  "canonical_id": "puerto-rico-2025-june-gallery",
+  "new_canonical_id": "puerto-rico-2025-june-photos",
+  "routes": [
+    {
+      "hash": "#puerto-rico-2025-june-gallery",
+      "source": "/outside/assets/owner-review/core-trips/C877"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/1",
+      "source": "/outside/assets/owner-review/core-trips/C877"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/2",
+      "source": "/outside/assets/owner-review/core-trips/C878"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/3",
+      "source": "/outside/assets/owner-review/core-trips/C879"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/4",
+      "source": "/outside/assets/owner-review/core-trips/C880"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/5",
+      "source": "/outside/assets/owner-review/core-trips/C881"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/6",
+      "source": "/outside/assets/owner-review/core-trips/C882"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/7",
+      "source": "/outside/assets/owner-review/core-trips/C883"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/8",
+      "source": "/outside/assets/owner-review/core-trips/C884"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/9",
+      "source": "/outside/assets/owner-review/core-trips/C885"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/10",
+      "source": "/outside/assets/owner-review/core-trips/C886"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/11",
+      "source": "/outside/assets/owner-review/core-trips/C887"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/12",
+      "source": "/outside/assets/owner-review/core-trips/C888"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/13",
+      "source": "/outside/assets/owner-review/core-trips/C889"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/14",
+      "source": "/outside/assets/owner-review/core-trips/C890"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/15",
+      "source": "/outside/assets/owner-review/core-trips/C891"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/16",
+      "source": "/outside/assets/owner-review/core-trips/C892"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/17",
+      "source": "/outside/assets/owner-review/core-trips/C893"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/18",
+      "source": "/outside/assets/owner-review/core-trips/C894"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/19",
+      "source": "/outside/assets/owner-review/core-trips/C895"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/20",
+      "source": "/outside/assets/owner-review/core-trips/C896"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/21",
+      "source": "/outside/assets/owner-review/core-trips/C897"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/22",
+      "source": "/outside/assets/owner-review/core-trips/C898"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/23",
+      "source": "/outside/assets/owner-review/core-trips/C899"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/24",
+      "source": "/outside/assets/owner-review/core-trips/C900"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/25",
+      "source": "/outside/assets/owner-review/core-trips/C901"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/26",
+      "source": "/outside/assets/owner-review/core-trips/C902"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/27",
+      "source": "/outside/assets/owner-review/core-trips/C903"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/28",
+      "source": "/outside/assets/owner-review/core-trips/C904"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/29",
+      "source": "/outside/assets/owner-review/core-trips/C905"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/30",
+      "source": "/outside/assets/owner-review/core-trips/C906"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/31",
+      "source": "/outside/assets/owner-review/core-trips/C907"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/32",
+      "source": "/outside/assets/owner-review/core-trips/C908"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/33",
+      "source": "/outside/assets/owner-review/core-trips/C909"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/34",
+      "source": "/outside/assets/owner-review/core-trips/C910"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/35",
+      "source": "/outside/assets/owner-review/core-trips/C911"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/36",
+      "source": "/outside/assets/owner-review/core-trips/C912"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/37",
+      "source": "/outside/assets/owner-review/core-trips/C913"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/38",
+      "source": "/outside/assets/owner-review/core-trips/C914"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/39",
+      "source": "/outside/assets/owner-review/core-trips/C915"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/40",
+      "source": "/outside/assets/owner-review/core-trips/C916"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/41",
+      "source": "/outside/assets/owner-review/core-trips/C917"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/42",
+      "source": "/outside/assets/owner-review/core-trips/C918"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/43",
+      "source": "/outside/assets/owner-review/core-trips/C919"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/44",
+      "source": "/outside/assets/owner-review/core-trips/C920"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/45",
+      "source": "/outside/assets/owner-review/core-trips/C921"
+    },
+    {
+      "hash": "#puerto-rico-2025-june-gallery/46",
+      "source": "/outside/assets/owner-review/core-trips/C922"
+    }
+  ],
+  "prechange_sources": [
+    "/outside/assets/owner-review/core-trips/C877",
+    "/outside/assets/owner-review/core-trips/C878",
+    "/outside/assets/owner-review/core-trips/C879",
+    "/outside/assets/owner-review/core-trips/C880",
+    "/outside/assets/owner-review/core-trips/C881",
+    "/outside/assets/owner-review/core-trips/C882",
+    "/outside/assets/owner-review/core-trips/C883",
+    "/outside/assets/owner-review/core-trips/C884",
+    "/outside/assets/owner-review/core-trips/C885",
+    "/outside/assets/owner-review/core-trips/C886",
+    "/outside/assets/owner-review/core-trips/C887",
+    "/outside/assets/owner-review/core-trips/C888",
+    "/outside/assets/owner-review/core-trips/C889",
+    "/outside/assets/owner-review/core-trips/C890",
+    "/outside/assets/owner-review/core-trips/C891",
+    "/outside/assets/owner-review/core-trips/C892",
+    "/outside/assets/owner-review/core-trips/C893",
+    "/outside/assets/owner-review/core-trips/C894",
+    "/outside/assets/owner-review/core-trips/C895",
+    "/outside/assets/owner-review/core-trips/C896",
+    "/outside/assets/owner-review/core-trips/C897",
+    "/outside/assets/owner-review/core-trips/C898",
+    "/outside/assets/owner-review/core-trips/C899",
+    "/outside/assets/owner-review/core-trips/C900",
+    "/outside/assets/owner-review/core-trips/C901",
+    "/outside/assets/owner-review/core-trips/C902",
+    "/outside/assets/owner-review/core-trips/C903",
+    "/outside/assets/owner-review/core-trips/C904",
+    "/outside/assets/owner-review/core-trips/C905",
+    "/outside/assets/owner-review/core-trips/C906",
+    "/outside/assets/owner-review/core-trips/C907",
+    "/outside/assets/owner-review/core-trips/C908",
+    "/outside/assets/owner-review/core-trips/C909",
+    "/outside/assets/owner-review/core-trips/C910",
+    "/outside/assets/owner-review/core-trips/C911",
+    "/outside/assets/owner-review/core-trips/C912",
+    "/outside/assets/owner-review/core-trips/C913",
+    "/outside/assets/owner-review/core-trips/C914",
+    "/outside/assets/owner-review/core-trips/C915",
+    "/outside/assets/owner-review/core-trips/C916",
+    "/outside/assets/owner-review/core-trips/C917",
+    "/outside/assets/owner-review/core-trips/C918",
+    "/outside/assets/owner-review/core-trips/C919",
+    "/outside/assets/owner-review/core-trips/C920",
+    "/outside/assets/owner-review/core-trips/C921",
+    "/outside/assets/owner-review/core-trips/C922"
+  ],
+  "removed_sources": [
+    "/outside/assets/owner-review/core-trips/C878",
+    "/outside/assets/owner-review/core-trips/C880",
+    "/outside/assets/owner-review/core-trips/C882",
+    "/outside/assets/owner-review/core-trips/C884",
+    "/outside/assets/owner-review/core-trips/C886",
+    "/outside/assets/owner-review/core-trips/C888",
+    "/outside/assets/owner-review/core-trips/C891",
+    "/outside/assets/owner-review/core-trips/C893",
+    "/outside/assets/owner-review/core-trips/C895",
+    "/outside/assets/owner-review/core-trips/C897",
+    "/outside/assets/owner-review/core-trips/C899",
+    "/outside/assets/owner-review/core-trips/C901",
+    "/outside/assets/owner-review/core-trips/C903",
+    "/outside/assets/owner-review/core-trips/C905",
+    "/outside/assets/owner-review/core-trips/C908",
+    "/outside/assets/owner-review/core-trips/C910",
+    "/outside/assets/owner-review/core-trips/C912",
+    "/outside/assets/owner-review/core-trips/C915",
+    "/outside/assets/owner-review/core-trips/C918",
+    "/outside/assets/owner-review/core-trips/C920",
+    "/outside/assets/owner-review/core-trips/C922"
+  ],
+  "kept_refs": [
+    "C877",
+    "C879",
+    "C881",
+    "C883",
+    "C885",
+    "C887",
+    "C889",
+    "C890",
+    "C892",
+    "C894",
+    "C896",
+    "C898",
+    "C900",
+    "C902",
+    "C904",
+    "C906",
+    "C907",
+    "C909",
+    "C911",
+    "C913",
+    "C914",
+    "C916",
+    "C917",
+    "C919",
+    "C921"
+  ],
+  "series": [
+    {
+      "start": 0,
+      "count": 10,
+      "time": "14:16:22",
+      "title": "June 21",
+      "key": 0,
+      "date": "2025-06-21",
+      "dateEnd": "2025-06-21"
+    },
+    {
+      "start": 10,
+      "count": 30,
+      "time": "10:09:05",
+      "title": "June 22",
+      "key": 10,
+      "date": "2025-06-22",
+      "dateEnd": "2025-06-22"
+    },
+    {
+      "start": 40,
+      "count": 6,
+      "time": "09:48:26",
+      "title": "June 23",
+      "key": 40,
+      "date": "2025-06-23",
+      "dateEnd": "2025-06-23"
+    }
+  ]
+}

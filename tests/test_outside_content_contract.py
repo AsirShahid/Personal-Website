@@ -10,6 +10,8 @@ HISTORICAL_ROUTES = Path(__file__).parent / "fixtures/outside-historical-route-c
 SCOUT_ROUTES = Path(__file__).parent / "fixtures/outside-pr45-source-route-baseline.json"
 SCOUT_BASELINE = json.loads(SCOUT_ROUTES.read_text())
 PR49_ROUTES = json.loads((Path(__file__).parent / "fixtures/outside-pr49-route-source-baseline.json").read_text())
+PR_ROUTE_BASELINE = json.loads((Path(__file__).parent / "fixtures/outside-puerto-rico-prechange-routes.json").read_text())
+PUERTO_RICO_REMOVALS = set(PR_ROUTE_BASELINE["removed_sources"])
 PENDING_REMOVALS = set(SCOUT_BASELINE["pending_removal_sources"])
 RESTORED_A306 = SCOUT_BASELINE["authorized_restore_source"]["src"]
 DUPLICATE_GROUPS = {
@@ -22,13 +24,7 @@ DUPLICATE_GROUPS = {
     "/outside/assets/owner-review/additional-trips/A505": "/outside/study-0614/007",
     "/outside/assets/owner-review/additional-trips/A514": "/outside/study-0614/012",
 }
-PUERTO_RICO_DUPLICATE_PAIR_REFS = {
-    ('C877', 'C878'), ('C879', 'C880'), ('C881', 'C882'), ('C883', 'C884'), ('C885', 'C886'),
-    ('C890', 'C891'), ('C892', 'C893'), ('C896', 'C897'), ('C898', 'C899'), ('C900', 'C901'),
-    ('C902', 'C903'), ('C904', 'C905'), ('C907', 'C908'), ('C909', 'C910'), ('C911', 'C912'),
-    ('C914', 'C915'), ('C917', 'C918'), ('C919', 'C920'), ('C921', 'C922'), ('C887', 'C888'), ('C894', 'C895'),
-}
-PUERTO_RICO_REVIEW_SOURCES = {f"/outside/assets/owner-review/core-trips/C{number}" for number in range(877, 923)}
+PUERTO_RICO_REVIEW_SOURCES = {f"/outside/assets/owner-review/core-trips/{ref}" for ref in PR_ROUTE_BASELINE["kept_refs"]}
 OWNER_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C538",
     "/outside/assets/owner-review/core-trips/C542",
@@ -54,15 +50,15 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 485))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 464))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
         self.assertFalse(ids & set(self.data["aliases"]))
         self.assertFalse(self.sources & OWNER_REMOVALS)
-        self.assertEqual(len(self.data["aliases"]), 122)
+        self.assertEqual(len(self.data["aliases"]), 123)
         baseline_sources = set(SCOUT_BASELINE["image_object_sha256"])
-        self.assertEqual(self.sources, ((baseline_sources - PENDING_REMOVALS - set(DUPLICATE_GROUPS)) | {RESTORED_A306} | PUERTO_RICO_REVIEW_SOURCES))
+        self.assertEqual(self.sources, ((baseline_sources - PENDING_REMOVALS - set(DUPLICATE_GROUPS) - PUERTO_RICO_REMOVALS) | {RESTORED_A306} | PUERTO_RICO_REVIEW_SOURCES))
         contract = json.loads(HISTORICAL_ROUTES.read_text())
         self.assertFalse(self.sources & OWNER_REMOVALS)
 
@@ -125,10 +121,10 @@ class OutsideContentContractTests(unittest.TestCase):
             "american-southwest-2025-october-gallery", "american-southwest-2025-october-photos", "celebration-2025-september",
             "woodland-paths-2025-august", "rome-vatican-2026-june", "albania-2026-june", "thailand-2026-july",
             "galapagos-2026-january-photos", "american-southwest-2025-october-gallery-20261004",
-            "atlanta-2025-june", "las-vegas-2025-june-gallery", "puerto-rico-2025-june",
+            "atlanta-2025-june", "las-vegas-2025-june-gallery", "puerto-rico-2025-june", "puerto-rico-2025-june-gallery",
         })
         self.assertEqual(len(self.data["studies"]), 21)
-        removed_sources = set(before["removed_sources_for_this_change"]) | PENDING_REMOVALS | set(DUPLICATE_GROUPS)
+        removed_sources = set(before["removed_sources_for_this_change"]) | PENDING_REMOVALS | set(DUPLICATE_GROUPS) | PUERTO_RICO_REMOVALS
         for study_id, binding in old_canonical.items():
             if study_id in self.studies:
                 study = self.studies[study_id]
@@ -151,19 +147,15 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual([image["src"] for image in current["images"]], [src for src in old_canonical["montreal-august-2023-gallery"]["targets"] if src not in removed_sources])
         self.assertEqual(self.data["aliases"]["marlborough-2025-may"], {"targets": [None], "defaultTarget": None})
 
-    def test_public_medium_and_large_derivatives_only_repeat_inside_approved_puerto_rico_pairs(self):
+    def test_public_medium_and_large_derivative_bytes_are_not_duplicated(self):
         public = DATA.parents[2] / "public"
-        approved = {
-            tuple(sorted(f"/outside/assets/owner-review/core-trips/{ref}" for ref in pair))
-            for pair in PUERTO_RICO_DUPLICATE_PAIR_REFS
-        }
         for size in ("m", "l"):
             owners = collections.defaultdict(list)
             for source in sorted(self.sources):
                 path = public / f"{source.lstrip('/')}\u002d{size}.webp"
                 owners[hashlib.sha256(path.read_bytes()).hexdigest()].append(source)
-            duplicate_groups = {tuple(sorted(sources)) for sources in owners.values() if len(sources) > 1}
-            self.assertEqual(duplicate_groups, approved, f"only the exact approved Puerto Rico pairs may repeat public {size} bytes")
+            duplicate_groups = {digest: sorted(sources) for digest, sources in owners.items() if len(sources) > 1}
+            self.assertEqual(duplicate_groups, {}, f"public {size} derivative bytes must not repeat across sources")
 
     def test_confirmed_duplicate_groups_retain_the_adjudicated_keepers(self):
         for removed, keeper in DUPLICATE_GROUPS.items():
@@ -213,7 +205,7 @@ class OutsideContentContractTests(unittest.TestCase):
             return study["images"][index]["src"] if 0 <= index < len(study["images"]) else None
 
         for fragment, source in PR49_ROUTES["routes"].items():
-            expected = None if source in DUPLICATE_GROUPS else source
+            expected = None if source in DUPLICATE_GROUPS or source in PUERTO_RICO_REMOVALS else source
             self.assertEqual(route_source(fragment), expected, fragment)
 
     def test_public_copy_is_clean_and_genuine_uncertainty_is_preserved(self):
