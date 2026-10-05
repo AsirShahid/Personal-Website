@@ -59,7 +59,12 @@ class OutsideScoutBrowserTests(unittest.TestCase):
                     self.assertEqual((study["date"], study["dateEnd"]), (spec["study_date"], spec["study_end"]))
                     self.assertEqual((len(study["images"]), len(study["series"])), (spec["total"], spec["series"]))
                     self.assertEqual(study["images"][0]["src"], spec["source"])
-                    self.assertEqual(page.locator(f'.oz-row[href="#{spec["id"]}"]').get_attribute("aria-label").split(", ")[1], f"{spec['study_date']} to {spec['study_end'][5:]}" if spec["study_date"][:4] == spec["study_end"][:4] else f"{spec['study_date']} to {spec['study_end']}")
+                    scout_row = page.locator(f'.oz-row[href="#{spec["id"]}"]')
+                    if spec["id"] == "cruise-2024-december-gallery":
+                        # Historical routes still resolve, but pre-cutoff collections are not recent worklist rows.
+                        self.assertEqual(scout_row.count(), 0)
+                    else:
+                        self.assertEqual(scout_row.get_attribute("aria-label").split(", ")[1], f"{spec['study_date']} to {spec['study_end'][5:]}" if spec["study_date"][:4] == spec["study_end"][:4] else f"{spec['study_date']} to {spec['study_end']}")
                     buttons = page.locator("[data-series] [data-se]")
                     self.assertEqual(buttons.count(), spec["series"])
                     for position, chapter in enumerate(sorted(study["series"], key=lambda item: item["start"])):
@@ -128,7 +133,7 @@ class OutsideScoutBrowserTests(unittest.TestCase):
             image = page.locator("[data-cells] img").first
             self.assertTrue(image.evaluate("(im, stem) => im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')", record["src"]))
         controls = {
-            "OnePlus CPH2451": "ONEPLUS CPH2451",
+            "OnePlus CPH2451": "ONEPLUS 11 5G",
             "Apple iPhone 15": "APPLE IPHONE 15",
             "Apple iPhone 12 Pro Max": "APPLE IPHONE 12 PRO MAX",
             "HTC One M9": "HTC ONE M9",

@@ -22,6 +22,13 @@ DUPLICATE_GROUPS = {
     "/outside/assets/owner-review/additional-trips/A505": "/outside/study-0614/007",
     "/outside/assets/owner-review/additional-trips/A514": "/outside/study-0614/012",
 }
+PUERTO_RICO_DUPLICATE_PAIR_REFS = {
+    ('C877', 'C878'), ('C879', 'C880'), ('C881', 'C882'), ('C883', 'C884'), ('C885', 'C886'),
+    ('C890', 'C891'), ('C892', 'C893'), ('C896', 'C897'), ('C898', 'C899'), ('C900', 'C901'),
+    ('C902', 'C903'), ('C904', 'C905'), ('C907', 'C908'), ('C909', 'C910'), ('C911', 'C912'),
+    ('C914', 'C915'), ('C917', 'C918'), ('C919', 'C920'), ('C921', 'C922'), ('C887', 'C888'), ('C894', 'C895'),
+}
+PUERTO_RICO_REVIEW_SOURCES = {f"/outside/assets/owner-review/core-trips/C{number}" for number in range(877, 923)}
 OWNER_REMOVALS = {
     "/outside/assets/owner-review/core-trips/C538",
     "/outside/assets/owner-review/core-trips/C542",
@@ -47,15 +54,15 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 441))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 485))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
         self.assertFalse(ids & set(self.data["aliases"]))
         self.assertFalse(self.sources & OWNER_REMOVALS)
-        self.assertEqual(len(self.data["aliases"]), 121)
+        self.assertEqual(len(self.data["aliases"]), 122)
         baseline_sources = set(SCOUT_BASELINE["image_object_sha256"])
-        self.assertEqual(self.sources, (baseline_sources - PENDING_REMOVALS - set(DUPLICATE_GROUPS)) | {RESTORED_A306})
+        self.assertEqual(self.sources, ((baseline_sources - PENDING_REMOVALS - set(DUPLICATE_GROUPS)) | {RESTORED_A306} | PUERTO_RICO_REVIEW_SOURCES))
         contract = json.loads(HISTORICAL_ROUTES.read_text())
         self.assertFalse(self.sources & OWNER_REMOVALS)
 
@@ -118,7 +125,7 @@ class OutsideContentContractTests(unittest.TestCase):
             "american-southwest-2025-october-gallery", "american-southwest-2025-october-photos", "celebration-2025-september",
             "woodland-paths-2025-august", "rome-vatican-2026-june", "albania-2026-june", "thailand-2026-july",
             "galapagos-2026-january-photos", "american-southwest-2025-october-gallery-20261004",
-            "atlanta-2025-june", "las-vegas-2025-june-gallery",
+            "atlanta-2025-june", "las-vegas-2025-june-gallery", "puerto-rico-2025-june",
         })
         self.assertEqual(len(self.data["studies"]), 21)
         removed_sources = set(before["removed_sources_for_this_change"]) | PENDING_REMOVALS | set(DUPLICATE_GROUPS)
@@ -144,15 +151,19 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual([image["src"] for image in current["images"]], [src for src in old_canonical["montreal-august-2023-gallery"]["targets"] if src not in removed_sources])
         self.assertEqual(self.data["aliases"]["marlborough-2025-may"], {"targets": [None], "defaultTarget": None})
 
-    def test_public_medium_and_large_derivative_bytes_are_unique(self):
+    def test_public_medium_and_large_derivatives_only_repeat_inside_approved_puerto_rico_pairs(self):
         public = DATA.parents[2] / "public"
+        approved = {
+            tuple(sorted(f"/outside/assets/owner-review/core-trips/{ref}" for ref in pair))
+            for pair in PUERTO_RICO_DUPLICATE_PAIR_REFS
+        }
         for size in ("m", "l"):
             owners = collections.defaultdict(list)
             for source in sorted(self.sources):
                 path = public / f"{source.lstrip('/')}\u002d{size}.webp"
                 owners[hashlib.sha256(path.read_bytes()).hexdigest()].append(source)
-            duplicates = {digest: sources for digest, sources in owners.items() if len(sources) > 1}
-            self.assertEqual(duplicates, {}, f"duplicate public {size} derivatives: {duplicates}")
+            duplicate_groups = {tuple(sorted(sources)) for sources in owners.values() if len(sources) > 1}
+            self.assertEqual(duplicate_groups, approved, f"only the exact approved Puerto Rico pairs may repeat public {size} bytes")
 
     def test_confirmed_duplicate_groups_retain_the_adjudicated_keepers(self):
         for removed, keeper in DUPLICATE_GROUPS.items():

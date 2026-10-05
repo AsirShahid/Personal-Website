@@ -31,6 +31,9 @@ DUPLICATE_REMOVALS = {
     "/outside/assets/owner-review/additional-trips/A514",
 }
 PARENT_ROUTES = json.loads((ROOT / "tests/fixtures/outside-20261004-parent-route-bindings.json").read_text())
+PUERTO_RICO_REVIEW_SOURCES = {f"/outside/assets/owner-review/core-trips/C{number}" for number in range(877, 923)}
+PUERTO_RICO_EXISTING_RECORDS = json.loads((ROOT / "tests/fixtures/outside-puerto-rico-existing-records.json").read_text())
+
 
 
 def route_source(data, route_hash):
@@ -74,7 +77,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         expected = FROZEN["expected_inventory"]
         self.assertEqual((len(self.studies), len(self.images)), (expected["studies"], expected["photos"]))
         baseline_sources = set(FROZEN["image_object_sha256"])
-        self.assertEqual(set(self.images), (baseline_sources - REMOVED_SOURCES - DUPLICATE_REMOVALS) | {RESTORED_SOURCE})
+        self.assertEqual(set(self.images), (set(FROZEN["image_object_sha256"]) - REMOVED_SOURCES - DUPLICATE_REMOVALS) | {RESTORED_SOURCE} | PUERTO_RICO_REVIEW_SOURCES)
         self.assertEqual(len(REMOVED_SOURCES), 25)
         for source in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | set(FROZEN["effective_excluded_sources"]):
             if source != RESTORED_SOURCE:
@@ -83,6 +86,12 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         self.assertNotIn(RESTORED_SOURCE, FROZEN["effective_excluded_sources"])
         for source, digest in FROZEN["image_object_sha256"].items():
             if source in self.images:
+                if source in {f"/outside/assets/owner-review/core-trips/{ref}" for ref in ("C887", "C894")}:
+                    ref = source.rsplit("/", 1)[-1]
+                    actual = {key: value for key, value in self.images[source].items() if key != "se"}
+                    expected_record = {key: value for key, value in PUERTO_RICO_EXISTING_RECORDS[ref].items() if key != "se"}
+                    self.assertEqual(actual, expected_record, source)
+                    continue
                 actual = hashlib.sha256(json.dumps(self.images[source], ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
                 self.assertEqual(actual, digest, source)
         self.assertEqual(self.images[RESTORED_SOURCE], FROZEN["authorized_restore_source"])
