@@ -44,12 +44,61 @@ OWNER_REMOVALS = {
 }
 
 
+def first_se1(study):
+    image = next((row for row in study["images"] if row.get("se") == 1), None) if study else None
+    return image["src"] if image else None
+
+
+def default_for_source_in_data(data, source):
+    if source is None:
+        return None
+    for study in data["studies"]:
+        if any(image["src"] == source for image in study["images"]):
+            return first_se1(study)
+    return None
+
+
 class OutsideContentContractTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.data = json.loads(DATA.read_text())
         cls.studies = {study["id"]: study for study in cls.data["studies"]}
         cls.sources = {image["src"] for study in cls.data["studies"] for image in study["images"]}
+
+    def assert_date_place_series(self, study):
+        ordered = sorted(study["series"], key=lambda row: row["start"])
+        has_transit = any(image.get("transit") for image in study["images"])
+        if has_transit:
+            self.assertEqual(ordered[0]["displayNumber"], 0, study["id"])
+        cursor = 0
+        next_display_number = 1
+        previous_group = None
+        transit_series = []
+        for series in ordered:
+            with self.subTest(study=study["id"], start=series["start"]):
+                self.assertEqual(series["start"], cursor)
+                self.assertGreater(series["count"], 0)
+                images = study["images"][series["start"]:series["start"] + series["count"]]
+                self.assertEqual(len(images), series["count"])
+                display_number = series["displayNumber"]
+                self.assertTrue(all(image.get("se") == display_number for image in images))
+                if display_number == 0:
+                    transit_series.append(series)
+                    self.assertTrue(all(image.get("transit") is True for image in images))
+                else:
+                    self.assertEqual(display_number, next_display_number)
+                    next_display_number += 1
+                    self.assertTrue(all(image.get("transit") is False for image in images))
+                    groups = {(image.get("d", ""), image.get("place")) for image in images}
+                    self.assertEqual(len(groups), 1)
+                    group = next(iter(groups))
+                    self.assertNotEqual(group, previous_group, "adjacent same-date/place runs must be coalesced")
+                    previous_group = group
+                    self.assertEqual(series.get("date", ""), images[0].get("d", ""))
+                    self.assertEqual(series.get("dateEnd", ""), images[-1].get("d", ""))
+                cursor += series["count"]
+        self.assertEqual(cursor, len(study["images"]), study["id"])
+        self.assertEqual(len(transit_series), 1 if has_transit else 0, study["id"])
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
@@ -100,23 +149,37 @@ class OutsideContentContractTests(unittest.TestCase):
                 return None
             study = self.studies.get(route.get("studyId"))
             index = route.get("index")
-            if study is None or not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(study["images"]):
+            if not study or not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(study["images"]):
                 return None
             return study["images"][index]["src"]
+
+        def first_se1_source(study):
+            image = next((row for row in study["images"] if row.get("se") == 1), None)
+            return image["src"] if image else None
+
+        def default_for_source(source):
+            if source is None or source not in self.sources:
+                return None
+            target_study = next((study for study in self.data["studies"]
+                                 if any(image["src"] == source for image in study["images"])), None)
+            return first_se1_source(target_study) if target_study else None
 
         def alias_bindings(alias_id):
             alias = self.data["aliases"][alias_id]
             if isinstance(alias.get("targets"), list):
                 targets = [route_source(route) for route in alias["targets"]]
                 default_target = alias.get("defaultTarget") if "defaultTarget" in alias else next((route for route in alias["targets"] if route is not None), None)
-                return {"default": route_source(default_target), "targets": targets}
+                resolved = route_source(default_target)
+                target_study = self.studies.get(default_target.get("studyId")) if isinstance(default_target, dict) else None
+                return {"default": first_se1_source(target_study) if resolved and target_study else None, "targets": targets}
             target_study = self.studies.get(alias.get("studyId"))
             indices = alias.get("indices", [])
             targets = [target_study["images"][index]["src"] if target_study and isinstance(index, int) and not isinstance(index, bool) and 0 <= index < len(target_study["images"]) else None for index in indices]
             default_index = alias.get("defaultIndex")
             if default_index is None:
                 default_index = next((index for index in indices if isinstance(index, int) and not isinstance(index, bool) and index >= 0), None)
-            default = target_study["images"][default_index]["src"] if target_study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(target_study["images"]) else None
+            valid_default = target_study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(target_study["images"])
+            default = first_se1_source(target_study) if valid_default else None
             return {"default": default, "targets": targets}
 
         self.assertEqual(set(self.data["aliases"]), set(old_aliases) | {"montreal-august-2023-gallery"} | {
@@ -136,18 +199,18 @@ class OutsideContentContractTests(unittest.TestCase):
         for study_id, binding in old_canonical.items():
             if study_id in self.studies:
                 study = self.studies[study_id]
-                actual = {"default": study["images"][0]["src"] if study["images"] else None, "targets": [image["src"] for image in study["images"]]}
+                actual = {"default": first_se1_source(study), "targets": [image["src"] for image in study["images"]]}
             else:
                 self.assertIn(study_id, self.data["aliases"], study_id)
                 actual = alias_bindings(study_id)
-            expected = {"default": binding["default"] if binding["default"] not in removed_sources else None,
+            expected = {"default": default_for_source(binding["default"]) if binding["default"] not in removed_sources else None,
                         "targets": [src if src not in removed_sources else None for src in binding["targets"]]}
             self.assertEqual(actual, expected, study_id)
         for alias_id, binding in old_aliases.items():
             self.assertIn(alias_id, self.data["aliases"], alias_id)
             if alias_id == "metadata-review-us-florida-20241217-20241218":
                 continue
-            expected = {"default": binding["default"] if binding["default"] not in removed_sources else None,
+            expected = {"default": default_for_source(binding["default"]) if binding["default"] not in removed_sources else None,
                         "targets": [src if src not in removed_sources else None for src in binding["targets"]]}
             self.assertEqual(alias_bindings(alias_id), expected, alias_id)
         current = self.studies["montreal-august-2023-photos"]
@@ -191,29 +254,39 @@ class OutsideContentContractTests(unittest.TestCase):
             route_id, ordinal = match.groups()
             study = self.studies.get(route_id)
             if study is not None:
-                index = 0 if ordinal is None else min(int(ordinal) - 1, len(study["images"]) - 1)
-                return study["images"][index]["src"] if 0 <= index < len(study["images"]) else None
+                if ordinal:
+                    index = min(int(ordinal) - 1, len(study["images"]) - 1)
+                    return study["images"][index]["src"] if 0 <= index < len(study["images"]) else None
+                return first_se1(study)
             alias = self.data["aliases"].get(route_id)
             if alias is None:
                 return None
             if isinstance(alias.get("targets"), list):
                 if ordinal is None:
-                    target = alias.get("defaultTarget")
-                    if "defaultTarget" not in alias:
-                        target = next((row for row in alias["targets"] if row is not None), None)
-                else:
-                    index = int(ordinal) - 1
-                    target = alias["targets"][index] if index < len(alias["targets"]) else None
+                    target = alias.get("defaultTarget") if "defaultTarget" in alias else next((row for row in alias["targets"] if row is not None), None)
+                    if target_source(target) is None:
+                        return None
+                    target_study = self.studies.get(target.get("studyId")) if isinstance(target, dict) else None
+                    return first_se1(target_study)
+                index = int(ordinal) - 1
+                target = alias["targets"][index] if index < len(alias["targets"]) else None
                 return target_source(target)
             study = self.studies.get(alias.get("studyId"))
             indices = alias.get("indices", [])
-            index = alias.get("defaultIndex", -1) if ordinal is None else (indices[int(ordinal) - 1] if int(ordinal) <= len(indices) else None)
-            if study is None or not isinstance(index, int) or isinstance(index, bool):
+            if ordinal is None:
+                index = alias.get("defaultIndex", -1)
+                if not study or not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(study["images"]):
+                    return None
+                return first_se1(study)
+            index = indices[int(ordinal) - 1] if int(ordinal) <= len(indices) else None
+            if not study or not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(study["images"]):
                 return None
-            return study["images"][index]["src"] if 0 <= index < len(study["images"]) else None
+            return study["images"][index]["src"]
 
         for fragment, source in PR49_ROUTES["routes"].items():
             expected = None if source in DUPLICATE_GROUPS or source in PUERTO_RICO_REMOVALS or source in OWNER_EXPORT_REMOVALS else source
+            if expected is not None and not re.search(r"/[1-9]\d*$", fragment):
+                expected = default_for_source_in_data(self.data, expected)
             self.assertEqual(route_source(fragment), expected, fragment)
 
     def test_public_copy_is_clean_and_genuine_uncertainty_is_preserved(self):
@@ -244,12 +317,12 @@ class OutsideContentContractTests(unittest.TestCase):
         ]
         self.assertEqual([image["t"] for image in vegas["images"]], sorted(image["t"] for image in vegas["images"]))
         self.assertEqual([vegas_sources.index(source) for source in resort_sources], sorted(vegas_sources.index(source) for source in resort_sources))
-        self.assertEqual(vegas["series"][0]["title"], "Resort interiors & displays")
+        self.assert_date_place_series(vegas)
 
         atlanta = self.studies["atlanta-2025-june-20261004"]
         self.assertEqual((atlanta["place"], atlanta["region"], atlanta["country"], atlanta["status"]), ("Atlanta", "Georgia", "United States", "PENDING"))
         self.assertEqual((atlanta["date"], atlanta["dateEnd"], len(atlanta["images"])), ("2025-06-18", "2025-06-18", 31))
-        self.assertEqual([(series["start"], series["count"], series["title"]) for series in atlanta["series"]], [(0, 7, "Fountains & gardens"), (7, 4, "Downtown Atlanta"), (11, 20, "Aquarium & marine life")])
+        self.assert_date_place_series(atlanta)
 
         aquarium_sources = [
             "/outside/assets/owner-review/additional-trips/" + source
@@ -284,6 +357,7 @@ class OutsideContentContractTests(unittest.TestCase):
     def test_series_titles_are_concise_scene_labels_not_dates_or_workflow_copy(self):
         date_title = re.compile(r"^\d{4}-\d{2}-\d{2}$|^[A-Z][a-z]+ \d{1,2}, \d{4}$")
         for study in self.data["studies"]:
+            self.assert_date_place_series(study)
             for series in study["series"]:
                 title = series.get("title", "")
                 self.assertTrue(title.strip(), study["id"])
@@ -292,17 +366,16 @@ class OutsideContentContractTests(unittest.TestCase):
                 self.assertLessEqual(len(title.split()), 5, f"{study['id']}: {title}")
                 self.assertIsNone(re.search(r"metadata|review|supplement|candidate|retained", title, re.I), title)
         australia_id = LATEST_FLAGS["affected_studies"][OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]]
-        self.assertEqual(self.studies[australia_id]["series"][0]["title"], "SCOUT · Bangkok")
-        self.assertEqual(self.studies[australia_id]["series"][1]["title"], "Busselton Jetty")
+        australia = self.studies[australia_id]
+        self.assertTrue(any(image.get("transit") and image.get("place") == "Bangkok" for image in australia["images"]))
         self.assertNotIn("thailand-2026-july", self.studies)
-        self.assertEqual(self.studies["cruise-2024-december-gallery"]["series"][2]["title"], "Ship & open water")
-        self.assertEqual(self.studies["montreal-august-2023-photos"]["series"][2]["title"], "Garden paths")
         self.assertEqual((self.studies["orlando-2025-september"]["place"], self.studies["orlando-2025-september"]["region"], self.studies["orlando-2025-september"]["country"]), ("Orlando", "Florida", "United States"))
-        self.assertEqual((self.studies["sams-point-2025-august"]["place"], self.studies["sams-point-2025-august"]["region"], self.studies["sams-point-2025-august"]["country"], self.studies["sams-point-2025-august"]["series"][0]["title"]), ("Sam’s Point Ice Caves", "New York", "United States", "Ice Caves trail"))
+        self.assertEqual((self.studies["sams-point-2025-august"]["place"], self.studies["sams-point-2025-august"]["region"], self.studies["sams-point-2025-august"]["country"]), ("Sam’s Point Ice Caves", "New York", "United States"))
         europe = self.studies["europe-shared-album"]
         self.assertEqual((europe["date"], europe["dateEnd"]), ("", ""))
         self.assertEqual(sum(not image.get("d") for image in europe["images"]), 17)
         self.assertEqual((europe["series"][0]["date"], europe["series"][1]["date"]), ("2023-02-19", ""))
+        self.assertTrue(all(image.get("place") == "Location unconfirmed" for image in europe["images"] if not image.get("d")))
 
     def test_worklist_uses_full_end_and_start_dates_in_descending_order(self):
         order = [s["id"] for s in self.data["studies"]]
@@ -323,8 +396,8 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertEqual(len(sources), len(set(sources)))
         self.assertTrue(any("50687dc46ae34c23be92b217abb3de9f" in source for source in sources))
         self.assertEqual(sum("/montreal-november-album-gap/" in source for source in sources), 10)
-        self.assertEqual([series["date"] for series in study["series"]], ["2025-11-27", "2025-11-28", "2025-11-29", "2025-11-30"])
-        self.assertEqual([series["count"] for series in study["series"]], [1, 4, 11, 1])
+        self.assert_date_place_series(study)
+        self.assertEqual({image.get("d") for image in study["images"]}, {"2025-11-27", "2025-11-28", "2025-11-29", "2025-11-30"})
         self.assertEqual(study["status"], "PENDING")
         self.assertEqual((study["date"], study["dateEnd"]), ("2025-11-27", "2025-11-30"))
 
@@ -335,9 +408,14 @@ class OutsideContentContractTests(unittest.TestCase):
         index = photos[0]
         image = study["images"][index]
         self.assertEqual((image["d"], image["t"], image["tz"], image["alt"]), ("2025-10-12", "22:42:19", "UTC-06:00", "A field of stars against a blue night sky in Utah."))
-        series_index = image["se"] - 1
-        self.assertEqual(study["series"][series_index]["title"], "Utah night sky")
-        self.assertEqual(study["series"][series_index]["count"], 1)
+        series = next(item for item in study["series"] if item["displayNumber"] == image["se"])
+        self.assertFalse(image["transit"])
+        self.assertEqual(series["date"], image["d"])
+        grouped_images = study["images"][series["start"]:series["start"] + series["count"]]
+        self.assertEqual(len(grouped_images), series["count"])
+        self.assertTrue(all((item["d"], item["place"], item["transit"]) ==
+                            (image["d"], image["place"], image["transit"]) for item in grouped_images))
+        self.assertGreater(series["count"], 1, "the photo now belongs to its date/place group, not a standalone series")
         self.assertLess(index, next(i for i, item in enumerate(study["images"]) if item["d"] == "2025-10-13"))
 
 

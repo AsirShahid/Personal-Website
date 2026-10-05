@@ -13,25 +13,40 @@ PARENT_ROUTES = json.loads((Path(__file__).parents[1] / "tests/fixtures/outside-
 SUPPLEMENTS = {
     "montreal-august-2023-photos": {
         "images": 15,
-        "series": 5,
         "unresolved": 1,
-        "series_titles": ["Skyline from lookout", "Park & Biosphere", "Garden paths", "Church & city streets", "Waterfront & Old Port"],
     },
     "maryland-national-harbor-2023-august": {
         "images": 1,
-        "series": 1,
         "unresolved": 0,
-        "series_titles": ["Harbor & Capital Wheel"],
     },
     "europe-shared-album": {
         "images": 22,
-        "series": 2,
         "unresolved": 17,
-        "series_titles": ["Palaces & riverfront", "Landmarks & architecture"],
     },
-    "montreal-november-2025-photos-20261005": {"images": 17, "series": 4, "unresolved": 0,
-        "series_titles": ["Church & street", "Atrium & lights", "Conservatory & displays", "Snowy skyline overlook"]},
+    "montreal-november-2025-photos-20261005": {"images": 17, "unresolved": 0},
 }
+
+
+def expected_place_groups(study):
+    groups = []
+    for index, image in enumerate(study["images"]):
+        transit = image.get("transit") is True
+        key = ("transit",) if transit else ("place", image.get("d", ""), image.get("place"))
+        if not groups or groups[-1]["key"] != key:
+            groups.append({"key": key, "start": index, "count": 0, "images": []})
+        groups[-1]["count"] += 1
+        groups[-1]["images"].append(image)
+    next_destination = 1
+    for group in groups:
+        places = list(dict.fromkeys(image.get("place") or "Location unconfirmed" for image in group["images"]))
+        if group["key"][0] == "transit":
+            group["displayNumber"] = 0
+            group["caption"] = f"Scout · {', '.join(places)}" if places else "Scout"
+        else:
+            group["displayNumber"] = next_destination
+            group["caption"] = " · ".join(places)
+            next_destination += 1
+    return groups
 
 
 class OutsideSupplementBrowserTests(unittest.TestCase):
@@ -63,19 +78,24 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                 payload = json.loads(page.locator("#oz-data").text_content() or "{}")
                 study = next(s for s in payload["studies"] if s["id"] == study_id)
                 self.assertEqual(len(study["images"]), expected["images"])
-                self.assertEqual(len(study["series"]), expected["series"])
-                self.assertEqual([s["title"] for s in study["series"]], expected["series_titles"])
                 self.assertEqual(sum(not image.get("d") for image in study["images"]), expected["unresolved"])
+                expected_groups = expected_place_groups(study)
+                actual_groups = sorted(study["series"], key=lambda series: series["start"])
+                self.assertEqual(
+                    [(s["start"], s["count"], s["displayNumber"]) for s in actual_groups],
+                    [(g["start"], g["count"], g["displayNumber"]) for g in expected_groups],
+                )
                 buttons = page.locator("[data-series] .oz-se")
-                self.assertEqual(buttons.count(), expected["series"])
+                self.assertEqual(buttons.count(), len(expected_groups))
                 visible_labels = [buttons.nth(i).get_attribute("aria-label") for i in range(buttons.count())]
                 self.assertTrue(all("undefined" not in (label or "").lower() for label in visible_labels), visible_labels)
-                for title in expected["series_titles"]:
-                    self.assertTrue(any(title in label for label in visible_labels), title)
+                for position, group in enumerate(expected_groups):
+                    self.assertTrue((visible_labels[position] or "").startswith(f"Series {group['displayNumber']}, {group['caption']},"), visible_labels[position])
+                    self.assertEqual(buttons.nth(position).locator(".oz-se-cap b").inner_text(), f"SE {group['displayNumber']} · {group['caption']}")
                 if study_id == "europe-shared-album":
-                    self.assertEqual(study.get("date"), "")
-                    self.assertEqual(study.get("dateEnd"), "")
-                    self.assertEqual(study["place"], study["region"])
+                    self.assertEqual((study.get("date"), study.get("dateEnd")), ("", ""))
+                    self.assertEqual(study["place"], "Europe")
+                    self.assertTrue(all(image.get("place") == "Location unconfirmed" for image in study["images"] if not image.get("d")))
                     self.assertTrue(all(not image.get("cam") for image in study["images"]))
                 if study_id == "montreal-august-2023-photos":
                     for image in study["images"][14:]:

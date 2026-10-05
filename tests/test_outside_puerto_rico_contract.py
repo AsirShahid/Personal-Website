@@ -34,16 +34,24 @@ class PuertoRicoOwnerReviewContractTests(unittest.TestCase):
         self.assertEqual((pr["date"], pr["dateEnd"]), ("2025-06-21", "2025-06-23"))
         self.assertEqual({day: sum(image.get("d") == day for image in pr["images"]) for day in ("2025-06-21", "2025-06-22", "2025-06-23")},
                          {"2025-06-21": 5, "2025-06-22": 17, "2025-06-23": 3})
-        source_index = {image["src"]: i for i, image in enumerate(pr["images"])}
-        old_sources = PR_BASELINE["prechange_sources"]
-        for old, current in zip(PR_BASELINE["series"], pr["series"]):
-            old_group = old_sources[old["start"]:old["start"] + old["count"]]
-            retained = [source for source in old_group if source not in PR_REMOVALS]
-            expected = dict(old)
-            expected["start"] = source_index[retained[0]]
-            expected["count"] = len(retained)
-            expected["key"] = source_index[old_sources[old["key"]]]
-            self.assertEqual(current, expected)
+        self.assertEqual([image["src"] for image in pr["images"]],
+                         [source for source in PR_BASELINE["prechange_sources"] if source not in PR_REMOVALS])
+        next_image = 0
+        for display_number, series in enumerate(sorted(pr["series"], key=lambda row: row["start"]), 1):
+            with self.subTest(series=display_number):
+                self.assertEqual(series["displayNumber"], display_number)
+                self.assertEqual(series["start"], next_image)
+                images = pr["images"][series["start"]:series["start"] + series["count"]]
+                self.assertGreater(len(images), 0)
+                self.assertEqual(len(images), series["count"])
+                self.assertTrue(all((image.get("d"), image.get("place"), image.get("transit")) ==
+                                    (images[0].get("d"), images[0].get("place"), images[0].get("transit"))
+                                    for image in images))
+                self.assertEqual(series["date"], images[0]["d"])
+                self.assertEqual(series["dateEnd"], images[-1]["d"])
+                self.assertTrue(all(image["se"] == display_number for image in images))
+                next_image += series["count"]
+        self.assertEqual(next_image, len(pr["images"]))
         for row in PR_BASELINE["routes"]:
             expected = None if row["source"] in PR_REMOVALS else row["source"]
             self.assertEqual(route_source(self.data, row["hash"]), expected, row["hash"])

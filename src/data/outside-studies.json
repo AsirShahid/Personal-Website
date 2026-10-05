@@ -15,28 +15,41 @@
           "start": 0,
           "count": 4,
           "time": "12:52:46",
-          "title": "Auckland streets & tower",
           "key": 0,
+          "displayNumber": 1,
           "date": "2026-07-17",
-          "dateEnd": "2026-07-17"
+          "dateEnd": "2026-07-17",
+          "title": "Auckland streets & tower"
         },
         {
           "start": 4,
-          "count": 13,
-          "time": "11:13:58",
-          "title": "Woodland streams",
+          "count": 8,
+          "time": "11:20:51",
           "key": 4,
+          "displayNumber": 2,
           "date": "2026-07-18",
-          "dateEnd": "2026-07-18"
+          "dateEnd": "2026-07-18",
+          "title": "Woodland streams"
+        },
+        {
+          "start": 12,
+          "count": 5,
+          "time": "14:10:19",
+          "key": 12,
+          "displayNumber": 3,
+          "date": "2026-07-18",
+          "dateEnd": "2026-07-18",
+          "title": "Woodland streams"
         },
         {
           "start": 17,
           "count": 1,
           "time": "08:08:51",
-          "title": "Rural pastures",
           "key": 17,
+          "displayNumber": 4,
           "date": "2026-07-19",
-          "dateEnd": "2026-07-19"
+          "dateEnd": "2026-07-19",
+          "title": "Rural pastures"
         }
       ],
       "images": [
@@ -51,7 +64,9 @@
           "d": "2026-07-17",
           "se": 1,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Auckland",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1041",
@@ -64,7 +79,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Auckland",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1043",
@@ -77,7 +94,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Auckland",
+          "transit": false
         },
         {
           "tz": "UTC+12",
@@ -90,7 +109,9 @@
           "d": "2026-07-17",
           "se": 1,
           "w": 4000,
-          "fl": "2.59 mm"
+          "fl": "2.59 mm",
+          "place": "Auckland",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1059",
@@ -103,7 +124,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "tz": "UTC+12",
@@ -116,7 +139,9 @@
           "d": "2026-07-18",
           "se": 2,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1068",
@@ -129,7 +154,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1083",
@@ -142,7 +169,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1084",
@@ -155,7 +184,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1088",
@@ -168,7 +199,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "tz": "UTC+12",
@@ -181,7 +214,9 @@
           "d": "2026-07-18",
           "se": 2,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1108",
@@ -194,7 +229,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Waiotapu",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1119",
@@ -202,12 +239,14 @@
           "h": 4096,
           "d": "2026-07-18",
           "t": "14:10:19",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 12800  3/10 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Rotorua",
+          "transit": false
         },
         {
           "tz": "UTC+12",
@@ -218,9 +257,11 @@
           "src": "/outside/assets/summer-2026/1121",
           "ex": "ISO 100  1/84 s  f/1.8",
           "d": "2026-07-18",
-          "se": 2,
+          "se": 3,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Rotorua",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1139",
@@ -228,12 +269,14 @@
           "h": 4096,
           "d": "2026-07-18",
           "t": "14:40:59",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 80  1/50 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Rotorua",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1164",
@@ -241,12 +284,14 @@
           "h": 3000,
           "d": "2026-07-18",
           "t": "15:21:07",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 64  1/1737 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Rotorua",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1171",
@@ -254,12 +299,14 @@
           "h": 4096,
           "d": "2026-07-18",
           "t": "15:27:37",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 50  1/355 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Rotorua",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1204",
@@ -267,12 +314,14 @@
           "h": 3072,
           "d": "2026-07-19",
           "t": "08:08:51",
-          "se": 3,
+          "se": 4,
           "ex": "ISO 50  1/554 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+12:00"
+          "tz": "UTC+12:00",
+          "place": "Rotorua",
+          "transit": false
         }
       ],
       "journey": {
@@ -310,82 +359,122 @@
         {
           "start": 0,
           "count": 1,
-          "time": "",
-          "title": "SCOUT · Bangkok",
+          "time": "06:49:57",
+          "key": 0,
+          "displayNumber": 0,
           "date": "2026-07-06",
           "dateEnd": "2026-07-06",
-          "key": 0,
-          "displayNumber": 0
+          "title": "SCOUT · Bangkok"
         },
         {
           "start": 1,
           "count": 2,
           "time": "16:43:56",
-          "title": "Busselton Jetty",
           "key": 1,
+          "displayNumber": 1,
           "date": "2026-07-07",
           "dateEnd": "2026-07-07",
-          "displayNumber": 1
+          "title": "Busselton Jetty"
         },
         {
           "start": 3,
-          "count": 6,
+          "count": 3,
           "time": "11:23:55",
-          "title": "Lighthouse & rocky shore",
-          "key": 3,
+          "key": 5,
+          "displayNumber": 2,
           "date": "2026-07-08",
           "dateEnd": "2026-07-08",
-          "displayNumber": 2
+          "title": "Lighthouse & rocky shore"
+        },
+        {
+          "start": 6,
+          "count": 1,
+          "time": "13:43:26",
+          "key": 6,
+          "displayNumber": 3,
+          "date": "2026-07-08",
+          "dateEnd": "2026-07-08",
+          "title": "Lighthouse & rocky shore"
+        },
+        {
+          "start": 7,
+          "count": 2,
+          "time": "15:15:30",
+          "key": 7,
+          "displayNumber": 4,
+          "date": "2026-07-08",
+          "dateEnd": "2026-07-08",
+          "title": "Lighthouse & rocky shore"
         },
         {
           "start": 9,
           "count": 5,
           "time": "12:41:11",
-          "title": "Rocky surf & lakeside",
           "key": 9,
+          "displayNumber": 5,
           "date": "2026-07-10",
           "dateEnd": "2026-07-10",
-          "displayNumber": 3
+          "title": "Rocky surf & lakeside"
         },
         {
           "start": 14,
           "count": 3,
           "time": "14:59:36",
-          "title": "Turquoise bays & art",
           "key": 14,
+          "displayNumber": 6,
           "date": "2026-07-11",
           "dateEnd": "2026-07-11",
-          "displayNumber": 4
+          "title": "Turquoise bays & art"
         },
         {
           "start": 17,
-          "count": 4,
+          "count": 1,
           "time": "12:12:37",
-          "title": "Beaches & sunset coast",
           "key": 17,
+          "displayNumber": 7,
           "date": "2026-07-13",
           "dateEnd": "2026-07-13",
-          "displayNumber": 5
+          "title": "Beaches & sunset coast"
+        },
+        {
+          "start": 18,
+          "count": 1,
+          "time": "15:59:09",
+          "key": 18,
+          "displayNumber": 8,
+          "date": "2026-07-13",
+          "dateEnd": "2026-07-13",
+          "title": "Beaches & sunset coast"
+        },
+        {
+          "start": 19,
+          "count": 2,
+          "time": "16:46:43",
+          "key": 19,
+          "displayNumber": 9,
+          "date": "2026-07-13",
+          "dateEnd": "2026-07-13",
+          "title": "Beaches & sunset coast"
         },
         {
           "start": 21,
           "count": 2,
           "time": "13:32:01",
-          "title": "Rock pools & waterfall",
           "key": 21,
+          "displayNumber": 10,
           "date": "2026-07-14",
           "dateEnd": "2026-07-14",
-          "displayNumber": 6
+          "title": "Rock pools & waterfall"
         },
         {
           "start": 23,
           "count": 9,
           "time": "11:59:34",
-          "title": "Public art & towns",
           "key": 23,
+          "displayNumber": 11,
           "date": "2026-07-16",
           "dateEnd": "2026-07-16",
-          "displayNumber": 7
+          "title": "Public art & towns"
         }
       ],
       "images": [
@@ -395,12 +484,14 @@
           "h": 4096,
           "d": "2026-07-06",
           "t": "06:49:57",
-          "se": 1,
+          "se": 0,
           "ex": "ISO 50  1/59 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+07:00"
+          "tz": "UTC+07:00",
+          "place": "Bangkok",
+          "transit": true
         },
         {
           "tz": "UTC+8",
@@ -413,7 +504,9 @@
           "d": "2026-07-07",
           "se": 1,
           "w": 2352,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "Busselton",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0417",
@@ -426,7 +519,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Busselton",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0432",
@@ -439,7 +534,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Dunsborough",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0436",
@@ -452,7 +549,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Dunsborough",
+          "transit": false
         },
         {
           "tz": "UTC+8",
@@ -465,7 +564,9 @@
           "d": "2026-07-08",
           "se": 2,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Dunsborough",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0468",
@@ -473,12 +574,14 @@
           "h": 4096,
           "d": "2026-07-08",
           "t": "13:43:26",
-          "se": 2,
+          "se": 3,
           "ex": "ISO 800  1/20 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0484",
@@ -486,12 +589,14 @@
           "h": 3072,
           "d": "2026-07-08",
           "t": "15:15:30",
-          "se": 2,
+          "se": 4,
           "ex": "ISO 50  1/2615 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Dunsborough",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0488",
@@ -499,12 +604,14 @@
           "h": 3136,
           "d": "2026-07-08",
           "t": "15:25:17",
-          "se": 2,
+          "se": 4,
           "ex": "ISO 50  1/323 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Dunsborough",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0524",
@@ -512,12 +619,14 @@
           "h": 4096,
           "d": "2026-07-10",
           "t": "12:41:11",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 64  1/2392 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "tz": "UTC+8",
@@ -528,9 +637,11 @@
           "src": "/outside/assets/summer-2026/0554",
           "ex": "ISO 64  1/5110 s  f/1.8",
           "d": "2026-07-10",
-          "se": 3,
+          "se": 5,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0613",
@@ -538,12 +649,14 @@
           "h": 3072,
           "d": "2026-07-10",
           "t": "14:53:42",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 64  1/18737 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0634",
@@ -551,12 +664,14 @@
           "h": 3072,
           "d": "2026-07-10",
           "t": "15:16:37",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 50  1/1561 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "tz": "UTC+8",
@@ -567,9 +682,11 @@
           "src": "/outside/assets/summer-2026/0653",
           "ex": "ISO 64  1/4324 s  f/1.8",
           "d": "2026-07-10",
-          "se": 3,
+          "se": 5,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0690",
@@ -577,12 +694,14 @@
           "h": 3072,
           "d": "2026-07-11",
           "t": "14:59:36",
-          "se": 4,
+          "se": 6,
           "ex": "ISO 50  1/1249 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Rottnest Island",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0720",
@@ -590,12 +709,14 @@
           "h": 3072,
           "d": "2026-07-11",
           "t": "16:48:23",
-          "se": 4,
+          "se": 6,
           "ex": "ISO 50  1/330 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Rottnest Island",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0762",
@@ -603,12 +724,14 @@
           "h": 4096,
           "d": "2026-07-11",
           "t": "17:44:17",
-          "se": 4,
+          "se": 6,
           "ex": "ISO 160  1/50 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Rottnest Island",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0775",
@@ -616,12 +739,14 @@
           "h": 2352,
           "d": "2026-07-13",
           "t": "12:12:37",
-          "se": 5,
+          "se": 7,
           "ex": "ISO 64  1/6080 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Margaret River",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0841",
@@ -629,12 +754,14 @@
           "h": 4096,
           "d": "2026-07-13",
           "t": "15:59:09",
-          "se": 5,
+          "se": 8,
           "ex": "ISO 50  1/755 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Augusta",
+          "transit": false
         },
         {
           "tz": "UTC+8",
@@ -645,9 +772,11 @@
           "src": "/outside/assets/summer-2026/0847",
           "ex": "ISO 50  1/533 s  f/2",
           "d": "2026-07-13",
-          "se": 5,
+          "se": 9,
           "w": 3136,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "Hamelin Bay",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0852",
@@ -655,12 +784,14 @@
           "h": 3000,
           "d": "2026-07-13",
           "t": "17:00:43",
-          "se": 5,
+          "se": 9,
           "ex": "ISO 64  1/112 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Hamelin Bay",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0868",
@@ -668,12 +799,14 @@
           "h": 3072,
           "d": "2026-07-14",
           "t": "13:32:01",
-          "se": 6,
+          "se": 10,
           "ex": "ISO 64  1/5354 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0933",
@@ -681,12 +814,14 @@
           "h": 3072,
           "d": "2026-07-14",
           "t": "16:30:33",
-          "se": 6,
+          "se": 10,
           "ex": "ISO 64  1/2811 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Yallingup",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0956",
@@ -694,12 +829,14 @@
           "h": 4096,
           "d": "2026-07-16",
           "t": "11:59:34",
-          "se": 7,
+          "se": 11,
           "ex": "ISO 50  1/1606 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Perth",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0974",
@@ -707,12 +844,14 @@
           "h": 4096,
           "d": "2026-07-16",
           "t": "13:52:29",
-          "se": 7,
+          "se": 11,
           "ex": "ISO 50  1/961 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Perth",
+          "transit": false
         },
         {
           "tz": "UTC+8",
@@ -723,9 +862,11 @@
           "src": "/outside/assets/summer-2026/0975",
           "ex": "ISO 64  1/57 s  f/1.8",
           "d": "2026-07-16",
-          "se": 7,
+          "se": 11,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Perth",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0978",
@@ -733,12 +874,14 @@
           "h": 3072,
           "d": "2026-07-16",
           "t": "14:23:00",
-          "se": 7,
+          "se": 11,
           "ex": "ISO 50  1/497 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Perth",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0979",
@@ -746,12 +889,14 @@
           "h": 4096,
           "d": "2026-07-16",
           "t": "15:15:57",
-          "se": 7,
+          "se": 11,
           "ex": "ISO 64  1/100 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Perth",
+          "transit": false
         },
         {
           "tz": "UTC+8",
@@ -762,9 +907,11 @@
           "src": "/outside/assets/summer-2026/0981",
           "ex": "ISO 50  1/297 s  f/1.8",
           "d": "2026-07-16",
-          "se": 7,
+          "se": 11,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Perth",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0986",
@@ -772,12 +919,14 @@
           "h": 2352,
           "d": "2026-07-16",
           "t": "15:52:41",
-          "se": 7,
+          "se": 11,
           "ex": "ISO 100  1/200 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Perth",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1005",
@@ -785,12 +934,14 @@
           "h": 4096,
           "d": "2026-07-16",
           "t": "16:19:15",
-          "se": 7,
+          "se": 11,
           "ex": "ISO 80  1/92 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+08:00"
+          "tz": "UTC+08:00",
+          "place": "Perth",
+          "transit": false
         },
         {
           "tz": "UTC+8",
@@ -801,9 +952,11 @@
           "src": "/outside/assets/summer-2026/1023",
           "ex": "ISO 100  1/56 s  f/1.8",
           "d": "2026-07-16",
-          "se": 7,
+          "se": 11,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Perth",
+          "transit": false
         }
       ],
       "journey": {
@@ -841,72 +994,82 @@
         {
           "start": 0,
           "count": 11,
-          "time": "",
-          "title": "SCOUT · Rome, Tirana",
+          "time": "17:53:39",
+          "key": 0,
+          "displayNumber": 0,
           "date": "2026-06-24",
           "dateEnd": "2026-06-25",
-          "key": 0,
-          "displayNumber": 0
+          "title": "SCOUT · Rome, Albania"
         },
         {
           "start": 11,
           "count": 3,
-          "time": "18:03:06",
-          "title": "Gardens & heritage",
+          "time": "18:04:29",
           "key": 11,
+          "displayNumber": 1,
           "date": "2026-06-28",
           "dateEnd": "2026-06-28",
-          "displayNumber": 1
+          "title": "Gardens & heritage"
         },
         {
           "start": 14,
           "count": 1,
           "time": "16:24:56",
-          "title": "Misty hillside cable car",
           "key": 14,
+          "displayNumber": 2,
           "date": "2026-07-01",
           "dateEnd": "2026-07-01",
-          "displayNumber": 2
+          "title": "Misty hillside cable car"
         },
         {
           "start": 15,
-          "count": 7,
-          "time": "10:36:37",
-          "title": "Hill-station & market",
+          "count": 5,
+          "time": "10:56:00",
           "key": 15,
+          "displayNumber": 3,
           "date": "2026-07-02",
           "dateEnd": "2026-07-02",
-          "displayNumber": 3
+          "title": "Hill-station & market"
+        },
+        {
+          "start": 20,
+          "count": 2,
+          "time": "14:28:01",
+          "key": 20,
+          "displayNumber": 4,
+          "date": "2026-07-02",
+          "dateEnd": "2026-07-02",
+          "title": "Hill-station & market"
         },
         {
           "start": 22,
           "count": 1,
           "time": "13:47:20",
-          "title": "Forest trails",
           "key": 22,
+          "displayNumber": 5,
           "date": "2026-07-03",
           "dateEnd": "2026-07-03",
-          "displayNumber": 4
+          "title": "Forest trails"
         },
         {
           "start": 23,
           "count": 2,
           "time": "19:24:04",
-          "title": "Geometric mosque interior",
           "key": 23,
+          "displayNumber": 6,
           "date": "2026-07-04",
           "dateEnd": "2026-07-04",
-          "displayNumber": 5
+          "title": "Geometric mosque interior"
         },
         {
           "start": 25,
           "count": 5,
           "time": "18:55:02",
-          "title": "Courtyard & arches",
           "key": 25,
+          "displayNumber": 7,
           "date": "2026-07-05",
           "dateEnd": "2026-07-05",
-          "displayNumber": 6
+          "title": "Courtyard & arches"
         }
       ],
       "images": [
@@ -919,9 +1082,11 @@
           "src": "/outside/assets/summer-2026/0005",
           "ex": "ISO 64  1/471 s  f/2.2",
           "d": "2026-06-24",
-          "se": 1,
+          "se": 0,
           "w": 3000,
-          "fl": "2.59 mm"
+          "fl": "2.59 mm",
+          "place": "Rome",
+          "transit": true
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0010",
@@ -929,12 +1094,14 @@
           "h": 4096,
           "d": "2026-06-24",
           "t": "18:08:29",
-          "se": 1,
+          "se": 0,
           "ex": "ISO 50  1/690 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+02:00"
+          "tz": "UTC+02:00",
+          "place": "Rome",
+          "transit": true
         },
         {
           "tz": "UTC+2",
@@ -945,9 +1112,11 @@
           "src": "/outside/assets/summer-2026/0012",
           "ex": "ISO 50  1/945 s  f/1.8",
           "d": "2026-06-24",
-          "se": 1,
+          "se": 0,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Rome",
+          "transit": true
         },
         {
           "tz": "UTC+2",
@@ -958,9 +1127,11 @@
           "src": "/outside/assets/summer-2026/0020",
           "ex": "ISO 50  1/574 s  f/2",
           "d": "2026-06-24",
-          "se": 1,
+          "se": 0,
           "w": 3136,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "Rome",
+          "transit": true
         },
         {
           "tz": "UTC+2",
@@ -971,9 +1142,11 @@
           "src": "/outside/assets/summer-2026/0022",
           "ex": "ISO 400  1/20 s  f/1.8",
           "d": "2026-06-24",
-          "se": 1,
+          "se": 0,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Rome",
+          "transit": true
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0029",
@@ -981,12 +1154,14 @@
           "h": 4096,
           "d": "2026-06-24",
           "t": "19:09:00",
-          "se": 1,
+          "se": 0,
           "ex": "ISO 50  1/614 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+02:00"
+          "tz": "UTC+02:00",
+          "place": "Rome",
+          "transit": true
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0034",
@@ -994,12 +1169,14 @@
           "h": 3072,
           "d": "2026-06-24",
           "t": "19:16:27",
-          "se": 1,
+          "se": 0,
           "ex": "ISO 50  1/755 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+02:00"
+          "tz": "UTC+02:00",
+          "place": "Rome",
+          "transit": true
         },
         {
           "tz": "UTC+2",
@@ -1010,9 +1187,11 @@
           "src": "/outside/assets/summer-2026/0053",
           "ex": "ISO 50  1/528 s  f/1.8",
           "d": "2026-06-24",
-          "se": 1,
+          "se": 0,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Rome",
+          "transit": true
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0065",
@@ -1020,12 +1199,14 @@
           "h": 3000,
           "d": "2026-06-25",
           "t": "05:01:50",
-          "se": 2,
+          "se": 0,
           "ex": "ISO 1600  1/20 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+02:00"
+          "tz": "UTC+02:00",
+          "place": "Rome",
+          "transit": true
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0076",
@@ -1033,12 +1214,14 @@
           "h": 3072,
           "d": "2026-06-25",
           "t": "11:04:32",
-          "se": 1,
+          "se": 0,
           "ex": "ISO 50  1/2615 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+02:00"
+          "tz": "UTC+02:00",
+          "place": "Albania",
+          "transit": true
         },
         {
           "tz": "UTC+2",
@@ -1049,9 +1232,11 @@
           "src": "/outside/assets/summer-2026/0084",
           "ex": "ISO 125  1/50 s  f/1.8",
           "d": "2026-06-25",
-          "se": 1,
+          "se": 0,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Albania",
+          "transit": true
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0102",
@@ -1064,7 +1249,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Karachi",
+          "transit": false
         },
         {
           "tz": "UTC+5",
@@ -1077,7 +1264,9 @@
           "d": "2026-06-28",
           "se": 1,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Karachi",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0138",
@@ -1090,7 +1279,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Karachi",
+          "transit": false
         },
         {
           "tz": "UTC+5",
@@ -1103,7 +1294,9 @@
           "d": "2026-07-01",
           "se": 2,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Murree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0175",
@@ -1116,7 +1309,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Murree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0193",
@@ -1129,7 +1324,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Murree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0218",
@@ -1142,7 +1339,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Murree",
+          "transit": false
         },
         {
           "tz": "UTC+05:00",
@@ -1155,7 +1354,9 @@
           "d": "2026-07-02",
           "se": 3,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Murree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0231",
@@ -1168,7 +1369,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Murree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0245",
@@ -1176,12 +1379,14 @@
           "h": 3000,
           "d": "2026-07-02",
           "t": "14:28:01",
-          "se": 3,
+          "se": 4,
           "ex": "ISO 64  1/1853 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Nathia Gali",
+          "transit": false
         },
         {
           "tz": "UTC+05:00",
@@ -1192,9 +1397,11 @@
           "src": "/outside/ayubia/031",
           "ex": "ISO 50  1/1499 s  f/1.8",
           "d": "2026-07-02",
-          "se": 3,
+          "se": 4,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Nathia Gali",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0305",
@@ -1202,12 +1409,14 @@
           "h": 4096,
           "d": "2026-07-03",
           "t": "13:47:20",
-          "se": 4,
+          "se": 5,
           "ex": "ISO 50  1/839 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Nathia Gali",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0345",
@@ -1215,12 +1424,14 @@
           "h": 4000,
           "d": "2026-07-04",
           "t": "19:24:04",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 2000  1/20 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Islamabad",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0348",
@@ -1228,12 +1439,14 @@
           "h": 3072,
           "d": "2026-07-04",
           "t": "20:01:43",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 1600  1/13 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Islamabad",
+          "transit": false
         },
         {
           "tz": "UTC+05:00",
@@ -1244,9 +1457,11 @@
           "src": "/outside/lahore/012",
           "ex": "ISO 64  1/50 s  f/1.8",
           "d": "2026-07-05",
-          "se": 6,
+          "se": 7,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Lahore",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S0378",
@@ -1254,12 +1469,14 @@
           "h": 4096,
           "d": "2026-07-05",
           "t": "19:17:14",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 200  1000000/83000000 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC+05:00"
+          "tz": "UTC+05:00",
+          "place": "Lahore",
+          "transit": false
         },
         {
           "tz": "UTC+5",
@@ -1270,9 +1487,11 @@
           "src": "/outside/assets/summer-2026/0383",
           "ex": "ISO 160  1/50 s  f/1.8",
           "d": "2026-07-05",
-          "se": 6,
+          "se": 7,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Lahore",
+          "transit": false
         },
         {
           "tz": "UTC+05:00",
@@ -1283,9 +1502,11 @@
           "src": "/outside/lahore/034",
           "ex": "ISO 500  1/20 s  f/1.8",
           "d": "2026-07-05",
-          "se": 6,
+          "se": 7,
           "w": 1448,
-          "fl": "24 mm  (24 mm eq)"
+          "fl": "24 mm  (24 mm eq)",
+          "place": "Lahore",
+          "transit": false
         },
         {
           "tz": "UTC+05:00",
@@ -1296,9 +1517,11 @@
           "src": "/outside/lahore/038",
           "ex": "ISO 640  1/20 s  f/1.8",
           "d": "2026-07-05",
-          "se": 6,
+          "se": 7,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Lahore",
+          "transit": false
         }
       ],
       "journey": {
@@ -1337,91 +1560,111 @@
           "start": 0,
           "count": 4,
           "time": "14:23:14",
-          "title": "Bay & rocky shore",
           "key": 0,
+          "displayNumber": 1,
           "date": "2026-01-13",
-          "dateEnd": "2026-01-13"
+          "dateEnd": "2026-01-13",
+          "title": "Bay & rocky shore"
         },
         {
           "start": 4,
           "count": 10,
           "time": "09:04:54",
-          "title": "Harbor & waterfront",
           "key": 4,
+          "displayNumber": 2,
           "date": "2026-01-14",
-          "dateEnd": "2026-01-14"
+          "dateEnd": "2026-01-14",
+          "title": "Harbor & waterfront"
         },
         {
           "start": 14,
           "count": 1,
           "time": "17:06:25",
-          "title": "Sea lion at shore",
           "key": 14,
+          "displayNumber": 3,
           "date": "2026-01-15",
-          "dateEnd": "2026-01-15"
+          "dateEnd": "2026-01-15",
+          "title": "Sea lion at shore"
         },
         {
           "start": 15,
-          "count": 7,
+          "count": 5,
           "time": "10:53:39",
-          "title": "Wildlife by shore",
           "key": 15,
+          "displayNumber": 4,
           "date": "2026-01-16",
-          "dateEnd": "2026-01-16"
+          "dateEnd": "2026-01-16",
+          "title": "Wildlife by shore"
+        },
+        {
+          "start": 20,
+          "count": 2,
+          "time": "18:54:08",
+          "key": 20,
+          "displayNumber": 5,
+          "date": "2026-01-16",
+          "dateEnd": "2026-01-16",
+          "title": "Wildlife by shore"
         },
         {
           "start": 22,
           "count": 7,
           "time": "10:57:05",
-          "title": "Pond & wading birds",
           "key": 22,
+          "displayNumber": 6,
           "date": "2026-01-17",
-          "dateEnd": "2026-01-17"
+          "dateEnd": "2026-01-17",
+          "title": "Pond & wading birds"
         },
         {
           "start": 29,
           "count": 7,
           "time": "08:08:29",
-          "title": "Highland trail & coast",
           "key": 29,
+          "displayNumber": 7,
           "date": "2026-01-18",
-          "dateEnd": "2026-01-18"
+          "dateEnd": "2026-01-18",
+          "title": "Highland trail & coast"
         },
         {
           "start": 36,
           "count": 5,
-          "time": "14:03:54",
-          "title": "Lizard on island path",
+          "time": "18:29:04",
           "key": 36,
+          "displayNumber": 8,
           "date": "2026-01-19",
-          "dateEnd": "2026-01-19"
+          "dateEnd": "2026-01-19",
+          "title": "Lizard on island path"
         },
         {
           "start": 41,
           "count": 10,
-          "time": "13:45:07",
-          "title": "Green hills boardwalk",
+          "time": "13:46:41",
           "key": 41,
+          "displayNumber": 9,
           "date": "2026-01-20",
-          "dateEnd": "2026-01-20"
+          "dateEnd": "2026-01-20",
+          "title": "Green hills boardwalk"
         },
         {
           "start": 51,
           "count": 6,
-          "time": "08:19:12",
-          "title": "Sea lions & boulders",
-          "key": 51,
+          "time": "10:15:33",
+          "key": 53,
+          "displayNumber": 10,
           "date": "2026-01-21",
-          "dateEnd": "2026-01-21"
+          "dateEnd": "2026-01-21",
+          "title": "Sea lions & boulders"
         },
         {
           "start": 57,
           "count": 4,
           "time": "09:24:15",
-          "title": "Scrub-covered headland",
           "key": 57,
+          "displayNumber": 11,
           "date": "2026-01-22",
-          "dateEnd": "2026-01-22"
+          "dateEnd": "2026-01-22",
+          "title": "Scrub-covered headland"
         }
       ],
       "images": [
@@ -1436,7 +1679,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G025",
@@ -1449,7 +1694,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G035",
@@ -1462,7 +1709,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G040",
@@ -1475,7 +1724,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G062",
@@ -1488,7 +1739,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G120",
@@ -1501,7 +1754,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G152",
@@ -1514,7 +1769,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G163",
@@ -1527,7 +1784,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G187",
@@ -1540,7 +1799,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G191",
@@ -1553,7 +1814,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G207",
@@ -1566,7 +1829,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G230",
@@ -1579,7 +1844,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G240",
@@ -1592,7 +1859,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G266",
@@ -1605,7 +1874,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G272",
@@ -1618,7 +1889,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G289",
@@ -1631,7 +1904,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G291",
@@ -1644,7 +1919,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G297",
@@ -1657,7 +1934,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G299",
@@ -1670,7 +1949,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G301",
@@ -1683,7 +1964,9 @@
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Santa Cruz",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G311",
@@ -1691,12 +1974,14 @@
           "h": 3072,
           "d": "2026-01-16",
           "t": "18:54:08",
-          "se": 4,
+          "se": 5,
           "ex": "ISO 800  1/17 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G313",
@@ -1704,12 +1989,14 @@
           "h": 3072,
           "d": "2026-01-16",
           "t": "18:56:16",
-          "se": 4,
+          "se": 5,
           "ex": "",
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G316",
@@ -1717,12 +2004,14 @@
           "h": 3136,
           "d": "2026-01-17",
           "t": "10:57:05",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/1341 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G339",
@@ -1730,12 +2019,14 @@
           "h": 3136,
           "d": "2026-01-17",
           "t": "11:53:57",
-          "se": 5,
+          "se": 6,
           "ex": "",
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G353",
@@ -1743,12 +2034,14 @@
           "h": 2352,
           "d": "2026-01-17",
           "t": "12:03:46",
-          "se": 5,
+          "se": 6,
           "ex": "",
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -1759,9 +2052,11 @@
           "src": "/outside/assets/galapagos/0363",
           "ex": "ISO 50  1/604 s  f/2",
           "d": "2026-01-17",
-          "se": 5,
+          "se": 6,
           "w": 2352,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G370",
@@ -1769,12 +2064,14 @@
           "h": 3072,
           "d": "2026-01-17",
           "t": "17:32:25",
-          "se": 5,
+          "se": 6,
           "ex": "ISO 50  1/986 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G374",
@@ -1782,12 +2079,14 @@
           "h": 3072,
           "d": "2026-01-17",
           "t": "18:27:04",
-          "se": 5,
+          "se": 6,
           "ex": "",
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G392",
@@ -1795,12 +2094,14 @@
           "h": 2352,
           "d": "2026-01-17",
           "t": "18:39:44",
-          "se": 5,
+          "se": 6,
           "ex": "",
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G426",
@@ -1808,12 +2109,14 @@
           "h": 3072,
           "d": "2026-01-18",
           "t": "08:08:29",
-          "se": 6,
+          "se": 7,
           "ex": "",
           "fl": "",
           "cam": "",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G459",
@@ -1821,12 +2124,14 @@
           "h": 3072,
           "d": "2026-01-18",
           "t": "09:33:32",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 50  1/8648 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G464",
@@ -1834,12 +2139,14 @@
           "h": 3072,
           "d": "2026-01-18",
           "t": "10:12:39",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 64  1/6246 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G474",
@@ -1847,12 +2154,14 @@
           "h": 4096,
           "d": "2026-01-18",
           "t": "12:41:15",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 640  1/14 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G487",
@@ -1860,12 +2169,14 @@
           "h": 3000,
           "d": "2026-01-18",
           "t": "14:49:01",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 64  1/926 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G497",
@@ -1873,12 +2184,14 @@
           "h": 3136,
           "d": "2026-01-18",
           "t": "15:09:49",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 50  1/344 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G504",
@@ -1886,12 +2199,14 @@
           "h": 3136,
           "d": "2026-01-18",
           "t": "15:37:11",
-          "se": 6,
+          "se": 7,
           "ex": "ISO 50  1/561 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Isabela",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -1902,9 +2217,11 @@
           "src": "/outside/assets/galapagos/0516",
           "ex": "ISO 2000  1/33 s  f/2",
           "d": "2026-01-19",
-          "se": 7,
+          "se": 8,
           "w": 2352,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G517",
@@ -1912,12 +2229,14 @@
           "h": 3072,
           "d": "2026-01-19",
           "t": "18:29:10",
-          "se": 7,
+          "se": 8,
           "ex": "ISO 160  1/50 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G522",
@@ -1925,12 +2244,14 @@
           "h": 4096,
           "d": "2026-01-19",
           "t": "18:32:45",
-          "se": 7,
+          "se": 8,
           "ex": "ISO 1000  1/20 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G527",
@@ -1938,12 +2259,14 @@
           "h": 3136,
           "d": "2026-01-19",
           "t": "18:38:42",
-          "se": 7,
+          "se": 8,
           "ex": "ISO 320  1/30 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G535",
@@ -1951,12 +2274,14 @@
           "h": 3072,
           "d": "2026-01-19",
           "t": "18:49:34",
-          "se": 7,
+          "se": 8,
           "ex": "ISO 1000  1/14 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G542",
@@ -1964,12 +2289,14 @@
           "h": 3072,
           "d": "2026-01-20",
           "t": "13:46:41",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 50  1/1113 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G547",
@@ -1977,12 +2304,14 @@
           "h": 3072,
           "d": "2026-01-20",
           "t": "13:50:16",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 50  1/1249 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G548",
@@ -1990,12 +2319,14 @@
           "h": 2352,
           "d": "2026-01-20",
           "t": "13:51:59",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 50  1/848 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G557",
@@ -2003,12 +2334,14 @@
           "h": 3072,
           "d": "2026-01-20",
           "t": "14:00:06",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 64  1/1938 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G560",
@@ -2016,12 +2349,14 @@
           "h": 3072,
           "d": "2026-01-20",
           "t": "14:07:23",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 64  1/3307 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G573",
@@ -2029,12 +2364,14 @@
           "h": 2352,
           "d": "2026-01-20",
           "t": "14:25:55",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 50  1/1737 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G584",
@@ -2042,12 +2379,14 @@
           "h": 3000,
           "d": "2026-01-20",
           "t": "14:59:39",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 64  1/492 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -2058,9 +2397,11 @@
           "src": "/outside/assets/galapagos/0592",
           "ex": "ISO 125  1/200 s  f/2",
           "d": "2026-01-20",
-          "se": 8,
+          "se": 9,
           "w": 3136,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G603",
@@ -2068,12 +2409,14 @@
           "h": 3000,
           "d": "2026-01-20",
           "t": "16:20:14",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 64  1/911 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G609",
@@ -2081,12 +2424,14 @@
           "h": 3072,
           "d": "2026-01-20",
           "t": "16:23:19",
-          "se": 8,
+          "se": 9,
           "ex": "ISO 50  1/2082 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G629",
@@ -2094,12 +2439,14 @@
           "h": 3136,
           "d": "2026-01-21",
           "t": "10:15:33",
-          "se": 9,
+          "se": 10,
           "ex": "ISO 50  1/4163 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G636",
@@ -2107,12 +2454,14 @@
           "h": 3000,
           "d": "2026-01-21",
           "t": "10:18:35",
-          "se": 9,
+          "se": 10,
           "ex": "ISO 64  1/1263 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G645",
@@ -2120,12 +2469,14 @@
           "h": 2352,
           "d": "2026-01-21",
           "t": "10:34:25",
-          "se": 9,
+          "se": 10,
           "ex": "ISO 50  1/1920 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -2136,9 +2487,11 @@
           "src": "/outside/assets/galapagos/0679",
           "ex": "ISO 64  1/2280 s  f/2",
           "d": "2026-01-21",
-          "se": 9,
+          "se": 10,
           "w": 2352,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G684",
@@ -2146,12 +2499,14 @@
           "h": 3000,
           "d": "2026-01-21",
           "t": "18:25:38",
-          "se": 9,
+          "se": 10,
           "ex": "ISO 160  1/60 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G710",
@@ -2159,12 +2514,14 @@
           "h": 3072,
           "d": "2026-01-21",
           "t": "18:48:53",
-          "se": 9,
+          "se": 10,
           "ex": "ISO 1600  1/13 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G718",
@@ -2172,12 +2529,14 @@
           "h": 2352,
           "d": "2026-01-22",
           "t": "09:24:15",
-          "se": 10,
+          "se": 11,
           "ex": "ISO 50  1/1377 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G720",
@@ -2185,12 +2544,14 @@
           "h": 3072,
           "d": "2026-01-22",
           "t": "09:35:16",
-          "se": 10,
+          "se": 11,
           "ex": "ISO 64  1/4015 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G726",
@@ -2198,12 +2559,14 @@
           "h": 3072,
           "d": "2026-01-22",
           "t": "10:23:39",
-          "se": 10,
+          "se": 11,
           "ex": "ISO 64  1/3407 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/galapagos/G730",
@@ -2211,12 +2574,14 @@
           "h": 3072,
           "d": "2026-01-22",
           "t": "10:46:47",
-          "se": 10,
+          "se": 11,
           "ex": "ISO 64  1/4015 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "San Cristóbal",
+          "transit": false
         }
       ]
     },
@@ -2235,37 +2600,41 @@
           "start": 0,
           "count": 1,
           "time": "15:05:23",
-          "title": "Church & street",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-11-27",
-          "dateEnd": "2025-11-27"
+          "dateEnd": "2025-11-27",
+          "title": "Church & street"
         },
         {
           "start": 1,
           "count": 4,
           "time": "12:44:13",
-          "title": "Atrium & lights",
           "key": 2,
+          "displayNumber": 2,
           "date": "2025-11-28",
-          "dateEnd": "2025-11-28"
+          "dateEnd": "2025-11-28",
+          "title": "Atrium & lights"
         },
         {
           "start": 5,
           "count": 11,
-          "time": "08:53:02",
-          "title": "Conservatory & displays",
+          "time": "10:30:13",
           "key": 5,
+          "displayNumber": 3,
           "date": "2025-11-29",
-          "dateEnd": "2025-11-29"
+          "dateEnd": "2025-11-29",
+          "title": "Conservatory & displays"
         },
         {
           "start": 16,
           "count": 1,
           "time": "09:04:22",
-          "title": "Snowy skyline overlook",
           "key": 16,
+          "displayNumber": 4,
           "date": "2025-11-30",
-          "dateEnd": "2025-11-30"
+          "dateEnd": "2025-11-30",
+          "title": "Snowy skyline overlook"
         }
       ],
       "images": [
@@ -2280,7 +2649,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-05:00"
+          "tz": "UTC-05:00",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/9f66ed3d10fc475a8f42abfb575be76d",
@@ -2294,7 +2665,9 @@
           "fl": "5.59 mm",
           "avg": "#8C8372",
           "alt": "Pools and a small stream among large rocks beneath the conservatory canopy.",
-          "se": 2
+          "se": 2,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "tz": "UTC-5",
@@ -2307,7 +2680,9 @@
           "d": "2025-11-28",
           "se": 2,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/554160d1b6974b60b8e76578d8dea053",
@@ -2321,7 +2696,9 @@
           "fl": "5.59 mm",
           "avg": "#3D3B46",
           "alt": "A blue-lit wheel rises beyond a railed walkway beneath a clouded night sky.",
-          "se": 2
+          "se": 2,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "tz": "UTC-5",
@@ -2334,7 +2711,9 @@
           "d": "2025-11-28",
           "se": 2,
           "w": 3000,
-          "fl": "2.59 mm"
+          "fl": "2.59 mm",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "tz": "UTC-5",
@@ -2347,7 +2726,9 @@
           "d": "2025-11-29",
           "se": 3,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A223",
@@ -2360,7 +2741,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-05:00"
+          "tz": "UTC-05:00",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "tz": "UTC-5",
@@ -2373,7 +2756,9 @@
           "d": "2025-11-29",
           "se": 3,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/b22bfc4984d84c3da436b340ced226d2",
@@ -2387,7 +2772,9 @@
           "fl": "7.08 mm",
           "avg": "#78786D",
           "alt": "A miniature shaped tree is displayed above yellow flowers and orange-red foliage.",
-          "se": 3
+          "se": 3,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/ffb478d8dc7149fa9d63cfd50474c6be",
@@ -2401,7 +2788,9 @@
           "fl": "5.59 mm",
           "avg": "#737367",
           "alt": "Barrel cacti and succulents fill a dry garden bed, with agaves behind.",
-          "se": 3
+          "se": 3,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/4f447a01a3c149f2b00a15a8949aaba7",
@@ -2415,7 +2804,9 @@
           "fl": "5.59 mm",
           "avg": "#696C6A",
           "alt": "A large agave and other succulents rise beneath a glass conservatory roof.",
-          "se": 3
+          "se": 3,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/1d1b7cf25e154d238e7a2040d0c6a1f7",
@@ -2429,7 +2820,9 @@
           "fl": "5.59 mm",
           "avg": "#717270",
           "alt": "Barrel cacti and branching succulents spread across a desert-style bed beneath glass.",
-          "se": 3
+          "se": 3,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A237",
@@ -2442,7 +2835,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-05:00"
+          "tz": "UTC-05:00",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/310d75581c1b4617ac0bf0992d7ef3ce",
@@ -2456,7 +2851,9 @@
           "fl": "5.59 mm",
           "avg": "#6A7673",
           "alt": "Water cascades over dark stones among broad leaves beneath the conservatory roof.",
-          "se": 3
+          "se": 3,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/92d81d07c9f94ed2ad3f98c20a69be97",
@@ -2470,7 +2867,9 @@
           "fl": "5.59 mm",
           "avg": "#6C705D",
           "alt": "Dense greenery and a rock feature sit beside a garden path inside the conservatory.",
-          "se": 3
+          "se": 3,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/349bca4aafe94ef7b5a0ff0f28a1bb97",
@@ -2484,7 +2883,9 @@
           "fl": "5.59 mm",
           "avg": "#576162",
           "alt": "Colorful strands of lights hang above reflections in a nighttime installation.",
-          "se": 3
+          "se": 3,
+          "place": "Montréal",
+          "transit": false
         },
         {
           "src": "/outside/assets/montreal-november-album-gap/50687dc46ae34c23be92b217abb3de9f",
@@ -2498,7 +2899,9 @@
           "fl": "5.59 mm",
           "avg": "#999D9C",
           "alt": "Bare winter trees and snow frame a hazy city skyline from an elevated overlook.",
-          "se": 4
+          "se": 4,
+          "place": "Montréal",
+          "transit": false
         }
       ]
     },
@@ -2517,10 +2920,11 @@
           "start": 0,
           "count": 1,
           "time": "13:52:02",
-          "title": "Garden walk",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-10-25",
-          "dateEnd": "2025-10-25"
+          "dateEnd": "2025-10-25",
+          "title": "Garden walk"
         }
       ],
       "images": [
@@ -2535,7 +2939,9 @@
           "d": "2025-10-25",
           "se": 1,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Mableton",
+          "transit": false
         }
       ]
     },
@@ -2553,65 +2959,62 @@
         {
           "start": 0,
           "count": 14,
-          "key": 0,
           "time": "11:41:14",
-          "title": "Desert plants & rocks",
+          "key": 0,
+          "displayNumber": 1,
           "date": "2025-10-09",
-          "dateEnd": "2025-10-09"
+          "dateEnd": "2025-10-09",
+          "title": "Desert plants & rocks"
         },
         {
           "start": 14,
           "count": 7,
-          "key": 14,
           "time": "15:32:02",
-          "title": "Canyon & layered cliffs",
+          "key": 14,
+          "displayNumber": 2,
           "date": "2025-10-10",
-          "dateEnd": "2025-10-10"
+          "dateEnd": "2025-10-10",
+          "title": "Canyon & layered cliffs"
         },
         {
           "start": 21,
           "count": 14,
-          "key": 21,
           "time": "08:06:34",
-          "title": "Red-rock canyon",
+          "key": 21,
+          "displayNumber": 3,
           "date": "2025-10-11",
-          "dateEnd": "2025-10-11"
+          "dateEnd": "2025-10-11",
+          "title": "Red-rock canyon"
         },
         {
           "start": 35,
-          "count": 13,
-          "key": 35,
+          "count": 14,
           "time": "11:35:45",
-          "title": "Peaks & green valley",
+          "key": 35,
+          "displayNumber": 4,
           "date": "2025-10-12",
-          "dateEnd": "2025-10-12"
-        },
-        {
-          "start": 48,
-          "count": 1,
-          "key": 48,
-          "time": "22:42:19",
-          "title": "Utah night sky",
-          "date": "2025-10-12",
-          "dateEnd": "2025-10-12"
+          "dateEnd": "2025-10-12",
+          "title": "Peaks & green valley"
         },
         {
           "start": 49,
           "count": 22,
-          "key": 49,
           "time": "08:04:23",
-          "title": "Red-rock creek walk",
+          "key": 49,
+          "displayNumber": 5,
           "date": "2025-10-13",
-          "dateEnd": "2025-10-13"
+          "dateEnd": "2025-10-13",
+          "title": "Red-rock creek walk"
         },
         {
           "start": 71,
           "count": 3,
+          "time": "12:51:40",
           "key": 71,
-          "time": "12:29:35",
-          "title": "Dam tunnel & views",
+          "displayNumber": 6,
           "date": "2025-10-14",
-          "dateEnd": "2025-10-14"
+          "dateEnd": "2025-10-14",
+          "title": "Dam tunnel & views"
         }
       ],
       "images": [
@@ -2626,7 +3029,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C012",
@@ -2639,7 +3044,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C026",
@@ -2652,7 +3059,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C030",
@@ -2665,7 +3074,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C035",
@@ -2678,7 +3089,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C052",
@@ -2691,7 +3104,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C064",
@@ -2704,7 +3119,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "tz": "UTC-7",
@@ -2717,7 +3134,9 @@
           "d": "2025-10-09",
           "se": 1,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C080",
@@ -2730,7 +3149,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C084",
@@ -2743,7 +3164,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C088",
@@ -2756,7 +3179,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C108",
@@ -2769,7 +3194,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C119",
@@ -2782,7 +3209,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C129",
@@ -2795,7 +3224,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Joshua Tree",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C144",
@@ -2808,7 +3239,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C150",
@@ -2821,7 +3254,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C167",
@@ -2834,7 +3269,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C174",
@@ -2847,7 +3284,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C180",
@@ -2860,7 +3299,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C182",
@@ -2873,7 +3314,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C191",
@@ -2886,7 +3329,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C208",
@@ -2899,7 +3344,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "tz": "UTC-7",
@@ -2912,7 +3359,9 @@
           "d": "2025-10-11",
           "se": 3,
           "w": 4000,
-          "fl": "2.59 mm"
+          "fl": "2.59 mm",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C218",
@@ -2925,7 +3374,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "tz": "UTC-7",
@@ -2938,7 +3389,9 @@
           "d": "2025-10-11",
           "se": 3,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C275",
@@ -2951,7 +3404,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C279",
@@ -2964,7 +3419,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C281",
@@ -2977,7 +3434,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "tz": "UTC-7",
@@ -2990,7 +3449,9 @@
           "d": "2025-10-11",
           "se": 3,
           "w": 3136,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C317",
@@ -3003,7 +3464,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C323",
@@ -3016,7 +3479,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C332",
@@ -3029,7 +3494,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C337",
@@ -3042,7 +3509,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C339",
@@ -3055,7 +3524,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C342",
@@ -3068,7 +3539,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Grand Canyon",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C345",
@@ -3081,7 +3554,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C352",
@@ -3094,7 +3569,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C356",
@@ -3107,7 +3584,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3120,7 +3599,9 @@
           "d": "2025-10-12",
           "se": 4,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C367",
@@ -3133,7 +3614,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C373",
@@ -3146,7 +3629,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C375",
@@ -3159,7 +3644,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3172,7 +3659,9 @@
           "d": "2025-10-12",
           "se": 4,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3185,7 +3674,9 @@
           "d": "2025-10-12",
           "se": 4,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3198,7 +3689,9 @@
           "d": "2025-10-12",
           "se": 4,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C400",
@@ -3211,7 +3704,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C402",
@@ -3224,7 +3719,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3237,7 +3734,9 @@
           "d": "2025-10-12",
           "se": 4,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/utah-night-sky-2025/utah-night-sky-01",
@@ -3251,7 +3750,9 @@
           "fl": "5.6 mm",
           "avg": "#3065b9",
           "alt": "A field of stars against a blue night sky in Utah.",
-          "se": 5
+          "se": 4,
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C416",
@@ -3259,12 +3760,14 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "08:04:23",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 50  1/260 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C422",
@@ -3272,12 +3775,14 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "08:12:06",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/154 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3288,9 +3793,11 @@
           "src": "/outside/assets/core-trips/0431",
           "ex": "ISO 50  1/315 s  f/1.8",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3301,9 +3808,11 @@
           "src": "/outside/assets/core-trips/0436",
           "ex": "ISO 50  1/311 s  f/1.8",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C438",
@@ -3311,12 +3820,14 @@
           "h": 4000,
           "d": "2025-10-13",
           "t": "09:04:31",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/108 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C446",
@@ -3324,12 +3835,14 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "09:29:58",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 50  1/3877 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C450",
@@ -3337,12 +3850,14 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "09:32:43",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/2527 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3353,9 +3868,11 @@
           "src": "/outside/assets/core-trips/0458",
           "ex": "ISO 64  1/200 s  f/2",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 2352,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C468",
@@ -3363,12 +3880,14 @@
           "h": 4096,
           "d": "2025-10-13",
           "t": "10:03:30",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 50  1/1081 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3379,9 +3898,11 @@
           "src": "/outside/assets/core-trips/0479",
           "ex": "ISO 64  1/4164 s  f/1.8",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C483",
@@ -3389,12 +3910,14 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "10:15:57",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 50  1/1730 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3405,9 +3928,11 @@
           "src": "/outside/assets/core-trips/0487",
           "ex": "ISO 50  1/2555 s  f/1.8",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C490",
@@ -3415,12 +3940,14 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "10:35:50",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 50  1/2204 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C500",
@@ -3428,12 +3955,14 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "11:31:29",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/5621 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C526",
@@ -3441,12 +3970,14 @@
           "h": 3000,
           "d": "2025-10-13",
           "t": "12:27:50",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/1090 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C552",
@@ -3454,12 +3985,14 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "12:39:55",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/2959 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3470,9 +4003,11 @@
           "src": "/outside/assets/core-trips/0562",
           "ex": "ISO 64  1/4888 s  f/1.8",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C570",
@@ -3480,12 +4015,14 @@
           "h": 3072,
           "d": "2025-10-13",
           "t": "13:45:27",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/4324 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3496,9 +4033,11 @@
           "src": "/outside/assets/core-trips/0586",
           "ex": "ISO 50  1/632 s  f/1.8",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C594",
@@ -3506,12 +4045,14 @@
           "h": 4000,
           "d": "2025-10-13",
           "t": "15:00:27",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/855 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C600",
@@ -3519,12 +4060,14 @@
           "h": 4000,
           "d": "2025-10-13",
           "t": "15:02:40",
-          "se": 6,
+          "se": 5,
           "ex": "ISO 64  1/279 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Zion",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -3535,9 +4078,11 @@
           "src": "/outside/assets/core-trips/0608",
           "ex": "ISO 50  1/5110 s  f/1.8",
           "d": "2025-10-13",
-          "se": 6,
+          "se": 5,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Zion",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C624",
@@ -3545,12 +4090,14 @@
           "h": 3072,
           "d": "2025-10-14",
           "t": "12:51:40",
-          "se": 7,
+          "se": 6,
           "ex": "ISO 64  1/5621 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Hoover Dam",
+          "transit": false
         },
         {
           "tz": "UTC-07:00",
@@ -3561,9 +4108,11 @@
           "src": "/outside/hoover-dam/017",
           "ex": "ISO 64  1/2316 s  f/2.2",
           "d": "2025-10-14",
-          "se": 7,
+          "se": 6,
           "w": 1440,
-          "fl": "2.59 mm  (14 mm eq)"
+          "fl": "2.59 mm  (14 mm eq)",
+          "place": "Hoover Dam",
+          "transit": false
         },
         {
           "tz": "UTC-07:00",
@@ -3574,9 +4123,11 @@
           "src": "/outside/hoover-dam/020",
           "ex": "ISO 50  1/6246 s  f/1.8",
           "d": "2025-10-14",
-          "se": 7,
+          "se": 6,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Hoover Dam",
+          "transit": false
         }
       ]
     },
@@ -3593,12 +4144,23 @@
       "series": [
         {
           "start": 0,
-          "count": 4,
+          "count": 1,
           "time": "10:29:39",
-          "title": "Surf & rocky shore",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-10-04",
-          "dateEnd": "2025-10-04"
+          "dateEnd": "2025-10-04",
+          "title": "Surf & rocky shore"
+        },
+        {
+          "start": 1,
+          "count": 3,
+          "time": "10:29:44",
+          "key": 1,
+          "displayNumber": 2,
+          "date": "2025-10-04",
+          "dateEnd": "2025-10-04",
+          "title": "Surf & rocky shore"
         }
       ],
       "images": [
@@ -3613,7 +4175,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Cataño",
+          "transit": false
         },
         {
           "tz": "UTC-04:00",
@@ -3624,9 +4188,11 @@
           "src": "/outside/old-san-juan/001",
           "ex": "ISO 64  1/2138 s  f/2.2",
           "d": "2025-10-04",
-          "se": 1,
+          "se": 2,
           "w": 1920,
-          "fl": "2.59 mm  (14 mm eq)"
+          "fl": "2.59 mm  (14 mm eq)",
+          "place": "San Juan",
+          "transit": false
         },
         {
           "tz": "UTC-04:00",
@@ -3637,9 +4203,11 @@
           "src": "/outside/old-san-juan/003",
           "ex": "ISO 50  1/2959 s  f/1.8",
           "d": "2025-10-04",
-          "se": 1,
+          "se": 2,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "San Juan",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -3650,9 +4218,11 @@
           "src": "/outside/assets/core-trips/0940",
           "ex": "ISO 64  1/5354 s  f/1.8",
           "d": "2025-10-04",
-          "se": 1,
+          "se": 2,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "San Juan",
+          "transit": false
         }
       ]
     },
@@ -3671,10 +4241,11 @@
           "start": 0,
           "count": 2,
           "time": "18:06:24",
-          "title": "Aquarium & reef exhibits",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-09-13",
-          "dateEnd": "2025-09-13"
+          "dateEnd": "2025-09-13",
+          "title": "Aquarium & reef exhibits"
         }
       ],
       "images": [
@@ -3689,7 +4260,9 @@
           "fl": "5.96 mm",
           "cam": "Apple iPhone 15",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Orlando",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A314",
@@ -3701,7 +4274,9 @@
           "ex": "",
           "fl": "",
           "cam": "",
-          "avg": ""
+          "avg": "",
+          "place": "Orlando",
+          "transit": false
         }
       ]
     },
@@ -3720,10 +4295,11 @@
           "start": 0,
           "count": 4,
           "time": "14:54:38",
-          "title": "Ice Caves trail",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-08-09",
-          "dateEnd": "2025-08-09"
+          "dateEnd": "2025-08-09",
+          "title": "Ice Caves trail"
         }
       ],
       "images": [
@@ -3738,7 +4314,9 @@
           "d": "2025-08-09",
           "se": 1,
           "w": 1920,
-          "fl": "2.59 mm  (14 mm eq)"
+          "fl": "2.59 mm  (14 mm eq)",
+          "place": "Sam’s Point",
+          "transit": false
         },
         {
           "tz": "UTC-04:00",
@@ -3751,7 +4329,9 @@
           "d": "2025-08-09",
           "se": 1,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Sam’s Point",
+          "transit": false
         },
         {
           "tz": "UTC-04:00",
@@ -3764,7 +4344,9 @@
           "d": "2025-08-09",
           "se": 1,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Sam’s Point",
+          "transit": false
         },
         {
           "tz": "UTC-04:00",
@@ -3777,7 +4359,9 @@
           "d": "2025-08-09",
           "se": 1,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Sam’s Point",
+          "transit": false
         }
       ]
     },
@@ -3794,12 +4378,23 @@
       "series": [
         {
           "start": 0,
-          "count": 8,
+          "count": 1,
           "time": "12:21:56",
-          "title": "Foothill trail & meadow",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-07-26",
-          "dateEnd": "2025-07-26"
+          "dateEnd": "2025-07-26",
+          "title": "Foothill trail & meadow"
+        },
+        {
+          "start": 1,
+          "count": 7,
+          "time": "16:09:12",
+          "key": 1,
+          "displayNumber": 2,
+          "date": "2025-07-26",
+          "dateEnd": "2025-07-26",
+          "title": "Foothill trail & meadow"
         }
       ],
       "images": [
@@ -3814,7 +4409,9 @@
           "d": "2025-07-26",
           "se": 1,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Boulder",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3825,9 +4422,11 @@
           "src": "/outside/study-0726/004",
           "ex": "ISO 64  1/5354 s  f/1.8",
           "d": "2025-07-26",
-          "se": 1,
+          "se": 2,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Denver",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C852",
@@ -3835,12 +4434,14 @@
           "h": 3072,
           "d": "2025-07-26",
           "t": "18:05:23",
-          "se": 1,
+          "se": 2,
           "ex": "ISO 50  1/99 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Denver",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3851,9 +4452,11 @@
           "src": "/outside/study-0726/009",
           "ex": "ISO 50  1/1519 s  f/1.8",
           "d": "2025-07-26",
-          "se": 1,
+          "se": 2,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Denver",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3864,9 +4467,11 @@
           "src": "/outside/study-0726/012",
           "ex": "ISO 50  1/418 s  f/1.8",
           "d": "2025-07-26",
-          "se": 1,
+          "se": 2,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Denver",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3877,9 +4482,11 @@
           "src": "/outside/study-0726/014",
           "ex": "ISO 250  1/100 s  f/2",
           "d": "2025-07-26",
-          "se": 1,
+          "se": 2,
           "w": 1440,
-          "fl": "7.08 mm  (111 mm eq)"
+          "fl": "7.08 mm  (111 mm eq)",
+          "place": "Denver",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3890,9 +4497,11 @@
           "src": "/outside/study-0726/016",
           "ex": "ISO 50  1/712 s  f/1.8",
           "d": "2025-07-26",
-          "se": 1,
+          "se": 2,
           "w": 1920,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Denver",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -3903,9 +4512,11 @@
           "src": "/outside/study-0726/017",
           "ex": "ISO 50  1/234 s  f/1.8",
           "d": "2025-07-26",
-          "se": 1,
+          "se": 2,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Denver",
+          "transit": false
         }
       ]
     },
@@ -3924,28 +4535,31 @@
           "start": 0,
           "count": 5,
           "time": "14:16:22",
-          "title": "June 21",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-06-21",
-          "dateEnd": "2025-06-21"
+          "dateEnd": "2025-06-21",
+          "title": "June 21"
         },
         {
           "start": 5,
           "count": 17,
           "time": "10:09:05",
-          "title": "June 22",
           "key": 5,
+          "displayNumber": 2,
           "date": "2025-06-22",
-          "dateEnd": "2025-06-22"
+          "dateEnd": "2025-06-22",
+          "title": "June 22"
         },
         {
           "start": 22,
           "count": 3,
           "time": "09:48:26",
-          "title": "June 23",
           "key": 22,
+          "displayNumber": 3,
           "date": "2025-06-23",
-          "dateEnd": "2025-06-23"
+          "dateEnd": "2025-06-23",
+          "title": "June 23"
         }
       ],
       "images": [
@@ -3960,7 +4574,9 @@
           "t": "14:16:22",
           "tz": "UTC-04:00",
           "w": 2352,
-          "se": 1
+          "se": 1,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -3973,7 +4589,9 @@
           "t": "14:16:27",
           "tz": "UTC-04:00",
           "w": 2352,
-          "se": 1
+          "se": 1,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -3986,7 +4604,9 @@
           "t": "14:24:32",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 1
+          "se": 1,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -3999,7 +4619,9 @@
           "t": "14:24:35",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 1
+          "se": 1,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4012,7 +4634,9 @@
           "t": "14:24:36",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 1
+          "se": 1,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4025,7 +4649,9 @@
           "src": "/outside/assets/owner-review/core-trips/C887",
           "t": "10:09:05",
           "tz": "UTC-04:00",
-          "w": 4090
+          "w": 4090,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4038,7 +4664,9 @@
           "t": "10:20:21",
           "tz": "UTC-04:00",
           "w": 2352,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4051,7 +4679,9 @@
           "t": "10:52:00",
           "tz": "UTC-04:00",
           "w": 4000,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4064,7 +4694,9 @@
           "t": "11:06:23",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4077,7 +4709,9 @@
           "src": "/outside/assets/owner-review/core-trips/C894",
           "t": "11:06:24",
           "tz": "UTC-04:00",
-          "w": 4096
+          "w": 4096,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4090,7 +4724,9 @@
           "t": "12:26:07",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4103,7 +4739,9 @@
           "t": "12:26:13",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4116,7 +4754,9 @@
           "t": "12:26:13",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4129,7 +4769,9 @@
           "t": "12:26:14",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4142,7 +4784,9 @@
           "t": "12:26:15",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4155,7 +4799,9 @@
           "t": "14:38:31",
           "tz": "UTC-04:00",
           "w": 2352,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4168,7 +4814,9 @@
           "t": "16:49:07",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4181,7 +4829,9 @@
           "t": "21:19:09",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4194,7 +4844,9 @@
           "t": "21:39:58",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4207,7 +4859,9 @@
           "t": "21:57:18",
           "tz": "UTC-04:00",
           "w": 4096,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4220,7 +4874,9 @@
           "t": "22:07:29",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4233,7 +4889,9 @@
           "t": "22:08:04",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 2
+          "se": 2,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4246,7 +4904,9 @@
           "t": "09:48:26",
           "tz": "UTC-04:00",
           "w": 3072,
-          "se": 3
+          "se": 3,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4259,7 +4919,9 @@
           "t": "15:54:03",
           "tz": "UTC-04:00",
           "w": 2352,
-          "se": 3
+          "se": 3,
+          "place": "Esperanza",
+          "transit": false
         },
         {
           "avg": "",
@@ -4272,7 +4934,9 @@
           "t": "15:54:06",
           "tz": "UTC-04:00",
           "w": 2352,
-          "se": 3
+          "se": 3,
+          "place": "Esperanza",
+          "transit": false
         }
       ]
     },
@@ -4289,30 +4953,13 @@
       "series": [
         {
           "start": 0,
-          "count": 7,
+          "count": 31,
           "time": "10:44:16",
-          "title": "Fountains & gardens",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-06-18",
-          "dateEnd": "2025-06-18"
-        },
-        {
-          "start": 7,
-          "count": 4,
-          "time": "14:17:16",
-          "title": "Downtown Atlanta",
-          "key": 7,
-          "date": "2025-06-18",
-          "dateEnd": "2025-06-18"
-        },
-        {
-          "start": 11,
-          "count": 20,
-          "time": "15:37:19",
-          "title": "Aquarium & marine life",
-          "key": 11,
-          "date": "2025-06-18",
-          "dateEnd": "2025-06-18"
+          "dateEnd": "2025-06-18",
+          "title": "Fountains & gardens"
         }
       ],
       "images": [
@@ -4327,7 +4974,9 @@
           "d": "2025-06-18",
           "se": 1,
           "w": 3136,
-          "fl": "7.08 mm"
+          "fl": "7.08 mm",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A336",
@@ -4340,7 +4989,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -4353,7 +5004,9 @@
           "d": "2025-06-18",
           "se": 1,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A377",
@@ -4366,7 +5019,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A379",
@@ -4379,7 +5034,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -4392,7 +5049,9 @@
           "d": "2025-06-18",
           "se": 1,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A383",
@@ -4405,7 +5064,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A387",
@@ -4413,12 +5074,14 @@
           "h": 3072,
           "d": "2025-06-18",
           "t": "14:17:16",
-          "se": 2,
+          "se": 1,
           "ex": "ISO 50  1/6246 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A389",
@@ -4426,12 +5089,14 @@
           "h": 3000,
           "d": "2025-06-18",
           "t": "14:20:16",
-          "se": 2,
+          "se": 1,
           "ex": "ISO 64  1/1635 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A392",
@@ -4439,12 +5104,14 @@
           "h": 3072,
           "d": "2025-06-18",
           "t": "14:20:20",
-          "se": 2,
+          "se": 1,
           "ex": "ISO 50  1/3747 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A393",
@@ -4452,12 +5119,14 @@
           "h": 3072,
           "d": "2025-06-18",
           "t": "14:20:21",
-          "se": 2,
+          "se": 1,
           "ex": "ISO 50  1/3747 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A404",
@@ -4465,12 +5134,14 @@
           "h": 4096,
           "d": "2025-06-18",
           "t": "15:37:19",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 640  1/20 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A408",
@@ -4478,12 +5149,14 @@
           "h": 3072,
           "d": "2025-06-18",
           "t": "15:38:55",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 50  1/241 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A410",
@@ -4491,12 +5164,14 @@
           "h": 4096,
           "d": "2025-06-18",
           "t": "15:49:27",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 250  1/50 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A412",
@@ -4504,12 +5179,14 @@
           "h": 4096,
           "d": "2025-06-18",
           "t": "15:52:54",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 50  1/126 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A414",
@@ -4517,12 +5194,14 @@
           "h": 3072,
           "d": "2025-06-18",
           "t": "16:07:22",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 500  1/20 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A416",
@@ -4530,12 +5209,14 @@
           "h": 3072,
           "d": "2025-06-18",
           "t": "16:07:24",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 500  1/20 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A418",
@@ -4543,12 +5224,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:09:41",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 400  1/46 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A420",
@@ -4556,12 +5239,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:09:44",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 320  1/52 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A422",
@@ -4569,12 +5254,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:11:34",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 400  1/46 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A426",
@@ -4582,12 +5269,14 @@
           "h": 2352,
           "d": "2025-06-18",
           "t": "17:14:10",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 500  1/40 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A428",
@@ -4595,12 +5284,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:14:26",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 640  1/60 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A430",
@@ -4608,12 +5299,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:14:28",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 640  1/60 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A432",
@@ -4621,12 +5314,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:15:01",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 500  1/40 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A434",
@@ -4634,12 +5329,14 @@
           "h": 4096,
           "d": "2025-06-18",
           "t": "17:16:19",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 400  1/20 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A440",
@@ -4647,12 +5344,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:17:12",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 640  1/40 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A443",
@@ -4660,12 +5359,14 @@
           "h": 4096,
           "d": "2025-06-18",
           "t": "17:19:02",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 1000  1/20 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A449",
@@ -4673,12 +5374,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:39:11",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 160  1/60 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A451",
@@ -4686,12 +5389,14 @@
           "h": 3136,
           "d": "2025-06-18",
           "t": "17:39:14",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 160  1/60 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A453",
@@ -4699,12 +5404,14 @@
           "h": 2352,
           "d": "2025-06-18",
           "t": "19:00:09",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 1250  1/33 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A459",
@@ -4712,12 +5419,14 @@
           "h": 3072,
           "d": "2025-06-18",
           "t": "19:05:01",
-          "se": 3,
+          "se": 1,
           "ex": "ISO 400  1/19 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Atlanta",
+          "transit": false
         }
       ]
     },
@@ -4736,10 +5445,11 @@
           "start": 0,
           "count": 14,
           "time": "12:50:40",
-          "title": "Resort interiors & displays",
-          "key": 0,
+          "key": 7,
+          "displayNumber": 1,
           "date": "2025-06-14",
-          "dateEnd": "2025-06-14"
+          "dateEnd": "2025-06-14",
+          "title": "Resort interiors & displays"
         }
       ],
       "images": [
@@ -4754,7 +5464,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A488",
@@ -4767,7 +5479,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A494",
@@ -4780,7 +5494,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A500",
@@ -4793,7 +5509,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A502",
@@ -4806,7 +5524,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A504",
@@ -4819,7 +5539,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "tz": "UTC-07:00",
@@ -4832,7 +5554,9 @@
           "d": "2025-06-14",
           "se": 1,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "tz": "UTC-7",
@@ -4845,7 +5569,9 @@
           "d": "2025-06-14",
           "se": 1,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A511",
@@ -4858,7 +5584,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "tz": "UTC-07:00",
@@ -4871,7 +5599,9 @@
           "d": "2025-06-14",
           "se": 1,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A516",
@@ -4884,7 +5614,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A518",
@@ -4897,7 +5629,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-07:00"
+          "tz": "UTC-07:00",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "tz": "UTC-07:00",
@@ -4910,7 +5644,9 @@
           "d": "2025-06-14",
           "se": 1,
           "w": 1440,
-          "fl": "5.59 mm  (24 mm eq)"
+          "fl": "5.59 mm  (24 mm eq)",
+          "place": "Las Vegas",
+          "transit": false
         },
         {
           "tz": "UTC-7",
@@ -4923,7 +5659,9 @@
           "d": "2025-06-14",
           "se": 1,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Las Vegas",
+          "transit": false
         }
       ]
     },
@@ -4940,39 +5678,63 @@
       "series": [
         {
           "start": 0,
-          "count": 5,
+          "count": 2,
           "time": "11:54:52",
-          "title": "Ski slopes & mountains",
           "key": 0,
+          "displayNumber": 1,
           "date": "2025-06-07",
-          "dateEnd": "2025-06-07"
+          "dateEnd": "2025-06-07",
+          "title": "Ski slopes & mountains"
+        },
+        {
+          "start": 2,
+          "count": 2,
+          "time": "14:41:15",
+          "key": 2,
+          "displayNumber": 2,
+          "date": "2025-06-07",
+          "dateEnd": "2025-06-07",
+          "title": "Ski slopes & mountains"
+        },
+        {
+          "start": 4,
+          "count": 1,
+          "time": "17:12:19",
+          "key": 4,
+          "displayNumber": 3,
+          "date": "2025-06-07",
+          "dateEnd": "2025-06-07",
+          "title": "Ski slopes & mountains"
         },
         {
           "start": 5,
           "count": 1,
           "time": "11:38:28",
-          "title": "Cave formations",
           "key": 5,
+          "displayNumber": 4,
           "date": "2025-06-08",
-          "dateEnd": "2025-06-08"
+          "dateEnd": "2025-06-08",
+          "title": "Cave formations"
         },
         {
           "start": 6,
           "count": 3,
           "time": "14:07:05",
-          "title": "Pine ridge & valley",
           "key": 6,
+          "displayNumber": 5,
           "date": "2025-06-09",
-          "dateEnd": "2025-06-09"
+          "dateEnd": "2025-06-09",
+          "title": "Pine ridge & valley"
         },
         {
           "start": 9,
           "count": 6,
           "time": "08:01:45",
-          "title": "Creek & whitewater",
-          "key": 9,
+          "key": 14,
+          "displayNumber": 6,
           "date": "2025-06-10",
-          "dateEnd": "2025-06-10"
+          "dateEnd": "2025-06-10",
+          "title": "Creek & whitewater"
         }
       ],
       "images": [
@@ -4987,7 +5749,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Green Mountain Falls",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C679",
@@ -5000,7 +5764,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Green Mountain Falls",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C699",
@@ -5008,12 +5774,14 @@
           "h": 3072,
           "d": "2025-06-07",
           "t": "14:41:15",
-          "se": 1,
+          "se": 2,
           "ex": "ISO 64  1/6613 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Manitou Springs",
+          "transit": false
         },
         {
           "tz": "UTC-06:00",
@@ -5024,9 +5792,11 @@
           "src": "/outside/garden-of-the-gods/003",
           "ex": "ISO 64  1/1853 s  f/2.2",
           "d": "2025-06-07",
-          "se": 1,
+          "se": 2,
           "w": 1920,
-          "fl": "2.59 mm  (14 mm eq)"
+          "fl": "2.59 mm  (14 mm eq)",
+          "place": "Manitou Springs",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -5037,9 +5807,11 @@
           "src": "/outside/assets/core-trips/0714",
           "ex": "ISO 50  1/3039 s  f/1.8",
           "d": "2025-06-07",
-          "se": 1,
+          "se": 3,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Denver",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -5050,9 +5822,11 @@
           "src": "/outside/assets/core-trips/0724",
           "ex": "ISO 500  1/17 s  f/1.8",
           "d": "2025-06-08",
-          "se": 2,
+          "se": 4,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Glenwood Springs",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C736",
@@ -5060,12 +5834,14 @@
           "h": 3000,
           "d": "2025-06-09",
           "t": "14:07:05",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 64  1/722 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C751",
@@ -5073,12 +5849,14 @@
           "h": 3024,
           "d": "2025-06-09",
           "t": "19:13:32",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 32  1/2012 s  f/1.6",
           "fl": "5.1 mm",
           "cam": "Apple iPhone 12 Pro Max",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C760",
@@ -5086,12 +5864,14 @@
           "h": 3136,
           "d": "2025-06-09",
           "t": "20:24:43",
-          "se": 3,
+          "se": 5,
           "ex": "ISO 100  1/100 s  f/2",
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C777",
@@ -5099,12 +5879,14 @@
           "h": 3000,
           "d": "2025-06-10",
           "t": "08:01:45",
-          "se": 4,
+          "se": 6,
           "ex": "ISO 64  1/434 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -5115,9 +5897,11 @@
           "src": "/outside/assets/core-trips/0781",
           "ex": "ISO 50  1/1355 s  f/1.8",
           "d": "2025-06-10",
-          "se": 4,
+          "se": 6,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C810",
@@ -5125,12 +5909,14 @@
           "h": 4000,
           "d": "2025-06-10",
           "t": "09:11:48",
-          "se": 4,
+          "se": 6,
           "ex": "ISO 64  1/1069 s  f/2.2",
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C818",
@@ -5138,12 +5924,14 @@
           "h": 3072,
           "d": "2025-06-10",
           "t": "12:46:29",
-          "se": 4,
+          "se": 6,
           "ex": "ISO 64  1/5354 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/core-trips/C824",
@@ -5151,12 +5939,14 @@
           "h": 3072,
           "d": "2025-06-10",
           "t": "14:19:54",
-          "se": 4,
+          "se": 6,
           "ex": "ISO 64  1/4015 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-06:00"
+          "tz": "UTC-06:00",
+          "place": "Estes Park",
+          "transit": false
         },
         {
           "tz": "UTC-6",
@@ -5167,9 +5957,11 @@
           "src": "/outside/assets/core-trips/0830",
           "ex": "ISO 50  1/3877 s  f/1.8",
           "d": "2025-06-10",
-          "se": 4,
+          "se": 6,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Estes Park",
+          "transit": false
         }
       ]
     },
@@ -5187,62 +5979,62 @@
         {
           "start": 0,
           "count": 1,
-          "time": "",
-          "title": "SCOUT · Merritt Island",
+          "time": "15:53:31",
+          "key": 0,
+          "displayNumber": 0,
           "date": "2024-12-17",
           "dateEnd": "2024-12-17",
-          "key": 0,
-          "displayNumber": 0
+          "title": "SCOUT · Merritt Island"
         },
         {
           "start": 1,
           "count": 1,
           "time": "",
-          "title": "Pool deck at night",
           "key": 1,
+          "displayNumber": 1,
           "date": "2024-12-15",
           "dateEnd": "2024-12-15",
-          "displayNumber": 1
+          "title": "Pool deck at night"
         },
         {
           "start": 2,
           "count": 1,
           "time": "10:21:50",
-          "title": "Ship & open water",
           "key": 2,
+          "displayNumber": 2,
           "date": "2024-12-17",
           "dateEnd": "2024-12-17",
-          "displayNumber": 2
+          "title": "Ship & open water"
         },
         {
           "start": 3,
           "count": 2,
           "time": "16:40:30",
-          "title": "Lighthouse at dusk",
           "key": 3,
+          "displayNumber": 3,
           "date": "2024-12-18",
           "dateEnd": "2024-12-18",
-          "displayNumber": 3
+          "title": "Lighthouse at dusk"
         },
         {
           "start": 5,
           "count": 2,
           "time": "13:54:57",
-          "title": "Shore walk",
           "key": 5,
+          "displayNumber": 4,
           "date": "2024-12-19",
           "dateEnd": "2024-12-19",
-          "displayNumber": 4
+          "title": "Shore walk"
         },
         {
           "start": 7,
           "count": 1,
           "time": "17:03:22",
-          "title": "Cruise sunset",
           "key": 7,
+          "displayNumber": 5,
           "date": "2024-12-20",
           "dateEnd": "2024-12-20",
-          "displayNumber": 5
+          "title": "Cruise sunset"
         }
       ],
       "images": [
@@ -5252,12 +6044,14 @@
           "h": 3072,
           "d": "2024-12-17",
           "t": "15:53:31",
-          "se": 1,
+          "se": 0,
           "ex": "ISO 50  1/1843 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-05:00"
+          "tz": "UTC-05:00",
+          "place": "Merritt Island",
+          "transit": true
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A557",
@@ -5269,7 +6063,9 @@
           "ex": "ISO 500  1/17 s  f/1.8",
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
-          "avg": ""
+          "avg": "",
+          "place": "Eatontown",
+          "transit": false
         },
         {
           "tz": "UTC-5",
@@ -5282,7 +6078,9 @@
           "d": "2024-12-17",
           "se": 2,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Manahawkin",
+          "transit": false
         },
         {
           "tz": "UTC-05:00",
@@ -5295,7 +6093,9 @@
           "d": "2024-12-18",
           "se": 3,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Nassau",
+          "transit": false
         },
         {
           "tz": "UTC-05:00",
@@ -5308,7 +6108,9 @@
           "d": "2024-12-18",
           "se": 3,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Nassau",
+          "transit": false
         },
         {
           "tz": "UTC-5",
@@ -5321,7 +6123,9 @@
           "d": "2024-12-19",
           "se": 4,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Nassau",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A179",
@@ -5334,7 +6138,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-05:00"
+          "tz": "UTC-05:00",
+          "place": "Nassau",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A181",
@@ -5347,7 +6153,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-05:00"
+          "tz": "UTC-05:00",
+          "place": "Nassau",
+          "transit": false
         }
       ]
     },
@@ -5367,7 +6175,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "National Harbor",
+          "transit": false
         }
       ],
       "key": 0,
@@ -5378,10 +6188,11 @@
           "start": 0,
           "count": 1,
           "time": "16:04:53",
-          "title": "Harbor & Capital Wheel",
           "key": 0,
+          "displayNumber": 1,
           "date": "2023-08-13",
-          "dateEnd": "2023-08-13"
+          "dateEnd": "2023-08-13",
+          "title": "Harbor & Capital Wheel"
         }
       ],
       "status": "PRELIM",
@@ -5405,7 +6216,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-06",
@@ -5418,7 +6231,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-06",
@@ -5431,7 +6246,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-07",
@@ -5444,7 +6261,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-07",
@@ -5457,7 +6276,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-07",
@@ -5470,7 +6291,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-07",
@@ -5483,7 +6306,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-07",
@@ -5496,7 +6321,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-07",
@@ -5509,7 +6336,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-07",
@@ -5522,7 +6351,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-08",
@@ -5535,7 +6366,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-08",
@@ -5548,12 +6381,14 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-08",
           "h": 3072,
-          "se": 4,
+          "se": 3,
           "src": "/outside/assets/montreal-august-2023/ma23-6b5c533851ecdd260ccc",
           "t": "15:42:11",
           "tz": "UTC-4",
@@ -5561,12 +6396,14 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "d": "2023-08-08",
           "h": 3072,
-          "se": 4,
+          "se": 3,
           "src": "/outside/assets/montreal-august-2023/ma23-2e44fe8db1b2b7998092",
           "t": "15:46:21",
           "tz": "UTC-4",
@@ -5574,17 +6411,21 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         },
         {
           "h": 1024,
-          "se": 5,
+          "se": 4,
           "src": "/outside/assets/montreal-august-2023/ma23-0948d66471f9fa1a4c19",
           "w": 768,
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": ""
+          "avg": "",
+          "place": "Montréal",
+          "transit": false
         }
       ],
       "key": 7,
@@ -5592,49 +6433,44 @@
       "region": "Québec",
       "series": [
         {
-          "count": 3,
-          "date": "2023-08-06",
-          "key": 0,
           "start": 0,
+          "count": 3,
           "time": "20:14:23",
-          "title": "Skyline from lookout",
-          "dateEnd": "2023-08-06"
+          "key": 0,
+          "displayNumber": 1,
+          "date": "2023-08-06",
+          "dateEnd": "2023-08-06",
+          "title": "Skyline from lookout"
         },
         {
-          "count": 7,
-          "date": "2023-08-07",
-          "key": 3,
           "start": 3,
+          "count": 7,
           "time": "00:31:11",
-          "title": "Park & Biosphere",
-          "dateEnd": "2023-08-07"
+          "key": 7,
+          "displayNumber": 2,
+          "date": "2023-08-07",
+          "dateEnd": "2023-08-07",
+          "title": "Park & Biosphere"
         },
         {
           "start": 10,
-          "count": 2,
+          "count": 4,
           "time": "11:28:43",
-          "title": "Garden paths",
           "key": 10,
+          "displayNumber": 3,
           "date": "2023-08-08",
-          "dateEnd": "2023-08-08"
+          "dateEnd": "2023-08-08",
+          "title": "Garden paths"
         },
         {
-          "count": 2,
-          "date": "2023-08-08",
-          "key": 12,
-          "start": 12,
-          "time": "15:42:11",
-          "title": "Church & city streets",
-          "dateEnd": "2023-08-08"
-        },
-        {
-          "count": 1,
-          "key": 14,
           "start": 14,
-          "title": "Waterfront & Old Port",
+          "count": 1,
+          "time": "",
+          "key": 14,
+          "displayNumber": 4,
           "date": "",
           "dateEnd": "",
-          "time": ""
+          "title": "Waterfront & Old Port"
         }
       ],
       "status": "PRELIM",
@@ -5647,7 +6483,7 @@
       "country": "United States",
       "status": "PENDING",
       "date": "2023-03-08",
-      "dateEnd": "2023-05-23",
+      "dateEnd": "2023-04-30",
       "tz": "",
       "key": 4,
       "series": [
@@ -5655,91 +6491,101 @@
           "start": 0,
           "count": 1,
           "time": "20:47:44",
-          "title": "City Hall at night",
           "key": 0,
+          "displayNumber": 1,
           "date": "2023-03-08",
-          "dateEnd": "2023-03-08"
+          "dateEnd": "2023-03-08",
+          "title": "City Hall at night"
         },
         {
           "start": 1,
           "count": 1,
           "time": "16:51:53",
-          "title": "Downtown architecture",
           "key": 1,
+          "displayNumber": 2,
           "date": "2023-03-14",
-          "dateEnd": "2023-03-14"
+          "dateEnd": "2023-03-14",
+          "title": "Downtown architecture"
         },
         {
           "start": 2,
           "count": 1,
           "time": "00:36:59",
-          "title": "Blossoms after dark",
           "key": 2,
+          "displayNumber": 3,
           "date": "2023-03-27",
-          "dateEnd": "2023-03-27"
+          "dateEnd": "2023-03-27",
+          "title": "Blossoms after dark"
         },
         {
           "start": 3,
           "count": 1,
           "time": "08:00:09",
-          "title": "Spring blossoms in park",
           "key": 3,
+          "displayNumber": 4,
           "date": "2023-04-01",
-          "dateEnd": "2023-04-01"
+          "dateEnd": "2023-04-01",
+          "title": "Spring blossoms in park"
         },
         {
           "start": 4,
           "count": 1,
           "time": "20:34:42",
-          "title": "City Hall & clock tower",
           "key": 4,
+          "displayNumber": 5,
           "date": "2023-04-02",
-          "dateEnd": "2023-04-02"
+          "dateEnd": "2023-04-02",
+          "title": "City Hall & clock tower"
         },
         {
           "start": 5,
           "count": 1,
           "time": "21:32:16",
-          "title": "City Hall above streets",
           "key": 5,
+          "displayNumber": 6,
           "date": "2023-04-03",
-          "dateEnd": "2023-04-03"
+          "dateEnd": "2023-04-03",
+          "title": "City Hall above streets"
         },
         {
           "start": 6,
           "count": 6,
           "time": "18:48:19",
-          "title": "Civic buildings & streets",
           "key": 6,
+          "displayNumber": 7,
           "date": "2023-04-04",
-          "dateEnd": "2023-04-04"
+          "dateEnd": "2023-04-04",
+          "title": "Civic buildings & streets"
         },
         {
           "start": 12,
           "count": 11,
           "time": "13:19:12",
-          "title": "Gardens & museum interiors",
           "key": 12,
+          "displayNumber": 8,
           "date": "2023-04-06",
-          "dateEnd": "2023-04-06"
+          "dateEnd": "2023-04-06",
+          "title": "Gardens & museum interiors"
         },
         {
           "start": 23,
           "count": 3,
           "time": "11:46:12",
-          "title": "Neighborhood streets & traffic",
           "key": 23,
+          "displayNumber": 9,
           "date": "2023-04-17",
-          "dateEnd": "2023-04-17"
+          "dateEnd": "2023-04-17",
+          "title": "Neighborhood streets & traffic"
         },
         {
           "start": 26,
           "count": 1,
           "time": "16:05:23",
-          "title": "Museum & aircraft display",
           "key": 26,
+          "displayNumber": 10,
           "date": "2023-04-30",
-          "dateEnd": "2023-04-30"
+          "dateEnd": "2023-04-30",
+          "title": "Museum & aircraft display"
         }
       ],
       "images": [
@@ -5754,7 +6600,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-05:00"
+          "tz": "UTC-05:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A587",
@@ -5767,7 +6615,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A597",
@@ -5780,7 +6630,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A602",
@@ -5793,7 +6645,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -5806,7 +6660,9 @@
           "d": "2023-04-02",
           "se": 5,
           "w": 4000,
-          "fl": "2.59 mm"
+          "fl": "2.59 mm",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A606",
@@ -5819,7 +6675,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A608",
@@ -5832,7 +6690,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A609",
@@ -5845,7 +6705,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A610",
@@ -5858,7 +6720,9 @@
           "fl": "2.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A612",
@@ -5871,7 +6735,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A616",
@@ -5884,7 +6750,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A617",
@@ -5897,7 +6765,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -5910,7 +6780,9 @@
           "d": "2023-04-06",
           "se": 8,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A626",
@@ -5923,7 +6795,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -5936,7 +6810,9 @@
           "d": "2023-04-06",
           "se": 8,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -5949,7 +6825,9 @@
           "d": "2023-04-06",
           "se": 8,
           "w": 3072,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A642",
@@ -5962,7 +6840,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A644",
@@ -5975,7 +6855,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A646",
@@ -5988,7 +6870,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A647",
@@ -6001,7 +6885,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A648",
@@ -6014,7 +6900,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A652",
@@ -6027,7 +6915,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A653",
@@ -6040,7 +6930,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A656",
@@ -6053,7 +6945,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A658",
@@ -6066,7 +6960,9 @@
           "fl": "5.59 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "src": "/outside/assets/owner-review/additional-trips/A659",
@@ -6079,7 +6975,9 @@
           "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
-          "tz": "UTC-04:00"
+          "tz": "UTC-04:00",
+          "place": "Philadelphia",
+          "transit": false
         },
         {
           "tz": "UTC-4",
@@ -6092,7 +6990,9 @@
           "d": "2023-04-30",
           "se": 10,
           "w": 4096,
-          "fl": "5.59 mm"
+          "fl": "5.59 mm",
+          "place": "Philadelphia",
+          "transit": false
         }
       ]
     },
@@ -6111,10 +7011,11 @@
           "start": 0,
           "count": 4,
           "time": "13:32:11",
-          "title": "Beach & coastal overlook",
           "key": 0,
+          "displayNumber": 1,
           "date": "2015-08-12",
-          "dateEnd": "2015-08-12"
+          "dateEnd": "2015-08-12",
+          "title": "Beach & coastal overlook"
         }
       ],
       "images": [
@@ -6129,7 +7030,9 @@
           "d": "2015-08-12",
           "se": 1,
           "w": 1920,
-          "fl": "4.73 mm  (5 mm eq)"
+          "fl": "4.73 mm  (5 mm eq)",
+          "place": "Point Lookout",
+          "transit": false
         },
         {
           "tz": "UTC+10:00",
@@ -6142,7 +7045,9 @@
           "d": "2015-08-12",
           "se": 1,
           "w": 1920,
-          "fl": "4.73 mm  (5 mm eq)"
+          "fl": "4.73 mm  (5 mm eq)",
+          "place": "Point Lookout",
+          "transit": false
         },
         {
           "tz": "UTC+10:00",
@@ -6155,7 +7060,9 @@
           "d": "2015-08-12",
           "se": 1,
           "w": 1920,
-          "fl": "4.73 mm  (5 mm eq)"
+          "fl": "4.73 mm  (5 mm eq)",
+          "place": "Point Lookout",
+          "transit": false
         },
         {
           "tz": "UTC+10:00",
@@ -6168,7 +7075,9 @@
           "d": "2015-08-12",
           "se": 1,
           "w": 1920,
-          "fl": "4.73 mm  (5 mm eq)"
+          "fl": "4.73 mm  (5 mm eq)",
+          "place": "Point Lookout",
+          "transit": false
         }
       ]
     },
@@ -6183,19 +7092,21 @@
           "start": 0,
           "count": 5,
           "time": "09:54:30",
-          "title": "Palaces & riverfront",
           "key": 0,
+          "displayNumber": 1,
           "date": "2023-02-19",
-          "dateEnd": "2023-02-19"
+          "dateEnd": "2023-02-19",
+          "title": "Palaces & riverfront"
         },
         {
           "start": 5,
           "count": 17,
           "time": "",
-          "title": "Landmarks & architecture",
           "key": 5,
+          "displayNumber": 2,
           "date": "",
-          "dateEnd": ""
+          "dateEnd": "",
+          "title": "Landmarks & architecture"
         }
       ],
       "images": [
@@ -6210,7 +7121,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#728394"
+          "avg": "#728394",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-004-187f71348dd9d8",
@@ -6223,7 +7136,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#9fa3a4"
+          "avg": "#9fa3a4",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-010-ea12651c59633d",
@@ -6236,7 +7151,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#36322c"
+          "avg": "#36322c",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-011-d640e63e4c3cb6",
@@ -6249,7 +7166,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#605241"
+          "avg": "#605241",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-019-7ec2f49dfe75bc",
@@ -6262,7 +7181,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#6e7d8e"
+          "avg": "#6e7d8e",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-001-052d441eaab5a5",
@@ -6275,7 +7196,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#88949d"
+          "avg": "#88949d",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-002-873bba4aa6d1ca",
@@ -6288,7 +7211,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#929799"
+          "avg": "#929799",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-005-8c7f22b68ddbbb",
@@ -6301,7 +7226,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#878e95"
+          "avg": "#878e95",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-006-47caf1a21a8432",
@@ -6314,7 +7241,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#8c9294"
+          "avg": "#8c9294",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-007-443311729e0aaf",
@@ -6327,7 +7256,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#746454"
+          "avg": "#746454",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-008-6cb5ca66e735a1",
@@ -6340,7 +7271,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#7e888c"
+          "avg": "#7e888c",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-009-d96dfb38a76857",
@@ -6353,7 +7286,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#597998"
+          "avg": "#597998",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-012-d46e17b265293c",
@@ -6366,7 +7301,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#9aa0a6"
+          "avg": "#9aa0a6",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-013-14239772a236e3",
@@ -6379,7 +7316,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#4f4b45"
+          "avg": "#4f4b45",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-014-166377f09df0d6",
@@ -6392,7 +7331,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#829085"
+          "avg": "#829085",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-015-0a6c1158f2e04e",
@@ -6405,7 +7346,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#35322f"
+          "avg": "#35322f",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-016-9b77d684e50e79",
@@ -6418,7 +7361,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#777d7e"
+          "avg": "#777d7e",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-017-6c4de263f16eda",
@@ -6431,7 +7376,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#908172"
+          "avg": "#908172",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-018-18eb15fc3bb0a3",
@@ -6444,7 +7391,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#756456"
+          "avg": "#756456",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-020-9ff208e74db928",
@@ -6457,7 +7406,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#5a544b"
+          "avg": "#5a544b",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-021-5d1be02aea3c72",
@@ -6470,7 +7421,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#8e7353"
+          "avg": "#8e7353",
+          "place": "Location unconfirmed",
+          "transit": false
         },
         {
           "src": "/outside/assets/europe-shared-2023/europe-022-9a3f11b5ce4fa4",
@@ -6483,7 +7436,9 @@
           "cam": "",
           "ex": "",
           "fl": "",
-          "avg": "#89898b"
+          "avg": "#89898b",
+          "place": "Location unconfirmed",
+          "transit": false
         }
       ],
       "country": "",

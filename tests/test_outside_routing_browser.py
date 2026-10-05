@@ -38,9 +38,13 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
             return None
         study = next((item for item in payload["studies"] if item["id"] == target.get("studyId")), None)
         index = target.get("index")
-        if study is None or not isinstance(index, int) or index < 0 or index >= len(study["images"]):
+        if study is None or not isinstance(index, int) or isinstance(index, bool) or index < 0 or index >= len(study["images"]):
             return None
         return study["images"][index]["src"]
+
+    @staticmethod
+    def first_se1_source(study):
+        return next((image["src"] for image in study["images"] if image.get("se") == 1), None)
 
     @classmethod
     def expected_route_source(cls, payload, fragment):
@@ -50,18 +54,30 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
         route_id, ordinal = match.groups()
         study = next((item for item in payload["studies"] if item["id"] == route_id), None)
         if study is not None:
-            index = min(int(ordinal) - 1, len(study["images"]) - 1) if ordinal else 0
-            return study["images"][index]["src"]
+            if ordinal:
+                index = min(int(ordinal) - 1, len(study["images"]) - 1)
+                return study["images"][index]["src"]
+            return cls.first_se1_source(study)
         alias = payload["aliases"].get(route_id)
         if alias is None:
             return None
         if "targets" in alias:
             if ordinal is None:
-                return cls.target_source(payload, alias.get("defaultTarget"))
+                target = alias.get("defaultTarget") if "defaultTarget" in alias else next((row for row in alias["targets"] if row is not None), None)
+                if cls.target_source(payload, target) is None:
+                    return None
+                target_study = next((item for item in payload["studies"] if item["id"] == target.get("studyId")), None)
+                return cls.first_se1_source(target_study) if target_study else None
             index = int(ordinal) - 1
             return cls.target_source(payload, alias["targets"][index]) if index < len(alias["targets"]) else None
         study = next((item for item in payload["studies"] if item["id"] == alias.get("studyId")), None)
-        index = alias.get("defaultIndex", -1) if ordinal is None else (alias.get("indices", [])[int(ordinal) - 1] if int(ordinal) <= len(alias.get("indices", [])) else None)
+        if ordinal is None:
+            index = alias.get("defaultIndex", -1)
+            if not study or not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(study["images"]):
+                return None
+            return cls.first_se1_source(study)
+        indices = alias.get("indices", [])
+        index = indices[int(ordinal) - 1] if int(ordinal) <= len(indices) else None
         return study["images"][index]["src"] if study and isinstance(index, int) and 0 <= index < len(study["images"]) else None
 
     @staticmethod
@@ -136,19 +152,23 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
         cases = []
         for alias_id, alias in payload["aliases"].items():
             if "targets" in alias:
-                cases.append({"hash": f"#{alias_id}", "expected": self.target_source(payload, alias.get("defaultTarget"))})
+                default_target = alias.get("defaultTarget") if "defaultTarget" in alias else next((row for row in alias["targets"] if row is not None), None)
+                default_study = next((item for item in payload["studies"] if isinstance(default_target, dict) and item["id"] == default_target.get("studyId")), None)
+                default_src = self.first_se1_source(default_study) if self.target_source(payload, default_target) is not None else None
+                cases.append({"hash": f"#{alias_id}", "expected": default_src})
                 for ordinal, target in enumerate(alias["targets"], 1):
                     cases.append({"hash": f"#{alias_id}/{ordinal}", "expected": self.target_source(payload, target)})
             else:
                 target_study = next((s for s in payload["studies"] if s["id"] == alias.get("studyId")), None)
                 default_index = alias.get("defaultIndex", -1)
-                default_src = target_study["images"][default_index]["src"] if target_study and isinstance(default_index, int) and 0 <= default_index < len(target_study["images"]) else None
+                valid_default = target_study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(target_study["images"])
+                default_src = self.first_se1_source(target_study) if valid_default else None
                 cases.append({"hash": f"#{alias_id}", "expected": default_src})
                 for ordinal, image_index in enumerate(alias.get("indices", []), 1):
-                    src = target_study["images"][image_index]["src"] if target_study and isinstance(image_index, int) and 0 <= image_index < len(target_study["images"]) else None
+                    src = target_study["images"][image_index]["src"] if target_study and isinstance(image_index, int) and not isinstance(image_index, bool) and 0 <= image_index < len(target_study["images"]) else None
                     cases.append({"hash": f"#{alias_id}/{ordinal}", "expected": src})
         for study in payload["studies"]:
-            cases.append({"hash": f"#{study['id']}", "expected": study["images"][0]["src"]})
+            cases.append({"hash": f"#{study['id']}", "expected": self.first_se1_source(study)})
             for ordinal, image in enumerate(study["images"], 1):
                 cases.append({"hash": f"#{study['id']}/{ordinal}", "expected": image["src"]})
         outcome = page.evaluate("""cases => {
