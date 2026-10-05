@@ -21,12 +21,15 @@ const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().s
 );
 const aliases = sourceData.aliases ?? {};
 // Set to null to restore the full worklist; source studies, routes and aliases stay intact.
-const RECENT_ONLY: { cutoff: string; includeStudyIds: string[] } | null = {
+// excludeStudyIds wins over cutoff/includeStudyIds: it is a display-level hide requested by the
+// owner, so the records, deep links and original media stay untouched and the rows are reversible.
+const RECENT_ONLY: { cutoff: string; includeStudyIds: string[]; excludeStudyIds: string[] } | null = {
   cutoff: "2025-10-01",
   includeStudyIds: ["puerto-rico-2025-june-photos"],
+  excludeStudyIds: ["puerto-rico-2025-june-photos", "puerto-rico-2025-october", "georgia-2025-october"],
 };
 const recentStudies = RECENT_ONLY
-  ? studies.filter((s) => RECENT_ONLY.includeStudyIds.includes(s.id) || (Boolean(s.date) && s.date >= RECENT_ONLY.cutoff))
+  ? studies.filter((s) => !RECENT_ONLY.excludeStudyIds.includes(s.id) && (RECENT_ONLY.includeStudyIds.includes(s.id) || (Boolean(s.date) && s.date >= RECENT_ONLY.cutoff)))
   : studies;
 const totalImages = recentStudies.reduce((n, s) => n + s.images.length, 0);
 const first = studies[0];

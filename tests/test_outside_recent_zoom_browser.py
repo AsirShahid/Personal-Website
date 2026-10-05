@@ -15,10 +15,13 @@ RECENT_IDS = {
     "pakistan-2026-summer-gallery",
     "galapagos-2026-january-photos-20261004",
     "montreal-november-2025-photos",
-    "georgia-2025-october",
     "american-southwest-2025-october-gallery-20261004-2",
-    "puerto-rico-2025-october",
+}
+# Owner-requested display hides: still post-cutoff (or an explicit include), now without worklist rows.
+EXCLUDED_IDS = {
     "puerto-rico-2025-june-photos",
+    "puerto-rico-2025-october",
+    "georgia-2025-october",
 }
 
 
@@ -44,16 +47,20 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         source_by_id = {study["id"]: study for study in SOURCE["studies"]}
         derived_recent_ids = {
             study["id"] for study in SOURCE["studies"]
-            if study["id"] == "puerto-rico-2025-june-photos" or (study.get("date") and study["date"] >= "2025-10-01")
+            if study["id"] not in EXCLUDED_IDS
+            and (study["id"] == "puerto-rico-2025-june-photos" or (study.get("date") and study["date"] >= "2025-10-01"))
         }
         self.assertEqual(RECENT_IDS, derived_recent_ids)
         hidden_studies = [study for study in SOURCE["studies"] if study["id"] not in RECENT_IDS]
-        self.assertTrue(all(not study.get("date") or study["date"] < "2025-10-01" for study in hidden_studies))
+        self.assertTrue(all(not study.get("date") or study["date"] < "2025-10-01" or study["id"] in EXCLUDED_IDS
+                            for study in hidden_studies))
+        self.assertTrue(any(study["id"] in EXCLUDED_IDS and study.get("date", "") >= "2025-10-01" for study in hidden_studies),
+                        "owner-hidden studies keep post-cutoff dates but must stay off the worklist")
         self.assertTrue(any(not study.get("date") for study in hidden_studies), "undated collection must remain outside recent worklist")
         expected_photos = sum(len(source_by_id[study_id]["images"]) for study_id in RECENT_IDS)
         rows = page.locator(".oz-rows [data-study]")
         visible_ids = [row.get_attribute("href").lstrip("#") for row in rows.all()]
-        self.assertEqual((len(visible_ids), expected_photos), (9, 313))
+        self.assertEqual((len(visible_ids), expected_photos), (6, 283))
         self.assertEqual(set(visible_ids), RECENT_IDS)
         self.assertIn(f"{len(RECENT_IDS)} studies", page.locator(".oz-topmeta").inner_text().lower())
         self.assertIn(f"{expected_photos} images", page.locator(".oz-topmeta").inner_text().lower())
@@ -93,9 +100,15 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
 
         hidden_page.goto(urljoin(BASE_URL, "#puerto-rico-2025-june/1"), wait_until="domcontentloaded")
         hidden_page.wait_for_function("document.querySelector('[data-ov=tl]')?.textContent?.includes('STUDY')", timeout=10000)
-        self.assertEqual(hidden_page.locator(".oz-row[aria-current=true]").evaluate_all("els => els.map(el => el.getAttribute('href'))"),
-                         ["#puerto-rico-2025-june-photos"],
-                         "the current row is selected by canonical study identity, not filtered position")
+        self.assertFalse(hidden_page.locator("[data-route-error]").is_visible())
+        self.assertEqual(hidden_page.locator(".oz-row[aria-current=true]").count(), 0,
+                         "an owner-hidden study opens by direct route with no worklist row selected")
+        hidden_page.goto(urljoin(BASE_URL, "#puerto-rico-2025-october/1"), wait_until="domcontentloaded")
+        hidden_page.wait_for_function("document.querySelector('[data-ov=tl]')?.textContent?.includes('STUDY')", timeout=10000)
+        self.assertFalse(hidden_page.locator("[data-route-error]").is_visible())
+        self.assertEqual(hidden_page.locator(".oz-row[aria-current=true]").count(), 0,
+                         "the second owner-hidden Puerto Rico trip keeps its deep link and no row")
+        self.assertNotIn("georgia-2025-october", visible_ids)
 
         invalid_page = context.new_page()
         invalid_page.on("pageerror", lambda error: errors.append(str(error)))
@@ -127,7 +140,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
         page = context.new_page()
         page.add_init_script("window.__nativePopStates = []; addEventListener('popstate', event => window.__nativePopStates.push({href: location.href, isTrusted: event.isTrusted}));")
-        page.goto(urljoin(BASE_URL, "#puerto-rico-2025-october/1"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, "#montreal-november-2025-photos/1"), wait_until="domcontentloaded")
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
         page.go_back(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("window.__nativePopStates.some(event => event.isTrusted)", timeout=5000)
@@ -136,7 +149,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         self.assertGreater(page.locator(".oz-rows [data-study]").count(), 0)
         page.go_forward(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
-        self.assertEqual(page.evaluate("location.hash"), "#puerto-rico-2025-october/1")
+        self.assertEqual(page.evaluate("location.hash"), "#montreal-november-2025-photos/1")
         self.assertTrue(any(event["isTrusted"] for event in page.evaluate("window.__nativePopStates")))
         context.close()
 
