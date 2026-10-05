@@ -20,7 +20,15 @@ const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().s
   (b.date || "").localeCompare(a.date || ""),
 );
 const aliases = sourceData.aliases ?? {};
-const totalImages = studies.reduce((n, s) => n + s.images.length, 0);
+// Set to null to restore the full worklist; source studies, routes and aliases stay intact.
+const RECENT_ONLY: { cutoff: string; includeStudyIds: string[] } | null = {
+  cutoff: "2025-10-01",
+  includeStudyIds: ["puerto-rico-2025-june-gallery"],
+};
+const recentStudies = RECENT_ONLY
+  ? studies.filter((s) => RECENT_ONLY.includeStudyIds.includes(s.id) || (Boolean(s.date) && s.date >= RECENT_ONLY.cutoff))
+  : studies;
+const totalImages = recentStudies.reduce((n, s) => n + s.images.length, 0);
 const first = studies[0];
 const firstImg = first.images[0] ?? fallbackImg;
 const studyCover = (s: Study) => s.images[s.key] ?? s.images[0] ?? fallbackImg;
@@ -61,7 +69,7 @@ const where = (s: Study) => {
           <span class="oz-slash" aria-hidden="true">/</span>
           <h1>Outside Studies</h1>
         </div>
-        <p class="oz-topmeta"><span>XC</span><span>{studies.length} studies</span><span>{totalImages} images</span></p>
+        <p class="oz-topmeta"><span>XC</span><span>{recentStudies.length} studies</span><span>{totalImages} images</span></p>
         <button class="oz-helpbtn" type="button" data-help-open aria-label="Viewer shortcuts">?</button>
       </header>
 
@@ -69,7 +77,8 @@ const where = (s: Study) => {
 
         <div class="oz-wlhead" aria-hidden="true"><span>Study</span><span>Status</span></div>
         <ol class="oz-rows">
-          {studies.map((s, idx) => {
+          {recentStudies.map((s, recentIdx) => {
+            const idx = studies.indexOf(s);
             const k = studyCover(s);
             return (
               <li>
@@ -94,7 +103,7 @@ const where = (s: Study) => {
                   </span>
                   <span class="oz-status" data-status={s.status}>{s.status}</span>
                   <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{where(s)}</span>
-                  <span class="oz-card-ov oz-card-tr" aria-hidden="true">XC · {pad(idx + 1)}/{pad(studies.length)}<br />{s.images.length} IM · {s.series.length} SE</span>
+                  <span class="oz-card-ov oz-card-tr" aria-hidden="true">XC · {pad(recentIdx + 1)}/{pad(recentStudies.length)}<br />{s.images.length} IM · {s.series.length} SE</span>
                   <span class="oz-card-ov oz-card-bl" aria-hidden="true">{dateLabel(s)}</span>
                   <span class="oz-card-ov oz-card-br" aria-hidden="true"><span data-status={s.status}>{s.status}</span></span>
                 </a>
@@ -116,6 +125,7 @@ const where = (s: Study) => {
             <button type="button" data-layout aria-pressed="false" class="oz-desktop-only"><kbd>L</kbd>2×2</button>
             <button type="button" data-invert aria-pressed="false" class="oz-desktop-only"><kbd>I</kbd>Invert</button>
             <button type="button" data-info aria-pressed="true"><kbd>O</kbd>Info</button>
+            <button type="button" data-fit aria-label="Fit photo">Fit</button>
             <button type="button" data-reset class="oz-desktop-only"><kbd>R</kbd>Reset</button>
           </div>
         </div>
@@ -149,7 +159,7 @@ const where = (s: Study) => {
             <div class="oz-stacktrack" data-stacktrack></div>
             <div class="oz-stackthumb" data-stackthumb></div>
           </div>
-          <p class="oz-hint" data-hint><span class="oz-hint-desk">Scroll or drag to page through · <kbd>?</kbd> for keys</span><span class="oz-hint-touch">Drag to scrub · tap the edges to step</span></p>
+          <p class="oz-hint" data-hint><span class="oz-hint-desk">Scroll or drag to page · Ctrl-wheel or pinch to zoom · <kbd>?</kbd> for keys</span><span class="oz-hint-touch">Drag to scrub · pinch to zoom · tap the edges to step</span></p>
         </div>
 
         <nav class="oz-series" data-series aria-label="Series in this study"></nav>
@@ -163,7 +173,9 @@ const where = (s: Study) => {
       </div>
       <dl>
         <dt><kbd>↑</kbd><kbd>↓</kbd> <kbd>←</kbd><kbd>→</kbd> or wheel</dt><dd>Previous / next image</dd>
-        <dt>Drag on image</dt><dd>Scrub through the stack</dd>
+        <dt>Drag on photo</dt><dd>Scrub the stack; pan while zoomed. In W/L mode, drag adjusts contrast and brightness.</dd>
+        <dt><kbd>Ctrl</kbd>+wheel, pinch, <kbd>+</kbd>/<kbd>−</kbd></dt><dd>Zoom around the pointer or pinch midpoint</dd>
+        <dt>Fit</dt><dd>Reset photo zoom and pan without changing W/L or invert</dd>
         <dt><kbd>PgUp</kbd><kbd>PgDn</kbd></dt><dd>Previous / next series</dd>
         <dt><kbd>Home</kbd><kbd>End</kbd></dt><dd>First / last image</dd>
         <dt><kbd>P</kbd><kbd>N</kbd></dt><dd>Previous / next study</dd>
@@ -173,13 +185,13 @@ const where = (s: Study) => {
         <dt><kbd>L</kbd></dt><dd>Toggle 1×1 / 2×2 layout</dd>
         <dt><kbd>I</kbd></dt><dd>Invert</dd>
         <dt><kbd>O</kbd></dt><dd>Hide or show overlays</dd>
-        <dt><kbd>R</kbd> or double-click</dt><dd>Reset window / level</dd>
+        <dt><kbd>R</kbd> or double-click</dt><dd>Reset all view modifiers; double-click resets W/L</dd>
       </dl>
     </dialog>
     <div class="oz-sr" aria-live="polite" data-live></div>
     <div class="oz-route-error" data-route-error role="alert" aria-live="assertive" hidden>This Outside Studies link is no longer available.</div>
 
-    <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases })}></script>
+    <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases, recentStudyIds: recentStudies.map((s) => s.id) })}></script>
 
     <script>
       import { formatOutsideDateRange } from "../utils/outside-date.js";
@@ -192,6 +204,9 @@ const where = (s: Study) => {
       const pageData = JSON.parse(document.getElementById("oz-data")!.textContent || "{}");
       const studies: Study[] = pageData.studies;
       const aliases: Record<string, Alias> = pageData.aliases ?? {};
+      const recentStudyIndices: number[] = (pageData.recentStudyIds ?? studies.map((s: Study) => s.id))
+        .map((id: string) => studies.findIndex((s: Study) => s.id === id))
+        .filter((index: number) => index >= 0);
       const $ = <T extends HTMLElement = HTMLElement>(sel: string) => document.querySelector<T>(sel)!;
       const desktopMQ = window.matchMedia("(min-width: 900px)");
       const reduceMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -283,7 +298,7 @@ const where = (s: Study) => {
         return k;
       };
       const seriesDisplayNumber = (index: number, list = seriesList()) => list[index]?.displayNumber ?? index + 1;
-      const cameraLabel = (camera: string) => camera.replace(/^(OnePlus)\s+\1\b/i, "$1").toUpperCase();
+      const cameraLabel = (camera: string) => camera.replace(/^OnePlus CPH2451$/i, "OnePlus 11 5G").replace(/^(OnePlus)\s+\1\b/i, "$1").toUpperCase();
 
       // ---------- image cache: show a light proxy instantly, swap to full when decoded ----------
       const cache = new Map<string, Promise<void>>();
@@ -308,6 +323,85 @@ const where = (s: Study) => {
         return `${img.src}${px > 1400 ? "-l" : "-m"}.webp`;
       };
       const thumbUrl = (img: Img) => img.src.startsWith("data:") ? img.src : `${img.src}-s.webp`;
+
+      // Transform only the photo element; each visible cell owns an independent view.
+      type PhotoView = { scale: number; x: number; y: number };
+      const photoViews = new WeakMap<HTMLElement, PhotoView>();
+      let activePhotoCell: HTMLElement | null = null;
+      const newPhotoView = (): PhotoView => ({ scale: 1, x: 0, y: 0 });
+      const photoView = (cell: HTMLElement) => {
+        let view = photoViews.get(cell);
+        if (!view) { view = newPhotoView(); photoViews.set(cell, view); }
+        return view;
+      };
+      const fittedPhotoBounds = (cell: HTMLElement) => {
+        const image = cell.querySelector<HTMLImageElement>("img");
+        if (!image) return null;
+        const box = cell.getBoundingClientRect();
+        const width = Number(image.getAttribute("width")) || image.naturalWidth;
+        const height = Number(image.getAttribute("height")) || image.naturalHeight;
+        if (!width || !height || !box.width || !box.height) return null;
+        const fit = Math.min(box.width / width, box.height / height);
+        const fittedWidth = width * fit;
+        const fittedHeight = height * fit;
+        return {
+          left: box.left + (box.width - fittedWidth) / 2,
+          top: box.top + (box.height - fittedHeight) / 2,
+          width: fittedWidth,
+          height: fittedHeight,
+          cellWidth: box.width,
+          cellHeight: box.height,
+          centerX: box.left + box.width / 2,
+          centerY: box.top + box.height / 2,
+        };
+      };
+      const applyPhotoView = (cell: HTMLElement) => {
+        const image = cell.querySelector<HTMLImageElement>("img");
+        if (!image) return;
+        const view = photoView(cell);
+        const bounds = fittedPhotoBounds(cell);
+        view.scale = clamp(view.scale, 1, 8);
+        if (bounds) {
+          const maxX = Math.max(0, (bounds.width * view.scale - bounds.cellWidth) / 2);
+          const maxY = Math.max(0, (bounds.height * view.scale - bounds.cellHeight) / 2);
+          view.x = clamp(view.x, -maxX, maxX);
+          view.y = clamp(view.y, -maxY, maxY);
+        } else {
+          view.x = 0;
+          view.y = 0;
+        }
+        image.style.transform = `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.scale})`;
+      };
+      const fitPhoto = (cell: HTMLElement) => {
+        photoViews.set(cell, newPhotoView());
+        applyPhotoView(cell);
+      };
+      const fitVisiblePhotos = () => {
+        Array.from(cells.children).forEach((cell) => fitPhoto(cell as HTMLElement));
+      };
+      const reclampVisiblePhotos = () => Array.from(cells.children).forEach((cell) => applyPhotoView(cell as HTMLElement));
+      const zoomPhotoAt = (cell: HTMLElement, scale: number, from: { x: number; y: number }, to = from) => {
+        const bounds = fittedPhotoBounds(cell);
+        if (!bounds) return;
+        const view = photoView(cell);
+        const nextScale = clamp(scale, 1, 8);
+        const ratio = nextScale / view.scale;
+        view.x = (to.x - bounds.centerX) - ((from.x - bounds.centerX) - view.x) * ratio;
+        view.y = (to.y - bounds.centerY) - ((from.y - bounds.centerY) - view.y) * ratio;
+        view.scale = nextScale;
+        applyPhotoView(cell);
+      };
+      const zoomPhotoBy = (cell: HTMLElement, direction: -1 | 1, anchor?: { x: number; y: number }) => {
+        const bounds = fittedPhotoBounds(cell);
+        if (!bounds) return;
+        const point = anchor ?? { x: bounds.centerX, y: bounds.centerY };
+        const view = photoView(cell);
+        zoomPhotoAt(cell, view.scale * (direction > 0 ? 1.25 : 0.8), point);
+      };
+      const activePhoto = () => activePhotoCell && cells.contains(activePhotoCell)
+        ? activePhotoCell
+        : cells.querySelector<HTMLElement>(".oz-cell");
+      const photoCellAt = (x: number, y: number) => document.elementFromPoint(x, y)?.closest<HTMLElement>(".oz-cell") ?? null;
 
       // ---------- rendering ----------
       const makeCell = () => {
@@ -334,10 +428,18 @@ const where = (s: Study) => {
         const label = cell.querySelector<HTMLElement>(".oz-cell-label")!;
         if (!img) {
           cell.classList.add("is-empty");
+          cell.dataset.photoKey = "";
+          photoViews.delete(cell);
+          el.style.transform = "";
           el.removeAttribute("src");
           el.alt = "";
           label.textContent = "";
           return;
+        }
+        const photoKey = `${st.id}:${idx}`;
+        if (cell.dataset.photoKey !== photoKey) {
+          cell.dataset.photoKey = photoKey;
+          photoViews.set(cell, newPhotoView());
         }
         cell.classList.remove("is-empty");
         cell.style.setProperty("--avg", img.avg);
@@ -360,6 +462,7 @@ const where = (s: Study) => {
           }).catch(() => {});
         }
         label.textContent = state.layout === 4 ? `IM ${idx + 1}` : "";
+        applyPhotoView(cell);
       };
 
       const line = (box: HTMLElement, items: Array<string | [string, string]>) => {
@@ -381,7 +484,9 @@ const where = (s: Study) => {
         const seNumber = seriesDisplayNumber(se);
         const where = [st.region, st.country].filter((label, index, all) => Boolean(label) && all.indexOf(label) === index).join(" · ") || "Location unconfirmed";
         const date = formatOutsideDateRange(st.date, st.dateEnd);
-        line(ov.tl, [[st.place.toUpperCase(), "oz-ov-strong"], where.toUpperCase(), `STUDY ${date}`, `XC · ${pad(state.s + 1)}/${pad(studies.length)}`]);
+        const recentIndex = recentStudyIndices.indexOf(state.s);
+        const studyPosition = recentIndex >= 0 ? `${pad(recentIndex + 1)}/${pad(recentStudyIndices.length)}` : "HISTORICAL";
+        line(ov.tl, [[st.place.toUpperCase(), "oz-ov-strong"], where.toUpperCase(), `STUDY ${date}`, `XC · ${studyPosition}`]);
         line(ov.tr, [
           "ASIR SHAHID",
           `SE ${seNumber}/${st.series.length}   IM ${state.i + 1}/${st.images.length}`,
@@ -550,8 +655,8 @@ const where = (s: Study) => {
         const st = study();
         state.i = clamp(i ?? 0, 0, st.images.length - 1);
         if (changed) { state.W = 255; state.L = 128; state.invert = false; syncButtons(); }
-        rows.forEach((r, k) => {
-          if (k === state.s) r.setAttribute("aria-current", "true");
+        rows.forEach((r) => {
+          if (r.getAttribute("data-study") === String(state.s)) r.setAttribute("aria-current", "true");
           else r.removeAttribute("aria-current");
         });
         toolTitle.textContent = st.place;
@@ -570,6 +675,13 @@ const where = (s: Study) => {
           if (opts.push !== false) history.pushState({ oz: 1 }, "", `#${st.id}/${state.i + 1}`);
           window.setTimeout(() => viewport.focus({ preventScroll: true }), 60);
         }
+      };
+      const browseStudy = (delta: -1 | 1) => {
+        const current = recentStudyIndices.indexOf(state.s);
+        const next = current < 0
+          ? (delta > 0 ? 0 : recentStudyIndices.length - 1)
+          : (current + delta + recentStudyIndices.length) % recentStudyIndices.length;
+        if (recentStudyIndices.length) openStudy(recentStudyIndices[next]);
       };
       const closeReader = () => {
         if (!state.open) return;
@@ -616,11 +728,13 @@ const where = (s: Study) => {
       };
       const toggleLayout = () => {
         if (!desktopMQ.matches) return;
+        fitVisiblePhotos();
         state.layout = state.layout === 1 ? 4 : 1;
         syncButtons();
         render();
       };
       const resetView = () => {
+        fitVisiblePhotos();
         state.W = 255;
         state.L = 128;
         state.invert = false;
@@ -682,6 +796,7 @@ const where = (s: Study) => {
       $("[data-layout]").addEventListener("click", toggleLayout);
       $("[data-invert]").addEventListener("click", () => { state.invert = !state.invert; syncButtons(); applyFilters(); renderOverlay(); });
       $("[data-info]").addEventListener("click", () => { state.info = !state.info; syncButtons(); });
+      $("[data-fit]").addEventListener("click", () => { touch(); fitVisiblePhotos(); });
       $("[data-reset]").addEventListener("click", resetView);
       $("[data-close]").addEventListener("click", () => {
         if (history.state && history.state.oz) history.back();
@@ -707,6 +822,14 @@ const where = (s: Study) => {
           e.preventDefault();
           touch();
           stopCine();
+          if (e.ctrlKey) {
+            const cell = photoCellAt(e.clientX, e.clientY);
+            if (cell) {
+              activePhotoCell = cell;
+              zoomPhotoBy(cell, e.deltaY < 0 ? 1 : -1, { x: e.clientX, y: e.clientY });
+            }
+            return;
+          }
           const unit = e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? 800 : 1;
           const d = (Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX) * unit;
           if (Math.abs(d) >= 60) { wheelAcc = 0; go(Math.sign(d)); return; }
@@ -719,8 +842,13 @@ const where = (s: Study) => {
         { passive: false },
       );
 
-      type Drag = { id: number; x: number; y: number; lx: number; ly: number; acc: number; W: number; L: number; moved: boolean; type: string; t: number };
+      type Drag = { id: number; x: number; y: number; lx: number; ly: number; acc: number; W: number; L: number; moved: boolean; type: string; t: number; cell: HTMLElement; startI: number; startS: number };
+      type TrackedPointer = { x: number; y: number; type: string; cell: HTMLElement };
+      type Pinch = { ids: [number, number]; cell: HTMLElement; startMid: { x: number; y: number }; startDistance: number; startScale: number; startX: number; startY: number };
       let drag: Drag | null = null;
+      const pointers = new Map<number, TrackedPointer>();
+      let pinch: Pinch | null = null;
+      let pinchGesture = false;
       let pendingTap: { x: number; y: number; t: number; timer: number } | null = null;
       const cancelPendingTap = () => {
         if (pendingTap) window.clearTimeout(pendingTap.timer);
@@ -734,14 +862,74 @@ const where = (s: Study) => {
         else if (fx < 0.38) go(-1);
         else { state.info = !state.info; syncButtons(); }
       };
+      const startPinch = () => {
+        const touches = Array.from(pointers.entries()).filter(([, point]) => point.type === "touch");
+        if (touches.length < 2) return false;
+        const [first, second] = touches.slice(-2);
+        const [firstId, a] = first;
+        const [secondId, b] = second;
+        pinchGesture = true;
+        cancelPendingTap();
+        touch();
+        stopCine();
+        if (drag?.moved && drag.startS === state.s && drag.startI !== state.i) {
+          state.i = drag.startI;
+          render();
+        }
+        drag = null;
+        viewport.classList.remove("is-dragging");
+        if (a.cell === b.cell) {
+          const bounds = fittedPhotoBounds(a.cell);
+          const view = photoView(a.cell);
+          const startDistance = Math.hypot(b.x - a.x, b.y - a.y);
+          pinch = bounds && startDistance > 0 ? {
+            ids: [firstId, secondId],
+            cell: a.cell,
+            startMid: { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 },
+            startDistance,
+            startScale: view.scale,
+            startX: view.x,
+            startY: view.y,
+          } : null;
+        } else pinch = null;
+        activePhotoCell = a.cell === b.cell ? a.cell : null;
+        return true;
+      };
       viewport.addEventListener("pointerdown", (e) => {
         if (e.pointerType === "mouse" && e.button !== 0) return;
         if ((e.target as HTMLElement).closest(".oz-stackbar")) return;
+        const cell = photoCellAt(e.clientX, e.clientY);
+        if (!cell) return;
         viewport.setPointerCapture(e.pointerId);
-        drag = { id: e.pointerId, x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY, acc: 0, W: state.W, L: state.L, moved: false, type: e.pointerType, t: performance.now() };
+        pointers.set(e.pointerId, { x: e.clientX, y: e.clientY, type: e.pointerType, cell });
+        activePhotoCell = cell;
+        if (e.pointerType === "touch" && startPinch()) return;
+        if (pinchGesture) return;
+        drag = { id: e.pointerId, x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY, acc: 0, W: state.W, L: state.L, moved: false, type: e.pointerType, t: performance.now(), cell, startI: state.i, startS: state.s };
         viewport.classList.add("is-dragging");
       });
       viewport.addEventListener("pointermove", (e) => {
+        const point = pointers.get(e.pointerId);
+        if (!point) return;
+        point.x = e.clientX;
+        point.y = e.clientY;
+        if (pinchGesture) {
+          if (!pinch || !pinch.ids.includes(e.pointerId)) return;
+          const a = pointers.get(pinch.ids[0]);
+          const b = pointers.get(pinch.ids[1]);
+          if (!a || !b) return;
+          const bounds = fittedPhotoBounds(pinch.cell);
+          if (!bounds || !pinch.startDistance) return;
+          const distance = Math.hypot(b.x - a.x, b.y - a.y);
+          const mid = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+          const view = photoView(pinch.cell);
+          view.scale = clamp(pinch.startScale * distance / pinch.startDistance, 1, 8);
+          const ratio = view.scale / pinch.startScale;
+          view.x = (mid.x - bounds.centerX) - ((pinch.startMid.x - bounds.centerX) - pinch.startX) * ratio;
+          view.y = (mid.y - bounds.centerY) - ((pinch.startMid.y - bounds.centerY) - pinch.startY) * ratio;
+          applyPhotoView(pinch.cell);
+          return;
+        }
         if (!drag || e.pointerId !== drag.id) return;
         const dx = e.clientX - drag.x;
         const dy = e.clientY - drag.y;
@@ -758,6 +946,13 @@ const where = (s: Study) => {
         const mdy = e.clientY - drag.ly;
         drag.lx = e.clientX;
         drag.ly = e.clientY;
+        const view = photoView(drag.cell);
+        if (view.scale > 1) {
+          view.x += mdx;
+          view.y += mdy;
+          applyPhotoView(drag.cell);
+          return;
+        }
         const d = Math.abs(mdy) >= Math.abs(mdx) ? mdy : -mdx;
         drag.acc += d;
         const step = drag.type === "touch" ? 20 : 14;
@@ -802,8 +997,25 @@ const where = (s: Study) => {
           pendingTap = tap;
         }
       };
-      viewport.addEventListener("pointerup", (e) => endDrag(e));
-      viewport.addEventListener("pointercancel", (e) => endDrag(e, true));
+      const endPointer = (e: PointerEvent, cancelled = false) => {
+        if (!pointers.has(e.pointerId)) return;
+        pointers.delete(e.pointerId);
+        if (pinchGesture) {
+          if (pinch?.ids.includes(e.pointerId)) pinch = null;
+          if (cancelled) cancelPendingTap();
+          if (pointers.size) return;
+          pinchGesture = false;
+          pinch = null;
+          drag = null;
+          viewport.classList.remove("is-dragging");
+          cancelPendingTap();
+          return;
+        }
+        endDrag(e, cancelled);
+      };
+      viewport.addEventListener("pointerup", (e) => endPointer(e));
+      viewport.addEventListener("pointercancel", (e) => endPointer(e, true));
+      viewport.addEventListener("lostpointercapture", (e) => endPointer(e, true));
       viewport.addEventListener("dblclick", resetWindowLevel);
 
       // stack position bar: click or drag to jump
@@ -836,14 +1048,16 @@ const where = (s: Study) => {
         if (!desktopMQ.matches && !state.open) return;
         const k = e.key;
         const handled = () => { e.preventDefault(); touch(); };
-        if (k === "ArrowDown" || k === "ArrowRight" || k === "j") { handled(); stopCine(); go(1); }
+        if (k === "+" || k === "=") { handled(); stopCine(); const cell = activePhoto(); if (cell) zoomPhotoBy(cell, 1); }
+        else if (k === "-") { handled(); stopCine(); const cell = activePhoto(); if (cell) zoomPhotoBy(cell, -1); }
+        else if (k === "ArrowDown" || k === "ArrowRight" || k === "j") { handled(); stopCine(); go(1); }
         else if (k === "ArrowUp" || k === "ArrowLeft" || k === "k") { handled(); stopCine(); go(-1); }
         else if (k === "PageDown") { handled(); stopCine(); goSeries(1); }
         else if (k === "PageUp") { handled(); stopCine(); goSeries(-1); }
         else if (k === "Home") { handled(); stopCine(); state.i = 0; render(); }
         else if (k === "End") { handled(); stopCine(); state.i = study().images.length - 1; render(); }
-        else if (k === "n" || k === "N") { handled(); openStudy((state.s + 1) % studies.length); }
-        else if (k === "p" || k === "P") { handled(); openStudy((state.s - 1 + studies.length) % studies.length); }
+        else if (k === "n" || k === "N") { handled(); browseStudy(1); }
+        else if (k === "p" || k === "P") { handled(); browseStudy(-1); }
         else if (k === "c" || k === "C" || (k === " " && (target === viewport || target === body))) { handled(); toggleCine(); }
         else if (k === "]") { handled(); setFps(1); renderOverlay(); }
         else if (k === "[") { handled(); setFps(-1); renderOverlay(); }
@@ -929,12 +1143,14 @@ const where = (s: Study) => {
       window.addEventListener("resize", () => {
         window.clearTimeout(resizeTimer);
         resizeTimer = window.setTimeout(() => {
-          if (!desktopMQ.matches && state.layout === 4) state.layout = 1;
+          if (!desktopMQ.matches && state.layout === 4) { fitVisiblePhotos(); state.layout = 1; }
           if (desktopMQ.matches && state.open) { state.open = false; body.classList.remove("is-reading"); }
           syncButtons();
           render();
+          reclampVisiblePhotos();
         }, 120);
       });
+      document.addEventListener("fullscreenchange", reclampVisiblePhotos);
 
       // ---------- boot ----------
       syncButtons();
@@ -1032,6 +1248,7 @@ const where = (s: Study) => {
       .oz-toolset button[aria-pressed="true"] { color: var(--amber); }
       .oz-toolset button[aria-pressed="true"] kbd { color: color-mix(in srgb, var(--amber) 60%, transparent); }
       .oz-toolset button:focus-visible { outline: 1px solid var(--amber); outline-offset: -6px; }
+      .oz-toolset button[data-fit] { color: var(--amber); border-left: 1px solid var(--line); }
 
       .oz-review { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--panel); color: var(--mute); font: 10px var(--mono); }
       .oz-review button { min-height: 44px; padding: 0 10px; border: 0; background: transparent; color: var(--mute); font: inherit; cursor: pointer; }
@@ -1049,7 +1266,7 @@ const where = (s: Study) => {
       .oz-cells.is-switching { animation: oz-switch .22s ease-out; }
       @keyframes oz-switch { from { opacity: .25; } to { opacity: 1; } }
       .oz-cell { position: relative; overflow: hidden; min-width: 0; min-height: 0; background: #000; }
-      .oz-cell img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+      .oz-cell img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transform-origin: center; pointer-events: none; }
       .oz-cell img.is-proxy { image-rendering: auto; }
       .oz-cell.is-empty::after { position: absolute; inset: 0; display: grid; place-items: center; color: var(--dim); font: 10px var(--mono); letter-spacing: .14em; content: "END OF STACK"; }
       .oz-cell-label { position: absolute; bottom: 8px; left: 10px; color: rgb(235 233 228 / 80%); font: 10px var(--mono); text-shadow: 0 1px 2px #000; }
