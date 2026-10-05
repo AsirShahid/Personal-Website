@@ -122,8 +122,8 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
         for route in ("#lahore/999", "#lahore/0", "#lahore/01", "#pakistan-2026-summer/999", "#pakistan-2026-summer-photos/999", "#projection-pakistan-2026/999", "#projection-pakistan-2026-expanded-retained-20261004/999"):
             with self.subTest(route=route):
                 self.assert_route_matches_source(route)
-        context, page = self.open_page("#pakistan-2026-summer-gallery/999")
-        study = next(s for s in self.payload(page)["studies"] if s["id"] == "pakistan-2026-summer-gallery")
+        context, page = self.open_page("#pakistan-2026-summer-gallery-20261005/999")
+        study = next(s for s in self.payload(page)["studies"] if s["id"] == "pakistan-2026-summer-gallery-20261005")
         self.assertEqual(self.image_src(page), study["images"][-1]["src"])
         context.close()
 

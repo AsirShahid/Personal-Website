@@ -23,7 +23,7 @@ class PuertoRicoOwnerReviewContractTests(unittest.TestCase):
         cls.studies = {study["id"]: study for study in cls.data["studies"]}
 
     def test_exact_25_current_copies_and_frozen_46_ordinal_routes(self):
-        self.assertEqual((len(self.studies), sum(len(s["images"]) for s in self.studies.values())), (21, 464))
+        self.assertEqual((len(self.studies), sum(len(s["images"]) for s in self.studies.values())), (21, 419))
         self.assertIn(PR_ID, self.studies)
         self.assertNotIn(OLD_CANONICAL_ID, self.studies)
         pr = self.studies[PR_ID]
@@ -71,7 +71,7 @@ class PuertoRicoOwnerReviewContractTests(unittest.TestCase):
         visible = [study for study in self.data["studies"]
                    if study["id"] not in exclude_ids
                    and (study["id"] in include_ids or (study.get("date") and study["date"] >= "2025-10-01"))]
-        self.assertEqual((len(visible), sum(len(study["images"]) for study in visible)), (6, 283))
+        self.assertEqual((len(visible), sum(len(study["images"]) for study in visible)), (6, 238))
         # Hiding is display-level: every hidden study keeps its own records, routes and photos.
         for study_id, photos in (("puerto-rico-2025-june-photos", 25), ("puerto-rico-2025-october", 4), ("georgia-2025-october", 1)):
             self.assertEqual(len(self.studies[study_id]["images"]), photos)

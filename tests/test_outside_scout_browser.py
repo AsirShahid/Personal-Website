@@ -24,8 +24,8 @@ NEW_DUPLICATE_REMOVALS = set(PR_ROUTE_BASELINE["removed_sources"]) | {
 DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-scout-browser"))
 SCOUTS = [
-    {"id": "pakistan-2026-summer-gallery", "old_id": "pakistan-2026-summer-photos", "title": "SE 0 · SCOUT · Rome, Tirana", "series_title": "SCOUT · Rome, Tirana", "date": "2026-06-24", "end": "2026-06-25", "study_date": "2026-06-28", "study_end": "2026-07-05", "count": 12, "total": 32, "series": 7, "source": "/outside/assets/summer-2026/0005", "next_source": "/outside/assets/owner-review/summer-2026/S0102"},
-    {"id": "australia-2026-july-gallery", "old_id": "australia-2026-july-photos", "title": "SE 0 · SCOUT · Bangkok", "series_title": "SCOUT · Bangkok", "date": "2026-07-06", "end": "2026-07-06", "study_date": "2026-07-07", "study_end": "2026-07-16", "count": 1, "total": 36, "series": 8, "source": "/outside/assets/owner-review/additional-trips/A278"},
+    {"id": "pakistan-2026-summer-gallery-20261005", "old_id": "pakistan-2026-summer-photos", "title": "SE 0 · SCOUT · Rome, Tirana", "series_title": "SCOUT · Rome, Tirana", "date": "2026-06-24", "end": "2026-06-25", "study_date": "2026-06-28", "study_end": "2026-07-05", "count": 11, "total": 30, "series": 7, "source": "/outside/assets/summer-2026/0005", "next_source": "/outside/assets/owner-review/summer-2026/S0102"},
+    {"id": "australia-2026-july-gallery-20261005", "old_id": "australia-2026-july-photos", "title": "SE 0 · SCOUT · Bangkok", "series_title": "SCOUT · Bangkok", "date": "2026-07-06", "end": "2026-07-06", "study_date": "2026-07-07", "study_end": "2026-07-16", "count": 1, "total": 33, "series": 8, "source": "/outside/assets/owner-review/additional-trips/A278"},
     {"id": "cruise-2024-december-gallery", "old_id": "cruise-2024-december", "title": "SE 0 · SCOUT · Merritt Island", "series_title": "SCOUT · Merritt Island", "date": "2024-12-17", "end": "2024-12-17", "study_date": "2024-12-15", "study_end": "2024-12-20", "count": 1, "total": 8, "series": 6, "source": "/outside/assets/owner-review/additional-trips/A306"},
 ]
 
@@ -81,14 +81,14 @@ class OutsideScoutBrowserTests(unittest.TestCase):
                     self.assertIn(spec["count"] and f"{spec['count']} images", buttons.nth(0).get_attribute("aria-label"))
                     self.assertEqual(buttons.nth(0).get_attribute("aria-current"), "true")
                     self.assertIn(f"SE 0/{spec['series']}", page.locator('[data-ov="tr"]').inner_text())
-                    self.assertFalse(spec["id"] == "pakistan-2026-summer-gallery" and page.locator(".oz-journey").count() > 0)
+                    self.assertFalse(spec["id"] == "pakistan-2026-summer-gallery-20261005" and page.locator(".oz-journey").count() > 0)
 
                     page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth>0 && im.currentSrc.includes(stem) && /-(s|m|l)\\.webp$/.test(im.currentSrc); }", arg=spec["source"], timeout=15000)
                     visible_image = page.locator("[data-cells] img").first
                     self.assertTrue(visible_image.is_visible())
                     self.assertGreater(visible_image.evaluate("im => im.naturalWidth"), 0)
                     self.assertTrue(visible_image.evaluate("(im, stem) => im.currentSrc.includes(stem)" , spec["source"]))
-                    if spec["id"] == "pakistan-2026-summer-gallery":
+                    if spec["id"] == "pakistan-2026-summer-gallery-20261005":
                         page.locator("[data-viewport]").screenshot(path=str(EVIDENCE_DIR / f"{viewport_name}-scout-primary.png"))
                         page.keyboard.press("PageDown")
                         page.wait_for_function("() => document.querySelector('[data-series] [aria-current=true]')?.dataset.se === '1'")
@@ -156,7 +156,8 @@ class OutsideScoutBrowserTests(unittest.TestCase):
         page = context.new_page()
         page.route("**/*.webp", lambda route: route.abort())
         page.goto(BASE_URL, wait_until="domcontentloaded")
-        pending = set(FIXTURE["pending_removal_sources"]) | NEW_DUPLICATE_REMOVALS
+        OWNER_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005.json").read_text())
+        pending = set(FIXTURE["pending_removal_sources"]) | NEW_DUPLICATE_REMOVALS | set(OWNER_FLAGS["flagged_sources"])
         restore_src = FIXTURE["authorized_restore_source"]["src"]
         restored = set(FIXTURE["allowed_restored_routes"])
         cases = [{"hash": route["hash"], "expected": restore_src if route["hash"] in restored else (None if route["source"] in pending else route["source"])} for route in FIXTURE["routes"]]

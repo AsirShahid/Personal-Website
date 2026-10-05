@@ -29,7 +29,7 @@ SUPPLEMENTS = {
         "unresolved": 17,
         "series_titles": ["Palaces & riverfront", "Landmarks & architecture"],
     },
-    "montreal-november-2025-photos": {"images": 18, "series": 4, "unresolved": 0,
+    "montreal-november-2025-photos-20261005": {"images": 17, "series": 4, "unresolved": 0,
         "series_titles": ["Church & street", "Atrium & lights", "Conservatory & displays", "Snowy skyline overlook"]},
 }
 
@@ -98,7 +98,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                     total_painted += 1
                     if i == 0:
                         page.screenshot(path=str(EVIDENCE_DIR / f"desktop-{study_id}.png"), full_page=True)
-                    if study_id == "montreal-november-2025-photos" and "50687dc46ae34c23be92b217abb3de9f" in expected_stem:
+                    if study_id == "montreal-november-2025-photos-20261005" and "50687dc46ae34c23be92b217abb3de9f" in expected_stem:
                         page.screenshot(path=str(EVIDENCE_DIR / "desktop-montreal-november-snowy-overlook.png"), full_page=True)
                 context.close()
                 self.assertEqual(js_errors, [], js_errors)
@@ -119,7 +119,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                 mobile_page.screenshot(path=str(EVIDENCE_DIR / f"mobile-{study_id}.png"), full_page=True)
                 mobile.close()
                 self.assertEqual(mobile_errors, [], mobile_errors)
-        self.assertEqual(total_painted, 56)
+        self.assertEqual(total_painted, 55)
 
     def test_approved_utah_star_photo_paints_on_tablet_at_exact_source(self):
         context = self.browser.new_context(viewport={"width": 768, "height": 1024}, reduced_motion="reduce")
@@ -127,13 +127,13 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
         data = json.loads((Path(__file__).parents[1] / "src/data/outside-studies.json").read_text())
-        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-gallery-20261004-2")
+        study = next(s for s in data["studies"] if s["id"] == "american-southwest-2025-october-gallery-20261004-2-20261005")
         image = next(image for image in study["images"] if image["src"] == "/outside/assets/utah-night-sky-2025/utah-night-sky-01")
         ordinal = study["images"].index(image) + 1
         stem = image["src"]
         old_hashes = [route_hash for route_hash, source in PARENT_ROUTES["routes"].items() if source == stem and route_hash.startswith("#american-southwest-2025-october-gallery/")]
         self.assertEqual(len(old_hashes), 1)
-        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-gallery-20261004-2/{ordinal}"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, f"#american-southwest-2025-october-gallery-20261004-2-20261005/{ordinal}"), wait_until="domcontentloaded")
         page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth > 0 && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", arg=stem, timeout=10000)
         image_element = page.locator("[data-cells] img").first
         self.assertTrue(image_element.is_visible())
@@ -151,7 +151,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         self.assertEqual(errors, [], errors)
 
     def test_new_photo_flags_export_exact_source_and_honest_metadata(self):
-        for study_id in ("montreal-august-2023-photos", "europe-shared-album", "montreal-november-2025-photos"):
+        for study_id in ("montreal-august-2023-photos", "europe-shared-album", "montreal-november-2025-photos-20261005"):
             with self.subTest(study=study_id):
                 context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
                 page = context.new_page()
