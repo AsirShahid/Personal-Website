@@ -11,11 +11,11 @@ ROOT = Path(__file__).parents[1]
 SOURCE = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 RECENT_IDS = {
     "new-zealand-2026-july-photos",
-    "australia-2026-july-gallery",
-    "pakistan-2026-summer-gallery",
-    "galapagos-2026-january-photos-20261004",
-    "montreal-november-2025-photos",
-    "american-southwest-2025-october-gallery-20261004-2",
+    "australia-2026-july-gallery-20261005",
+    "pakistan-2026-summer-gallery-20261005",
+    "galapagos-2026-january-photos-20261004-20261005",
+    "montreal-november-2025-photos-20261005",
+    "american-southwest-2025-october-gallery-20261004-2-20261005",
 }
 # Owner-requested display hides: still post-cutoff (or an explicit include), now without worklist rows.
 EXCLUDED_IDS = {
@@ -60,7 +60,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         expected_photos = sum(len(source_by_id[study_id]["images"]) for study_id in RECENT_IDS)
         rows = page.locator(".oz-rows [data-study]")
         visible_ids = [row.get_attribute("href").lstrip("#") for row in rows.all()]
-        self.assertEqual((len(visible_ids), expected_photos), (6, 283))
+        self.assertEqual((len(visible_ids), expected_photos), (6, 238))
         self.assertEqual(set(visible_ids), RECENT_IDS)
         self.assertIn(f"{len(RECENT_IDS)} studies", page.locator(".oz-topmeta").inner_text().lower())
         self.assertIn(f"{expected_photos} images", page.locator(".oz-topmeta").inner_text().lower())
@@ -140,7 +140,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
         page = context.new_page()
         page.add_init_script("window.__nativePopStates = []; addEventListener('popstate', event => window.__nativePopStates.push({href: location.href, isTrusted: event.isTrusted}));")
-        page.goto(urljoin(BASE_URL, "#montreal-november-2025-photos/1"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, "#montreal-november-2025-photos-20261005/1"), wait_until="domcontentloaded")
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
         page.go_back(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("window.__nativePopStates.some(event => event.isTrusted)", timeout=5000)
@@ -149,7 +149,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         self.assertGreater(page.locator(".oz-rows [data-study]").count(), 0)
         page.go_forward(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
-        self.assertEqual(page.evaluate("location.hash"), "#montreal-november-2025-photos/1")
+        self.assertEqual(page.evaluate("location.hash"), "#montreal-november-2025-photos-20261005/1")
         self.assertTrue(any(event["isTrusted"] for event in page.evaluate("window.__nativePopStates")))
         context.close()
 

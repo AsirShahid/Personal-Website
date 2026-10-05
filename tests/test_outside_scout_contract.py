@@ -7,6 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).parents[1]
 DATA_PATH = ROOT / "src/data/outside-studies.json"
 FROZEN = json.loads((ROOT / "tests/fixtures/outside-pr45-source-route-baseline.json").read_text())
+OWNER_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005.json").read_text())
+OWNER_EXPORT_REMOVALS = set(OWNER_FLAGS["flagged_sources"])
 RESTORED_SOURCE = FROZEN["authorized_restore_source"]["src"]
 REMOVED_SOURCES = set(FROZEN["pending_removal_sources"])
 NEW_REMOVALS = {
@@ -77,11 +79,11 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
 
     def test_final_owner_inventory_and_all_source_keyed_removals(self):
         expected = FROZEN["expected_inventory"]
-        self.assertEqual((len(self.studies), len(self.images)), (expected["studies"], expected["photos"]))
+        self.assertEqual((len(self.studies), len(self.images)), (expected["studies"], 419))
         baseline_sources = set(FROZEN["image_object_sha256"])
-        self.assertEqual(set(self.images), (set(FROZEN["image_object_sha256"]) - REMOVED_SOURCES - DUPLICATE_REMOVALS - PUERTO_RICO_REMOVALS) | {RESTORED_SOURCE} | PUERTO_RICO_REVIEW_SOURCES)
+        self.assertEqual(set(self.images), (baseline_sources - REMOVED_SOURCES - NEW_REMOVALS - DUPLICATE_REMOVALS - PUERTO_RICO_REMOVALS - OWNER_EXPORT_REMOVALS) | {RESTORED_SOURCE} | PUERTO_RICO_REVIEW_SOURCES)
         self.assertEqual(len(REMOVED_SOURCES), 25)
-        for source in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS | set(FROZEN["effective_excluded_sources"]):
+        for source in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS | OWNER_EXPORT_REMOVALS | set(FROZEN["effective_excluded_sources"]):
             if source != RESTORED_SOURCE:
                 self.assertNotIn(source, self.images, source)
         self.assertEqual(len(FROZEN["effective_excluded_sources"]), expected["effective_exclusions"])
@@ -98,28 +100,30 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
                 self.assertEqual(actual, digest, source)
         self.assertEqual(self.images[RESTORED_SOURCE], FROZEN["authorized_restore_source"])
         order = [study["id"] for study in self.data["studies"]]
-        self.assertEqual(order[:3], ["new-zealand-2026-july-photos", "australia-2026-july-gallery", "pakistan-2026-summer-gallery"])
+        self.assertEqual(order[:3], ["new-zealand-2026-july-photos", OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"], OWNER_FLAGS["affected_studies"]["pakistan-2026-summer-gallery"]])
         self.assertNotIn("baseball-stadium-2023-may", self.studies)
 
     def test_scout_series_are_zero_presentation_only_and_keep_destination_series(self):
         for spec in FROZEN["scout_contract"]:
             with self.subTest(study=spec["study_id"]):
-                study = self.studies[spec["canonical_id"]]
+                canonical_id = OWNER_FLAGS["affected_studies"].get(spec["canonical_id"], spec["canonical_id"])
+                study = self.studies[canonical_id]
                 self.assertEqual((study["date"], study["dateEnd"]), tuple(spec["study_dates"]))
                 scout = study["series"][0]
                 self.assertEqual(scout.get("displayNumber"), 0)
                 self.assertEqual(scout["title"], spec["series_title"])
                 self.assertEqual((scout["date"], scout["dateEnd"]), tuple(spec["dates"]))
-                self.assertEqual((scout["start"], scout["count"], scout["key"]), (0, len(spec["sources"]), 0))
-                self.assertEqual([image["src"] for image in study["images"][:len(spec["sources"])]], spec["sources"])
+                retained_scout_sources = [source for source in spec["sources"] if source not in OWNER_EXPORT_REMOVALS]
+                self.assertEqual((scout["start"], scout["count"], scout["key"]), (0, len(retained_scout_sources), 0))
+                self.assertEqual([image["src"] for image in study["images"][:len(retained_scout_sources)]], retained_scout_sources)
                 existing = study["series"][1:]
                 self.assertEqual([series.get("displayNumber") for series in existing], spec["destination_displays"])
                 self.assertEqual([series["start"] for series in study["series"]], sorted(series["start"] for series in study["series"]))
-        pakistan = self.studies["pakistan-2026-summer-gallery"]
-        australia = self.studies["australia-2026-july-gallery"]
+        pakistan = self.studies[OWNER_FLAGS["affected_studies"]["pakistan-2026-summer-gallery"]]
+        australia = self.studies[OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]]
         cruise = self.studies["cruise-2024-december-gallery"]
-        self.assertEqual((len(pakistan["images"]), len(pakistan["series"])), (32, 7))
-        self.assertEqual((len(australia["images"]), len(australia["series"])), (36, 8))
+        self.assertEqual((len(pakistan["images"]), len(pakistan["series"])), (30, 7))
+        self.assertEqual((len(australia["images"]), len(australia["series"])), (33, 8))
         self.assertEqual((len(cruise["images"]), len(cruise["series"])), (8, 6))
         self.assertEqual(pakistan["date"], "2026-06-28")
         self.assertEqual((australia["date"], australia["dateEnd"]), ("2026-07-07", "2026-07-16"))
@@ -147,7 +151,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         self.assertEqual(actual_restored, allowed_restore)
         for row in routes:
             with self.subTest(route=row["hash"]):
-                expected = RESTORED_SOURCE if row["hash"] in allowed_restore else (None if row["source"] in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS else row["source"])
+                expected = RESTORED_SOURCE if row["hash"] in allowed_restore else (None if row["source"] in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS | OWNER_EXPORT_REMOVALS else row["source"])
                 self.assertEqual(route_source(self.data, row["hash"]), expected, row["hash"])
 
     def test_parent_2540_route_bindings_preserve_sources_except_new_removals(self):
@@ -158,7 +162,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         self.assertEqual(NEW_REMOVALS, set(routes.values()) & NEW_REMOVALS)
         for route_hash, source in routes.items():
             with self.subTest(route=route_hash):
-                expected = None if source in NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS else source
+                expected = None if source in NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS | OWNER_EXPORT_REMOVALS else source
                 self.assertEqual(route_source(self.data, route_hash), expected, route_hash)
 
 
