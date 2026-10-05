@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 EVIDENCE = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR") or tempfile.mkdtemp(prefix="outside-viewer-zoom-"))
-STUDY_ID = "new-zealand-2026-july-photos"
+STUDY_ID = "new-zealand-2026-july-photos-161007"
 
 
 class OutsideViewerZoomBrowserTests(unittest.TestCase):

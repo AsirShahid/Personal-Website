@@ -1,7 +1,7 @@
 {
   "studies": [
     {
-      "id": "new-zealand-2026-july-photos",
+      "id": "new-zealand-2026-july-photos-161007",
       "place": "New Zealand",
       "region": "New Zealand",
       "country": "New Zealand",
@@ -22,7 +22,7 @@
         },
         {
           "start": 4,
-          "count": 14,
+          "count": 13,
           "time": "11:13:58",
           "title": "Woodland streams",
           "key": 4,
@@ -30,11 +30,11 @@
           "dateEnd": "2026-07-18"
         },
         {
-          "start": 18,
+          "start": 17,
           "count": 1,
           "time": "08:08:51",
           "title": "Rural pastures",
-          "key": 18,
+          "key": 17,
           "date": "2026-07-19",
           "dateEnd": "2026-07-19"
         }
@@ -91,19 +91,6 @@
           "se": 1,
           "w": 4000,
           "fl": "2.59 mm"
-        },
-        {
-          "src": "/outside/assets/owner-review/summer-2026/S1057",
-          "w": 3072,
-          "h": 4096,
-          "d": "2026-07-18",
-          "t": "11:13:58",
-          "se": 2,
-          "ex": "ISO 50  1/690 s  f/1.8",
-          "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC+12:00"
         },
         {
           "src": "/outside/assets/owner-review/summer-2026/S1059",
@@ -310,7 +297,7 @@
       }
     },
     {
-      "id": "australia-2026-july-gallery-20261005",
+      "id": "australia-2026-july-gallery-20261005-161007",
       "place": "Australia",
       "region": "Western Australia",
       "country": "Australia",
@@ -382,7 +369,7 @@
         },
         {
           "start": 21,
-          "count": 3,
+          "count": 2,
           "time": "13:32:01",
           "title": "Rock pools & waterfall",
           "key": 21,
@@ -391,11 +378,11 @@
           "displayNumber": 6
         },
         {
-          "start": 24,
+          "start": 23,
           "count": 9,
           "time": "11:59:34",
           "title": "Public art & towns",
-          "key": 24,
+          "key": 23,
           "date": "2026-07-16",
           "dateEnd": "2026-07-16",
           "displayNumber": 7
@@ -684,19 +671,6 @@
           "se": 6,
           "ex": "ISO 64  1/5354 s  f/1.8",
           "fl": "5.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC+08:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/summer-2026/S0875",
-          "w": 2352,
-          "h": 3136,
-          "d": "2026-07-14",
-          "t": "14:43:10",
-          "se": 6,
-          "ex": "ISO 50  1/1327 s  f/2",
-          "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC+08:00"
@@ -1349,7 +1323,7 @@
       }
     },
     {
-      "id": "galapagos-2026-january-photos-20261004-20261005",
+      "id": "galapagos-2026-january-photos-20261004-20261005-161007",
       "place": "Galápagos",
       "region": "Galápagos",
       "country": "Ecuador",
@@ -1357,7 +1331,7 @@
       "date": "2026-01-13",
       "dateEnd": "2026-01-22",
       "tz": "UTC-06:00",
-      "key": 57,
+      "key": 53,
       "series": [
         {
           "start": 0,
@@ -1370,7 +1344,7 @@
         },
         {
           "start": 4,
-          "count": 11,
+          "count": 10,
           "time": "09:04:54",
           "title": "Harbor & waterfront",
           "key": 4,
@@ -1378,74 +1352,74 @@
           "dateEnd": "2026-01-14"
         },
         {
-          "start": 15,
+          "start": 14,
           "count": 1,
           "time": "17:06:25",
           "title": "Sea lion at shore",
-          "key": 15,
+          "key": 14,
           "date": "2026-01-15",
           "dateEnd": "2026-01-15"
         },
         {
-          "start": 16,
+          "start": 15,
           "count": 7,
           "time": "10:53:39",
           "title": "Wildlife by shore",
-          "key": 16,
+          "key": 15,
           "date": "2026-01-16",
           "dateEnd": "2026-01-16"
         },
         {
-          "start": 23,
-          "count": 8,
+          "start": 22,
+          "count": 7,
           "time": "10:57:05",
           "title": "Pond & wading birds",
-          "key": 23,
+          "key": 22,
           "date": "2026-01-17",
           "dateEnd": "2026-01-17"
         },
         {
-          "start": 31,
-          "count": 8,
+          "start": 29,
+          "count": 7,
           "time": "08:08:29",
           "title": "Highland trail & coast",
-          "key": 31,
+          "key": 29,
           "date": "2026-01-18",
           "dateEnd": "2026-01-18"
         },
         {
-          "start": 39,
+          "start": 36,
           "count": 5,
           "time": "14:03:54",
           "title": "Lizard on island path",
-          "key": 39,
+          "key": 36,
           "date": "2026-01-19",
           "dateEnd": "2026-01-19"
         },
         {
-          "start": 44,
+          "start": 41,
           "count": 10,
           "time": "13:45:07",
           "title": "Green hills boardwalk",
-          "key": 44,
+          "key": 41,
           "date": "2026-01-20",
           "dateEnd": "2026-01-20"
         },
         {
-          "start": 54,
-          "count": 7,
+          "start": 51,
+          "count": 6,
           "time": "08:19:12",
           "title": "Sea lions & boulders",
-          "key": 54,
+          "key": 51,
           "date": "2026-01-21",
           "dateEnd": "2026-01-21"
         },
         {
-          "start": 61,
+          "start": 57,
           "count": 4,
           "time": "09:24:15",
           "title": "Scrub-covered headland",
-          "key": 61,
+          "key": 57,
           "date": "2026-01-22",
           "dateEnd": "2026-01-22"
         }
@@ -1509,19 +1483,6 @@
           "h": 4096,
           "d": "2026-01-14",
           "t": "09:04:54",
-          "se": 2,
-          "ex": "",
-          "fl": "",
-          "cam": "",
-          "avg": "",
-          "tz": "UTC-06:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/galapagos/G093",
-          "w": 4096,
-          "h": 3072,
-          "d": "2026-01-14",
-          "t": "09:43:50",
           "se": 2,
           "ex": "",
           "fl": "",
@@ -1764,19 +1725,6 @@
           "tz": "UTC-06:00"
         },
         {
-          "src": "/outside/assets/owner-review/galapagos/G337",
-          "w": 2352,
-          "h": 3136,
-          "d": "2026-01-17",
-          "t": "11:51:15",
-          "se": 5,
-          "ex": "",
-          "fl": "",
-          "cam": "",
-          "avg": "",
-          "tz": "UTC-06:00"
-        },
-        {
           "src": "/outside/assets/owner-review/galapagos/G339",
           "w": 2352,
           "h": 3136,
@@ -1864,19 +1812,6 @@
           "ex": "",
           "fl": "",
           "cam": "",
-          "avg": "",
-          "tz": "UTC-06:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/galapagos/G458",
-          "w": 4000,
-          "h": 3000,
-          "d": "2026-01-18",
-          "t": "09:28:33",
-          "se": 6,
-          "ex": "ISO 64  1/2926 s  f/2.2",
-          "fl": "2.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC-06:00"
         },
@@ -2175,19 +2110,6 @@
           "se": 9,
           "ex": "ISO 64  1/1263 s  f/2.2",
           "fl": "2.59 mm",
-          "cam": "OnePlus OnePlus 11 5G",
-          "avg": "",
-          "tz": "UTC-06:00"
-        },
-        {
-          "src": "/outside/assets/owner-review/galapagos/G638",
-          "w": 2352,
-          "h": 3136,
-          "d": "2026-01-21",
-          "t": "10:19:45",
-          "se": 9,
-          "ex": "ISO 50  1/211 s  f/2",
-          "fl": "7.08 mm",
           "cam": "OnePlus OnePlus 11 5G",
           "avg": "",
           "tz": "UTC-06:00"
@@ -6574,68 +6496,68 @@
     "projection-new-zealand-2026": {
       "targets": [
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 0
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 3
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
-          "index": 6
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 5
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
-          "index": 11
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 10
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
-          "index": 14
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 13
         }
       ],
       "defaultTarget": {
-        "studyId": "new-zealand-2026-july-photos",
+        "studyId": "new-zealand-2026-july-photos-161007",
         "index": 0
       }
     },
     "projection-australia-2026": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 5
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 10
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 13
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 19
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 26
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 25
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 29
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 28
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 32
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 31
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 5
       }
     },
@@ -6723,21 +6645,21 @@
     "projection-galapagos-2026": {
       "targets": [
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 27
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 25
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 39
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 36
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 51
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 48
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 58
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 54
         }
       ],
       "defaultTarget": null
@@ -8254,142 +8176,139 @@
     "projection-australia-2026-expanded": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 4
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 5
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 9
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 10
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 11
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 12
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 13
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 18
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 19
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 20
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 21
         },
+        null,
+        null,
+        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 22
         },
-        null,
-        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 23
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 28
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 29
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 30
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 31
-        },
-        {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 32
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 5
       }
     },
@@ -8412,306 +8331,294 @@
     "projection-galapagos-2026-expanded": {
       "targets": [
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 0
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 3
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 4
         },
         null,
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 5
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 5
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 7
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 8
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 9
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 10
         },
         null,
         null,
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 11
         },
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 12
         },
         null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 13
         },
-        null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 14
         },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 15
-        },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 15
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 18
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 19
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 20
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 20
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 21
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 22
         },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 23
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 23
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 28
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 29
         },
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 30
         },
         null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 31
         },
         null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 32
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 33
         },
         null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 34
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 35
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 36
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 37
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 38
         },
         null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 39
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 40
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 41
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 42
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 43
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 44
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 45
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 46
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 47
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 48
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 49
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 50
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 51
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 52
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 53
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 54
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 55
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 56
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 56
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 57
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 58
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 59
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 60
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 61
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 62
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 63
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 64
         }
       ],
       "defaultTarget": null
@@ -9532,238 +9439,232 @@
     "projection-new-zealand-2026-expanded": {
       "targets": [
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 0
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 1
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 2
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 3
         },
+        null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 4
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 5
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 6
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 7
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 8
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 9
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 10
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 11
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 12
         },
+        null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 13
         },
-        null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 14
         },
-        {
-          "studyId": "new-zealand-2026-july-photos",
-          "index": 15
-        },
         null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 15
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 16
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 17
-        },
-        {
-          "studyId": "new-zealand-2026-july-photos",
-          "index": 18
         }
       ],
       "defaultTarget": {
-        "studyId": "new-zealand-2026-july-photos",
+        "studyId": "new-zealand-2026-july-photos-161007",
         "index": 0
       }
     },
     "projection-australia-2026-expanded-retained-20261004": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 4
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 5
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 9
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 10
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 11
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 12
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 13
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 18
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 19
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 20
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 21
         },
+        null,
+        null,
+        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 22
         },
-        null,
-        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 23
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 28
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 29
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 30
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 31
-        },
-        {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 32
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 1
       }
     },
     "metadata-review-foreign-thailand-20260706-20260706": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 0
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 0
       }
     },
@@ -9923,300 +9824,288 @@
     "projection-galapagos-2026-expanded-retained-20261004": {
       "targets": [
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 0
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 4
         },
         null,
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 5
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 5
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 9
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 10
         },
         null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 11
         },
         null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 12
         },
         null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 13
         },
-        null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 18
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 19
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 20
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 20
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 21
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 22
         },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 23
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 23
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 28
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 29
         },
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 30
         },
         null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 31
         },
         null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 32
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 33
         },
         null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 34
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 35
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 36
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 37
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 38
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 39
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 40
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 41
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 42
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 43
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 44
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 45
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 46
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 47
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 48
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 49
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 50
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 51
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 52
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 53
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 54
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 55
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 56
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 56
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 57
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 58
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 59
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 60
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 61
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 62
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 63
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 64
         }
       ],
       "defaultTarget": {
-        "studyId": "galapagos-2026-january-photos-20261004-20261005",
+        "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
         "index": 0
       }
     },
@@ -11706,140 +11595,137 @@
     "australia-2026-july": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 4
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 5
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 9
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 10
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 11
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 12
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 13
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 18
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 19
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 20
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 21
         },
+        null,
+        null,
+        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 22
         },
-        null,
-        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 23
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 28
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 29
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 30
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 31
-        },
-        {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 32
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 1
       }
     },
@@ -11887,300 +11773,288 @@
     "galapagos-2026-january": {
       "targets": [
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 0
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 4
         },
         null,
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 5
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 5
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 9
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 10
         },
         null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 11
         },
         null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 12
         },
         null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 13
         },
-        null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 18
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 19
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 20
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 20
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 21
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 22
         },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 23
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 23
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 28
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 29
         },
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 30
         },
         null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 31
         },
         null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 32
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 33
         },
         null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 34
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 35
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 36
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 37
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 38
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 39
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 40
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 41
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 42
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 43
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 44
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 45
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 46
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 47
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 48
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 49
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 50
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 51
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 52
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 53
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 54
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 55
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 56
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 56
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 57
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 58
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 59
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 60
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 61
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 62
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 63
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 64
         }
       ],
       "defaultTarget": {
-        "studyId": "galapagos-2026-january-photos-20261004-20261005",
+        "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
         "index": 0
       }
     },
@@ -12387,86 +12261,83 @@
     "new-zealand-2026-july": {
       "targets": [
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 0
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 1
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 2
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 3
         },
+        null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 4
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 5
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 6
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 7
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 8
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 9
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 10
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 11
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 12
         },
+        null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 13
         },
-        null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 14
         },
-        {
-          "studyId": "new-zealand-2026-july-photos",
-          "index": 15
-        },
         null,
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 15
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 16
         },
         {
-          "studyId": "new-zealand-2026-july-photos",
+          "studyId": "new-zealand-2026-july-photos-161007",
           "index": 17
-        },
-        {
-          "studyId": "new-zealand-2026-july-photos",
-          "index": 18
         }
       ],
       "defaultTarget": {
-        "studyId": "new-zealand-2026-july-photos",
+        "studyId": "new-zealand-2026-july-photos-161007",
         "index": 0
       }
     },
@@ -12751,151 +12622,148 @@
     "australia-2026-july-photos": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 4
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 5
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 9
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 10
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 11
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 12
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 13
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 18
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 19
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 20
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 21
         },
+        null,
+        null,
+        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 22
         },
-        null,
-        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 23
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 28
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 29
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 30
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 31
-        },
-        {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 32
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 1
       }
     },
     "thailand-2026-july": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 0
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 0
       }
     },
@@ -13995,291 +13863,279 @@
     "galapagos-2026-january-photos": {
       "targets": [
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 0
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 4
         },
         null,
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 5
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 5
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 9
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 10
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 11
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 12
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 13
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 18
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 19
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 20
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 20
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 21
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 22
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 23
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 28
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 29
         },
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 30
         },
         null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 31
         },
         null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 32
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 33
         },
         null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 34
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 35
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 36
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 37
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 38
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 39
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 40
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 41
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 42
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 43
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 44
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 45
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 46
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 47
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 48
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 49
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 50
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 51
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 52
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 53
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 54
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 55
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 56
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 56
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 57
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 58
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 59
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 60
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 61
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 62
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 63
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 64
         }
       ],
       "defaultTarget": {
-        "studyId": "galapagos-2026-january-photos-20261004-20261005",
+        "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
         "index": 0
       }
     },
@@ -14955,143 +14811,140 @@
     "australia-2026-july-gallery": {
       "targets": [
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 0
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 4
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 5
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 9
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 10
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 11
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 12
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 13
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 18
         },
         null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 19
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 20
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 21
         },
+        null,
+        null,
+        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 22
         },
-        null,
-        null,
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 23
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 28
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 29
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 30
         },
         {
-          "studyId": "australia-2026-july-gallery-20261005",
+          "studyId": "australia-2026-july-gallery-20261005-161007",
           "index": 31
-        },
-        {
-          "studyId": "australia-2026-july-gallery-20261005",
-          "index": 32
         }
       ],
       "defaultTarget": {
-        "studyId": "australia-2026-july-gallery-20261005",
+        "studyId": "australia-2026-july-gallery-20261005-161007",
         "index": 0
       }
     },
@@ -15228,290 +15081,278 @@
     "galapagos-2026-january-photos-20261004": {
       "targets": [
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 0
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 1
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 2
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 3
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 4
         },
         null,
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 5
-        },
+        null,
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 5
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 6
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 7
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 8
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 9
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 10
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 11
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 12
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 13
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 14
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 15
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 16
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 17
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 18
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 19
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 20
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 20
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 21
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 22
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 23
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 24
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 25
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 26
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 27
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 28
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 29
         },
+        null,
+        null,
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 30
         },
         null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 31
         },
         null,
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 32
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 33
         },
         null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 34
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 35
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 36
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 37
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 38
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 39
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 40
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 41
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 42
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 43
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 44
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 45
         },
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 46
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 47
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 48
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 49
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 50
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 51
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 52
         },
+        null,
+        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 53
         },
-        null,
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 54
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 55
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 56
         },
         null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 56
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 57
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 58
         },
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 59
         },
-        null,
         {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
           "index": 60
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 61
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 62
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 63
-        },
-        {
-          "studyId": "galapagos-2026-january-photos-20261004-20261005",
-          "index": 64
         }
       ],
       "defaultTarget": {
-        "studyId": "galapagos-2026-january-photos-20261004-20261005",
+        "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
         "index": 0
       }
     },
@@ -15910,6 +15751,480 @@
       ],
       "defaultTarget": {
         "studyId": "american-southwest-2025-october-gallery-20261004-2-20261005",
+        "index": 0
+      }
+    },
+    "new-zealand-2026-july-photos": {
+      "targets": [
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 0
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 1
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 2
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 3
+        },
+        null,
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 4
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 5
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 6
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 7
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 8
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 9
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 10
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 11
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 12
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 13
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 14
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 15
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 16
+        },
+        {
+          "studyId": "new-zealand-2026-july-photos-161007",
+          "index": 17
+        }
+      ],
+      "defaultTarget": {
+        "studyId": "new-zealand-2026-july-photos-161007",
+        "index": 0
+      }
+    },
+    "australia-2026-july-gallery-20261005": {
+      "targets": [
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 0
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 1
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 2
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 3
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 4
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 5
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 6
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 7
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 8
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 9
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 10
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 11
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 12
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 13
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 14
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 15
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 16
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 17
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 18
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 19
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 20
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 21
+        },
+        null,
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 22
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 23
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 24
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 25
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 26
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 27
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 28
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 29
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 30
+        },
+        {
+          "studyId": "australia-2026-july-gallery-20261005-161007",
+          "index": 31
+        }
+      ],
+      "defaultTarget": {
+        "studyId": "australia-2026-july-gallery-20261005-161007",
+        "index": 0
+      }
+    },
+    "galapagos-2026-january-photos-20261004-20261005": {
+      "targets": [
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 0
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 1
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 2
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 3
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 4
+        },
+        null,
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 5
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 6
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 7
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 8
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 9
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 10
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 11
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 12
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 13
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 14
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 15
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 16
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 17
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 18
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 19
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 20
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 21
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 22
+        },
+        null,
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 23
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 24
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 25
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 26
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 27
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 28
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 29
+        },
+        null,
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 30
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 31
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 32
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 33
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 34
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 35
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 36
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 37
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 38
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 39
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 40
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 41
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 42
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 43
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 44
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 45
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 46
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 47
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 48
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 49
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 50
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 51
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 52
+        },
+        null,
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 53
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 54
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 55
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 56
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 57
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 58
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 59
+        },
+        {
+          "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
+          "index": 60
+        }
+      ],
+      "defaultTarget": {
+        "studyId": "galapagos-2026-january-photos-20261004-20261005-161007",
         "index": 0
       }
     }

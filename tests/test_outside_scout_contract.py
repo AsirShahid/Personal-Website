@@ -8,7 +8,8 @@ ROOT = Path(__file__).parents[1]
 DATA_PATH = ROOT / "src/data/outside-studies.json"
 FROZEN = json.loads((ROOT / "tests/fixtures/outside-pr45-source-route-baseline.json").read_text())
 OWNER_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005.json").read_text())
-OWNER_EXPORT_REMOVALS = set(OWNER_FLAGS["flagged_sources"])
+LATEST_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005-161007.json").read_text())
+OWNER_EXPORT_REMOVALS = set(OWNER_FLAGS["flagged_sources"]) | set(LATEST_FLAGS["flagged_sources"])
 RESTORED_SOURCE = FROZEN["authorized_restore_source"]["src"]
 REMOVED_SOURCES = set(FROZEN["pending_removal_sources"])
 NEW_REMOVALS = {
@@ -79,7 +80,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
 
     def test_final_owner_inventory_and_all_source_keyed_removals(self):
         expected = FROZEN["expected_inventory"]
-        self.assertEqual((len(self.studies), len(self.images)), (expected["studies"], 419))
+        self.assertEqual((len(self.studies), len(self.images)), (expected["studies"], 413))
         baseline_sources = set(FROZEN["image_object_sha256"])
         self.assertEqual(set(self.images), (baseline_sources - REMOVED_SOURCES - NEW_REMOVALS - DUPLICATE_REMOVALS - PUERTO_RICO_REMOVALS - OWNER_EXPORT_REMOVALS) | {RESTORED_SOURCE} | PUERTO_RICO_REVIEW_SOURCES)
         self.assertEqual(len(REMOVED_SOURCES), 25)
@@ -100,13 +101,16 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
                 self.assertEqual(actual, digest, source)
         self.assertEqual(self.images[RESTORED_SOURCE], FROZEN["authorized_restore_source"])
         order = [study["id"] for study in self.data["studies"]]
-        self.assertEqual(order[:3], ["new-zealand-2026-july-photos", OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"], OWNER_FLAGS["affected_studies"]["pakistan-2026-summer-gallery"]])
+        self.assertEqual(order[:3], [LATEST_FLAGS["affected_studies"]["new-zealand-2026-july-photos"],
+                                     LATEST_FLAGS["affected_studies"][OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]],
+                                     OWNER_FLAGS["affected_studies"]["pakistan-2026-summer-gallery"]])
         self.assertNotIn("baseball-stadium-2023-may", self.studies)
 
     def test_scout_series_are_zero_presentation_only_and_keep_destination_series(self):
         for spec in FROZEN["scout_contract"]:
             with self.subTest(study=spec["study_id"]):
                 canonical_id = OWNER_FLAGS["affected_studies"].get(spec["canonical_id"], spec["canonical_id"])
+                canonical_id = LATEST_FLAGS["affected_studies"].get(canonical_id, canonical_id)
                 study = self.studies[canonical_id]
                 self.assertEqual((study["date"], study["dateEnd"]), tuple(spec["study_dates"]))
                 scout = study["series"][0]
@@ -120,10 +124,10 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
                 self.assertEqual([series.get("displayNumber") for series in existing], spec["destination_displays"])
                 self.assertEqual([series["start"] for series in study["series"]], sorted(series["start"] for series in study["series"]))
         pakistan = self.studies[OWNER_FLAGS["affected_studies"]["pakistan-2026-summer-gallery"]]
-        australia = self.studies[OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]]
+        australia = self.studies[LATEST_FLAGS["affected_studies"][OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]]]
         cruise = self.studies["cruise-2024-december-gallery"]
         self.assertEqual((len(pakistan["images"]), len(pakistan["series"])), (30, 7))
-        self.assertEqual((len(australia["images"]), len(australia["series"])), (33, 8))
+        self.assertEqual((len(australia["images"]), len(australia["series"])), (32, 8))
         self.assertEqual((len(cruise["images"]), len(cruise["series"])), (8, 6))
         self.assertEqual(pakistan["date"], "2026-06-28")
         self.assertEqual((australia["date"], australia["dateEnd"]), ("2026-07-07", "2026-07-16"))

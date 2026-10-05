@@ -27,7 +27,7 @@ class DoubleResetBrowserTests(unittest.TestCase):
             page = context.new_page()
             errors = []
             page.on("pageerror", lambda error: errors.append(str(error)))
-            page.goto(BASE_URL + "#new-zealand-2026-july-photos/1", wait_until="domcontentloaded")
+            page.goto(BASE_URL + "#new-zealand-2026-july-photos-161007/1", wait_until="domcontentloaded")
             page.wait_for_function("""() => {
                 const im=document.querySelector('[data-cells] img');
                 return im?.complete && im.naturalWidth>0 && new URL(im.currentSrc).pathname===im.dataset.want;

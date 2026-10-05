@@ -10,10 +10,10 @@ BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outsid
 ROOT = Path(__file__).parents[1]
 SOURCE = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 RECENT_IDS = {
-    "new-zealand-2026-july-photos",
-    "australia-2026-july-gallery-20261005",
+    "new-zealand-2026-july-photos-161007",
+    "australia-2026-july-gallery-20261005-161007",
     "pakistan-2026-summer-gallery-20261005",
-    "galapagos-2026-january-photos-20261004-20261005",
+    "galapagos-2026-january-photos-20261004-20261005-161007",
     "montreal-november-2025-photos-20261005",
     "american-southwest-2025-october-gallery-20261004-2-20261005",
 }
@@ -42,7 +42,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         page = context.new_page()
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
-        page.goto(urljoin(BASE_URL, "#new-zealand-2026-july-photos/1"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, "#new-zealand-2026-july-photos-161007/1"), wait_until="domcontentloaded")
         payload = json.loads(page.locator("#oz-data").text_content() or "{}")
         source_by_id = {study["id"]: study for study in SOURCE["studies"]}
         derived_recent_ids = {
@@ -60,7 +60,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         expected_photos = sum(len(source_by_id[study_id]["images"]) for study_id in RECENT_IDS)
         rows = page.locator(".oz-rows [data-study]")
         visible_ids = [row.get_attribute("href").lstrip("#") for row in rows.all()]
-        self.assertEqual((len(visible_ids), expected_photos), (6, 238))
+        self.assertEqual((len(visible_ids), expected_photos), (6, 232))
         self.assertEqual(set(visible_ids), RECENT_IDS)
         self.assertIn(f"{len(RECENT_IDS)} studies", page.locator(".oz-topmeta").inner_text().lower())
         self.assertIn(f"{expected_photos} images", page.locator(".oz-topmeta").inner_text().lower())

@@ -25,7 +25,7 @@ DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-scout-browser"))
 SCOUTS = [
     {"id": "pakistan-2026-summer-gallery-20261005", "old_id": "pakistan-2026-summer-photos", "title": "SE 0 · SCOUT · Rome, Tirana", "series_title": "SCOUT · Rome, Tirana", "date": "2026-06-24", "end": "2026-06-25", "study_date": "2026-06-28", "study_end": "2026-07-05", "count": 11, "total": 30, "series": 7, "source": "/outside/assets/summer-2026/0005", "next_source": "/outside/assets/owner-review/summer-2026/S0102"},
-    {"id": "australia-2026-july-gallery-20261005", "old_id": "australia-2026-july-photos", "title": "SE 0 · SCOUT · Bangkok", "series_title": "SCOUT · Bangkok", "date": "2026-07-06", "end": "2026-07-06", "study_date": "2026-07-07", "study_end": "2026-07-16", "count": 1, "total": 33, "series": 8, "source": "/outside/assets/owner-review/additional-trips/A278"},
+    {"id": "australia-2026-july-gallery-20261005-161007", "old_id": "australia-2026-july-photos", "title": "SE 0 · SCOUT · Bangkok", "series_title": "SCOUT · Bangkok", "date": "2026-07-06", "end": "2026-07-06", "study_date": "2026-07-07", "study_end": "2026-07-16", "count": 1, "total": 32, "series": 8, "source": "/outside/assets/owner-review/additional-trips/A278"},
     {"id": "cruise-2024-december-gallery", "old_id": "cruise-2024-december", "title": "SE 0 · SCOUT · Merritt Island", "series_title": "SCOUT · Merritt Island", "date": "2024-12-17", "end": "2024-12-17", "study_date": "2024-12-15", "study_end": "2024-12-20", "count": 1, "total": 8, "series": 6, "source": "/outside/assets/owner-review/additional-trips/A306"},
 ]
 
@@ -44,7 +44,7 @@ class OutsideScoutBrowserTests(unittest.TestCase):
         cls.playwright.stop()
 
     def test_scout_caption_dates_worklist_and_primary_paint_on_desktop_and_mobile(self):
-        expected_top_three = ["new-zealand-2026-july-photos", SCOUTS[1]["id"], SCOUTS[0]["id"]]
+        expected_top_three = ["new-zealand-2026-july-photos-161007", SCOUTS[1]["id"], SCOUTS[0]["id"]]
         for width, height, viewport_name in ((1440, 1000, "desktop"), (390, 844, "mobile")):
             for spec in SCOUTS:
                 with self.subTest(viewport=viewport_name, scout=spec["id"]):
@@ -115,7 +115,7 @@ class OutsideScoutBrowserTests(unittest.TestCase):
                     context.close()
 
     def test_duplicate_oneplus_camera_name_is_normalized_only_in_overlay(self):
-        study = next(item for item in DATA["studies"] if item["id"] == "new-zealand-2026-july-photos")
+        study = next(item for item in DATA["studies"] if any(image["src"] == "/outside/assets/summer-2026/1035" for image in item["images"]))
         records = [next(item for item in study["images"] if item["src"] == source) for source in (
             "/outside/assets/summer-2026/1035",
             "/outside/assets/owner-review/summer-2026/S1041",
@@ -157,7 +157,8 @@ class OutsideScoutBrowserTests(unittest.TestCase):
         page.route("**/*.webp", lambda route: route.abort())
         page.goto(BASE_URL, wait_until="domcontentloaded")
         OWNER_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005.json").read_text())
-        pending = set(FIXTURE["pending_removal_sources"]) | NEW_DUPLICATE_REMOVALS | set(OWNER_FLAGS["flagged_sources"])
+        LATEST_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005-161007.json").read_text())
+        pending = set(FIXTURE["pending_removal_sources"]) | NEW_DUPLICATE_REMOVALS | set(OWNER_FLAGS["flagged_sources"]) | set(LATEST_FLAGS["newly_flagged_sources"])
         restore_src = FIXTURE["authorized_restore_source"]["src"]
         restored = set(FIXTURE["allowed_restored_routes"])
         cases = [{"hash": route["hash"], "expected": restore_src if route["hash"] in restored else (None if route["source"] in pending else route["source"])} for route in FIXTURE["routes"]]
