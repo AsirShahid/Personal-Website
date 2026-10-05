@@ -31,7 +31,9 @@ DUPLICATE_REMOVALS = {
     "/outside/assets/owner-review/additional-trips/A514",
 }
 PARENT_ROUTES = json.loads((ROOT / "tests/fixtures/outside-20261004-parent-route-bindings.json").read_text())
-PUERTO_RICO_REVIEW_SOURCES = {f"/outside/assets/owner-review/core-trips/C{number}" for number in range(877, 923)}
+PR_ROUTE_BASELINE = json.loads((ROOT / "tests/fixtures/outside-puerto-rico-prechange-routes.json").read_text())
+PUERTO_RICO_REMOVALS = set(PR_ROUTE_BASELINE["removed_sources"])
+PUERTO_RICO_REVIEW_SOURCES = {f"/outside/assets/owner-review/core-trips/{ref}" for ref in PR_ROUTE_BASELINE["kept_refs"]}
 PUERTO_RICO_EXISTING_RECORDS = json.loads((ROOT / "tests/fixtures/outside-puerto-rico-existing-records.json").read_text())
 
 
@@ -77,9 +79,9 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         expected = FROZEN["expected_inventory"]
         self.assertEqual((len(self.studies), len(self.images)), (expected["studies"], expected["photos"]))
         baseline_sources = set(FROZEN["image_object_sha256"])
-        self.assertEqual(set(self.images), (set(FROZEN["image_object_sha256"]) - REMOVED_SOURCES - DUPLICATE_REMOVALS) | {RESTORED_SOURCE} | PUERTO_RICO_REVIEW_SOURCES)
+        self.assertEqual(set(self.images), (set(FROZEN["image_object_sha256"]) - REMOVED_SOURCES - DUPLICATE_REMOVALS - PUERTO_RICO_REMOVALS) | {RESTORED_SOURCE} | PUERTO_RICO_REVIEW_SOURCES)
         self.assertEqual(len(REMOVED_SOURCES), 25)
-        for source in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | set(FROZEN["effective_excluded_sources"]):
+        for source in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS | set(FROZEN["effective_excluded_sources"]):
             if source != RESTORED_SOURCE:
                 self.assertNotIn(source, self.images, source)
         self.assertEqual(len(FROZEN["effective_excluded_sources"]), expected["effective_exclusions"])
@@ -145,7 +147,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         self.assertEqual(actual_restored, allowed_restore)
         for row in routes:
             with self.subTest(route=row["hash"]):
-                expected = RESTORED_SOURCE if row["hash"] in allowed_restore else (None if row["source"] in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS else row["source"])
+                expected = RESTORED_SOURCE if row["hash"] in allowed_restore else (None if row["source"] in REMOVED_SOURCES | NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS else row["source"])
                 self.assertEqual(route_source(self.data, row["hash"]), expected, row["hash"])
 
     def test_parent_2540_route_bindings_preserve_sources_except_new_removals(self):
@@ -156,7 +158,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         self.assertEqual(NEW_REMOVALS, set(routes.values()) & NEW_REMOVALS)
         for route_hash, source in routes.items():
             with self.subTest(route=route_hash):
-                expected = None if source in NEW_REMOVALS | DUPLICATE_REMOVALS else source
+                expected = None if source in NEW_REMOVALS | DUPLICATE_REMOVALS | PUERTO_RICO_REMOVALS else source
                 self.assertEqual(route_source(self.data, route_hash), expected, route_hash)
 
 

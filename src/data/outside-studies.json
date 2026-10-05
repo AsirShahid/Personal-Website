@@ -4574,7 +4574,7 @@
       ]
     },
     {
-      "id": "puerto-rico-2025-june-gallery",
+      "id": "puerto-rico-2025-june-photos",
       "place": "Puerto Rico",
       "region": "Puerto Rico",
       "country": "Puerto Rico",
@@ -4586,7 +4586,7 @@
       "series": [
         {
           "start": 0,
-          "count": 10,
+          "count": 5,
           "time": "14:16:22",
           "title": "June 21",
           "key": 0,
@@ -4594,20 +4594,20 @@
           "dateEnd": "2025-06-21"
         },
         {
-          "start": 10,
-          "count": 30,
+          "start": 5,
+          "count": 17,
           "time": "10:09:05",
           "title": "June 22",
-          "key": 10,
+          "key": 5,
           "date": "2025-06-22",
           "dateEnd": "2025-06-22"
         },
         {
-          "start": 40,
-          "count": 6,
+          "start": 22,
+          "count": 3,
           "time": "09:48:26",
           "title": "June 23",
-          "key": 40,
+          "key": 22,
           "date": "2025-06-23",
           "dateEnd": "2025-06-23"
         }
@@ -4630,36 +4630,10 @@
           "avg": "",
           "cam": "OnePlus OnePlus 11 5G",
           "d": "2025-06-21",
-          "ex": "ISO 50  1/1216 s  f/2",
-          "fl": "7.08 mm  (47 mm eq)",
-          "h": 3136,
-          "src": "/outside/assets/owner-review/core-trips/C878",
-          "t": "14:16:22",
-          "tz": "UTC-04:00",
-          "w": 2352,
-          "se": 1
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-21",
           "ex": "ISO 50  1/343 s  f/2",
           "fl": "7.08 mm  (47 mm eq)",
           "h": 3136,
           "src": "/outside/assets/owner-review/core-trips/C879",
-          "t": "14:16:27",
-          "tz": "UTC-04:00",
-          "w": 2352,
-          "se": 1
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-21",
-          "ex": "ISO 50  1/343 s  f/2",
-          "fl": "7.08 mm  (47 mm eq)",
-          "h": 3136,
-          "src": "/outside/assets/owner-review/core-trips/C880",
           "t": "14:16:27",
           "tz": "UTC-04:00",
           "w": 2352,
@@ -4682,36 +4656,10 @@
           "avg": "",
           "cam": "OnePlus OnePlus 11 5G",
           "d": "2025-06-21",
-          "ex": "ISO 50  1/128 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 4096,
-          "src": "/outside/assets/owner-review/core-trips/C882",
-          "t": "14:24:32",
-          "tz": "UTC-04:00",
-          "w": 3072,
-          "se": 1
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-21",
           "ex": "ISO 50  1/745 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "h": 4096,
           "src": "/outside/assets/owner-review/core-trips/C883",
-          "t": "14:24:35",
-          "tz": "UTC-04:00",
-          "w": 3072,
-          "se": 1
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-21",
-          "ex": "ISO 50  1/745 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 4096,
-          "src": "/outside/assets/owner-review/core-trips/C884",
           "t": "14:24:35",
           "tz": "UTC-04:00",
           "w": 3072,
@@ -4732,19 +4680,6 @@
         },
         {
           "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-21",
-          "ex": "ISO 50  1/1355 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 4096,
-          "src": "/outside/assets/owner-review/core-trips/C886",
-          "t": "14:24:36",
-          "tz": "UTC-04:00",
-          "w": 3072,
-          "se": 1
-        },
-        {
-          "avg": "",
           "cam": "OnePlus CPH2451",
           "d": "2025-06-22",
           "ex": "ISO 114  831/888371 s  f/2.2",
@@ -4752,19 +4687,6 @@
           "h": 3068,
           "se": 2,
           "src": "/outside/assets/owner-review/core-trips/C887",
-          "t": "10:09:05",
-          "tz": "UTC-04:00",
-          "w": 4090
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus CPH2451",
-          "d": "2025-06-22",
-          "ex": "ISO 114  831/888371 s  f/2.2",
-          "fl": "2.59 mm",
-          "h": 3068,
-          "se": 2,
-          "src": "/outside/assets/owner-review/core-trips/C888",
           "t": "10:09:05",
           "tz": "UTC-04:00",
           "w": 4090
@@ -4799,36 +4721,10 @@
           "avg": "",
           "cam": "OnePlus OnePlus 11 5G",
           "d": "2025-06-22",
-          "ex": "ISO 64  1/1090 s  f/2.2",
-          "fl": "2.59 mm  (14 mm eq)",
-          "h": 3000,
-          "src": "/outside/assets/owner-review/core-trips/C891",
-          "t": "10:52:00",
-          "tz": "UTC-04:00",
-          "w": 4000,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
           "ex": "ISO 50  1/4497 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "h": 3072,
           "src": "/outside/assets/owner-review/core-trips/C892",
-          "t": "11:06:23",
-          "tz": "UTC-04:00",
-          "w": 4096,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 50  1/4497 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 3072,
-          "src": "/outside/assets/owner-review/core-trips/C893",
           "t": "11:06:23",
           "tz": "UTC-04:00",
           "w": 4096,
@@ -4851,36 +4747,10 @@
           "avg": "",
           "cam": "OnePlus OnePlus 11 5G",
           "d": "2025-06-22",
-          "ex": "ISO 64  1/4684 s  f/1.8",
-          "fl": "5.59 mm",
-          "h": 3072,
-          "se": 2,
-          "src": "/outside/assets/owner-review/core-trips/C895",
-          "t": "11:06:24",
-          "tz": "UTC-04:00",
-          "w": 4096
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
           "ex": "ISO 50  1/4888 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "h": 3072,
           "src": "/outside/assets/owner-review/core-trips/C896",
-          "t": "12:26:07",
-          "tz": "UTC-04:00",
-          "w": 4096,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 50  1/4888 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 3072,
-          "src": "/outside/assets/owner-review/core-trips/C897",
           "t": "12:26:07",
           "tz": "UTC-04:00",
           "w": 4096,
@@ -4906,33 +4776,7 @@
           "ex": "ISO 64  1/3513 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "h": 3072,
-          "src": "/outside/assets/owner-review/core-trips/C899",
-          "t": "12:26:13",
-          "tz": "UTC-04:00",
-          "w": 4096,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 64  1/3513 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 3072,
           "src": "/outside/assets/owner-review/core-trips/C900",
-          "t": "12:26:13",
-          "tz": "UTC-04:00",
-          "w": 4096,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 64  1/3513 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 3072,
-          "src": "/outside/assets/owner-review/core-trips/C901",
           "t": "12:26:13",
           "tz": "UTC-04:00",
           "w": 4096,
@@ -4958,33 +4802,7 @@
           "ex": "ISO 64  1/3513 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "h": 3072,
-          "src": "/outside/assets/owner-review/core-trips/C903",
-          "t": "12:26:14",
-          "tz": "UTC-04:00",
-          "w": 4096,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 64  1/3513 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 3072,
           "src": "/outside/assets/owner-review/core-trips/C904",
-          "t": "12:26:15",
-          "tz": "UTC-04:00",
-          "w": 4096,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 64  1/3513 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 3072,
-          "src": "/outside/assets/owner-review/core-trips/C905",
           "t": "12:26:15",
           "tz": "UTC-04:00",
           "w": 4096,
@@ -5020,19 +4838,6 @@
           "avg": "",
           "cam": "OnePlus OnePlus 11 5G",
           "d": "2025-06-22",
-          "ex": "ISO 50  1/1874 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 4096,
-          "src": "/outside/assets/owner-review/core-trips/C908",
-          "t": "16:49:07",
-          "tz": "UTC-04:00",
-          "w": 3072,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
           "ex": "ISO 12800  3/10 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "h": 3072,
@@ -5048,34 +4853,8 @@
           "d": "2025-06-22",
           "ex": "ISO 12800  3/10 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
-          "h": 3072,
-          "src": "/outside/assets/owner-review/core-trips/C910",
-          "t": "21:19:09",
-          "tz": "UTC-04:00",
-          "w": 4096,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 12800  3/10 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
           "h": 4096,
           "src": "/outside/assets/owner-review/core-trips/C911",
-          "t": "21:39:58",
-          "tz": "UTC-04:00",
-          "w": 3072,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 12800  3/10 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 4096,
-          "src": "/outside/assets/owner-review/core-trips/C912",
           "t": "21:39:58",
           "tz": "UTC-04:00",
           "w": 3072,
@@ -5114,19 +4893,6 @@
           "ex": "ISO 12800  3/10 s  f/1.8",
           "fl": "5.59 mm  (24 mm eq)",
           "h": 4096,
-          "src": "/outside/assets/owner-review/core-trips/C915",
-          "t": "22:07:29",
-          "tz": "UTC-04:00",
-          "w": 3072,
-          "se": 2
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-22",
-          "ex": "ISO 12800  3/10 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 4096,
           "src": "/outside/assets/owner-review/core-trips/C916",
           "t": "22:08:04",
           "tz": "UTC-04:00",
@@ -5150,19 +4916,6 @@
           "avg": "",
           "cam": "OnePlus OnePlus 11 5G",
           "d": "2025-06-23",
-          "ex": "ISO 200  1/49 s  f/1.8",
-          "fl": "5.59 mm  (24 mm eq)",
-          "h": 4096,
-          "src": "/outside/assets/owner-review/core-trips/C918",
-          "t": "09:48:26",
-          "tz": "UTC-04:00",
-          "w": 3072,
-          "se": 3
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-23",
           "ex": "ISO 50  1/660 s  f/2",
           "fl": "7.08 mm  (111 mm eq)",
           "h": 3136,
@@ -5176,36 +4929,10 @@
           "avg": "",
           "cam": "OnePlus OnePlus 11 5G",
           "d": "2025-06-23",
-          "ex": "ISO 50  1/660 s  f/2",
-          "fl": "7.08 mm  (111 mm eq)",
-          "h": 3136,
-          "src": "/outside/assets/owner-review/core-trips/C920",
-          "t": "15:54:03",
-          "tz": "UTC-04:00",
-          "w": 2352,
-          "se": 3
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-23",
           "ex": "ISO 50  1/999 s  f/2",
           "fl": "7.08 mm  (47 mm eq)",
           "h": 3136,
           "src": "/outside/assets/owner-review/core-trips/C921",
-          "t": "15:54:06",
-          "tz": "UTC-04:00",
-          "w": 2352,
-          "se": 3
-        },
-        {
-          "avg": "",
-          "cam": "OnePlus OnePlus 11 5G",
-          "d": "2025-06-23",
-          "ex": "ISO 50  1/999 s  f/2",
-          "fl": "7.08 mm  (47 mm eq)",
-          "h": 3136,
-          "src": "/outside/assets/owner-review/core-trips/C922",
           "t": "15:54:06",
           "tz": "UTC-04:00",
           "w": 2352,
@@ -11930,17 +11657,17 @@
     "metadata-puerto-rico-june-2025": {
       "targets": [
         {
-          "studyId": "puerto-rico-2025-june-gallery",
-          "index": 10
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 5
         },
         {
-          "studyId": "puerto-rico-2025-june-gallery",
-          "index": 17
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 9
         }
       ],
       "defaultTarget": {
-        "studyId": "puerto-rico-2025-june-gallery",
-        "index": 10
+        "studyId": "puerto-rico-2025-june-photos",
+        "index": 5
       }
     },
     "unsorted-review": {
@@ -16389,17 +16116,146 @@
     "puerto-rico-2025-june": {
       "targets": [
         {
-          "studyId": "puerto-rico-2025-june-gallery",
-          "index": 10
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 5
         },
         {
-          "studyId": "puerto-rico-2025-june-gallery",
-          "index": 17
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 9
         }
       ],
       "defaultTarget": {
-        "studyId": "puerto-rico-2025-june-gallery",
-        "index": 10
+        "studyId": "puerto-rico-2025-june-photos",
+        "index": 5
+      }
+    },
+    "puerto-rico-2025-june-gallery": {
+      "targets": [
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 0
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 1
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 2
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 3
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 4
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 5
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 6
+        },
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 7
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 8
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 9
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 10
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 11
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 12
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 13
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 14
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 15
+        },
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 16
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 17
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 18
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 19
+        },
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 20
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 21
+        },
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 22
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 23
+        },
+        null,
+        {
+          "studyId": "puerto-rico-2025-june-photos",
+          "index": 24
+        },
+        null
+      ],
+      "defaultTarget": {
+        "studyId": "puerto-rico-2025-june-photos",
+        "index": 0
       }
     }
   }
