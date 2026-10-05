@@ -1,3 +1,4 @@
+import copy
 import hashlib
 import json
 import unittest
@@ -8,12 +9,15 @@ DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 BASELINE = json.loads((ROOT / "tests/fixtures/outside-place-baseline.json").read_text())
 FOCUS_IDS = {
     "new-zealand-2026-july-photos-161007",
-    "australia-2026-july-gallery-20261005-161007",
+    "australia-2026-july-gallery-20261005-quokka",
     "pakistan-2026-summer-gallery-20261005",
     "galapagos-2026-january-photos-20261004-20261005-161007",
     "montreal-november-2025-photos-20261005",
     "american-southwest-2025-october-gallery-20261004-2-20261005",
 }
+ROTTNEST_QUOKKA_SOURCE = "/outside/assets/owner-review/summer-2026/S0659"
+OLD_AUSTRALIA_ID = "australia-2026-july-gallery-20261005-161007"
+AUSTRALIA_ID = "australia-2026-july-gallery-20261005-quokka"
 
 
 class OutsidePlaceDataTests(unittest.TestCase):
@@ -96,11 +100,11 @@ class OutsidePlaceDataTests(unittest.TestCase):
             if any(image.get("transit") for image in study["images"])
         }
         self.assertEqual(set(transit), {
-            "australia-2026-july-gallery-20261005-161007",
+            AUSTRALIA_ID,
             "pakistan-2026-summer-gallery-20261005",
             "cruise-2024-december-gallery",
         })
-        australia = transit["australia-2026-july-gallery-20261005-161007"]
+        australia = transit[AUSTRALIA_ID]
         self.assertEqual([(image["place"], image["se"]) for image in australia], [("Bangkok", 0)])
         pakistan = transit["pakistan-2026-summer-gallery-20261005"]
         self.assertEqual(len(pakistan), 11)
@@ -116,7 +120,7 @@ class OutsidePlaceDataTests(unittest.TestCase):
             {"Auckland", "Rotorua", "Waiotapu"},
         )
         self.assertEqual(
-            {image["place"] for image in studies["australia-2026-july-gallery-20261005-161007"]["images"]},
+            {image["place"] for image in studies[AUSTRALIA_ID]["images"]},
             {"Bangkok", "Busselton", "Dunsborough", "Yallingup", "Rottnest Island", "Margaret River", "Augusta", "Hamelin Bay", "Perth"},
         )
         self.assertEqual(
@@ -173,16 +177,42 @@ class OutsidePlaceDataTests(unittest.TestCase):
         expected_studies = BASELINE["studies"]
         actual_studies = DATA["studies"]
         self.assertEqual(len(actual_studies), 21)
-        self.assertEqual(sum(len(study["images"]) for study in actual_studies), 413)
-        self.assertEqual([study["id"] for study in actual_studies], [row["id"] for row in expected_studies])
+        self.assertEqual(sum(len(study["images"]) for study in actual_studies), 414)
+        self.assertEqual([study["id"] for study in actual_studies],
+                         [AUSTRALIA_ID if row["id"] == OLD_AUSTRALIA_ID else row["id"] for row in expected_studies])
         for study, expected in zip(actual_studies, expected_studies):
-            self.assertEqual([image["src"] for image in study["images"]], expected["srcs"], study["id"])
+            expected_sources = list(expected["srcs"])
+            expected_date_times = list(expected["date_time_tz"])
+            if study["id"] == AUSTRALIA_ID:
+                expected_sources.insert(14, ROTTNEST_QUOKKA_SOURCE)
+                expected_date_times.insert(14, ["2026-07-11", "11:30:03", "UTC+08:00"])
+            self.assertEqual([image["src"] for image in study["images"]], expected_sources, study["id"])
             self.assertEqual(
                 [[image.get("d"), image.get("t"), image.get("tz")] for image in study["images"]],
-                expected["date_time_tz"],
+                expected_date_times,
                 study["id"],
             )
-        alias_payload = json.dumps(DATA["aliases"], ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+        rebased_aliases = copy.deepcopy(DATA["aliases"])
+        rebased_aliases.pop(OLD_AUSTRALIA_ID)
+        for alias in rebased_aliases.values():
+            if isinstance(alias.get("targets"), list):
+                for target in alias["targets"]:
+                    if isinstance(target, dict) and target.get("studyId") == AUSTRALIA_ID:
+                        target["studyId"] = OLD_AUSTRALIA_ID
+                        if target.get("index", -1) >= 15:
+                            target["index"] -= 1
+                default = alias.get("defaultTarget")
+                if isinstance(default, dict) and default.get("studyId") == AUSTRALIA_ID:
+                    default["studyId"] = OLD_AUSTRALIA_ID
+                    if default.get("index", -1) >= 15:
+                        default["index"] -= 1
+            elif alias.get("studyId") == AUSTRALIA_ID:
+                alias["studyId"] = OLD_AUSTRALIA_ID
+                alias["indices"] = [index - 1 if isinstance(index, int) and not isinstance(index, bool) and index >= 15 else index
+                                    for index in alias.get("indices", [])]
+                if isinstance(alias.get("defaultIndex"), int) and alias["defaultIndex"] >= 15:
+                    alias["defaultIndex"] -= 1
+        alias_payload = json.dumps(rebased_aliases, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
         self.assertEqual(hashlib.sha256(alias_payload).hexdigest(), BASELINE["aliases_sha256"])
 
 

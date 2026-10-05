@@ -6,6 +6,10 @@ ROOT = Path(__file__).parents[1]
 DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 OWNER_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005.json").read_text())
 LATEST_FLAGS = json.loads((ROOT / "tests/fixtures/outside-owner-photo-removals-20261005-161007.json").read_text())
+BASE_ROUTE_BINDINGS = json.loads((ROOT / "tests/fixtures/outside-base1da20-route-source-default-baseline.json").read_text())
+ROTTNEST_QUOKKA_SOURCE = "/outside/assets/owner-review/summer-2026/S0659"
+OLD_AUSTRALIA_ID = "australia-2026-july-gallery-20261005-161007"
+AUSTRALIA_ID = "australia-2026-july-gallery-20261005-quokka"
 
 
 def target_source(data, target):
@@ -57,13 +61,23 @@ def first_se1_for_source(data, source):
 
 
 class OwnerPhotoRemovalContractTests(unittest.TestCase):
+    def test_every_base_canonical_and_alias_route_keeps_source_default_or_tombstone(self):
+        self.assertEqual(BASE_ROUTE_BINDINGS["base_commit"], "1da20db3c0fbee12c8907fdb50d6b8e5d7c3d239")
+        canonical = BASE_ROUTE_BINDINGS["canonical_routes"]
+        aliases = BASE_ROUTE_BINDINGS["alias_routes"]
+        self.assertEqual((len(canonical), sum(len(row["targets"]) for row in canonical.values())), (21, 413))
+        self.assertEqual((len(aliases), sum(len(row["targets"]) for row in aliases.values())), (131, 2708))
+        for route_id, expected in {**canonical, **aliases}.items():
+            with self.subTest(route=route_id):
+                self.assertEqual(route_bindings(DATA, route_id), expected)
+
     def test_exact_owner_flag_sources_are_removed_without_changing_study_count(self):
         self.assertEqual(OWNER_FLAGS["export_sha256"], "767d747d52f02a44eb4132cb143f2e75bf5a7a0b1f4b7a9eb3088d6fa0023c53")
         flagged = OWNER_FLAGS["flagged_sources"]
         self.assertEqual((OWNER_FLAGS["flagged_count"], len(flagged), len(set(flagged))), (45, 45, 45))
         photos = {image["src"] for study in DATA["studies"] for image in study["images"]}
         self.assertEqual(set(flagged) & photos, set(), "every source in the frozen owner export must be unavailable")
-        self.assertEqual((len(DATA["studies"]), len(photos)), (21, 413))
+        self.assertEqual((len(DATA["studies"]), len(photos)), (21, 414))
 
     def test_latest_six_owner_flags_are_removed_without_other_photo_cuts(self):
         newly_flagged = set(LATEST_FLAGS["newly_flagged_sources"])
@@ -73,7 +87,7 @@ class OwnerPhotoRemovalContractTests(unittest.TestCase):
         self.assertEqual(photos & newly_flagged, set(), "the six newly flagged sources must be unavailable")
         self.assertEqual(photos & set(LATEST_FLAGS["historically_absent_sources"]), set(), "previously removed sources must remain unavailable")
         self.assertEqual(set(LATEST_FLAGS["flagged_sources"]), newly_flagged | set(LATEST_FLAGS["historically_absent_sources"]))
-        self.assertEqual((len(DATA["studies"]), len(photos)), (21, 413))
+        self.assertEqual((len(DATA["studies"]), len(photos)), (21, 414))
 
     def test_every_affected_canonical_and_alias_route_keeps_its_source_or_is_unavailable(self):
         flagged = set(OWNER_FLAGS["flagged_sources"]) | set(LATEST_FLAGS["newly_flagged_sources"])
@@ -83,6 +97,10 @@ class OwnerPhotoRemovalContractTests(unittest.TestCase):
                 before = OWNER_FLAGS["before_canonical_bindings"][old_id]
                 retained = [source for source in before["targets"] if source not in flagged]
                 new_id = LATEST_FLAGS["affected_studies"].get(new_id, new_id)
+                if new_id == OLD_AUSTRALIA_ID:
+                    new_id = AUSTRALIA_ID
+                if new_id == AUSTRALIA_ID:
+                    retained.insert(14, ROTTNEST_QUOKKA_SOURCE)
                 self.assertIn(new_id, studies)
                 self.assertEqual([image["src"] for image in studies[new_id]["images"]], retained)
                 self.assertIn(old_id, DATA["aliases"])
@@ -101,8 +119,13 @@ class OwnerPhotoRemovalContractTests(unittest.TestCase):
         for old_id, new_id in LATEST_FLAGS["affected_studies"].items():
             with self.subTest(canonical=old_id):
                 before = LATEST_FLAGS["before_canonical_bindings"][old_id]
+                if new_id == OLD_AUSTRALIA_ID:
+                    new_id = AUSTRALIA_ID
+                expected_sources = [source for source in before["targets"] if source not in flagged]
+                if new_id == AUSTRALIA_ID:
+                    expected_sources.insert(14, ROTTNEST_QUOKKA_SOURCE)
                 self.assertEqual([image["src"] for image in studies[new_id]["images"]],
-                                 [source for source in before["targets"] if source not in flagged])
+                                 expected_sources)
                 expected = {"default": first_se1_for_source(DATA, before["default"]) if before["default"] not in flagged else None,
                             "targets": [source if source not in flagged else None for source in before["targets"]]}
                 self.assertEqual(route_bindings(DATA, old_id), expected)
