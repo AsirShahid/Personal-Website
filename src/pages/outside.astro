@@ -2,9 +2,10 @@
 export const prerender = true;
 import "../styles/global.css";
 import data from "@/data/outside-studies.json";
-import { formatOutsideDateRange } from "../utils/outside-date.js";
+import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
+import { getOutsideFirstImageIndex, getOutsideStudyCover, getOutsideStudyLocation } from "../utils/outside-place.js";
 
-type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
 type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
 type RouteTarget = { studyId: string; index: number };
@@ -12,7 +13,7 @@ type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: num
 type SourceData = { studies?: Study[]; aliases?: Record<string, Alias> };
 
 const sourceData = data as SourceData;
-const fallbackImg: Img = { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 240'%3E%3Crect width='320' height='240' fill='%23050505'/%3E%3Ctext x='50%25' y='50%25' fill='%238d8b86' font-size='12' text-anchor='middle'%3ENO IMAGE DATA%3C/text%3E%3C/svg%3E", w: 320, h: 240, d: "", t: "", se: 1, ex: "", fl: "", cam: "", avg: "#050505" };
+const fallbackImg: Img = { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 240'%3E%3Crect width='320' height='240' fill='%23050505'/%3E%3Ctext x='50%25' y='50%25' fill='%238d8b86' font-size='12' text-anchor='middle'%3ENO IMAGE DATA%3C/text%3E%3C/svg%3E", w: 320, h: 240, d: "", t: "", se: 1, place: "Location unconfirmed", ex: "", fl: "", cam: "", avg: "#050505" };
 const fallbackStudy: Study = { id: "no-studies", place: "No studies available", region: "", country: "", status: "PENDING", date: "", dateEnd: "", tz: "", key: 0, series: [{ start: 0, count: 1, time: "" }], images: [fallbackImg] };
 const validStudies = (sourceData.studies ?? []).filter((s) => Array.isArray(s.images) && s.images.length > 0);
 const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().sort((a, b) =>
@@ -33,15 +34,12 @@ const recentStudies = RECENT_ONLY
   : studies;
 const totalImages = recentStudies.reduce((n, s) => n + s.images.length, 0);
 const first = studies[0];
-const firstImg = first.images[0] ?? fallbackImg;
-const studyCover = (s: Study) => s.images[s.key] ?? s.images[0] ?? fallbackImg;
+const firstImg = first.images[getOutsideFirstImageIndex(first)] ?? fallbackImg;
+const studyCover = (s: Study) => getOutsideStudyCover(s) ?? fallbackImg;
 const pad = (n: number) => String(n).padStart(2, "0");
 const title = "Outside Studies | Asir Shahid";
 const dateLabel = (s: Study) => formatOutsideDateRange(s.date, s.dateEnd);
-const where = (s: Study) => {
-  const labels = [s.region, s.country].filter((label, index, all) => Boolean(label) && all.indexOf(label) === index);
-  return labels.join(" · ") || "Location unconfirmed";
-};
+const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateEnd);
 ---
 
 <!doctype html>
@@ -89,8 +87,8 @@ const where = (s: Study) => {
                 <a class="oz-row" href={`#${s.id}`} data-study={idx} aria-label={`${s.place}, ${dateLabel(s)}, ${s.images.length} images`}>
                   <span class="oz-thumb" style={`--avg:${k.avg}`}>
                     <img
-                      src={`${k.src}-s.webp`}
-                      srcset={`${k.src}-s.webp 360w, ${k.src}-m.webp 1080w`}
+                      src={k.src.startsWith("data:") ? k.src : `${k.src}-s.webp`}
+                      srcset={k.src.startsWith("data:") ? undefined : `${k.src}-s.webp 360w, ${k.src}-m.webp 1080w`}
                       sizes="(max-width: 899px) 100vw, 84px"
                       width={k.w}
                       height={k.h}
@@ -101,11 +99,11 @@ const where = (s: Study) => {
                   </span>
                   <span class="oz-rowtext">
                     <span class="oz-place">{s.place}</span>
-                    <span class="oz-sub">{dateLabel(s)} · {s.images.length} im</span>
-                    <span class="oz-sub oz-region">{where(s)}</span>
+                    <span class="oz-sub oz-row-dates"><span class="oz-row-date">{rowDateLabel(s)}</span><span class="oz-row-count">{s.images.length} IM</span></span>
+                    <span class="oz-sub oz-region">{getOutsideStudyLocation(s)}</span>
                   </span>
                   <span class="oz-status" data-status={s.status}>{s.status}</span>
-                  <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{where(s)}</span>
+                  <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{getOutsideStudyLocation(s)}</span>
                   <span class="oz-card-ov oz-card-tr" aria-hidden="true">XC · {pad(recentIdx + 1)}/{pad(recentStudies.length)}<br />{s.images.length} IM · {s.series.length} SE</span>
                   <span class="oz-card-ov oz-card-bl" aria-hidden="true">{dateLabel(s)}</span>
                   <span class="oz-card-ov oz-card-br" aria-hidden="true"><span data-status={s.status}>{s.status}</span></span>
@@ -198,8 +196,9 @@ const where = (s: Study) => {
     <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases, recentStudyIds: recentStudies.map((s) => s.id) })}></script>
 
     <script>
-      import { formatOutsideDateRange } from "../utils/outside-date.js";
-      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+      import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
+      import { getOutsideFirstImageIndex, isOutsideTransitImage, uniqueOutsidePlaces } from "../utils/outside-place.js";
+      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
       type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
       type RouteTarget = { studyId: string; index: number };
@@ -485,12 +484,12 @@ const where = (s: Study) => {
         const st = study();
         const img = st.images[state.i];
         const se = seriesIndex(state.i);
-        const seNumber = seriesDisplayNumber(se);
-        const where = [st.region, st.country].filter((label, index, all) => Boolean(label) && all.indexOf(label) === index).join(" · ") || "Location unconfirmed";
+        const seNumber = Number.isInteger(img.se) ? img.se : seriesDisplayNumber(se);
+        const imagePlace = [img.place?.trim(), isOutsideTransitImage(img) ? "TRANSIT" : ""].filter(Boolean).join(" · ").toUpperCase();
         const date = formatOutsideDateRange(st.date, st.dateEnd);
         const recentIndex = recentStudyIndices.indexOf(state.s);
         const studyPosition = recentIndex >= 0 ? `${pad(recentIndex + 1)}/${pad(recentStudyIndices.length)}` : "HISTORICAL";
-        line(ov.tl, [[st.place.toUpperCase(), "oz-ov-strong"], where.toUpperCase(), `STUDY ${date}`, `XC · ${studyPosition}`]);
+        line(ov.tl, [[st.place.toUpperCase(), "oz-ov-strong"], imagePlace, `STUDY ${date}`, `XC · ${studyPosition}`]);
         line(ov.tr, [
           "ASIR SHAHID",
           `SE ${seNumber}/${st.series.length}   IM ${state.i + 1}/${st.images.length}`,
@@ -503,7 +502,7 @@ const where = (s: Study) => {
           state.cine ? [`CINE ${state.fps} FPS`, "oz-ov-key"] : "",
           state.invert ? "INVERTED" : "",
           `W ${state.W}  L ${state.L}`,
-          [st.status, `oz-ov-status oz-st-${st.status.toLowerCase()}`],
+          [seNumber === 0 ? "SCOUT" : st.status, seNumber === 0 ? "oz-ov-status oz-st-prelim" : `oz-ov-status oz-st-${st.status.toLowerCase()}`],
         ]);
       };
 
@@ -543,8 +542,13 @@ const where = (s: Study) => {
             b.dataset.se = String(k);
             const displayNumber = seriesDisplayNumber(k, list);
             const cover = Number.isInteger(s.key) && st.images[s.key!] ? s.key! : clamp(s.start, 0, st.images.length - 1);
-            const chapterDate = s.date ? formatOutsideDateRange(s.date, s.dateEnd) : s.time;
-            const chapterName = s.title || `Series ${displayNumber}`;
+            const chapterImages = st.images.slice(s.start, s.start + s.count);
+            const chapterPlaces = uniqueOutsidePlaces(chapterImages.filter((img) => !isOutsideTransitImage(img)));
+            const transitPlaces = uniqueOutsidePlaces(chapterImages.filter(isOutsideTransitImage));
+            const chapterDate = s.date ? formatOutsideCompactDateRange(s.date, s.dateEnd) : s.time;
+            const chapterName = displayNumber === 0
+              ? `Scout${transitPlaces.length ? ` · ${transitPlaces.join(", ")}` : ""}`
+              : chapterPlaces.join(" · ") || st.images[cover]?.place || "Location unconfirmed";
             b.dataset.start = String(s.start);
             b.dataset.key = String(cover);
             b.setAttribute("aria-label", `Series ${displayNumber}, ${chapterName}, ${chapterDate}, ${s.count} images, cover image ${cover + 1}`);
@@ -558,7 +562,7 @@ const where = (s: Study) => {
             const name = document.createElement("b");
             name.textContent = `SE ${displayNumber} · ${chapterName}`;
             const detail = document.createElement("span");
-            detail.textContent = `${chapterDate} · ${s.count} im · KEY ${cover + 1}`;
+            detail.textContent = chapterDate;
             cap.append(name, detail);
             b.append(im, cap);
             b.addEventListener("click", () => { cancelPendingTap(); touch(); stopCine(); state.i = clamp(s.start, 0, st.images.length - 1); render(); });
@@ -657,7 +661,7 @@ const where = (s: Study) => {
         const changed = s !== state.s;
         state.s = clamp(s, 0, studies.length - 1);
         const st = study();
-        state.i = clamp(i ?? 0, 0, st.images.length - 1);
+        state.i = clamp(i ?? getOutsideFirstImageIndex(st), 0, st.images.length - 1);
         if (changed) { state.W = 255; state.L = 128; state.invert = false; syncButtons(); }
         rows.forEach((r) => {
           if (r.getAttribute("data-study") === String(state.s)) r.setAttribute("aria-current", "true");
@@ -1099,7 +1103,8 @@ const where = (s: Study) => {
             const defaultTarget = Object.prototype.hasOwnProperty.call(alias, "defaultTarget")
               ? alias.defaultTarget
               : alias.targets.find((target) => target !== null);
-            return resolveRouteTarget(defaultTarget);
+            const resolved = resolveRouteTarget(defaultTarget);
+            return resolved ? { s: resolved.s, i: undefined } : null;
           }
           if (!Number.isSafeInteger(oldIndex) || oldIndex < 0 || oldIndex >= alias.targets.length) return null;
           return resolveRouteTarget(alias.targets[oldIndex]);
@@ -1110,7 +1115,7 @@ const where = (s: Study) => {
         if (oldIndex === undefined) {
           const defaultIndex = alias.defaultIndex ?? alias.indices.find((index) => typeof index === "number" && Number.isInteger(index) && index >= 0);
           if (typeof defaultIndex !== "number" || !Number.isInteger(defaultIndex) || defaultIndex < 0 || defaultIndex >= studies[target].images.length) return null;
-          return { s: target, i: defaultIndex };
+          return { s: target, i: undefined };
         }
         if (!Number.isSafeInteger(oldIndex) || oldIndex < 0 || oldIndex >= alias.indices.length) return null;
         const mappedIndex = alias.indices[oldIndex];
@@ -1140,9 +1145,7 @@ const where = (s: Study) => {
           return;
         }
         clearRouteError();
-        if (!desktopMQ.matches) {
-          if (!state.open) openStudy(target.s, target.i, { push: false });
-        } else openStudy(target.s, target.i);
+        openStudy(target.s, target.i, { push: false });
       });
       let resizeTimer = 0;
       window.addEventListener("resize", () => {
@@ -1222,7 +1225,7 @@ const where = (s: Study) => {
       .oz-wlhead { display: flex; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid var(--line); color: var(--dim); font: 9.5px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
       .oz-rows { margin: 0; padding: 0; list-style: none; }
 
-      .oz-row { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 14px; align-items: start; padding: 12px 20px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: background .15s; }
+      .oz-row { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 14px; align-items: start; padding: 12px 20px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: background .15s; }
       .oz-row:hover { background: #0f0f0f; }
       .oz-row[aria-current="true"] { background: var(--panel-2); }
       .oz-row:focus-visible { outline: 1px solid var(--amber); outline-offset: -1px; }
@@ -1232,9 +1235,13 @@ const where = (s: Study) => {
       .oz-row[aria-current="true"] .oz-thumb { box-shadow: 0 0 0 1px var(--amber); }
       .oz-rowtext { display: flex; min-width: 0; flex-direction: column; gap: 3px; padding-top: 1px; }
       .oz-place { overflow: hidden; font-size: 15.5px; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
+      .oz-rowtext .oz-place { padding-right: 54px; }
       .oz-sub { overflow: hidden; color: var(--mute); font: 10.5px/1.45 var(--mono); text-overflow: ellipsis; white-space: nowrap; }
-      .oz-region { color: var(--dim); text-transform: uppercase; letter-spacing: .04em; }
-      .oz-status { padding-top: 3px; font: 9.5px var(--mono); letter-spacing: .1em; }
+      .oz-row-dates { display: flex; gap: 7px; min-width: 0; overflow: visible; text-overflow: clip; }
+      .oz-row-date { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .oz-row-count { flex: 0 0 auto; white-space: nowrap; }
+      .oz-region { display: -webkit-box; overflow: hidden; color: var(--dim); line-height: 1.35; text-overflow: clip; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+      .oz-status { position: absolute; top: 12px; right: 20px; padding-top: 3px; font: 9.5px var(--mono); letter-spacing: .1em; }
       [data-status="FINAL"] { color: var(--ink); }
       [data-status="PRELIM"] { color: var(--amber); }
       [data-status="PENDING"] { color: var(--dim); }
@@ -1276,7 +1283,7 @@ const where = (s: Study) => {
       .oz-cell.is-empty::after { position: absolute; inset: 0; display: grid; place-items: center; color: var(--dim); font: 10px var(--mono); letter-spacing: .14em; content: "END OF STACK"; }
       .oz-cell-label { position: absolute; bottom: 8px; left: 10px; color: rgb(235 233 228 / 80%); font: 10px var(--mono); text-shadow: 0 1px 2px #000; }
 
-      .oz-ov { position: absolute; z-index: 2; max-width: 46%; color: rgb(235 233 228 / 88%); font: 10.5px/1.55 var(--mono); letter-spacing: .04em; text-shadow: 0 0 2px #000, 0 1px 3px rgb(0 0 0 / 90%); pointer-events: none; transition: opacity .2s; white-space: pre; }
+      .oz-ov { position: absolute; z-index: 2; box-sizing: border-box; max-width: calc(50% - 48px); overflow: hidden; color: rgb(235 233 228 / 88%); font: 10.5px/1.55 var(--mono); letter-spacing: .04em; text-shadow: 0 0 2px #000, 0 1px 3px rgb(0 0 0 / 90%); pointer-events: none; transition: opacity .2s; white-space: pre; }
       .oz-ov div { overflow: hidden; text-overflow: ellipsis; }
       .oz-ov-tl { top: 12px; left: 16px; }
       .oz-ov-tr { top: 12px; right: 40px; text-align: right; }
@@ -1304,13 +1311,14 @@ const where = (s: Study) => {
 
       .oz-series { display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px; border-top: 1px solid var(--line); background: var(--bg); scrollbar-width: none; }
       .oz-series::-webkit-scrollbar { display: none; }
-      .oz-se { display: flex; flex: 0 0 auto; flex-direction: column; gap: 5px; width: 104px; min-width: 0; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+      .oz-se { display: flex; flex: 0 0 auto; flex-direction: column; gap: 5px; width: max-content; min-width: 104px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
       .oz-se img { display: block; width: 104px; height: 58px; object-fit: cover; opacity: .6; outline: 1px solid transparent; outline-offset: 0; transition: opacity .15s; }
       .oz-se:hover img, .oz-se.is-active img { opacity: 1; }
       .oz-se.is-active img { outline-color: var(--amber); }
-      .oz-se-cap { display: flex; flex-direction: column; gap: 1px; min-width: 0; color: var(--mute); font: 9.5px/1.35 var(--mono); letter-spacing: .04em; white-space: nowrap; }
+      .oz-se-cap { display: flex; width: max-content; flex-direction: column; gap: 1px; min-width: 0; color: var(--mute); font: 9.5px/1.35 var(--mono); letter-spacing: .04em; white-space: nowrap; }
       .oz-se-cap > * { overflow: hidden; text-overflow: ellipsis; }
-      .oz-se-cap b { color: var(--ink); font-weight: 500; }
+      .oz-se-cap b { overflow: visible; color: var(--ink); font-weight: 500; text-overflow: clip; }
+      .oz-se-cap > span { max-width: 180px; }
       .oz-se.is-active .oz-se-cap b { color: var(--amber); }
       .oz-se:focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; }
 
@@ -1344,13 +1352,17 @@ const where = (s: Study) => {
         .oz-row::before, .oz-row::after { position: absolute; z-index: 1; right: 0; left: 0; height: 38%; content: ""; pointer-events: none; }
         .oz-row::before { top: 0; background: linear-gradient(rgb(0 0 0 / 55%), transparent); }
         .oz-row::after { bottom: 0; background: linear-gradient(transparent, rgb(0 0 0 / 55%)); }
-        .oz-rowtext, .oz-row > .oz-status { display: none; }
+        .oz-rowtext { position: absolute; z-index: 2; right: 14px; bottom: 12px; left: 14px; display: flex; gap: 4px; padding-top: 0; }
+        .oz-rowtext .oz-place { color: #fff; font-size: 18px; line-height: 1.15; }
+        .oz-rowtext .oz-sub { color: rgb(240 238 233 / 92%); }
+        .oz-rowtext .oz-region { font-size: 10px; line-height: 1.35; }
+        .oz-row > .oz-status, .oz-card-ov.oz-card-tl, .oz-card-ov.oz-card-bl { display: none; }
+        .oz-rowtext .oz-place { padding-right: 0; }
         .oz-card-ov { position: absolute; z-index: 2; display: block; color: rgb(240 238 233 / 92%); font: 10px/1.5 var(--mono); letter-spacing: .05em; text-shadow: 0 1px 2px rgb(0 0 0 / 80%); text-transform: uppercase; }
-        .oz-card-ov b { color: #fff; font: 500 19px/1.15 var(--sans); letter-spacing: -.01em; text-transform: none; }
-        .oz-card-tl { top: 12px; left: 14px; max-width: 62%; }
         .oz-card-tr { top: 14px; right: 14px; text-align: right; }
-        .oz-card-bl { bottom: 12px; left: 14px; }
-        .oz-card-br { bottom: 12px; right: 14px; }
+        .oz-card-br { top: 50px; right: 14px; bottom: auto; }
+
+
 
 
         .oz-reader { position: fixed; z-index: 20; inset: 0; display: none; grid-template-rows: calc(48px + env(safe-area-inset-top)) 44px minmax(0, 1fr) calc(92px + env(safe-area-inset-bottom)); }
@@ -1368,7 +1380,7 @@ const where = (s: Study) => {
         .oz-review { gap: 4px; padding: 0 6px; }
         .oz-review button { padding: 0 6px; font-size: 9px; }
         .oz-review [data-review-saved] { font-size: 8px; }
-        .oz-ov { font-size: 9.5px; max-width: 58%; }
+        .oz-ov { font-size: 9.5px; }
         .oz-ov-tl { top: 10px; left: 12px; }
         .oz-ov-tr { top: 10px; right: 34px; }
         .oz-ov-bl { bottom: 10px; left: 12px; }
@@ -1376,7 +1388,7 @@ const where = (s: Study) => {
         .oz-stackbar { top: 92px; bottom: 92px; right: 2px; }
         .oz-hint { bottom: 72px; }
         .oz-series { padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
-        .oz-se { width: 84px; }
+        .oz-se { width: max-content; min-width: 84px; }
         .oz-se img { width: 84px; height: 48px; }
       }
       @media (prefers-reduced-motion: reduce) {

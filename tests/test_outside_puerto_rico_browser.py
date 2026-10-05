@@ -72,11 +72,19 @@ class PuertoRicoCompiledBrowserAcceptanceTests(unittest.TestCase):
         self.assertEqual(painted, PR_SOURCES)
         self.assertEqual(len(painted), 25)
 
-        # The old default and ordinal routes keep their original, immutable source targets.
-        for route, expected in ((f"#{OLD_ID}", "C887"), (f"#{OLD_ID}/1", "C887"), (f"#{OLD_ID}/2", "C894")):
+        # Explicit /N keeps the historical source; a valid bare alias resolves to its target study's first SE1.
+        old_alias = payload["aliases"][OLD_ID]
+        alias_targets = old_alias.get("targets", [])
+        default_target = old_alias.get("defaultTarget") if "defaultTarget" in old_alias else next((row for row in alias_targets if row is not None), None) if isinstance(alias_targets, list) else None
+        target_study = next((study for study in payload["studies"] if isinstance(default_target, dict) and study["id"] == default_target.get("studyId")), None)
+        target_index = default_target.get("index") if isinstance(default_target, dict) else None
+        valid_default = target_study and isinstance(target_index, int) and not isinstance(target_index, bool) and 0 <= target_index < len(target_study["images"])
+        first_se1 = next((image["src"] for image in target_study["images"] if image.get("se") == 1), None) if valid_default else None
+        self.assertIsNotNone(first_se1)
+        for route, expected in ((f"#{OLD_ID}", first_se1), (f"#{OLD_ID}/1", "/outside/assets/owner-review/core-trips/C887"), (f"#{OLD_ID}/2", "/outside/assets/owner-review/core-trips/C894")):
             page.goto(urljoin(BASE_URL, route), wait_until="domcontentloaded")
-            result = self.wait_for_painted_source(page, f"/outside/assets/owner-review/core-trips/{expected}")
-            self.assertTrue(result["want"].startswith(f"/outside/assets/owner-review/core-trips/{expected}-"))
+            result = self.wait_for_painted_source(page, expected)
+            self.assertEqual(re.sub(r"-(?:s|m|l)\.webp$", "", result["want"]), expected, route)
         page.goto(urljoin(BASE_URL, "#puerto-rico-2025-october/1"), wait_until="domcontentloaded")
         historical = next(study for study in SOURCE["studies"] if study["id"] == "puerto-rico-2025-october")
         self.assertTrue(self.wait_for_painted_source(page, historical["images"][0]["src"])["want"].startswith(historical["images"][0]["src"]))

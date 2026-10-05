@@ -20,25 +20,40 @@ def target_source(data, target):
 
 def route_bindings(data, route_id):
     studies = {row["id"]: row for row in data["studies"]}
+
+    def first_se1(study):
+        return next((image["src"] for image in study["images"] if image.get("se") == 1), None) if study else None
+
     study = studies.get(route_id)
     if study is not None:
         targets = [image["src"] for image in study["images"]]
-        return {"default": targets[0] if targets else None, "targets": targets}
+        return {"default": first_se1(study), "targets": targets}
     alias = data["aliases"].get(route_id)
     if alias is None:
         return None
     if isinstance(alias.get("targets"), list):
         targets = [target_source(data, target) for target in alias["targets"]]
-        default = alias.get("defaultTarget") if "defaultTarget" in alias else next((target for target in alias["targets"] if target is not None), None)
-        return {"default": target_source(data, default), "targets": targets}
+        default_target = alias.get("defaultTarget") if "defaultTarget" in alias else next((target for target in alias["targets"] if target is not None), None)
+        valid_default = target_source(data, default_target) is not None
+        target_study = studies.get(default_target.get("studyId")) if isinstance(default_target, dict) else None
+        return {"default": first_se1(target_study) if valid_default else None, "targets": targets}
     study = studies.get(alias.get("studyId"))
     indices = alias.get("indices", [])
     targets = [study["images"][index]["src"] if study and isinstance(index, int) and not isinstance(index, bool) and 0 <= index < len(study["images"]) else None for index in indices]
     default_index = alias.get("defaultIndex")
     if default_index is None:
         default_index = next((index for index in indices if isinstance(index, int) and not isinstance(index, bool) and index >= 0), None)
-    default = study["images"][default_index]["src"] if study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(study["images"]) else None
-    return {"default": default, "targets": targets}
+    valid_default = study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(study["images"])
+    return {"default": first_se1(study) if valid_default else None, "targets": targets}
+
+
+def first_se1_for_source(data, source):
+    if source is None:
+        return None
+    for study in data["studies"]:
+        if any(image["src"] == source for image in study["images"]):
+            return next((image["src"] for image in study["images"] if image.get("se") == 1), None)
+    return None
 
 
 class OwnerPhotoRemovalContractTests(unittest.TestCase):
@@ -71,12 +86,12 @@ class OwnerPhotoRemovalContractTests(unittest.TestCase):
                 self.assertIn(new_id, studies)
                 self.assertEqual([image["src"] for image in studies[new_id]["images"]], retained)
                 self.assertIn(old_id, DATA["aliases"])
-                expected = {"default": before["default"] if before["default"] not in flagged else None,
+                expected = {"default": first_se1_for_source(DATA, before["default"]) if before["default"] not in flagged else None,
                             "targets": [source if source not in flagged else None for source in before["targets"]]}
                 self.assertEqual(route_bindings(DATA, old_id), expected)
         for alias_id, before in OWNER_FLAGS["before_alias_bindings"].items():
             with self.subTest(alias=alias_id):
-                expected = {"default": before["default"] if before["default"] not in flagged else None,
+                expected = {"default": first_se1_for_source(DATA, before["default"]) if before["default"] not in flagged else None,
                             "targets": [source if source not in flagged else None for source in before["targets"]]}
                 self.assertEqual(route_bindings(DATA, alias_id), expected)
 
@@ -88,12 +103,12 @@ class OwnerPhotoRemovalContractTests(unittest.TestCase):
                 before = LATEST_FLAGS["before_canonical_bindings"][old_id]
                 self.assertEqual([image["src"] for image in studies[new_id]["images"]],
                                  [source for source in before["targets"] if source not in flagged])
-                expected = {"default": before["default"] if before["default"] not in flagged else None,
+                expected = {"default": first_se1_for_source(DATA, before["default"]) if before["default"] not in flagged else None,
                             "targets": [source if source not in flagged else None for source in before["targets"]]}
                 self.assertEqual(route_bindings(DATA, old_id), expected)
         for alias_id, before in LATEST_FLAGS["before_alias_bindings"].items():
             with self.subTest(alias=alias_id):
-                expected = {"default": before["default"] if before["default"] not in flagged else None,
+                expected = {"default": first_se1_for_source(DATA, before["default"]) if before["default"] not in flagged else None,
                             "targets": [source if source not in flagged else None for source in before["targets"]]}
                 self.assertEqual(route_bindings(DATA, alias_id), expected)
 
