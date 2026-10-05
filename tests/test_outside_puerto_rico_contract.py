@@ -57,15 +57,24 @@ class PuertoRicoOwnerReviewContractTests(unittest.TestCase):
             self.assertEqual([route_source(self.data, f"#{alias_id}/{i}") for i in (1, 2)],
                              ["/outside/assets/owner-review/core-trips/C887", "/outside/assets/owner-review/core-trips/C894"])
 
-    def test_only_the_new_puerto_rico_canonical_is_the_recent_worklist_exception(self):
+    def test_owner_hidden_studies_are_excluded_from_the_recent_worklist_only(self):
         page = PAGE_PATH.read_text()
-        include_match = re.search(r"includeStudyIds:\s*\[([^]]*)\]", page)
-        self.assertIsNotNone(include_match)
-        include_ids = re.findall(r"['\"]([^'\"]+)['\"]", include_match.group(1))
+
+        def listed_ids(field: str) -> list:
+            match = re.search(rf"{field}:\s*\[([^]]*)\]", page)
+            return re.findall(r"['\"]([^'\"]+)['\"]", match.group(1)) if match else []
+
+        exclude_ids = listed_ids("excludeStudyIds")
+        self.assertEqual(exclude_ids, ["puerto-rico-2025-june-photos", "puerto-rico-2025-october", "georgia-2025-october"])
+        include_ids = listed_ids("includeStudyIds")
         self.assertEqual(include_ids, [PR_ID])
         visible = [study for study in self.data["studies"]
-                   if study["id"] in include_ids or (study.get("date") and study["date"] >= "2025-10-01")]
-        self.assertEqual((len(visible), sum(len(study["images"]) for study in visible)), (9, 313))
+                   if study["id"] not in exclude_ids
+                   and (study["id"] in include_ids or (study.get("date") and study["date"] >= "2025-10-01"))]
+        self.assertEqual((len(visible), sum(len(study["images"]) for study in visible)), (6, 283))
+        # Hiding is display-level: every hidden study keeps its own records, routes and photos.
+        for study_id, photos in (("puerto-rico-2025-june-photos", 25), ("puerto-rico-2025-october", 4), ("georgia-2025-october", 1)):
+            self.assertEqual(len(self.studies[study_id]["images"]), photos)
 
 
 if __name__ == "__main__":

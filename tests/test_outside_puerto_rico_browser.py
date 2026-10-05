@@ -56,10 +56,12 @@ class PuertoRicoCompiledBrowserAcceptanceTests(unittest.TestCase):
         self.assertEqual((len(payload["studies"]), sum(len(study["images"]) for study in payload["studies"])), (21, 464))
         visible = page.locator(".oz-rows [data-study]")
         visible_ids = [(row.get_attribute("href") or "").lstrip("#") for row in visible.all()]
-        self.assertIn(PR_ID, visible_ids)
-        self.assertEqual((len(visible_ids), sum(len(study["images"]) for study in SOURCE["studies"] if study["id"] in visible_ids)), (9, 313))
-        self.assertIn("9 studies", page.locator(".oz-topmeta").inner_text().lower())
-        self.assertIn("313 images", page.locator(".oz-topmeta").inner_text().lower())
+        self.assertEqual((len(visible_ids), sum(len(study["images"]) for study in SOURCE["studies"] if study["id"] in visible_ids)), (6, 283))
+        self.assertNotIn(PR_ID, visible_ids)
+        self.assertNotIn("puerto-rico-2025-october", visible_ids)
+        self.assertNotIn("georgia-2025-october", visible_ids)
+        self.assertIn("6 studies", page.locator(".oz-topmeta").inner_text().lower())
+        self.assertIn("283 images", page.locator(".oz-topmeta").inner_text().lower())
 
         painted = []
         for ordinal, image in enumerate(PR["images"], 1):
