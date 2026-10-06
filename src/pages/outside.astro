@@ -3,11 +3,11 @@ export const prerender = true;
 import "../styles/global.css";
 import data from "@/data/outside-studies.json";
 import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
-import { getOutsideFirstImageIndex, getOutsideStudyCover, getOutsideStudyLocation } from "../utils/outside-place.js";
+import { getOutsideFirstImageIndex, getOutsideStudyAreaSummary, getOutsideStudyCover } from "../utils/outside-place.js";
 
-type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
-type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
+type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
 type RouteTarget = { studyId: string; index: number };
 type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
 type SourceData = { studies?: Study[]; aliases?: Record<string, Alias> };
@@ -100,10 +100,10 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
                   <span class="oz-rowtext">
                     <span class="oz-place">{s.place}</span>
                     <span class="oz-sub oz-row-dates"><span class="oz-row-date">{rowDateLabel(s)}</span><span class="oz-row-count">{s.images.length} IM</span></span>
-                    <span class="oz-sub oz-region">{getOutsideStudyLocation(s)}</span>
+                    <span class="oz-sub oz-region">{getOutsideStudyAreaSummary(s)}</span>
                   </span>
                   <span class="oz-status" data-status={s.status}>{s.status}</span>
-                  <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{getOutsideStudyLocation(s)}</span>
+                  <span class="oz-card-ov oz-card-tl" aria-hidden="true"><b>{s.place}</b><br />{getOutsideStudyAreaSummary(s)}</span>
                   <span class="oz-card-ov oz-card-tr" aria-hidden="true">XC · {pad(recentIdx + 1)}/{pad(recentStudies.length)}<br />{s.images.length} IM · {s.series.length} SE</span>
                   <span class="oz-card-ov oz-card-bl" aria-hidden="true">{dateLabel(s)}</span>
                   <span class="oz-card-ov oz-card-br" aria-hidden="true"><span data-status={s.status}>{s.status}</span></span>
@@ -196,12 +196,12 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
     <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases, recentStudyIds: recentStudies.map((s) => s.id) })}></script>
 
     <script>
-      import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
+      import { formatOutsideDateRange, formatOutsideSeriesDate } from "../utils/outside-date.js";
       import { formatOutsideTz } from "../utils/outside-tz.js";
-      import { getOutsideFirstImageIndex, isOutsideTransitImage, uniqueOutsidePlaces } from "../utils/outside-place.js";
-      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+      import { getOutsideFirstImageIndex, getOutsideSeriesArea, isOutsideTransitImage } from "../utils/outside-place.js";
+      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place?: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
-      type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
+      type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
       type RouteTarget = { studyId: string; index: number };
       type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
 
@@ -544,15 +544,13 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
             const displayNumber = seriesDisplayNumber(k, list);
             const cover = Number.isInteger(s.key) && st.images[s.key!] ? s.key! : clamp(s.start, 0, st.images.length - 1);
             const chapterImages = st.images.slice(s.start, s.start + s.count);
-            const chapterPlaces = uniqueOutsidePlaces(chapterImages.filter((img) => !isOutsideTransitImage(img)));
-            const transitPlaces = uniqueOutsidePlaces(chapterImages.filter(isOutsideTransitImage));
-            const chapterDate = s.date ? formatOutsideCompactDateRange(s.date, s.dateEnd) : s.time;
-            const chapterName = displayNumber === 0
-              ? `Scout${transitPlaces.length ? ` · ${transitPlaces.join(", ")}` : ""}`
-              : chapterPlaces.join(" · ") || st.images[cover]?.place || "Location unconfirmed";
+            const chapterArea = getOutsideSeriesArea(chapterImages);
+            const chapterDate = formatOutsideSeriesDate(s.date || chapterImages[0]?.d || "");
+            const chapterName = displayNumber === 0 ? "Scout" : chapterArea;
+            const seriesHeading = chapterDate ? `SE ${displayNumber} · ${chapterDate}` : `SE ${displayNumber}`;
             b.dataset.start = String(s.start);
             b.dataset.key = String(cover);
-            b.setAttribute("aria-label", `Series ${displayNumber}, ${chapterName}, ${chapterDate}, ${s.count} images, cover image ${cover + 1}`);
+            b.setAttribute("aria-label", `Series ${displayNumber}, ${chapterDate}, ${chapterName}, ${s.count} images, cover image ${cover + 1}`);
             const im = document.createElement("img");
             im.src = thumbUrl(st.images[cover] ?? st.images[s.start] ?? st.images[0]);
             im.alt = "";
@@ -561,9 +559,9 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
             const cap = document.createElement("span");
             cap.className = "oz-se-cap";
             const name = document.createElement("b");
-            name.textContent = `SE ${displayNumber} · ${chapterName}`;
+            name.textContent = seriesHeading;
             const detail = document.createElement("span");
-            detail.textContent = chapterDate;
+            detail.textContent = chapterName;
             cap.append(name, detail);
             b.append(im, cap);
             b.addEventListener("click", () => { cancelPendingTap(); touch(); stopCine(); state.i = clamp(s.start, 0, st.images.length - 1); render(); });
@@ -1312,13 +1310,13 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
 
       .oz-series { display: flex; gap: 8px; overflow-x: auto; padding: 10px 16px; border-top: 1px solid var(--line); background: var(--bg); scrollbar-width: none; }
       .oz-series::-webkit-scrollbar { display: none; }
-      .oz-se { display: flex; flex: 0 0 auto; flex-direction: column; gap: 5px; width: max-content; min-width: 104px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+      .oz-se { display: flex; flex: 0 0 104px; flex-direction: column; gap: 5px; width: 104px; min-width: 0; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
       .oz-se img { display: block; width: 104px; height: 58px; object-fit: cover; opacity: .6; outline: 1px solid transparent; outline-offset: 0; transition: opacity .15s; }
       .oz-se:hover img, .oz-se.is-active img { opacity: 1; }
       .oz-se.is-active img { outline-color: var(--amber); }
-      .oz-se-cap { display: flex; width: max-content; flex-direction: column; gap: 1px; min-width: 0; color: var(--mute); font: 9.5px/1.35 var(--mono); letter-spacing: .04em; white-space: nowrap; }
+      .oz-se-cap { display: flex; width: 100%; flex-direction: column; gap: 1px; min-width: 0; color: var(--mute); font: 9.5px/1.35 var(--mono); letter-spacing: .04em; white-space: nowrap; }
       .oz-se-cap > * { overflow: hidden; text-overflow: ellipsis; }
-      .oz-se-cap b { overflow: visible; color: var(--ink); font-weight: 500; text-overflow: clip; }
+      .oz-se-cap b { overflow: hidden; color: var(--ink); font-size: 9px; font-weight: 500; letter-spacing: 0; text-overflow: clip; }
       .oz-se-cap > span { max-width: 180px; }
       .oz-se.is-active .oz-se-cap b { color: var(--amber); }
       .oz-se:focus-visible { outline: 1px solid var(--amber); outline-offset: 3px; }
@@ -1389,7 +1387,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         .oz-stackbar { top: 92px; bottom: 92px; right: 2px; }
         .oz-hint { bottom: 72px; }
         .oz-series { padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
-        .oz-se { width: max-content; min-width: 84px; }
+        .oz-se { flex-basis: 84px; width: 84px; min-width: 0; }
         .oz-se img { width: 84px; height: 48px; }
       }
       @media (prefers-reduced-motion: reduce) {

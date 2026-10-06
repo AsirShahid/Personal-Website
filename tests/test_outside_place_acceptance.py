@@ -1,7 +1,8 @@
-"""Real-payload browser acceptance for the Outside Studies place/series release.
+"""Real-payload browser acceptance for the Outside Studies area/series release.
 
 This test never rewrites the page payload or intercepts application data. It reads
 source data for an independent oracle and exercises the compiled/served page as-is.
+Image overlays remain place-based; worklist and series grouping are area-based.
 """
 from __future__ import annotations
 
@@ -36,22 +37,43 @@ TARGET_PREFIXES = {
     "montreal": "montreal-november-2025",
     "new_zealand": "new-zealand-2026-july",
 }
-EXPECTED_ORDINARY_PLACES = {
-    "pakistan": ["Karachi", "Murree", "Nathia Gali", "Islamabad", "Lahore"],
-    "australia": ["Busselton", "Dunsborough", "Yallingup", "Rottnest Island", "Margaret River", "Augusta", "Hamelin Bay", "Perth"],
+EXPECTED_ORDINARY_AREAS = {
+    "pakistan": ["Karachi", "Islamabad", "Murree", "Lahore"],
+    "australia": ["South West", "Rottnest Island", "Perth"],
     "galapagos": ["Santa Cruz", "Isabela", "San Cristóbal"],
     "southwest": ["Joshua Tree", "Grand Canyon", "Zion", "Hoover Dam"],
     "montreal": ["Montréal"],
-    "new_zealand": ["Auckland", "Waiotapu", "Rotorua"],
-}
-USER_LISTED_PLACES = {
-    "pakistan": ["Karachi", "Islamabad", "Murree", "Lahore"],
-    "australia": ["Busselton", "Fremantle", "Rottnest Island", "Perth"],
     "new_zealand": ["Auckland", "Rotorua"],
 }
-EXPECTED_TRANSIT_PLACES = {
-    "pakistan": ["Rome", "Albania"],
+EXPECTED_TRANSIT_AREAS = {
+    "pakistan": ["Rome", "Tirana"],
     "australia": ["Bangkok"],
+}
+EXPECTED_TRANSIT_IMAGE_PLACES = {
+    "pakistan": ["Rome", "Tirana"],
+    "australia": ["Bangkok"],
+}
+EXPECTED_AREA_ORDER = {
+    "pakistan": ["Rome", "Tirana", "Karachi", "Islamabad", "Murree", "Lahore"],
+    "australia": ["Bangkok", "South West", "Rottnest Island", "Perth"],
+    "galapagos": ["Santa Cruz", "Isabela", "San Cristóbal"],
+    "southwest": ["Joshua Tree", "Las Vegas", "Grand Canyon", "Zion", "Hoover Dam"],
+    "montreal": ["Montréal"],
+    "new_zealand": ["Auckland", "Rotorua"],
+}
+USER_LISTED_AREAS = {
+    "pakistan": ["Karachi", "Islamabad", "Murree", "Lahore"],
+    "australia": ["South West", "Rottnest Island", "Perth"],
+    "new_zealand": ["Auckland", "Rotorua"],
+}
+EXPECTED_AREA_BY_PLACE = {
+    "pakistan": {"Nathia Gali": "Murree", "Albania": "Tirana"},
+    "australia": {
+        "Busselton": "South West", "Dunsborough": "South West", "Yallingup": "South West",
+        "Margaret River": "South West", "Augusta": "South West", "Hamelin Bay": "South West",
+        "Fremantle": "Perth",
+    },
+    "new_zealand": {"Waiotapu": "Rotorua"},
 }
 BASELINE_HIDDEN_STUDY_IDS = {
     "puerto-rico-2025-june-photos",
@@ -81,6 +103,16 @@ def compact_date(start: str | None, end: str | None = None) -> str:
     return f"{short(first)}, {first.year} – {short(last)}, {last.year}"
 
 
+def compact_strip_date(value: str | None) -> str:
+    if not value:
+        return ""
+    try:
+        parsed = date.fromisoformat(value)
+    except (TypeError, ValueError):
+        return value
+    return f"{MONTHS[parsed.month - 1]} {parsed.day}"
+
+
 def unique(values):
     return list(dict.fromkeys(value for value in values if isinstance(value, str) and value.strip()))
 
@@ -93,20 +125,21 @@ def first_se_index(study: dict, number: int) -> int | None:
     return next((i for i, image in enumerate(study.get("images", [])) if image.get("se") == number), None)
 
 
-def ordinary_places(study: dict) -> list[str]:
-    return unique(image.get("place") for image in study.get("images", []) if not transit(image))
+def ordinary_areas(study: dict) -> list[str]:
+    present = {image.get("area") for image in study.get("images", []) if not transit(image)}
+    return [area for area in study.get("areaOrder", []) if area in present]
 
 
-def transit_places(study: dict) -> list[str]:
-    return unique(image.get("place") for image in study.get("images", []) if transit(image))
+def transit_areas(study: dict) -> list[str]:
+    return unique(image.get("area") for image in study.get("images", []) if transit(image))
 
 
 def location_line(study: dict) -> str:
-    places = ordinary_places(study)
-    travels = transit_places(study)
-    if len(places) == 1 and places[0] == study.get("place") and study.get("country"):
-        places = [study["country"]]
-    text = " · ".join(places) if places else "Location unconfirmed"
+    areas = ordinary_areas(study)
+    travels = transit_areas(study)
+    if len(areas) == 1 and areas[0] == study.get("place") and study.get("country"):
+        areas = [study["country"]]
+    text = " · ".join(areas) if areas else "Location unconfirmed"
     if travels:
         text += " · via " + ", ".join(travels)
     return text
@@ -173,12 +206,20 @@ def source_semantic_issues(data: dict) -> dict:
                 issues.append({"study": sid, "image_index": index, "src": image.get("src"), "fields": gps_fields, "kind": "private-gps-provenance-in-public-data"})
             if not isinstance(image.get("place"), str) or not image["place"].strip():
                 issues.append({"study": sid, "image_index": index, "src": image.get("src"), "kind": "missing-image-place"})
+            if not isinstance(image.get("area"), str) or not image["area"].strip():
+                issues.append({"study": sid, "image_index": index, "src": image.get("src"), "kind": "missing-image-area"})
             if type(image.get("transit")) is not bool:
                 issues.append({"study": sid, "image_index": index, "src": image.get("src"), "kind": "transit-not-boolean"})
             if not isinstance(image.get("se"), int) or isinstance(image.get("se"), bool):
                 issues.append({"study": sid, "image_index": index, "src": image.get("src"), "kind": "missing-series-display-number"})
             elif type(image.get("transit")) is bool and image["transit"] != (image["se"] == 0):
                 issues.append({"study": sid, "image_index": index, "src": image.get("src"), "transit": image.get("transit"), "se": image.get("se"), "kind": "transit-flag-series-disagreement"})
+        area_order = study.get("areaOrder")
+        ordinary_image_areas = unique(image.get("area") for image in images if not transit(image))
+        if not isinstance(area_order, list) or any(not isinstance(area, str) or not area.strip() for area in area_order):
+            issues.append({"study": sid, "areaOrder": area_order, "kind": "missing-explicit-area-order"})
+        elif len(area_order) != len(set(area_order)) or set(area_order) != set(study.get("areaMap", {}).values()):
+            issues.append({"study": sid, "areaOrder": area_order, "ordinary_areas": ordinary_image_areas, "kind": "area-order-coverage-or-duplicate-error"})
         expected_start = 0
         displays = []
         transit_rows = []
@@ -205,10 +246,10 @@ def source_semantic_issues(data: dict) -> dict:
             for image in chunk:
                 if display != image.get("se"):
                     issues.append({"study": sid, "src": image.get("src"), "series_display": display, "image_se": image.get("se"), "kind": "image-series-mismatch"})
-            places = unique(image.get("place") for image in chunk)
+            areas = unique(image.get("area") for image in chunk)
             ordinary = [image for image in chunk if not transit(image)]
-            if ordinary and len(places) > 1:
-                issues.append({"study": sid, "series": row, "places": places, "kind": "place-not-uniform-in-ordinary-series"})
+            if ordinary and len(areas) > 1:
+                issues.append({"study": sid, "series": row, "areas": areas, "kind": "area-not-uniform-in-ordinary-series"})
             dates = unique(image.get("d") for image in ordinary)
             if len(dates) > 1:
                 issues.append({"study": sid, "series": row, "dates": dates, "kind": "date-not-uniform-in-ordinary-series"})
@@ -238,13 +279,15 @@ def source_semantic_issues(data: dict) -> dict:
         wanted_numbers = list(range(0 if all_transit else 1, (0 if all_transit else 1) + len(series)))
         if displays != wanted_numbers:
             issues.append({"study": sid, "observed": displays, "expected": wanted_numbers, "kind": "nonconsecutive-series-display-numbers"})
-        # The first non-transit boundary after an image date or place change must
-        # begin a new SE, in the original chronological image ordering.
+        # Each consecutive ordinary DATE+AREA run is one series; no source
+        # reordering or timestamp-derived area ordering is permitted.
         ordinary = [(i, image) for i, image in enumerate(images) if not transit(image)]
         for (previous_index, previous), (current_index, current) in zip(ordinary, ordinary[1:]):
-            changed = previous.get("d") != current.get("d") or previous.get("place") != current.get("place")
+            changed = previous.get("d") != current.get("d") or previous.get("area") != current.get("area")
             if changed and previous.get("se") == current.get("se"):
-                issues.append({"study": sid, "srcs": [previous.get("src"), current.get("src")], "kind": "missing-series-boundary-on-date-or-place-change"})
+                issues.append({"study": sid, "srcs": [previous.get("src"), current.get("src")], "kind": "missing-series-boundary-on-date-or-area-change"})
+            if not changed and previous.get("se") != current.get("se"):
+                issues.append({"study": sid, "srcs": [previous.get("src"), current.get("src")], "kind": "nonmaximal-date-area-series-boundary"})
         if ordinary and all(image.get("d") for _, image in ordinary):
             dates = [image.get("d") for _, image in ordinary]
             expected_span = (min(dates), max(dates))
@@ -266,7 +309,9 @@ def make_study_table(data: dict) -> list[dict]:
             series_rows.append({
                 "se": series.get("displayNumber"), "title": series.get("title"),
                 "date": series.get("date"), "dateEnd": series.get("dateEnd"),
-                "image_count": count, "places": unique(image.get("place") for image in chunk),
+                "image_count": count, "areas": unique(image.get("area") for image in chunk),
+                "places": unique(image.get("place") for image in chunk),
+                "transit_areas": unique(image.get("area") for image in chunk if transit(image)),
                 "transit_places": unique(image.get("place") for image in chunk if transit(image)),
                 "source_ids": [image.get("src") for image in chunk],
             })
@@ -274,7 +319,10 @@ def make_study_table(data: dict) -> list[dict]:
             "study_id": study.get("id"), "title": study.get("place"),
             "date": study.get("date"), "dateEnd": study.get("dateEnd"),
             "image_count": len(images), "status": study.get("status"),
-            "ordinary_places": ordinary_places(study), "transit_places": transit_places(study),
+            "area_order": study.get("areaOrder"),
+            "ordinary_areas": ordinary_areas(study), "transit_areas": transit_areas(study),
+            "ordinary_places": unique(image.get("place") for image in images if not transit(image)),
+            "transit_places": unique(image.get("place") for image in images if transit(image)),
             "series": series_rows,
         })
     return rows
@@ -285,7 +333,7 @@ class Evidence:
         self.path = path
         self.path.mkdir(parents=True, exist_ok=True)
         self.report = {
-            "schema": "outside-place-series-real-acceptance-v1",
+            "schema": "outside-area-series-real-acceptance-v1",
             "status": "INCOMPLETE",
             "phase": os.environ.get("OUTSIDE_PHASE", "candidate"),
             "candidate_url": BASE_URL,
@@ -294,7 +342,7 @@ class Evidence:
             "additional_viewport": {"width": 1024, "height": 900},
             "started_utc": datetime.now(timezone.utc).isoformat(),
             "source_path": str(DATA_PATH), "baseline_revision": BASELINE_REV,
-            "checks": [], "screenshots": [], "page_errors": [], "unlisted_place_review": [],
+            "checks": [], "screenshots": [], "page_errors": [], "unlisted_area_review": [],
         }
         self.failures = []
         self.write()
@@ -364,8 +412,8 @@ def _worklist_row_checks(page, study: dict, evidence: Evidence, width: int):
     title = row.locator(".oz-rowtext > .oz-place").inner_text().strip()
     date_text = row.locator(".oz-rowtext > .oz-row-dates > .oz-row-date").inner_text().strip()
     count_text = row.locator(".oz-rowtext > .oz-row-dates > .oz-row-count").inner_text().strip()
-    places = row.locator(".oz-rowtext > .oz-region").inner_text().strip()
-    place_metrics = _row_box(page, f'.oz-row[href="#{sid}"] .oz-region')
+    area_line = row.locator(".oz-rowtext > .oz-region").inner_text().strip()
+    area_metrics = _row_box(page, f'.oz-row[href="#{sid}"] .oz-region')
     row_metrics = _row_box(page, f'.oz-row[href="#{sid}"]')
     date_box = row.locator(".oz-row-date").bounding_box()
     count_box = row.locator(".oz-row-count").bounding_box()
@@ -385,14 +433,17 @@ def _worklist_row_checks(page, study: dict, evidence: Evidence, width: int):
     evidence.check(f"worklist.date-and-count.{width}.{sid}", date_text == expected_date and count_text == f"{len(study['images'])} IM" and boxes_disjoint and date_metrics["scrollWidth"] <= date_metrics["clientWidth"] and count_protected and count_metrics["whiteSpace"] == "nowrap" and count_metrics["scrollWidth"] <= count_metrics["clientWidth"],
                    {"date": date_text, "expected_date": expected_date, "count": count_text, "expected_count": f"{len(study['images'])} IM", "date_and_count_boxes_disjoint": boxes_disjoint,
                     "date_metrics": date_metrics, "count_metrics": count_metrics, "count_below_badge": count_positioned_below_badge})
-    evidence.check(f"worklist.no-horizontal-overflow.{width}.{sid}", row_metrics["scrollWidth"] <= row_metrics["clientWidth"] and place_metrics["scrollWidth"] <= place_metrics["clientWidth"],
-                   {"row": row_metrics, "places": place_metrics})
-    evidence.check(f"worklist.place-two-lines.{width}.{sid}", place_metrics["whiteSpace"] == "normal" and place_metrics["lineClamp"] == "2" and place_metrics["height"] <= place_metrics["lineHeight"] * 2 + 2,
-                   place_metrics)
-    repeated_title = bool(title and title.casefold() in places.casefold())
-    evidence.check(f"worklist.no-title-in-place-line.{width}.{sid}", not repeated_title, {"title": title, "place_line": places})
-    if sid.startswith("montreal-august-2023"):
-        evidence.check(f"worklist.montreal-country.{width}.{sid}", places.startswith("Canada"), {"place_line": places})
+    expected_area_line = location_line(study)
+    evidence.check(f"worklist.area-order-line.{width}.{sid}", area_line == expected_area_line,
+                   {"actual": area_line, "expected": expected_area_line, "areaOrder": study.get("areaOrder")})
+    evidence.check(f"worklist.no-horizontal-overflow.{width}.{sid}", row_metrics["scrollWidth"] <= row_metrics["clientWidth"] and area_metrics["scrollWidth"] <= area_metrics["clientWidth"],
+                   {"row": row_metrics, "area_line": area_metrics})
+    evidence.check(f"worklist.area-two-lines.{width}.{sid}", area_metrics["whiteSpace"] == "normal" and area_metrics["lineClamp"] == "2" and area_metrics["height"] <= area_metrics["lineHeight"] * 2 + 2,
+                   area_metrics)
+    repeated_title = bool(title and title.casefold() in area_line.casefold())
+    evidence.check(f"worklist.no-title-in-area-line.{width}.{sid}", not repeated_title, {"title": title, "area_line": area_line})
+    if sid.startswith("montreal-august-2023") or sid.startswith("montreal-november-2025"):
+        evidence.check(f"worklist.montreal-country.{width}.{sid}", area_line.startswith("Canada"), {"area_line": area_line})
     image = expected_cover(study)
     thumb = row.locator(".oz-thumb img").get_attribute("src") or ""
     expected_thumb = f"{image['src']}-s.webp" if image else ""
@@ -407,7 +458,7 @@ def _capture_row(page, row, key: str, evidence: Evidence, width: int):
         image = row.locator(".oz-thumb img")
         if image.count():
             selector = f'.oz-row[href="{row.get_attribute("href")}"] .oz-thumb img'
-            page.wait_for_function("""selector => {
+            page.wait_for_function(r"""selector => {
               const img=document.querySelector(selector);
               if(!img || !img.complete || img.naturalWidth<=0 || !img.currentSrc) return false;
               return new URL(img.currentSrc).pathname.replace(/-(s|m|l)\.webp$/, '') === new URL(img.getAttribute('src'),location.href).pathname.replace(/-(s|m|l)\.webp$/, '');
@@ -480,21 +531,24 @@ def _check_series_strip(page, study: dict, evidence: Evidence, key: str, width: 
         images = study.get("images", [])[start:start + count] if isinstance(start, int) and isinstance(count, int) else []
         display = series.get("displayNumber")
         is_scout = display == 0
-        places = unique(image.get("place") for image in images if transit(image)) if is_scout else unique(image.get("place") for image in images if not transit(image))
-        chapter = f"Scout · {', '.join(places)}" if is_scout else " · ".join(places)
-        expected_title = f"SE {display} · {chapter}"
-        expected_date = compact_date(series.get("date", ""), series.get("dateEnd", "")) or series.get("time", "")
+        areas = unique(image.get("area") for image in images if not transit(image))
+        expected_title = f"SE {display} · {compact_strip_date(series.get('date', ''))}"
+        expected_area = "Scout" if is_scout else (areas[0] if len(areas) == 1 else "Location unconfirmed")
         button = page.locator(f'[data-series] [data-se="{index}"]')
         title = button.locator(".oz-se-cap b")
-        date_label = button.locator(".oz-se-cap > span")
+        area_label = button.locator(".oz-se-cap > span")
         actual_title = title.inner_text().strip() if title.count() else ""
-        actual_date = date_label.inner_text().strip() if date_label.count() else ""
-        metrics = title.evaluate("el => ({scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,textOverflow:getComputedStyle(el).textOverflow})") if title.count() else {}
-        evidence.check(f"series.strip-source-place-and-date.{width}.{key}.{display}",
-                       bool(images) and actual_title == expected_title and actual_date == expected_date and metrics.get("scrollWidth", 0) <= metrics.get("clientWidth", -1),
+        actual_area = area_label.inner_text().strip() if area_label.count() else ""
+        metrics = {
+            "first_line": title.evaluate("el => ({scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,textOverflow:getComputedStyle(el).textOverflow})") if title.count() else {},
+            "second_line": area_label.evaluate("el => ({scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,textOverflow:getComputedStyle(el).textOverflow})") if area_label.count() else {},
+        }
+        evidence.check(f"series.strip-date-first-area-second.{width}.{key}.{display}",
+                       bool(images) and actual_title == expected_title and actual_area == expected_area,
                        {"study_id": study.get("id"), "series_index": index, "display_number": display,
-                        "actual_title": actual_title, "expected_title": expected_title, "actual_date": actual_date,
-                        "expected_date": expected_date, "image_places": unique(image.get("place") for image in images), "title_metrics": metrics})
+                        "actual_first_line": actual_title, "expected_first_line": expected_title,
+                        "actual_second_line": actual_area, "expected_second_line": expected_area,
+                        "series_areas": areas, "image_places": unique(image.get("place") for image in images), "metrics": metrics})
 
 
 def _serve_route_cases(page, cases: list[dict]) -> dict:
@@ -601,7 +655,7 @@ def _baseline_routes_for_focus(data: dict, focus: dict[str, dict | None]) -> tup
 def _evaluate_data_requirements(data: dict, focus: dict[str, dict | None], evidence: Evidence):
     semantic = source_semantic_issues(data)
     evidence.report["source_semantics"] = semantic
-    evidence.check("data.all-image-place-transit-se-series-and-count-integrity", semantic["issue_count"] == 0, semantic)
+    evidence.check("data.all-image-area-place-transit-se-series-and-count-integrity", semantic["issue_count"] == 0, semantic)
     evidence.report["study_table"] = make_study_table(data)
     missing_targets = [key for key, study in focus.items() if study is None]
     evidence.check("data.required-study-groups-present", not missing_targets, {"missing_groups": missing_targets})
@@ -614,28 +668,33 @@ def _evaluate_data_requirements(data: dict, focus: dict[str, dict | None], evide
     formats = {name: {"actual": compact_date(start, end), "expected": expected} for name, (start, end, expected) in date_format_cases.items()}
     evidence.check("data.required-compact-date-formats", all(row["actual"] == row["expected"] for row in formats.values()), formats)
 
-    unlisted = []
-    place_ok = True
+    unlisted_areas = []
+    areas_ok = True
     for key, study in focus.items():
         if not study:
             continue
-        expected = EXPECTED_ORDINARY_PLACES[key]
-        observed = ordinary_places(study)
+        observed = ordinary_areas(study)
+        expected = EXPECTED_ORDINARY_AREAS[key]
         if key == "southwest" and "Las Vegas" in observed:
             expected = ["Joshua Tree", "Las Vegas", "Grand Canyon", "Zion", "Hoover Dam"]
-        ordered = iter(observed)
-        missing = [place for place in expected if place not in observed]
-        sequence_ok = not missing and all(any(value == item for value in ordered) for item in expected)
-        if key in EXPECTED_TRANSIT_PLACES:
-            got_transit = transit_places(study)
-            sequence_ok = sequence_ok and got_transit == EXPECTED_TRANSIT_PLACES[key]
+        # These are explicit contract orders, not image timestamps or first-visit order.
+        expected_order = EXPECTED_AREA_ORDER[key]
+        area_order = study.get("areaOrder")
+        sequence_ok = observed == expected and area_order == expected_order
+        if key in EXPECTED_TRANSIT_AREAS:
+            got_transit = transit_areas(study)
+            sequence_ok = sequence_ok and got_transit == EXPECTED_TRANSIT_AREAS[key]
+            overlay_transit_places = unique(image.get("place") for image in study.get("images", []) if transit(image))
+            sequence_ok = sequence_ok and overlay_transit_places == EXPECTED_TRANSIT_IMAGE_PLACES[key]
+            if key == "pakistan":
+                sequence_ok = sequence_ok and "Albania" not in overlay_transit_places
             se1_index = first_se_index(study, 1)
             se0_index = first_se_index(study, 0)
-            first_ordinary = study.get("images", [])[se1_index].get("place") if se1_index is not None else None
-            first_scout = study.get("images", [])[se0_index].get("place") if se0_index is not None else None
-            sequence_ok = sequence_ok and first_ordinary == expected[0] and first_scout == EXPECTED_TRANSIT_PLACES[key][0]
+            first_ordinary = study.get("images", [])[se1_index].get("area") if se1_index is not None else None
+            first_scout = study.get("images", [])[se0_index].get("area") if se0_index is not None else None
+            sequence_ok = sequence_ok and first_ordinary == expected[0] and first_scout == EXPECTED_TRANSIT_AREAS[key][0]
         if key == "southwest":
-            sequence_ok = sequence_ok and bool(study.get("images")) and study["images"][-1].get("place") == "Hoover Dam"
+            sequence_ok = sequence_ok and bool(study.get("images")) and study["images"][-1].get("area") == "Hoover Dam"
         if key == "pakistan":
             ordinary_dates = [image.get("d") for image in study["images"] if not transit(image) and image.get("d")]
             expected_span = (min(ordinary_dates), max(ordinary_dates)) if ordinary_dates else (None, None)
@@ -648,31 +707,37 @@ def _evaluate_data_requirements(data: dict, focus: dict[str, dict | None], evide
             ordinary_dates = [image.get("d") for image in study["images"] if not transit(image) and image.get("d")]
             if ordinary_dates:
                 sequence_ok = sequence_ok and (study.get("date"), study.get("dateEnd")) == (min(ordinary_dates), max(ordinary_dates))
-        place_ok = place_ok and sequence_ok
-        known = set(USER_LISTED_PLACES.get(key, expected)) | set(EXPECTED_TRANSIT_PLACES.get(key, []))
+        areas_ok = areas_ok and sequence_ok
+        known_areas = set(expected_order) | set(EXPECTED_TRANSIT_AREAS.get(key, []))
         for image_index, image in enumerate(study.get("images", [])):
+            area = image.get("area")
             place = image.get("place")
+            expected_area = EXPECTED_AREA_BY_PLACE.get(key, {}).get(place, place)
             flagged = any(any(token in str(field).casefold() for token in ("guess", "unlisted", "confirm")) and bool(value)
                           for field, value in image.items())
-            if not place or place not in known or flagged:
-                unlisted.append({
+            if area != expected_area or not area or area not in known_areas or flagged:
+                unlisted_areas.append({
                     "study_id": study.get("id"), "group": key, "image_index": image_index,
-                    "source_id": image.get("src"), "place": place, "date": image.get("d"),
-                    "time": image.get("t"), "se": image.get("se"), "transit": transit(image),
+                    "source_id": image.get("src"), "place": place, "area": area,
+                    "expected_area_from_explicit_place_map": expected_area,
+                    "date": image.get("d"), "time": image.get("t"), "se": image.get("se"),
+                    "transit": transit(image),
                     "evidence": {"source_id": image.get("src"), "capture_date": image.get("d"), "capture_time": image.get("t"),
-                                 "display_place_label": place, "note": "Public payload metadata only; this does not establish GPS/geocoder provenance."},
+                                 "display_place_label": place, "area_label": area,
+                                 "note": "Area is an explicit owner mapping; no GPS or geocoder inference is used."},
                 })
-    evidence.report["unlisted_place_review"] = unlisted
-    evidence.check("data.priority-place-order-and-nontransit-dates", place_ok,
-                   {"focus_places": {key: {"ordinary": ordinary_places(study), "transit": transit_places(study),
-                                            "date": study.get("date"), "dateEnd": study.get("dateEnd")}
-                                     for key, study in focus.items() if study},
-                    "required_order": EXPECTED_ORDINARY_PLACES, "unlisted_review_count": len(unlisted)})
+    evidence.report["unlisted_area_review"] = unlisted_areas
+    evidence.check("data.priority-area-order-and-nontransit-dates", areas_ok,
+                   {"focus_areas": {key: {"ordinary": ordinary_areas(study), "transit": transit_areas(study),
+                                          "areaOrder": study.get("areaOrder"),
+                                          "date": study.get("date"), "dateEnd": study.get("dateEnd")}
+                                    for key, study in focus.items() if study},
+                    "required_order": EXPECTED_AREA_ORDER, "unlisted_area_review_count": len(unlisted_areas)})
 
     montreal = focus.get("montreal")
     evidence.check("data.montreal-country-present-for-worklist", bool(montreal and montreal.get("country") == "Canada" and location_line(montreal) == "Canada"),
                    {"study_id": montreal.get("id") if montreal else None, "country": montreal.get("country") if montreal else None,
-                    "expected_worklist_place_line": "Canada", "derived_place_line": location_line(montreal) if montreal else None})
+                    "expected_worklist_area_line": "Canada", "derived_area_line": location_line(montreal) if montreal else None})
     evidence.write()
 
 
@@ -706,17 +771,16 @@ def _run_overlay_acceptance(page, key: str, study: dict, evidence: Evidence, wid
 
     active_button = page.locator('[data-series] [data-se="0"]')
     cap = active_button.locator(".oz-se-cap b")
-    if key == "pakistan":
-        expected_label = "SE 0 · Scout · Rome, Albania"
-    else:
-        expected_label = "SE 0 · Scout · Bangkok"
+    series = next((item for item in study.get("series", []) if item.get("displayNumber") == 0), {})
+    expected_label = f"SE 0 · {compact_strip_date(series.get('date', ''))}"
+    expected_second_line = "Scout"
     label_text = cap.inner_text().strip() if cap.count() else ""
     label_style = cap.evaluate("el => ({scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,textOverflow:getComputedStyle(el).textOverflow,whiteSpace:getComputedStyle(el).whiteSpace})") if cap.count() else {}
-    series = next((item for item in study.get("series", []) if item.get("displayNumber") == 0), {})
-    series_date_expected = compact_date(series.get("date", ""), series.get("dateEnd", "")) or series.get("time", "")
-    series_date = active_button.locator(".oz-se-cap > span").inner_text().strip() if active_button.count() else ""
-    evidence.check(f"series.scout-complete-title-and-date.{width}.{key}", label_text == expected_label and series_date == series_date_expected and label_style.get("scrollWidth", 0) <= label_style.get("clientWidth", -1),
-                   {"label": label_text, "expected_label": expected_label, "date": series_date, "expected_date": series_date_expected, "title_metrics": label_style})
+    scout_area = active_button.locator(".oz-se-cap > span").inner_text().strip() if active_button.count() else ""
+    evidence.check(f"series.scout-date-first-scout-second.{width}.{key}",
+                   label_text == expected_label and scout_area == expected_second_line and label_style.get("scrollWidth", 0) <= label_style.get("clientWidth", -1),
+                   {"first_line": label_text, "expected_first_line": expected_label,
+                    "second_line": scout_area, "expected_second_line": expected_second_line, "first_line_metrics": label_style})
 
     # PageUp from the first ordinary image must reach the first SE0 route.
     page.keyboard.press("PageUp")
@@ -762,22 +826,23 @@ def _run_overlay_acceptance(page, key: str, study: dict, evidence: Evidence, wid
         evidence.check(f"navigation.wheel-reaches-scout.{width}.{key}", False, {"error": "viewer viewport has no box"})
 
     if key == "australia":
-        rot_index = next((i for i, item in enumerate(study.get("series", [])) if study["images"][item["start"]]["place"] == "Rottnest Island"), None)
+        rot_index = next((i for i, item in enumerate(study.get("series", [])) if study["images"][item["start"]].get("area") == "Rottnest Island"), None)
         rot_series = study["series"][rot_index] if rot_index is not None else None
-        rot_title = f"SE {rot_series['displayNumber']} · Rottnest Island" if rot_series else ""
+        rot_title = f"SE {rot_series['displayNumber']} · {compact_strip_date(rot_series.get('date', ''))}" if rot_series else ""
         rot_button = page.locator(f'[data-series] [data-se="{rot_index}"]')
         rot_images = study.get("images", [])[rot_series.get("start", 0):rot_series.get("start", 0) + rot_series.get("count", 0)] if rot_series else []
         rot_cap = rot_button.locator(".oz-se-cap b")
-        rot_date_label = rot_button.locator(".oz-se-cap > span")
+        rot_area_label = rot_button.locator(".oz-se-cap > span")
         if rot_button.count():
             rot_button.scroll_into_view_if_needed()
         actual_name = rot_cap.inner_text().strip() if rot_cap.count() else ""
-        actual_date = rot_date_label.inner_text().strip() if rot_date_label.count() else ""
+        actual_area = rot_area_label.inner_text().strip() if rot_area_label.count() else ""
         rot_metrics = rot_cap.evaluate("el => ({scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,textOverflow:getComputedStyle(el).textOverflow})") if rot_cap.count() else {}
-        series_date = compact_date(rot_series.get("date", ""), rot_series.get("dateEnd", "")) or rot_series.get("time", "") if rot_series else ""
-        evidence.check(f"series.rottnest-full-title-and-date.{width}", bool(rot_series and rot_images) and rot_images[0].get("place") == "Rottnest Island" and actual_name == rot_title and actual_date == series_date and rot_metrics.get("scrollWidth", 0) <= rot_metrics.get("clientWidth", -1),
-                       {"title": actual_name, "expected": rot_title, "date": actual_date, "expected_date": series_date,
-                        "series_places": unique(image.get("place") for image in rot_images), "title_metrics": rot_metrics})
+        expected_area = "Rottnest Island"
+        evidence.check(f"series.rottnest-date-first-area-second.{width}", bool(rot_series and rot_images) and rot_images[0].get("area") == expected_area and actual_name == rot_title and actual_area == expected_area and rot_metrics.get("scrollWidth", 0) <= rot_metrics.get("clientWidth", -1),
+                       {"first_line": actual_name, "expected_first_line": rot_title, "second_line": actual_area,
+                        "expected_second_line": expected_area, "series_areas": unique(image.get("area") for image in rot_images),
+                        "series_places": unique(image.get("place") for image in rot_images), "first_line_metrics": rot_metrics})
         if width in (375, 1440):
             evidence.screenshot(page, f"{width}/series-australia-se3-rottnest.png", locator=page.locator("[data-series]"))
 
@@ -967,7 +1032,7 @@ def test_outside_place_series_real_data_acceptance():
                         country_ok = actual_country_line == "Canada" and montreal_row.count() == 0
                     evidence.check(f"worklist.montreal-canada-or-remains-hidden.{width}", country_ok,
                                    {"study_id": montreal["id"], "row_present": montreal_row.count() == 1,
-                                    "place_line": actual_country_line, "hidden_by_recent_list": montreal["id"] not in visible_ids})
+                                    "area_line": actual_country_line, "hidden_by_recent_list": montreal["id"] not in visible_ids})
                 context.close()
             except Exception as exc:
                 evidence.failed_exception(f"browser.worklist-viewport.{width}", exc)

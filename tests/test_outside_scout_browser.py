@@ -2,6 +2,7 @@ import json
 import os
 import re
 import unittest
+from datetime import date
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -28,6 +29,12 @@ SCOUTS = [
     {"id": "australia-2026-july-gallery-20261005-quokka", "old_id": "australia-2026-july-photos", "date": "2026-07-06", "end": "2026-07-06", "study_date": "2026-07-07", "study_end": "2026-07-16", "total": 33, "source": "/outside/assets/owner-review/additional-trips/A278", "default_source": "/outside/assets/summer-2026/0404", "place": "Busselton", "transit_place": "Bangkok"},
     {"id": "cruise-2024-december-gallery", "old_id": "cruise-2024-december", "date": "2024-12-17", "end": "2024-12-17", "study_date": "2024-12-15", "study_end": "2024-12-20", "total": 8, "source": "/outside/assets/owner-review/additional-trips/A306", "place": None, "transit_place": "Merritt Island"},
 ]
+MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+
+
+def strip_date(value):
+    parsed = date.fromisoformat(value)
+    return f"{MONTHS[parsed.month - 1]} {parsed.day}"
 
 
 class OutsideScoutBrowserTests(unittest.TestCase):
@@ -102,16 +109,16 @@ class OutsideScoutBrowserTests(unittest.TestCase):
                     for position, chapter in enumerate(chapters):
                         display_number = chapter["displayNumber"]
                         chapter_images = study["images"][chapter["start"]:chapter["start"] + chapter["count"]]
-                        if display_number == 0:
-                            places = list(dict.fromkeys(image["place"] for image in chapter_images if image["transit"] and image.get("place")))
-                            chapter_name = f"Scout · {', '.join(places)}" if places else "Scout"
-                        else:
-                            places = list(dict.fromkeys(image["place"] for image in chapter_images if not image["transit"] and image.get("place")))
-                            chapter_name = " · ".join(places) or "Location unconfirmed"
+                        chapter_areas = list(dict.fromkeys(image.get("area") for image in chapter_images
+                                                          if image.get("area") and not (image.get("transit") or image.get("se") == 0)))
+                        expected_first = f"SE {display_number} · {strip_date(chapter['date'])}"
+                        expected_second = "Scout" if display_number == 0 else (chapter_areas[0] if len(chapter_areas) == 1 else "Location unconfirmed")
                         self.assertEqual(buttons.nth(position).get_attribute("data-se"), str(position))
-                        self.assertEqual(buttons.nth(position).locator(".oz-se-cap b").inner_text().upper(), f"SE {display_number} · {chapter_name}".upper())
-                        aria = buttons.nth(position).get_attribute("aria-label")
-                        self.assertTrue(aria.startswith(f"Series {display_number}, {chapter_name},"), aria)
+                        self.assertEqual(buttons.nth(position).locator(".oz-se-cap b").inner_text(), expected_first)
+                        self.assertEqual(buttons.nth(position).locator(".oz-se-cap > span").inner_text(), expected_second)
+                        aria = buttons.nth(position).get_attribute("aria-label") or ""
+                        self.assertIn(strip_date(chapter["date"]), aria)
+                        self.assertIn(expected_second, aria)
                         self.assertIn(f"{chapter['count']} images", aria)
                     self.assertEqual(buttons.nth(active_position).get_attribute("aria-current"), "true")
                     self.assertIn(f"SE 1/{len(chapters)}", page.locator('[data-ov="tr"]').inner_text())

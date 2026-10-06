@@ -92,7 +92,7 @@ class OutsideContentContractTests(unittest.TestCase):
                     self.assertEqual(display_number, next_display_number)
                     next_display_number += 1
                     self.assertTrue(all(image.get("transit") is False for image in images))
-                    groups = {(image.get("d", ""), image.get("place")) for image in images}
+                    groups = {(image.get("d", ""), image.get("area")) for image in images}
                     self.assertEqual(len(groups), 1)
                     group = next(iter(groups))
                     self.assertNotEqual(group, previous_group, "adjacent same-date/place runs must be coalesced")

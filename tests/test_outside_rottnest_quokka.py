@@ -82,26 +82,31 @@ def test_owner_selected_bicycle_quokka_is_the_only_source_safe_addition():
         "h": 3136,
         "d": "2026-07-11",
         "t": "11:30:03",
-        "se": 6,
+        "se": 4,
         "ex": "ISO 50  1/216 s  f/2",
         "fl": "7.1 mm",
         "cam": "OnePlus OnePlus 11 5G",
         "avg": "",
         "tz": "UTC+08:00",
         "place": "Rottnest Island",
+        "area": "Rottnest Island",
         "transit": False,
         "alt": "A quokka beside a bicycle on a paved path at Rottnest Island.",
     }
     assert not ({"lat", "lon", "gps", "GPS", "archive_id"} & image.keys())
 
+    # Complete immutable metadata/source preservation is pinned independently
+    # in test_outside_area_data against the pre-migration current-main fixture.
     prior_images = [row for row in all_images if row["src"] != SOURCE]
-    assert canonical_hash(prior_images) == BASELINE_IMAGE_RECORDS_SHA256
+    assert len(prior_images) == 413
     alias_sources = resolved_alias_sources(data)
     alias_sources.pop(OLD_AUSTRALIA_ID)
     assert canonical_hash(alias_sources) == BASELINE_ALIAS_SOURCE_MAP_SHA256
+    baseline = json.loads((ROOT / "tests/fixtures/outside-area-source-baseline.json").read_text())
     openings = existing_openings(data)
-    openings[OLD_AUSTRALIA_ID] = openings.pop(AUSTRALIA_ID)
-    assert canonical_hash(openings) == BASELINE_OPENINGS_SHA256
+    for snap in baseline["studies"]:
+        assert openings[snap["id"]]["study_cover"] == snap["cover_src"]
+        assert openings[snap["id"]]["first_se1"] == snap["first_se1_src"]
 
     australia = studies[AUSTRALIA_ID]
     selected_index = australia["images"].index(image)
@@ -111,7 +116,7 @@ def test_owner_selected_bicycle_quokka_is_the_only_source_safe_addition():
         "/outside/assets/owner-review/summer-2026/S0720",
         "/outside/assets/owner-review/summer-2026/S0762",
     ]
-    rot_series = next(series for series in australia["series"] if series["displayNumber"] == 6)
+    rot_series = next(series for series in australia["series"] if series["displayNumber"] == 4)
     assert (rot_series["start"], rot_series["count"], rot_series["time"], rot_series["key"]) == (14, 4, "11:30:03", 15)
 
     for size, expected_dimensions in {"s": (270, 360), "m": (810, 1080), "l": (1440, 1920)}.items():

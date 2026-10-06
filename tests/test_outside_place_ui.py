@@ -27,13 +27,18 @@ def unique(values):
 
 def location_line(study):
     images = study["images"]
-    places = unique(image.get("place") for image in images if not is_transit(image))
-    transit_places = unique(image.get("place") for image in images if is_transit(image))
-    if len(places) == 1 and places[0] == study["place"] and study.get("country"):
-        places = [study["country"]]
-    line = " · ".join(places) if places else "Location unconfirmed"
-    if transit_places:
-        line += " · via " + ", ".join(transit_places)
+    ordinary_areas = {image.get("area") for image in images if not is_transit(image)}
+    transit_areas = {image.get("area") for image in images if is_transit(image)}
+    present = unique(image.get("area") for image in images)
+    configured = study.get("areaOrder", [])
+    area_order = [area for area in configured if area in present] + [area for area in present if area not in configured]
+    areas = [area for area in area_order if area in ordinary_areas]
+    travel_areas = [area for area in area_order if area in transit_areas]
+    if len(areas) == 1 and areas[0] == study["place"] and study.get("country"):
+        areas = [study["country"]]
+    line = " · ".join(areas) if areas else "Location unconfirmed"
+    if travel_areas:
+        line += " · via " + ", ".join(travel_areas)
     return line
 
 
@@ -55,13 +60,22 @@ def compact_date(start, end):
     return f"{fmt(first)}, {first.year} – {fmt(last)}, {last.year}"
 
 
+def strip_date(value):
+    if not value:
+        return ""
+    parsed = date.fromisoformat(value)
+    return f"{MONTHS[parsed.month - 1]} {parsed.day}"
+
+
 def make_transit_fixture():
     payload = copy.deepcopy(DATA)
     for study in payload["studies"]:
         for image in study["images"]:
             image["place"] = study["place"]
+            image["area"] = study["place"]
             image["transit"] = False
             image["se"] = 1
+        study["areaOrder"] = [study["place"]]
     excluded = {"puerto-rico-2025-june-photos", "puerto-rico-2025-october", "georgia-2025-october"}
     include = {"puerto-rico-2025-june-photos"}
     ordered = sorted(payload["studies"], key=lambda study: (study.get("dateEnd") or study.get("date") or "", study.get("date") or ""), reverse=True)
@@ -73,11 +87,12 @@ def make_transit_fixture():
     study = next(item for item in payload["studies"] if item["id"] == recent)
     if len(study["images"]) < 3:
         raise AssertionError("transit browser fixture needs three retained images")
-    study["images"][0].update(place="Rome", transit=True, se=0)
-    study["images"][1].update(place="Albania", transit=True, se=0)
-    study["images"][2].update(place=study["place"], transit=False, se=1)
+    study["images"][0].update(place="Rome", area="Rome", transit=True, se=0)
+    study["images"][1].update(place="Tirana", area="Tirana", transit=True, se=0)
+    study["images"][2].update(place=study["place"], area=study["place"], transit=False, se=1)
+    study["areaOrder"] = [study["place"]]
     study["series"] = [
-        {"start": 0, "count": 2, "time": "Rome · Albania", "date": study["date"], "dateEnd": study["dateEnd"], "key": 0, "displayNumber": 0},
+        {"start": 0, "count": 2, "time": "Rome · Tirana", "date": study["date"], "dateEnd": study["dateEnd"], "key": 0, "displayNumber": 0},
         {"start": 2, "count": len(study["images"]) - 2, "time": "Main visit", "date": study["date"], "dateEnd": study["dateEnd"], "key": 2, "displayNumber": 1},
     ]
     study["key"] = 2
@@ -101,27 +116,27 @@ class OutsidePlaceUITests(unittest.TestCase):
         cls.browser.close()
         cls.playwright.stop()
 
-    def test_place_helpers_deduplicate_locations_use_country_and_skip_scouts(self):
+    def test_area_helpers_use_explicit_area_order_country_and_skip_scouts(self):
         script = f'''try {{
   const h = await import({json.dumps(HELPER_URL)});
-  const study = {{place:"Montréal", region:"Québec", country:"Canada", key:0, images:[
-    {{src:"/transit", place:"Rome", se:0, transit:true}},
-    {{src:"/transit2", place:"Albania", se:0, transit:true}},
-    {{src:"/transit3", place:"Rome", se:0, transit:true}},
-    {{src:"/ordinary", place:"Montréal", se:1, transit:false}}
+  const study = {{place:"Montréal", region:"Québec", country:"Canada", key:0, areaOrder:["Montréal"], images:[
+    {{src:"/transit", place:"Rome", area:"Rome", se:0, transit:true}},
+    {{src:"/transit2", place:"Tirana", area:"Tirana", se:0, transit:true}},
+    {{src:"/transit3", place:"Rome", area:"Rome", se:0, transit:true}},
+    {{src:"/ordinary", place:"Montréal", area:"Montréal", se:1, transit:false}}
   ]}};
-  const multi = {{place:"Somewhere", region:"Fallback region", country:"", images:[
-    {{place:"Paris", se:1}}, {{place:"Lisbon", se:2}}, {{place:"Paris", se:3}}, {{place:"Zurich", se:0}}
+  const multi = {{place:"Somewhere", region:"Fallback region", country:"", areaOrder:["Lisbon","Paris"], images:[
+    {{place:"Paris", area:"Paris", se:1}}, {{place:"Lisbon", area:"Lisbon", se:2}}, {{place:"Paris", area:"Paris", se:3}}, {{place:"Zurich", area:"Zurich", se:0}}
   ]}};
-  const empty = {{place:"Unknown", region:"Must not appear", country:"", images:[{{se:1}}]}};
-  console.log(JSON.stringify({{available: typeof h.getOutsideStudyLocation === "function" && typeof h.getOutsideStudyCover === "function" && typeof h.getOutsideFirstImageIndex === "function", country:h.getOutsideStudyLocation?.(study), multi:h.getOutsideStudyLocation?.(multi), empty:h.getOutsideStudyLocation?.(empty), cover:h.getOutsideStudyCover?.(study)?.src, first:h.getOutsideFirstImageIndex?.(study)}}));
+  const empty = {{place:"Unknown", region:"Must not appear", country:"", areaOrder:[], images:[{{se:1}}]}};
+  console.log(JSON.stringify({{available: typeof h.getOutsideStudyAreaSummary === "function" && typeof h.getOutsideStudyCover === "function" && typeof h.getOutsideFirstImageIndex === "function", country:h.getOutsideStudyAreaSummary?.(study), multi:h.getOutsideStudyAreaSummary?.(multi), empty:h.getOutsideStudyAreaSummary?.(empty), cover:h.getOutsideStudyCover?.(study)?.src, first:h.getOutsideFirstImageIndex?.(study)}}));
 }} catch (error) {{ console.log(JSON.stringify({{available:false, error:String(error)}})); }}'''
         result = subprocess.run(["node", "--input-type=module", "-e", script], check=True, capture_output=True, text=True)
         observed = json.loads(result.stdout)
         self.assertTrue(observed["available"], observed)
-        self.assertEqual(observed["country"], "Canada · via Rome, Albania")
-        self.assertEqual(observed["multi"], "Paris · Lisbon · via Zurich")
-        self.assertEqual(observed["empty"], "Location unconfirmed")
+        self.assertEqual(observed["country"], "Canada · via Rome, Tirana")
+        self.assertEqual(observed["multi"], "Lisbon · Paris · via Zurich")
+        self.assertEqual(observed["empty"], "")  # Never invent a label or fall back to study-level place.
         self.assertEqual(observed["cover"], "/ordinary")
         self.assertEqual(observed["first"], 3)
 
@@ -236,16 +251,16 @@ class OutsidePlaceUITests(unittest.TestCase):
         self.assertTrue(self.current_source(page).startswith(study["images"][0]["src"]))
         context.close()
 
-    def test_series_titles_never_substitute_for_missing_image_places(self):
+    def test_series_area_never_substitutes_for_missing_image_area(self):
         fixture_payload, study_id = make_transit_fixture()
         study = next(item for item in fixture_payload["studies"] if item["id"] == study_id)
-        study["series"][1]["title"] = "Not a place"
+        study["series"][1]["title"] = "Not an area"
         for image in study["images"][2:]:
-            image["place"] = ""
+            image["area"] = ""
         context, page = self.open_page(f"#{study_id}/3", transit_fixture=True, fixture_payload=fixture_payload)
-        label = page.locator('[data-series] [data-se="1"] .oz-se-cap b').inner_text()
-        self.assertIn("Location unconfirmed", label)
-        self.assertNotIn("Not a place", label)
+        label = page.locator('[data-series] [data-se="1"] .oz-se-cap > span').inner_text()
+        self.assertEqual(label, "")
+        self.assertNotIn("Not an area", page.locator('[data-series] [data-se="1"] .oz-se-cap').inner_text())
         context.close()
 
     def test_transit_overlay_scout_strip_and_open_navigation_defaults(self):
@@ -271,12 +286,8 @@ class OutsidePlaceUITests(unittest.TestCase):
         self.assertEqual(page.locator('[data-ov="br"] .oz-ov-status').all_inner_texts(), ["SCOUT"])
 
         strip = page.locator(f'[data-series] [data-se="{transit_series_index}"]')
-        transit_places = unique(
-            image.get("place") for image in study["images"][transit_series["start"]:transit_series["start"] + transit_series["count"]]
-            if is_transit(image)
-        )
-        self.assertEqual(strip.locator(".oz-se-cap b").inner_text(), "SE 0 · Scout" + (" · " + ", ".join(transit_places) if transit_places else ""))
-        self.assertEqual(strip.locator(".oz-se-cap > span").inner_text(), compact_date(transit_series.get("date", ""), transit_series.get("dateEnd", "")) or transit_series.get("time", ""))
+        self.assertEqual(strip.locator(".oz-se-cap b").inner_text(), f"SE 0 · {strip_date(transit_series.get('date', ''))}")
+        self.assertEqual(strip.locator(".oz-se-cap > span").inner_text(), "Scout")
         self.assertEqual(strip.locator(".oz-se-cap b").evaluate("el => getComputedStyle(el).textOverflow"), "clip")
         self.assertLessEqual(strip.locator(".oz-se-cap b").evaluate("el => el.scrollWidth"), strip.locator(".oz-se-cap b").evaluate("el => el.clientWidth"))
 
