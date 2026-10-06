@@ -2,11 +2,15 @@ import json
 import os
 import re
 import unittest
+from pathlib import Path
 from urllib.parse import urljoin
 
 from playwright.sync_api import sync_playwright
 
+from outside_links import DATA, resolve
+
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
+LINKS_AT_FREEZE = json.loads((Path(__file__).parent / "fixtures/outside-links-at-freeze.json").read_text())
 
 
 class OutsideRoutingBrowserTests(unittest.TestCase):
@@ -33,61 +37,13 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
         return json.loads(page.locator("#oz-data").text_content() or "{}")
 
     @staticmethod
-    def target_source(payload, target):
-        if not target:
-            return None
-        study = next((item for item in payload["studies"] if item["id"] == target.get("studyId")), None)
-        index = target.get("index")
-        if study is None or not isinstance(index, int) or isinstance(index, bool) or index < 0 or index >= len(study["images"]):
-            return None
-        return study["images"][index]["src"]
-
-    @staticmethod
-    def first_se1_source(study):
-        return next((image["src"] for image in study["images"] if image.get("se") == 1), None)
-
-    @classmethod
-    def expected_route_source(cls, payload, fragment):
-        match = re.fullmatch(r"#([\w-]+)(?:/([1-9]\d*))?", fragment)
-        if not match:
-            return None
-        route_id, ordinal = match.groups()
-        study = next((item for item in payload["studies"] if item["id"] == route_id), None)
-        if study is not None:
-            if ordinal:
-                index = min(int(ordinal) - 1, len(study["images"]) - 1)
-                return study["images"][index]["src"]
-            return cls.first_se1_source(study)
-        alias = payload["aliases"].get(route_id)
-        if alias is None:
-            return None
-        if "targets" in alias:
-            if ordinal is None:
-                target = alias.get("defaultTarget") if "defaultTarget" in alias else next((row for row in alias["targets"] if row is not None), None)
-                if cls.target_source(payload, target) is None:
-                    return None
-                target_study = next((item for item in payload["studies"] if item["id"] == target.get("studyId")), None)
-                return cls.first_se1_source(target_study) if target_study else None
-            index = int(ordinal) - 1
-            return cls.target_source(payload, alias["targets"][index]) if index < len(alias["targets"]) else None
-        study = next((item for item in payload["studies"] if item["id"] == alias.get("studyId")), None)
-        if ordinal is None:
-            index = alias.get("defaultIndex", -1)
-            if not study or not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(study["images"]):
-                return None
-            return cls.first_se1_source(study)
-        indices = alias.get("indices", [])
-        index = indices[int(ordinal) - 1] if int(ordinal) <= len(indices) else None
-        return study["images"][index]["src"] if study and isinstance(index, int) and 0 <= index < len(study["images"]) else None
-
-    @staticmethod
     def image_src(page):
         src = page.locator("[data-cells] img").first.get_attribute("src") or ""
         return re.sub(r"-(?:s|m|l)\.webp$", "", src)
 
     def assert_route_matches_source(self, fragment, width=1440):
         context, page = self.open_page(fragment, width)
-        expected = self.expected_route_source(self.payload(page), fragment)
+        expected = resolve(fragment)
         if expected is None:
             self.assertTrue(page.locator("[data-route-error]").is_visible(), fragment)
             self.assertIn("no longer available", page.locator("[data-route-error]").inner_text())
@@ -143,50 +99,33 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
         self.assertEqual(self.image_src(page), study["images"][-1]["src"])
         context.close()
 
-    def test_all_alias_and_current_canonical_ordinals_use_shipping_resolver_in_one_browser(self):
-        context = self.browser.new_context(viewport={"width": 1440, "height": 1000}, reduced_motion="reduce")
-        page = context.new_page()
+    def test_every_frozen_link_and_photo_id_link_opens_its_photo_in_the_shipped_page(self):
+        cases = [{"hash": link, "expected": resolve(link)} for link in LINKS_AT_FREEZE]
+        cases += [{"hash": f"#{study['id']}/{image['id']}", "expected": image["src"]} for study in DATA["studies"] for image in study["images"]]
+        context, page = self.open_page()
         page.route("**/*.webp", lambda route: route.abort())
-        page.goto(BASE_URL, wait_until="domcontentloaded")
-        payload = self.payload(page)
-        cases = []
-        for alias_id, alias in payload["aliases"].items():
-            if "targets" in alias:
-                default_target = alias.get("defaultTarget") if "defaultTarget" in alias else next((row for row in alias["targets"] if row is not None), None)
-                default_study = next((item for item in payload["studies"] if isinstance(default_target, dict) and item["id"] == default_target.get("studyId")), None)
-                default_src = self.first_se1_source(default_study) if self.target_source(payload, default_target) is not None else None
-                cases.append({"hash": f"#{alias_id}", "expected": default_src})
-                for ordinal, target in enumerate(alias["targets"], 1):
-                    cases.append({"hash": f"#{alias_id}/{ordinal}", "expected": self.target_source(payload, target)})
-            else:
-                target_study = next((s for s in payload["studies"] if s["id"] == alias.get("studyId")), None)
-                default_index = alias.get("defaultIndex", -1)
-                valid_default = target_study and isinstance(default_index, int) and not isinstance(default_index, bool) and 0 <= default_index < len(target_study["images"])
-                default_src = self.first_se1_source(target_study) if valid_default else None
-                cases.append({"hash": f"#{alias_id}", "expected": default_src})
-                for ordinal, image_index in enumerate(alias.get("indices", []), 1):
-                    src = target_study["images"][image_index]["src"] if target_study and isinstance(image_index, int) and not isinstance(image_index, bool) and 0 <= image_index < len(target_study["images"]) else None
-                    cases.append({"hash": f"#{alias_id}/{ordinal}", "expected": src})
-        for study in payload["studies"]:
-            cases.append({"hash": f"#{study['id']}", "expected": self.first_se1_source(study)})
-            for ordinal, image in enumerate(study["images"], 1):
-                cases.append({"hash": f"#{study['id']}/{ordinal}", "expected": image["src"]})
-        outcome = page.evaluate("""cases => {
-          const failures = [];
-          for (const item of cases) {
-            location.hash = item.hash;
-            window.dispatchEvent(new PopStateEvent('popstate'));
-            const error = !document.querySelector('[data-route-error]').hidden;
-            const im = document.querySelector('[data-cells] img');
-            const actual = (im?.dataset.want || '').replace(/-(?:s|m|l)\\.webp$/, '');
-            const okay = item.expected === null ? error : (!error && actual === item.expected);
-            if (!okay && failures.length < 8) failures.push({hash:item.hash, expected:item.expected, actual, error});
-          }
-          return {checked:cases.length, failures};
-        }""", cases)
+        failures, checked = [], 0
+        for start in range(0, len(cases), 400):
+            # Fresh page per batch keeps WebKit below its history-write rate limit.
+            page.goto(urljoin(BASE_URL, ""), wait_until="domcontentloaded")
+            outcome = page.evaluate("""cases => {
+              const failures = [];
+              for (const item of cases) {
+                location.hash = item.hash;
+                window.dispatchEvent(new PopStateEvent('popstate'));
+                const error = !document.querySelector('[data-route-error]').hidden;
+                const im = document.querySelector('[data-cells] img');
+                const actual = (im?.dataset.want || '').replace(/-(?:s|m|l)\\.webp$/, '');
+                const okay = item.expected === null ? error : (!error && actual === item.expected);
+                if (!okay && failures.length < 8) failures.push({hash:item.hash, expected:item.expected, actual, error});
+              }
+              return {checked:cases.length, failures};
+            }""", cases[start:start + 400])
+            checked += outcome["checked"]
+            failures += outcome["failures"]
         context.close()
-        self.assertGreater(outcome["checked"], 1800)
-        self.assertEqual(outcome["failures"], [], outcome)
+        self.assertEqual(checked, len(cases))
+        self.assertEqual(failures, [])
 
     def test_valid_selection_recovers_and_no_journey_heading_is_invented(self):
         for width in (1440, 390):

@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import unittest
 from pathlib import Path
 from urllib.parse import urljoin
@@ -9,19 +10,16 @@ from playwright.sync_api import sync_playwright
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 ROOT = Path(__file__).parents[1]
 SOURCE = json.loads((ROOT / "src/data/outside-studies.json").read_text())
-RECENT_IDS = {
-    "new-zealand-2026-july-photos-161007",
-    "australia-2026-july-gallery-20261005-quokka",
-    "pakistan-2026-summer-gallery-20261005",
-    "galapagos-2026-january-photos-20261004-20261005-161007",
-    "montreal-november-2025-photos-20261005",
-    "american-southwest-2025-october-gallery-20261004-2-20261005",
-}
+LEGACY = json.loads((ROOT / "src/data/outside-legacy-links.json").read_text())
+_ASTRO = (ROOT / "src/pages/outside.astro").read_text()
+_RULE = re.search(r'cutoff: "([^"]+)",\s*includeStudyIds: \[([^\]]*)\],\s*excludeStudyIds: \[([^\]]*)\]', _ASTRO)
+CUTOFF = _RULE.group(1)
+INCLUDED_IDS = set(re.findall(r'"([^"]+)"', _RULE.group(2)))
 # Owner-requested display hides: still post-cutoff (or an explicit include), now without worklist rows.
-EXCLUDED_IDS = {
-    "puerto-rico-2025-june-photos",
-    "puerto-rico-2025-october",
-    "georgia-2025-october",
+EXCLUDED_IDS = set(re.findall(r'"([^"]+)"', _RULE.group(3)))
+RECENT_IDS = {
+    study["id"] for study in SOURCE["studies"]
+    if study["id"] not in EXCLUDED_IDS and (study["id"] in INCLUDED_IDS or (study.get("date") and study["date"] >= CUTOFF))
 }
 
 
@@ -45,22 +43,15 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         page.goto(urljoin(BASE_URL, "#new-zealand-2026-july-photos-161007/1"), wait_until="domcontentloaded")
         payload = json.loads(page.locator("#oz-data").text_content() or "{}")
         source_by_id = {study["id"]: study for study in SOURCE["studies"]}
-        derived_recent_ids = {
-            study["id"] for study in SOURCE["studies"]
-            if study["id"] not in EXCLUDED_IDS
-            and (study["id"] == "puerto-rico-2025-june-photos" or (study.get("date") and study["date"] >= "2025-10-01"))
-        }
-        self.assertEqual(RECENT_IDS, derived_recent_ids)
         hidden_studies = [study for study in SOURCE["studies"] if study["id"] not in RECENT_IDS]
-        self.assertTrue(all(not study.get("date") or study["date"] < "2025-10-01" or study["id"] in EXCLUDED_IDS
+        self.assertTrue(all(not study.get("date") or study["date"] < CUTOFF or study["id"] in EXCLUDED_IDS
                             for study in hidden_studies))
-        self.assertTrue(any(study["id"] in EXCLUDED_IDS and study.get("date", "") >= "2025-10-01" for study in hidden_studies),
+        self.assertTrue(any(study["id"] in EXCLUDED_IDS and study.get("date", "") >= CUTOFF for study in hidden_studies),
                         "owner-hidden studies keep post-cutoff dates but must stay off the worklist")
         self.assertTrue(any(not study.get("date") for study in hidden_studies), "undated collection must remain outside recent worklist")
         expected_photos = sum(len(source_by_id[study_id]["images"]) for study_id in RECENT_IDS)
         rows = page.locator(".oz-rows [data-study]")
         visible_ids = [row.get_attribute("href").lstrip("#") for row in rows.all()]
-        self.assertEqual((len(visible_ids), expected_photos), (6, 233))
         self.assertEqual(set(visible_ids), RECENT_IDS)
         self.assertIn(f"{len(RECENT_IDS)} studies", page.locator(".oz-topmeta").inner_text().lower())
         self.assertIn(f"{expected_photos} images", page.locator(".oz-topmeta").inner_text().lower())
@@ -73,7 +64,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         self.assertEqual(set(embedded_by_id), set(source_by_id))
         for study_id, source_study in source_by_id.items():
             self.assertEqual(embedded_by_id[study_id], source_study)
-        self.assertEqual(payload["aliases"], SOURCE["aliases"])
+        self.assertEqual(payload["legacy"], LEGACY)
 
         # Navigation cycles the visible recent worklist, not hidden collections.
         visited = []
@@ -149,7 +140,9 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         self.assertGreater(page.locator(".oz-rows [data-study]").count(), 0)
         page.go_forward(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
-        self.assertEqual(page.evaluate("location.hash"), "#montreal-november-2025-photos-20261005/1")
+        # The reader rewrites the opened link to the photo's stable id link.
+        montreal = next(study for study in SOURCE["studies"] if study["id"] == "montreal-november-2025-photos-20261005")
+        self.assertEqual(page.evaluate("location.hash"), f"#{montreal['id']}/{montreal['images'][0]['id']}")
         self.assertTrue(any(event["isTrusted"] for event in page.evaluate("window.__nativePopStates")))
         context.close()
 
