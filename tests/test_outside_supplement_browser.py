@@ -154,7 +154,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                 mobile_stem = mobile_study["images"][0]["src"]
                 mobile_page.wait_for_function("stem => { const im=document.querySelector('[data-cells] img'); return im && im.complete && im.naturalWidth > 0 && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", arg=mobile_stem, timeout=10000)
                 self.assertTrue(mobile_page.evaluate("stem => { const im=document.querySelector('[data-cells] img'); return im && (im.currentSrc.endsWith(stem+'-s.webp') || im.currentSrc.endsWith(stem+'-m.webp') || im.currentSrc.endsWith(stem+'-l.webp')); }", mobile_stem))
-                self.assertTrue(mobile_page.locator("[data-review-flag]").is_visible())
+                self.assertEqual(mobile_page.locator(".oz-review, [data-review-flag], [data-review-export], [data-review-count]").count(), 0)
                 self.assertLessEqual(mobile_page.evaluate("document.documentElement.scrollWidth"), 390)
                 mobile_page.screenshot(path=str(EVIDENCE_DIR / f"mobile-{study_id}.png"), full_page=True)
                 mobile.close()
@@ -189,35 +189,6 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
         page.screenshot(path=str(EVIDENCE_DIR / "tablet-utah-night-sky.png"), full_page=True)
         context.close()
         self.assertEqual(errors, [], errors)
-
-    def test_new_photo_flags_export_exact_source_and_honest_metadata(self):
-        for study_id in ("montreal-august-2023-photos", "europe-shared-album", "montreal-november-2025-photos-20261005"):
-            with self.subTest(study=study_id):
-                context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
-                page = context.new_page()
-                page.goto(urljoin(BASE_URL, f"#{study_id}/1"), wait_until="domcontentloaded")
-                page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
-                page.wait_for_function("document.querySelector('[data-cells] img')?.naturalWidth > 0", timeout=10000)
-                payload = json.loads(page.locator("#oz-data").text_content() or "{}")
-                study = next(s for s in payload["studies"] if s["id"] == study_id)
-                expected = {
-                    "src": study["images"][0]["src"],
-                    "studyLabel": study["place"],
-                    "date": "" if study_id == "europe-shared-album" else (study["date"] if study["date"] == study["dateEnd"] else f"{study['date']} to {study['dateEnd'][5:]}"),
-                    "reference": study_id,
-                }
-                page.locator("[data-review-flag]").click()
-                self.assertEqual(page.locator("[data-review-flag]").get_attribute("aria-pressed"), "true")
-                self.assertEqual(page.locator("[data-review-count]").inner_text(), "1 flagged")
-                stored = page.evaluate("JSON.parse(localStorage.getItem('outside-studies:photo-review:v1'))")
-                self.assertEqual(stored["flaggedSrcs"], [expected["src"]])
-                with page.expect_download(timeout=5000) as download_info:
-                    page.locator("[data-review-export]").click()
-                export = json.loads(Path(download_info.value.path()).read_text())
-                self.assertEqual(export["schema"], "outside-photo-review/v1")
-                self.assertEqual(export["flagged"], [expected])
-                context.close()
-
 
 if __name__ == "__main__":
     unittest.main()

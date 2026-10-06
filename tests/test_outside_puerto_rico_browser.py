@@ -91,31 +91,6 @@ class PuertoRicoCompiledBrowserAcceptanceTests(unittest.TestCase):
         self.assertEqual(errors, [], errors)
         context.close()
 
-    def test_native_review_flags_and_export_cover_all_25_exact_source_keys(self):
-        context = self.browser.new_context(viewport={"width": 1440, "height": 1000}, accept_downloads=True)
-        page = context.new_page()
-        page.goto(urljoin(BASE_URL, f"#{PR_ID}/1"), wait_until="domcontentloaded")
-        self.assertIsNone(page.evaluate("localStorage.getItem('outside-studies:photo-review:v1')"), "acceptance must use a fresh isolated browser context")
-        for ordinal, image in enumerate(PR["images"], 1):
-            page.goto(urljoin(BASE_URL, f"#{PR_ID}/{ordinal}"), wait_until="domcontentloaded")
-            self.wait_for_painted_source(page, image["src"])
-            flag = page.locator("[data-review-flag]")
-            self.assertEqual(flag.get_attribute("aria-pressed"), "false", image["src"])
-            flag.click()
-            self.assertEqual(flag.get_attribute("aria-pressed"), "true", image["src"])
-        stored = page.evaluate("JSON.parse(localStorage.getItem('outside-studies:photo-review:v1'))")
-        self.assertEqual(set(stored["flaggedSrcs"]), set(PR_SOURCES))
-        self.assertEqual(len(stored["flaggedSrcs"]), 25)
-        with page.expect_download(timeout=5000) as download_info:
-            page.locator("[data-review-export]").click()
-        exported = json.loads(Path(download_info.value.path()).read_text())
-        self.assertEqual(exported["schema"], "outside-photo-review/v1")
-        self.assertEqual({entry["src"] for entry in exported["flagged"]}, set(PR_SOURCES))
-        self.assertEqual(len(exported["flagged"]), 25)
-        self.assertTrue(all(entry["reference"] == PR_ID for entry in exported["flagged"]))
-        self.assertFalse(any(secret in json.dumps(exported).lower() for secret in ("driveid", "latitude", "longitude", "gps")))
-        context.close()
-
     def test_redacted_full_resolution_sources_paint_at_desktop_and_mobile(self):
         for viewport_name, viewport in (("desktop", {"width": 1440, "height": 1000}), ("mobile", {"width": 390, "height": 844})):
             context = self.browser.new_context(viewport=viewport, reduced_motion="reduce")

@@ -169,18 +169,6 @@ class OutsideScoutBrowserTests(unittest.TestCase):
                         page.wait_for_function("expected => { const want=document.querySelector('[data-cells] img')?.dataset.want || ''; return want.replace(/-(?:s|m|l)\\.webp$/, '') === expected; }", arg=ordinal_source, timeout=10000)
                         self.assertEqual(self.image_src(page), ordinal_source, f"{route_id}/1")
 
-                    # Review/export still keys on the exact selected image source.
-                    page.goto(urljoin(BASE_URL, f"#{spec['id']}"), wait_until="domcontentloaded")
-                    page.wait_for_function("expected => { const want=document.querySelector('[data-cells] img')?.dataset.want || ''; return want.replace(/-(?:s|m|l)\\.webp$/, '') === expected; }", arg=default_source, timeout=10000)
-                    page.locator("[data-review-flag]").click()
-                    saved = page.evaluate("JSON.parse(localStorage.getItem('outside-studies:photo-review:v1'))")
-                    self.assertEqual(saved["flaggedSrcs"], [default_source])
-                    with page.expect_download(timeout=5000) as download_info:
-                        page.locator("[data-review-export]").click()
-                    exported = json.loads(Path(download_info.value.path()).read_text())
-                    self.assertEqual(exported["flagged"][0]["src"], default_source)
-                    self.assertEqual(exported["flagged"][0]["date"], f"{spec['study_date']} to {spec['study_end'][5:]}")
-                    self.assertEqual(exported["flagged"][0]["reference"], spec["id"])
                     self.assertEqual(errors, [], errors)
                     self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), width)
                     context.close()
