@@ -197,6 +197,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
 
     <script>
       import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
+      import { formatOutsideTz } from "../utils/outside-tz.js";
       import { getOutsideFirstImageIndex, isOutsideTransitImage, uniqueOutsidePlaces } from "../utils/outside-place.js";
       type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
@@ -494,7 +495,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           "ASIR SHAHID",
           `SE ${seNumber}/${st.series.length}   IM ${state.i + 1}/${st.images.length}`,
           `${img.d}  ${img.t}`,
-          img.tz || st.tz,
+          formatOutsideTz(img.tz || st.tz),
           state.i === st.key ? ["KEY IMAGE", "oz-ov-key"] : "",
         ]);
         line(ov.bl, [img.ex, img.fl, cameraLabel(img.cam)]);
