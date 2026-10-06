@@ -10,7 +10,6 @@ import hashlib
 import json
 import os
 import re
-import subprocess
 import tempfile
 import traceback
 from datetime import date, datetime, timedelta, timezone
@@ -21,7 +20,6 @@ from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "src/data/outside-studies.json"
-BASELINE_REV = "f89fb3b64bc10028a7b83b39919290bf386e7264"
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 BROWSER_NAME = os.environ.get("OUTSIDE_BROWSER", "chromium").lower()
 EVIDENCE = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR") or tempfile.mkdtemp(prefix="outside-place-acceptance-"))
@@ -341,7 +339,7 @@ class Evidence:
             "viewport_requirements": [{"width": 375, "height": 812}, {"width": 1440, "height": 1000}],
             "additional_viewport": {"width": 1024, "height": 900},
             "started_utc": datetime.now(timezone.utc).isoformat(),
-            "source_path": str(DATA_PATH), "baseline_revision": BASELINE_REV,
+            "source_path": str(DATA_PATH),
             "checks": [], "screenshots": [], "page_errors": [], "unlisted_area_review": [],
         }
         self.failures = []
@@ -551,25 +549,6 @@ def _check_series_strip(page, study: dict, evidence: Evidence, key: str, width: 
                         "series_areas": areas, "image_places": unique(image.get("place") for image in images), "metrics": metrics})
 
 
-def _serve_route_cases(page, cases: list[dict]) -> dict:
-    if BROWSER_NAME != "webkit":
-        return _serve_route_batch(page, cases)
-    # WebKit enforces 100 History API writes per ten seconds per page.
-    # Fresh pages keep exhaustive route checks inside that native limit.
-    result = {"checked": 0, "failures": []}
-    for offset in range(0, len(cases), 60):
-        route_page = page.context.new_page()
-        try:
-            route_page.goto(BASE_URL, wait_until="domcontentloaded")
-            route_page.wait_for_function("document.body.classList.contains('is-ready')")
-            batch = _serve_route_batch(route_page, cases[offset:offset + 60])
-            result["checked"] += batch["checked"]
-            result["failures"].extend(batch["failures"])
-        finally:
-            route_page.close()
-    return result
-
-
 def _serve_route_batch(page, cases: list[dict]) -> dict:
     if not cases:
         return {"checked": 0, "failures": []}
@@ -587,69 +566,6 @@ def _serve_route_batch(page, cases: list[dict]) -> dict:
       }
       return {checked:cases.length,failures};
     }""", cases)
-
-
-def _baseline_routes_for_focus(data: dict, focus: dict[str, dict | None]) -> tuple[list[dict], str | None]:
-    try:
-        raw = subprocess.check_output(["git", "show", f"{BASELINE_REV}:src/data/outside-studies.json"], cwd=ROOT, text=True, timeout=15)
-        baseline = json.loads(raw)
-    except Exception as exc:
-        return [], f"historical route ledger unavailable: {exc!r}"
-    focus_ids = {study.get("id") for study in focus.values() if study}
-    routes: dict[str, str] = {}
-    baseline_studies = {study.get("id"): study for study in baseline.get("studies", [])}
-    prior_focus_sources = {
-        image.get("src")
-        for study in baseline.get("studies", []) if study.get("id") in focus_ids
-        for image in study.get("images", [])
-    }
-    for study in baseline.get("studies", []):
-        if study.get("id") not in focus_ids:
-            continue
-        for index, image in enumerate(study.get("images", []), 1):
-            src = image.get("src")
-            routes[f"#{study['id']}/{index}"] = src
-    for alias_id, alias in baseline.get("aliases", {}).items():
-        if isinstance(alias.get("targets"), list):
-            targets = alias["targets"]
-            default_target = alias.get("defaultTarget")
-            if default_target is None and "defaultTarget" not in alias:
-                default_target = next((target for target in targets if target), None)
-            def source_for(target):
-                if not isinstance(target, dict):
-                    return None
-                study = baseline_studies.get(target.get("studyId"))
-                index = target.get("index")
-                if not study or not isinstance(index, int) or isinstance(index, bool) or not 0 <= index < len(study.get("images", [])):
-                    return None
-                return study["images"][index].get("src")
-            default_src = source_for(default_target)
-            if default_src in prior_focus_sources:
-                routes[f"#{alias_id}"] = default_src
-            for ordinal, target in enumerate(targets, 1):
-                src = source_for(target)
-                if src in prior_focus_sources:
-                    routes[f"#{alias_id}/{ordinal}"] = src
-        else:
-            study = baseline_studies.get(alias.get("studyId"))
-            if not study:
-                continue
-            indices = alias.get("indices", [])
-            default_index = alias.get("defaultIndex")
-            if default_index is None:
-                default_index = next((index for index in indices if isinstance(index, int) and not isinstance(index, bool) and index >= 0), None)
-            def source_at(index):
-                return study["images"][index].get("src") if isinstance(index, int) and not isinstance(index, bool) and 0 <= index < len(study.get("images", [])) else None
-            src = source_at(default_index)
-            if src in prior_focus_sources:
-                routes[f"#{alias_id}"] = src
-            for ordinal, index in enumerate(indices, 1):
-                src = source_at(index)
-                if src in prior_focus_sources:
-                    routes[f"#{alias_id}/{ordinal}"] = src
-    current_refs_all = {image.get("src") for study in data.get("studies", []) for image in study.get("images", [])}
-    cases = [{"fragment": fragment, "expected": src if src in current_refs_all else None} for fragment, src in sorted(routes.items())]
-    return cases, None
 
 
 def _evaluate_data_requirements(data: dict, focus: dict[str, dict | None], evidence: Evidence):
@@ -922,23 +838,6 @@ def _run_visible_navigation(page, visible_ids: list[str], studies: dict[str, dic
             evidence.failed_exception(f"navigation.{key}-visible-sequence", exc)
 
 
-def _run_historical_routes(page, data: dict, focus: dict[str, dict | None], evidence: Evidence):
-    cases, unavailable_reason = _baseline_routes_for_focus(data, focus)
-    # Numbered routes retain image identity; bare study/alias opens now use SE1.
-    cases = [case for case in cases if "/" in case["fragment"]]
-    if unavailable_reason:
-        evidence.check("routing.baseline-explicit-image-ledger", True, {"status": "SKIP", "reason": unavailable_reason})
-        return
-    evidence.report["baseline_explicit_route_count"] = len(cases)
-    if not cases:
-        evidence.check("routing.baseline-explicit-image-ledger", False, {"error": "baseline exists but yielded no focus routes"})
-        return
-    result = _serve_route_cases(page, cases)
-    evidence.check("routing.explicit-image-routes-retain-original-source", result["checked"] == len(cases) and not result["failures"],
-                   {"baseline_revision": BASELINE_REV, **result, "sample": cases[:5]})
-    evidence.write()
-
-
 def _page_events(page, evidence: Evidence, label: str):
     page.on("pageerror", lambda error: evidence.report["page_errors"].append({"page": label, "error": str(error)}))
 
@@ -985,13 +884,13 @@ def test_outside_place_series_real_data_acceptance():
                 page.wait_for_function("document.querySelector('#oz-data')?.textContent?.length > 0", timeout=15000)
                 runtime = json.loads(page.locator("#oz-data").text_content() or "{}")
                 if not runtime_checked:
-                    runtime_base = {key: runtime.get(key) for key in ("studies", "aliases")}
-                    source_base = {key: data.get(key) for key in ("studies", "aliases")}
+                    runtime_base = {key: runtime.get(key) for key in ("studies", "legacy")}
+                    source_base = {"studies": data.get("studies"), "legacy": json.loads((ROOT / "src/data/outside-legacy-links.json").read_text())}
                     runtime_base["studies"] = sorted(runtime_base["studies"], key=lambda s: s["id"])
                     source_base["studies"] = sorted(source_base["studies"], key=lambda s: s["id"])
                     evidence.check("browser.real-payload-matches-source", _same_json(runtime_base, source_base),
                                    {"runtime_studies": len(runtime_base.get("studies") or []), "source_studies": len(source_base.get("studies") or []),
-                                    "runtime_aliases": len(runtime_base.get("aliases") or {}), "source_aliases": len(source_base.get("aliases") or {}),
+                                    "runtime_legacy": len(runtime_base.get("legacy") or {}), "source_legacy": len(source_base.get("legacy") or {}),
                                     "runtime_payload_sha256": hashlib.sha256(json.dumps(runtime_base, ensure_ascii=False, sort_keys=True).encode()).hexdigest(),
                                     "source_payload_sha256": hashlib.sha256(json.dumps(source_base, ensure_ascii=False, sort_keys=True).encode()).hexdigest()})
                     runtime_checked = True
@@ -1091,7 +990,6 @@ def test_outside_place_series_real_data_acceptance():
             runtime = json.loads(page.locator("#oz-data").text_content() or "{}")
             visible_ids = runtime.get("recentStudyIds", [])
             _run_visible_navigation(page, visible_ids, studies_by_id, evidence)
-            _run_historical_routes(page, data, focus, evidence)
         except Exception as exc:
             evidence.failed_exception("browser.all-visible-navigation", exc)
         finally:

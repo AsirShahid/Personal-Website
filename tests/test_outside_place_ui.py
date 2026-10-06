@@ -96,9 +96,8 @@ def make_transit_fixture():
         {"start": 2, "count": len(study["images"]) - 2, "time": "Main visit", "date": study["date"], "dateEnd": study["dateEnd"], "key": 2, "displayNumber": 1},
     ]
     study["key"] = 2
-    payload.setdefault("aliases", {})["place-series-alias-regression"] = {
-        "targets": [{"studyId": study["id"], "index": index} for index in range(len(study["images"]))],
-        "defaultTarget": {"studyId": study["id"], "index": 0},
+    payload.setdefault("legacy", {})["place-series-alias-regression"] = {
+        "study": study["id"], "photos": [image["id"] for image in study["images"]],
     }
     return payload, study["id"]
 

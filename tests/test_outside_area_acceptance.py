@@ -182,8 +182,8 @@ def _unclamped_measurement(page, row) -> dict:
 
 
 def _check_real_payload(source: dict, runtime: dict, evidence: AcceptanceEvidence):
-    source_base = {key: source.get(key) for key in ("studies", "aliases")}
-    runtime_base = {key: runtime.get(key) for key in ("studies", "aliases")}
+    source_base = {"studies": source.get("studies"), "legacy": json.loads((ROOT / "src/data/outside-legacy-links.json").read_text())}
+    runtime_base = {key: runtime.get(key) for key in ("studies", "legacy")}
     if isinstance(source_base.get("studies"), list):
         source_base["studies"] = sorted(source_base["studies"], key=lambda study: study.get("id", ""))
     if isinstance(runtime_base.get("studies"), list):
@@ -192,8 +192,8 @@ def _check_real_payload(source: dict, runtime: dict, evidence: AcceptanceEvidenc
     evidence.check("browser.real-payload-matches-source", same, {
         "source_studies": len(source_base.get("studies") or []),
         "runtime_studies": len(runtime_base.get("studies") or []),
-        "source_aliases": len(source_base.get("aliases") or {}),
-        "runtime_aliases": len(runtime_base.get("aliases") or {}),
+        "source_legacy": len(source_base.get("legacy") or {}),
+        "runtime_legacy": len(runtime_base.get("legacy") or {}),
     })
 
 

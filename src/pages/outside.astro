@@ -2,26 +2,27 @@
 export const prerender = true;
 import "../styles/global.css";
 import data from "@/data/outside-studies.json";
+import legacyLinks from "@/data/outside-legacy-links.json";
 import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
 import { getOutsideFirstImageIndex, getOutsideStudyAreaSummary, getOutsideStudyCover } from "../utils/outside-place.js";
 
-type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
 type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
-type RouteTarget = { studyId: string; index: number };
-type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
-type SourceData = { studies?: Study[]; aliases?: Record<string, Alias> };
+// Old numbered links (#study/12) are frozen in outside-legacy-links.json; new links use stable photo ids (#study/p1a2b3c4d).
+type LegacyLink = { study: string | null; photos: (string | null)[]; clamp?: boolean };
+type SourceData = { studies?: Study[] };
 
 const sourceData = data as SourceData;
-const fallbackImg: Img = { src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 240'%3E%3Crect width='320' height='240' fill='%23050505'/%3E%3Ctext x='50%25' y='50%25' fill='%238d8b86' font-size='12' text-anchor='middle'%3ENO IMAGE DATA%3C/text%3E%3C/svg%3E", w: 320, h: 240, d: "", t: "", se: 1, place: "Location unconfirmed", ex: "", fl: "", cam: "", avg: "#050505" };
+const fallbackImg: Img = { id: "p00000000", src: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 240'%3E%3Crect width='320' height='240' fill='%23050505'/%3E%3Ctext x='50%25' y='50%25' fill='%238d8b86' font-size='12' text-anchor='middle'%3ENO IMAGE DATA%3C/text%3E%3C/svg%3E", w: 320, h: 240, d: "", t: "", se: 1, place: "Location unconfirmed", ex: "", fl: "", cam: "", avg: "#050505" };
 const fallbackStudy: Study = { id: "no-studies", place: "No studies available", region: "", country: "", status: "PENDING", date: "", dateEnd: "", tz: "", key: 0, series: [{ start: 0, count: 1, time: "" }], images: [fallbackImg] };
 const validStudies = (sourceData.studies ?? []).filter((s) => Array.isArray(s.images) && s.images.length > 0);
 const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().sort((a, b) =>
   (b.dateEnd || b.date || "").localeCompare(a.dateEnd || a.date || "") ||
   (b.date || "").localeCompare(a.date || ""),
 );
-const aliases = sourceData.aliases ?? {};
-// Set to null to restore the full worklist; source studies, routes and aliases stay intact.
+const legacy = legacyLinks as Record<string, LegacyLink>;
+// Set to null to restore the full worklist; source studies and links stay intact.
 // excludeStudyIds wins over cutoff/includeStudyIds: it is a display-level hide requested by the
 // owner, so the records, deep links and original media stay untouched and the rows are reversible.
 const RECENT_ONLY: { cutoff: string; includeStudyIds: string[]; excludeStudyIds: string[] } | null = {
@@ -186,21 +187,23 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
     <div class="oz-sr" aria-live="polite" data-live></div>
     <div class="oz-route-error" data-route-error role="alert" aria-live="assertive" hidden>This Outside Studies link is no longer available.</div>
 
-    <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, aliases, recentStudyIds: recentStudies.map((s) => s.id) })}></script>
+    <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, legacy, recentStudyIds: recentStudies.map((s) => s.id) })}></script>
 
     <script>
       import { formatOutsideDateRange, formatOutsideSeriesDate } from "../utils/outside-date.js";
       import { formatOutsideTz } from "../utils/outside-tz.js";
       import { getOutsideFirstImageIndex, getOutsideSeriesArea, isOutsideTransitImage } from "../utils/outside-place.js";
-      type Img = { src: string; w: number; h: number; d: string; t: string; se: number; place?: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+      type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place?: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
       type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
-      type RouteTarget = { studyId: string; index: number };
-      type Alias = { studyId?: string; indices?: (number | null)[]; defaultIndex?: number; targets?: (RouteTarget | null)[]; defaultTarget?: RouteTarget | null };
+      type LegacyLink = { study: string | null; photos: (string | null)[]; clamp?: boolean };
 
       const pageData = JSON.parse(document.getElementById("oz-data")!.textContent || "{}");
       const studies: Study[] = pageData.studies;
-      const aliases: Record<string, Alias> = pageData.aliases ?? {};
+      const legacy: Record<string, LegacyLink> = pageData.legacy ?? {};
+      const photoIndex = new Map<string, { s: number; i: number }>();
+      studies.forEach((st, s) => st.images.forEach((img, i) => photoIndex.set(img.id, { s, i })));
+      const photoLink = (st: Study, i: number) => `#${st.id}/${st.images[i]?.id ?? i + 1}`;
       const recentStudyIndices: number[] = (pageData.recentStudyIds ?? studies.map((s: Study) => s.id))
         .map((id: string) => studies.findIndex((s: Study) => s.id === id))
         .filter((index: number) => index >= 0);
@@ -561,7 +564,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       const updateHash = () => {
         window.clearTimeout(hashTimer);
         hashTimer = window.setTimeout(() => {
-          const h = `#${study().id}/${state.i + 1}`;
+          const h = photoLink(study(), state.i);
           if (location.hash !== h && (desktopMQ.matches || state.open)) history.replaceState(history.state, "", h);
         }, 220);
       };
@@ -630,7 +633,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         if (!desktopMQ.matches && !state.open) {
           state.open = true;
           body.classList.add("is-reading");
-          if (opts.push !== false) history.pushState({ oz: 1 }, "", `#${st.id}/${state.i + 1}`);
+          if (opts.push !== false) history.pushState({ oz: 1 }, "", photoLink(st, state.i));
           window.setTimeout(() => viewport.focus({ preventScroll: true }), 60);
         }
       };
@@ -998,43 +1001,30 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       });
 
       // ---------- routing ----------
-      const resolveRouteTarget = (route: RouteTarget | null | undefined) => {
-        if (!route || typeof route.studyId !== "string" || !Number.isInteger(route.index) || route.index < 0) return null;
-        const targetStudy = studies.findIndex((st) => st.id === route.studyId);
-        if (targetStudy < 0 || route.index >= studies[targetStudy].images.length) return null;
-        return { s: targetStudy, i: route.index };
-      };
+      // #study/p1a2b3c4d is a stable photo link. #study/12 and old alias ids resolve through the frozen
+      // legacy table, so adding or removing photos never moves an old link to a different photo.
       const parseHash = () => {
-        const m = location.hash.slice(1).match(/^([\w-]+)(?:\/([1-9]\d*))?$/);
+        const m = location.hash.slice(1).match(/^([\w-]+)(?:\/([\w-]+))?$/);
         if (!m) return null;
-        const s = studies.findIndex((st) => st.id === m[1]);
-        const oldIndex = m[2] ? Number(m[2]) - 1 : undefined;
-        if (s >= 0) return { s, i: oldIndex };
-        const alias = aliases[m[1]];
-        if (!alias) return null;
-        if (Array.isArray(alias.targets)) {
-          if (oldIndex === undefined) {
-            const defaultTarget = Object.prototype.hasOwnProperty.call(alias, "defaultTarget")
-              ? alias.defaultTarget
-              : alias.targets.find((target) => target !== null);
-            const resolved = resolveRouteTarget(defaultTarget);
-            return resolved ? { s: resolved.s, i: undefined } : null;
+        const [, routeId, part] = m;
+        if (part && !/^[1-9]\d*$/.test(part)) return photoIndex.get(part) ?? null;
+        const old = Object.prototype.hasOwnProperty.call(legacy, routeId) ? legacy[routeId] : undefined;
+        if (old) {
+          if (!part) {
+            const s = old.study ? studies.findIndex((st) => st.id === old.study) : -1;
+            return s >= 0 ? { s, i: undefined } : null;
           }
-          if (!Number.isSafeInteger(oldIndex) || oldIndex < 0 || oldIndex >= alias.targets.length) return null;
-          return resolveRouteTarget(alias.targets[oldIndex]);
+          let k = Number(part) - 1;
+          if (k >= old.photos.length) {
+            if (!old.clamp || !old.photos.length) return null;
+            k = old.photos.length - 1;
+          }
+          const photo = old.photos[k];
+          return photo ? photoIndex.get(photo) ?? null : null;
         }
-        if (typeof alias.studyId !== "string" || !Array.isArray(alias.indices)) return null;
-        const target = studies.findIndex((st) => st.id === alias.studyId);
-        if (target < 0) return null;
-        if (oldIndex === undefined) {
-          const defaultIndex = alias.defaultIndex ?? alias.indices.find((index) => typeof index === "number" && Number.isInteger(index) && index >= 0);
-          if (typeof defaultIndex !== "number" || !Number.isInteger(defaultIndex) || defaultIndex < 0 || defaultIndex >= studies[target].images.length) return null;
-          return { s: target, i: undefined };
-        }
-        if (!Number.isSafeInteger(oldIndex) || oldIndex < 0 || oldIndex >= alias.indices.length) return null;
-        const mappedIndex = alias.indices[oldIndex];
-        if (typeof mappedIndex !== "number" || !Number.isInteger(mappedIndex) || mappedIndex < 0 || mappedIndex >= studies[target].images.length) return null;
-        return { s: target, i: mappedIndex };
+        const s = studies.findIndex((st) => st.id === routeId);
+        if (s < 0) return null;
+        return { s, i: part ? Number(part) - 1 : undefined };
       };
       const unavailableLinkText = "This Outside Studies link is no longer available.";
       const showRouteError = () => {
