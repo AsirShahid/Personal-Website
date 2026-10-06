@@ -55,7 +55,7 @@ class OutsidePlaceDataTests(unittest.TestCase):
             self.assertEqual(display_numbers, expected_numbers, study["id"])
             self.assertFalse(study["images"][study["key"]]["transit"], study["id"])
 
-    def test_date_place_groups_are_chronological_and_consecutive_in_focus_studies(self):
+    def test_date_area_groups_are_chronological_and_consecutive_in_focus_studies(self):
         for study in DATA["studies"]:
             if study["id"] not in FOCUS_IDS:
                 continue
@@ -77,7 +77,7 @@ class OutsidePlaceDataTests(unittest.TestCase):
                 self.assertEqual(study["dateEnd"], max(image["d"] for image in ordinary), study["id"])
             expected = []
             for image in ordinary:
-                pair = (image.get("d", ""), image["place"])
+                pair = (image.get("d", ""), image["area"])
                 if not expected or expected[-1][0] != pair:
                     expected.append([pair, 0])
                 expected[-1][1] += 1
@@ -89,8 +89,8 @@ class OutsidePlaceDataTests(unittest.TestCase):
                     continue
                 images = study["images"][series["start"]:series["start"] + series["count"]]
                 self.assertEqual(len({image.get("d", "") for image in images}), 1, (study["id"], series))
-                self.assertEqual(len({image["place"] for image in images}), 1, (study["id"], series))
-                actual.append([(images[0].get("d", ""), images[0]["place"]), len(images)])
+                self.assertEqual(len({image["area"] for image in images}), 1, (study["id"], series))
+                actual.append([(images[0].get("d", ""), images[0]["area"]), len(images)])
             self.assertEqual(actual, expected, study["id"])
 
     def test_transit_places_and_se0_are_limited_to_authorized_itineraries(self):
@@ -108,7 +108,7 @@ class OutsidePlaceDataTests(unittest.TestCase):
         self.assertEqual([(image["place"], image["se"]) for image in australia], [("Bangkok", 0)])
         pakistan = transit["pakistan-2026-summer-gallery-20261005"]
         self.assertEqual(len(pakistan), 11)
-        self.assertEqual(set(image["place"] for image in pakistan), {"Rome", "Albania"})
+        self.assertEqual(set(image["place"] for image in pakistan), {"Rome", "Tirana"})
         self.assertTrue(all(image["se"] == 0 for image in pakistan))
         self.assertEqual(australia[0]["src"], "/outside/assets/owner-review/additional-trips/A278")
         self.assertEqual(pakistan, next(study for study in DATA["studies"] if study["id"] == "pakistan-2026-summer-gallery-20261005")["images"][:11])
@@ -125,7 +125,7 @@ class OutsidePlaceDataTests(unittest.TestCase):
         )
         self.assertEqual(
             {image["place"] for image in studies["pakistan-2026-summer-gallery-20261005"]["images"]},
-            {"Rome", "Albania", "Karachi", "Murree", "Nathia Gali", "Islamabad", "Lahore"},
+            {"Rome", "Tirana", "Karachi", "Murree", "Nathia Gali", "Islamabad", "Lahore"},
         )
         self.assertEqual(
             {image["place"] for image in studies["galapagos-2026-january-photos-20261004-20261005-161007"]["images"]},
@@ -148,14 +148,14 @@ class OutsidePlaceDataTests(unittest.TestCase):
         self.assertEqual(southwest["images"][-1]["place"], "Hoover Dam")
         self.assertEqual(southwest["images"][-1]["transit"], False)
 
-    def test_hidden_studies_use_the_same_maximal_date_place_runs(self):
+    def test_hidden_studies_use_the_same_maximal_date_area_runs(self):
         for study in DATA["studies"]:
             previous = None
             for series in study["series"]:
                 if series["displayNumber"] == 0:
                     continue
                 segment = study["images"][series["start"]:series["start"] + series["count"]]
-                pairs = {(im.get("d", ""), im["place"]) for im in segment}
+                pairs = {(im.get("d", ""), im["area"]) for im in segment}
                 self.assertEqual(len(pairs), 1, study["id"])
                 pair = next(iter(pairs))
                 self.assertNotEqual(previous, pair, study["id"])

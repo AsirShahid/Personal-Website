@@ -44,3 +44,11 @@ export function formatOutsideCompactDateRange(start, end) {
   if (first.year === last.year) return `${dateText(first)} – ${dateText(last)}, ${first.year}`;
   return `${dateText(first)}, ${first.year} – ${dateText(last)}, ${last.year}`;
 }
+
+/** Format one series day as a compact month/day label without a year. */
+export function formatOutsideSeriesDate(value) {
+  if (typeof value !== "string" || !value) return "";
+  if (!isValidIsoDate(value)) return value;
+  const [, month, day] = value.split("-").map(Number);
+  return `${monthAbbreviations[month - 1]} ${day}`;
+}

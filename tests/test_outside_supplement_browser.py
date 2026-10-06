@@ -2,6 +2,7 @@ import json
 import os
 import re
 import unittest
+from datetime import date
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -9,6 +10,7 @@ from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-supplement-browser"))
+MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 PARENT_ROUTES = json.loads((Path(__file__).parents[1] / "tests/fixtures/outside-20261004-parent-route-bindings.json").read_text())
 SUPPLEMENTS = {
     "montreal-august-2023-photos": {
@@ -27,26 +29,38 @@ SUPPLEMENTS = {
 }
 
 
-def expected_place_groups(study):
+def strip_date(value):
+    if not value:
+        return ""
+    parsed = date.fromisoformat(value)
+    return f"{MONTHS[parsed.month - 1]} {parsed.day}"
+
+
+def expected_area_groups(study):
     groups = []
     for index, image in enumerate(study["images"]):
-        transit = image.get("transit") is True
-        key = ("transit",) if transit else ("place", image.get("d", ""), image.get("place"))
+        transit = image.get("transit") is True or image.get("se") == 0
+        key = ("transit",) if transit else ("area", image.get("d", ""), image.get("area"))
         if not groups or groups[-1]["key"] != key:
-            groups.append({"key": key, "start": index, "count": 0, "images": []})
+            groups.append({"key": key, "start": index, "count": 0, "images": [], "date": image.get("d", "")})
         groups[-1]["count"] += 1
         groups[-1]["images"].append(image)
     next_destination = 1
     for group in groups:
-        places = list(dict.fromkeys(image.get("place") or "Location unconfirmed" for image in group["images"]))
+        areas = list(dict.fromkeys(image.get("area") or "Location unconfirmed" for image in group["images"]))
         if group["key"][0] == "transit":
             group["displayNumber"] = 0
-            group["caption"] = f"Scout · {', '.join(places)}" if places else "Scout"
+            group["caption"] = "Scout"
         else:
             group["displayNumber"] = next_destination
-            group["caption"] = " · ".join(places)
+            group["caption"] = areas[0] if len(areas) == 1 else " · ".join(areas)
             next_destination += 1
     return groups
+
+
+def expected_strip_date(group, series):
+    value = series.get("date") or group.get("date") or ""
+    return strip_date(value) if value else ""
 
 
 class OutsideSupplementBrowserTests(unittest.TestCase):
@@ -79,7 +93,7 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                 study = next(s for s in payload["studies"] if s["id"] == study_id)
                 self.assertEqual(len(study["images"]), expected["images"])
                 self.assertEqual(sum(not image.get("d") for image in study["images"]), expected["unresolved"])
-                expected_groups = expected_place_groups(study)
+                expected_groups = expected_area_groups(study)
                 actual_groups = sorted(study["series"], key=lambda series: series["start"])
                 self.assertEqual(
                     [(s["start"], s["count"], s["displayNumber"]) for s in actual_groups],
@@ -90,8 +104,14 @@ class OutsideSupplementBrowserTests(unittest.TestCase):
                 visible_labels = [buttons.nth(i).get_attribute("aria-label") for i in range(buttons.count())]
                 self.assertTrue(all("undefined" not in (label or "").lower() for label in visible_labels), visible_labels)
                 for position, group in enumerate(expected_groups):
-                    self.assertTrue((visible_labels[position] or "").startswith(f"Series {group['displayNumber']}, {group['caption']},"), visible_labels[position])
-                    self.assertEqual(buttons.nth(position).locator(".oz-se-cap b").inner_text(), f"SE {group['displayNumber']} · {group['caption']}")
+                    series = actual_groups[position]
+                    short_date = expected_strip_date(group, series)
+                    expected_first = f"SE {group['displayNumber']} · {short_date}" if short_date else None
+                    self.assertIn(group["caption"], visible_labels[position] or "")
+                    self.assertIn(f"{group['count']} images", visible_labels[position] or "")
+                    if expected_first:
+                        self.assertEqual(buttons.nth(position).locator(".oz-se-cap b").inner_text(), expected_first)
+                    self.assertEqual(buttons.nth(position).locator(".oz-se-cap > span").inner_text(), group["caption"])
                 if study_id == "europe-shared-album":
                     self.assertEqual((study.get("date"), study.get("dateEnd")), ("", ""))
                     self.assertEqual(study["place"], "Europe")

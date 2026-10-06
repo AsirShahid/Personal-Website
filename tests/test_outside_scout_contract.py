@@ -134,13 +134,13 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
                 self.assertEqual(self.images[source].get("se"), self.source_display_numbers[source], source)
                 if source in {f"/outside/assets/owner-review/core-trips/{ref}" for ref in ("C887", "C894")}:
                     ref = source.rsplit("/", 1)[-1]
-                    actual = {key: value for key, value in self.images[source].items() if key not in {"place", "transit", "se"}}
+                    actual = {key: value for key, value in self.images[source].items() if key not in {"place", "transit", "se", "area"}}
                     expected_record = {key: value for key, value in PUERTO_RICO_EXISTING_RECORDS[ref].items() if key != "se"}
                     self.assertEqual(actual, expected_record, source)
                     continue
                 # Reinsert the frozen legacy `se` only for the old-record digest:
                 # current `se` is intentionally the new display number, checked above.
-                actual_record = {key: value for key, value in self.images[source].items() if key not in {"place", "transit"}}
+                actual_record = {key: value for key, value in self.images[source].items() if key not in {"place", "transit", "area"}}
                 if source in self.legacy_images:
                     actual_record["se"] = self.legacy_images[source].get("se")
                 actual = hashlib.sha256(json.dumps(actual_record, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
@@ -148,7 +148,7 @@ class OutsideScoutAndRemovalContractTests(unittest.TestCase):
         restored = self.images[RESTORED_SOURCE]
         restored_baseline = FROZEN["authorized_restore_source"]
         self.assertEqual(self.legacy_images[RESTORED_SOURCE], restored_baseline)
-        self.assertEqual({key: value for key, value in restored.items() if key not in {"place", "transit", "se"}},
+        self.assertEqual({key: value for key, value in restored.items() if key not in {"place", "transit", "se", "area"}},
                          {key: value for key, value in restored_baseline.items() if key != "se"})
         self.assertEqual(restored.get("se"), 0)
         self.assertIs(restored.get("transit"), True)
