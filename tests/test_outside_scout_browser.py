@@ -25,7 +25,7 @@ DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_EVIDENCE_DIR", "/tmp/outside-scout-browser"))
 SCOUTS = [
     {"id": "pakistan-2026-summer-gallery-20261005", "old_id": "pakistan-2026-summer-photos", "date": "2026-06-24", "end": "2026-06-25", "study_date": "2026-06-28", "study_end": "2026-07-05", "total": 30, "source": "/outside/assets/summer-2026/0005", "default_source": "/outside/assets/owner-review/summer-2026/S0102", "place": "Karachi", "transit_place": "Rome"},
-    {"id": "australia-2026-july-gallery-20261005-161007", "old_id": "australia-2026-july-photos", "date": "2026-07-06", "end": "2026-07-06", "study_date": "2026-07-07", "study_end": "2026-07-16", "total": 32, "source": "/outside/assets/owner-review/additional-trips/A278", "default_source": "/outside/assets/summer-2026/0404", "place": "Busselton", "transit_place": "Bangkok"},
+    {"id": "australia-2026-july-gallery-20261005-quokka", "old_id": "australia-2026-july-photos", "date": "2026-07-06", "end": "2026-07-06", "study_date": "2026-07-07", "study_end": "2026-07-16", "total": 33, "source": "/outside/assets/owner-review/additional-trips/A278", "default_source": "/outside/assets/summer-2026/0404", "place": "Busselton", "transit_place": "Bangkok"},
     {"id": "cruise-2024-december-gallery", "old_id": "cruise-2024-december", "date": "2024-12-17", "end": "2024-12-17", "study_date": "2024-12-15", "study_end": "2024-12-20", "total": 8, "source": "/outside/assets/owner-review/additional-trips/A306", "place": None, "transit_place": "Merritt Island"},
 ]
 
@@ -93,9 +93,9 @@ class OutsideScoutBrowserTests(unittest.TestCase):
                         expected_row_date = f"{spec['study_date']} to {spec['study_end'][5:]}" if spec["study_date"][:4] == spec["study_end"][:4] else f"{spec['study_date']} to {spec['study_end']}"
                         self.assertIn(expected_row_date, row.get_attribute("aria-label"))
 
-                    self.assertEqual((len(visible_ids), 232), (6, 232))
+                    self.assertEqual((len(visible_ids), 233), (6, 233))
                     self.assertIn("6 studies", page.locator(".oz-topmeta").inner_text().lower())
-                    self.assertIn("232 images", page.locator(".oz-topmeta").inner_text().lower())
+                    self.assertIn("233 images", page.locator(".oz-topmeta").inner_text().lower())
                     buttons = page.locator("[data-series] [data-se]")
                     self.assertEqual(buttons.count(), len(chapters))
                     active_position = chapters.index(default_series)

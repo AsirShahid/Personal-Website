@@ -11,7 +11,7 @@ ROOT = Path(__file__).parents[1]
 SOURCE = json.loads((ROOT / "src/data/outside-studies.json").read_text())
 RECENT_IDS = {
     "new-zealand-2026-july-photos-161007",
-    "australia-2026-july-gallery-20261005-161007",
+    "australia-2026-july-gallery-20261005-quokka",
     "pakistan-2026-summer-gallery-20261005",
     "galapagos-2026-january-photos-20261004-20261005-161007",
     "montreal-november-2025-photos-20261005",
@@ -60,7 +60,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         expected_photos = sum(len(source_by_id[study_id]["images"]) for study_id in RECENT_IDS)
         rows = page.locator(".oz-rows [data-study]")
         visible_ids = [row.get_attribute("href").lstrip("#") for row in rows.all()]
-        self.assertEqual((len(visible_ids), expected_photos), (6, 232))
+        self.assertEqual((len(visible_ids), expected_photos), (6, 233))
         self.assertEqual(set(visible_ids), RECENT_IDS)
         self.assertIn(f"{len(RECENT_IDS)} studies", page.locator(".oz-topmeta").inner_text().lower())
         self.assertIn(f"{expected_photos} images", page.locator(".oz-topmeta").inner_text().lower())

@@ -17,6 +17,9 @@ OWNER_FLAGS = json.loads((Path(__file__).parent / "fixtures/outside-owner-photo-
 LATEST_FLAGS = json.loads((Path(__file__).parent / "fixtures/outside-owner-photo-removals-20261005-161007.json").read_text())
 OWNER_EXPORT_REMOVALS = set(OWNER_FLAGS["flagged_sources"]) | set(LATEST_FLAGS["flagged_sources"])
 RESTORED_A306 = SCOUT_BASELINE["authorized_restore_source"]["src"]
+ROTTNEST_QUOKKA_SOURCE = "/outside/assets/owner-review/summer-2026/S0659"
+OLD_AUSTRALIA_ID = "australia-2026-july-gallery-20261005-161007"
+AUSTRALIA_ID = "australia-2026-july-gallery-20261005-quokka"
 DUPLICATE_GROUPS = {
     "/outside/assets/owner-review/galapagos/G208": "/outside/assets/owner-review/galapagos/G207",
     "/outside/assets/owner-review/core-trips/C219": "/outside/assets/owner-review/core-trips/C218",
@@ -102,16 +105,16 @@ class OutsideContentContractTests(unittest.TestCase):
 
     def test_final_inventory_and_readable_non_reused_canonical_ids(self):
         ids = set(self.studies)
-        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 413))
+        self.assertEqual((len(ids), sum(len(s["images"]) for s in self.studies.values())), (21, 414))
         for study_id in ids:
             self.assertRegex(study_id, r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
             self.assertFalse(re.search(r"projection|metadata|retained|expanded|review|candidate|supplement", study_id), study_id)
         self.assertFalse(ids & set(self.data["aliases"]))
         self.assertFalse(self.sources & OWNER_REMOVALS)
         self.assertFalse(self.sources & OWNER_EXPORT_REMOVALS)
-        self.assertEqual(len(self.data["aliases"]), 131)
+        self.assertEqual(len(self.data["aliases"]), 132)
         baseline_sources = set(SCOUT_BASELINE["image_object_sha256"])
-        self.assertEqual(self.sources, ((baseline_sources - PENDING_REMOVALS - set(DUPLICATE_GROUPS) - PUERTO_RICO_REMOVALS - OWNER_EXPORT_REMOVALS) | {RESTORED_A306} | PUERTO_RICO_REVIEW_SOURCES))
+        self.assertEqual(self.sources, ((baseline_sources - PENDING_REMOVALS - set(DUPLICATE_GROUPS) - PUERTO_RICO_REMOVALS - OWNER_EXPORT_REMOVALS) | {RESTORED_A306, ROTTNEST_QUOKKA_SOURCE} | PUERTO_RICO_REVIEW_SOURCES))
         contract = json.loads(HISTORICAL_ROUTES.read_text())
         self.assertFalse(self.sources & OWNER_REMOVALS)
 
@@ -193,7 +196,7 @@ class OutsideContentContractTests(unittest.TestCase):
             "galapagos-2026-january-photos-20261004", "montreal-november-2025-photos", "pakistan-2026-summer-gallery",
             "australia-2026-july-gallery-20261005", "galapagos-2026-january-photos-20261004-20261005",
             "new-zealand-2026-july-photos",
-        })
+        } | {OLD_AUSTRALIA_ID})
         self.assertEqual(len(self.data["studies"]), 21)
         removed_sources = set(before["removed_sources_for_this_change"]) | PENDING_REMOVALS | set(DUPLICATE_GROUPS) | PUERTO_RICO_REMOVALS | OWNER_EXPORT_REMOVALS
         for study_id, binding in old_canonical.items():
@@ -296,7 +299,7 @@ class OutsideContentContractTests(unittest.TestCase):
             self.assertIsNone(forbidden.search(public), f"{study['id']}: {public}")
         self.assertNotIn("thailand-2026-july", self.studies)
         self.assertIn("/outside/assets/owner-review/additional-trips/A278", self.sources)
-        australia_id = LATEST_FLAGS["affected_studies"][OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]]
+        australia_id = AUSTRALIA_ID
         self.assertEqual(self.studies[australia_id]["status"], "PRELIM")
         self.assertEqual(self.studies["orlando-2025-september"]["status"], "PENDING")
         self.assertNotIn("celebration-2025-september", self.studies)
@@ -365,7 +368,7 @@ class OutsideContentContractTests(unittest.TestCase):
                 self.assertNotIn("undefined", title.lower())
                 self.assertLessEqual(len(title.split()), 5, f"{study['id']}: {title}")
                 self.assertIsNone(re.search(r"metadata|review|supplement|candidate|retained", title, re.I), title)
-        australia_id = LATEST_FLAGS["affected_studies"][OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]]
+        australia_id = AUSTRALIA_ID
         australia = self.studies[australia_id]
         self.assertTrue(any(image.get("transit") and image.get("place") == "Bangkok" for image in australia["images"]))
         self.assertNotIn("thailand-2026-july", self.studies)
@@ -384,7 +387,7 @@ class OutsideContentContractTests(unittest.TestCase):
         self.assertLess(order.index("maryland-national-harbor-2023-august"), order.index("montreal-august-2023-photos"))
         self.assertLess(order.index("montreal-august-2023-photos"), order.index("philadelphia-2023-spring-gallery"))
         self.assertEqual(order[:3], [LATEST_FLAGS["affected_studies"]["new-zealand-2026-july-photos"],
-                                     LATEST_FLAGS["affected_studies"][OWNER_FLAGS["affected_studies"]["australia-2026-july-gallery"]],
+                                     AUSTRALIA_ID,
                                      OWNER_FLAGS["affected_studies"]["pakistan-2026-summer-gallery"]])
         self.assertNotIn("albania-2026-june", order)
         self.assertNotIn("rome-vatican-2026-june", order)
