@@ -724,6 +724,12 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       $("[data-info]").addEventListener("click", () => { state.info = !state.info; syncButtons(); });
       $("[data-fit]").addEventListener("click", () => { touch(); fitVisiblePhotos(); });
       $("[data-reset]").addEventListener("click", resetView);
+      // Toolbar buttons are pressed and released. After a mouse or touch press, hand focus back to the viewer so
+      // the next arrow key or Space drives the photos instead of re-lighting the pressed button. Keyboard
+      // activation (click.detail === 0) keeps focus in the toolbar for Tab navigation.
+      $(".oz-toolset").addEventListener("click", (e) => {
+        if (e.detail > 0 && (e.target as HTMLElement).closest("button")) viewport.focus({ preventScroll: true });
+      });
       $("[data-close]").addEventListener("click", () => {
         if (history.state && history.state.oz) history.back();
         else { closeReader(); history.replaceState(null, "", location.pathname); }
@@ -1115,13 +1121,15 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       .oz-top { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; padding: 0 18px; border-bottom: 1px solid var(--line); background: var(--bg); }
       .oz-brand { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
       .oz-home { color: var(--mute); font-size: 14px; text-decoration: none; transition: color .15s; }
-      .oz-home:hover, .oz-home:focus-visible { color: var(--ink); }
+      .oz-home:focus-visible { color: var(--ink); }
+      @media (hover: hover) { .oz-home:hover { color: var(--ink); } }
       .oz-slash { color: var(--dim); }
       .oz-brand h1 { margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -.01em; white-space: nowrap; }
       .oz-topmeta { display: flex; gap: 14px; margin: 0 0 0 auto; color: var(--mute); font: 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
       .oz-topmeta span:first-child { color: var(--amber); }
       .oz-helpbtn { width: 30px; height: 30px; border: 1px solid var(--line-2); border-radius: 50%; background: transparent; color: var(--mute); font: 12px var(--mono); cursor: pointer; }
-      .oz-helpbtn:hover, .oz-helpbtn:focus-visible { color: var(--ink); border-color: var(--mute); }
+      .oz-helpbtn:focus-visible { color: var(--ink); border-color: var(--mute); }
+      @media (hover: hover) { .oz-helpbtn:hover { color: var(--ink); border-color: var(--mute); } }
 
       /* ---------- worklist (desktop) ---------- */
       .oz-worklist { overflow-y: auto; border-right: 1px solid var(--line); background: var(--panel); scrollbar-width: thin; scrollbar-color: #2a2a2a transparent; }
@@ -1129,12 +1137,13 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       .oz-rows { margin: 0; padding: 0; list-style: none; }
 
       .oz-row { position: relative; display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 14px; align-items: start; padding: 12px 20px; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; transition: background .15s; }
-      .oz-row:hover { background: #0f0f0f; }
+      @media (hover: hover) { .oz-row:hover { background: #0f0f0f; } }
       .oz-row[aria-current="true"] { background: var(--panel-2); }
       .oz-row:focus-visible { outline: 1px solid var(--amber); outline-offset: -1px; }
       .oz-thumb { display: block; overflow: hidden; aspect-ratio: 4 / 3; background: var(--avg, #111); }
       .oz-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; opacity: .82; transition: opacity .2s; }
-      .oz-row:hover .oz-thumb img, .oz-row[aria-current="true"] .oz-thumb img { opacity: 1; }
+      .oz-row[aria-current="true"] .oz-thumb img { opacity: 1; }
+      @media (hover: hover) { .oz-row:hover .oz-thumb img { opacity: 1; } }
       .oz-row[aria-current="true"] .oz-thumb { box-shadow: 0 0 0 1px var(--amber); }
       .oz-rowtext { display: flex; min-width: 0; flex-direction: column; gap: 3px; padding-top: 1px; }
       .oz-place { overflow: hidden; font-size: 15.5px; line-height: 1.2; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
@@ -1159,7 +1168,10 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       .oz-toolset { display: flex; margin-left: auto; }
       .oz-toolset button { display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 11px; border: 0; background: none; color: var(--mute); font: 10.5px var(--mono); letter-spacing: .09em; text-transform: uppercase; cursor: pointer; transition: color .15s; }
       .oz-toolset button kbd { color: var(--dim); font-size: 9.5px; }
-      .oz-toolset button:hover, .oz-toolset button:focus-visible { color: var(--ink); }
+      /* Hover paint only where a real pointer can hover: touch screens keep a sticky :hover on the last
+         tapped button, which made momentary Fit look switched on until something else was tapped. */
+      .oz-toolset button:focus-visible { color: var(--ink); }
+      @media (hover: hover) { .oz-toolset button:hover { color: var(--ink); } }
       .oz-toolset button[aria-pressed="true"] { color: var(--amber); }
       .oz-toolset button[aria-pressed="true"] kbd { color: color-mix(in srgb, var(--amber) 60%, transparent); }
       .oz-toolset button:focus-visible { outline: 1px solid var(--amber); outline-offset: -6px; }
@@ -1209,7 +1221,8 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       .oz-series::-webkit-scrollbar { display: none; }
       .oz-se { display: flex; flex: 0 0 104px; flex-direction: column; gap: 5px; width: 104px; min-width: 0; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
       .oz-se img { display: block; width: 104px; height: 58px; object-fit: cover; opacity: .6; outline: 1px solid transparent; outline-offset: 0; transition: opacity .15s; }
-      .oz-se:hover img, .oz-se.is-active img { opacity: 1; }
+      .oz-se.is-active img { opacity: 1; }
+      @media (hover: hover) { .oz-se:hover img { opacity: 1; } }
       .oz-se.is-active img { outline-color: var(--amber); }
       .oz-se-cap { display: flex; width: 100%; flex-direction: column; gap: 1px; min-width: 0; color: var(--mute); font: 9.5px/1.35 var(--mono); letter-spacing: .04em; white-space: nowrap; }
       .oz-se-cap > * { overflow: hidden; text-overflow: ellipsis; }
