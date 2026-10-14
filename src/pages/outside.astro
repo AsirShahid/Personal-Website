@@ -6,7 +6,7 @@ import legacyLinks from "@/data/outside-legacy-links.json";
 import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
 import { getOutsideFirstImageIndex, getOutsideStudyAreaSummary, getOutsideStudyCover } from "../utils/outside-place.js";
 
-type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string; initialPick?: boolean };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
 type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
 // Old numbered links (#study/12) are frozen in outside-legacy-links.json; new links use stable photo ids (#study/p1a2b3c4d).
@@ -200,7 +200,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       import { formatOutsideDateRange, formatOutsideSeriesDate } from "../utils/outside-date.js";
       import { formatOutsideTz } from "../utils/outside-tz.js";
       import { getOutsideFirstImageIndex, getOutsideSeriesArea, isOutsideTransitImage } from "../utils/outside-place.js";
-      type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place?: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string };
+      type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place?: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string; initialPick?: boolean };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
       type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
       type LegacyLink = { study: string | null; photos: (string | null)[]; clamp?: boolean };
@@ -468,7 +468,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
             }
           }).catch(() => {});
         }
-        label.textContent = state.layout === 4 ? `IM ${idx + 1}` : "";
+        label.textContent = state.layout === 4 ? `IM ${idx + 1}${img.initialPick ? " · INITIAL PICK" : ""}` : "";
         applyPhotoView(cell);
       };
 
@@ -500,6 +500,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           `${img.d}  ${img.t}`,
           formatOutsideTz(img.tz || st.tz),
           state.i === st.key ? ["KEY IMAGE", "oz-ov-key"] : "",
+          img.initialPick ? ["INITIAL PICK", "oz-initial-pick"] : "",
         ]);
         line(ov.bl, [img.ex, img.fl, cameraLabel(img.cam)]);
         line(ov.br, [
@@ -1295,6 +1296,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       .oz-ov-br { bottom: 12px; right: 40px; text-align: right; }
       .oz-ov-strong { color: #fff; font-weight: 600; }
       .oz-ov-key { color: var(--amber); }
+      .oz-initial-pick { color: #8ed9ea; font-weight: 600; }
       .oz-st-final { color: #fff; }
       .oz-st-prelim { color: var(--amber); }
       .oz-st-pending { color: var(--mute); }
