@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 STUDY = "pakistan-2026-summer-gallery-20261005"
-REMOVED_CONTROLS = ".oz-review, [data-review-flag], [data-review-export], [data-review-count], [data-review-saved]"
+REVIEW_CONTROLS = ".oz-review, [data-review-flag], [data-review-export], [data-review-count], [data-review-saved]"
 SCALE = "im => new DOMMatrixReadOnly(getComputedStyle(im).transform).a"
 ZOOMED = "() => new DOMMatrixReadOnly(getComputedStyle(document.querySelector('[data-cells] img')).transform).a > 1.05"
 FITTED = "() => new DOMMatrixReadOnly(getComputedStyle(document.querySelector('[data-cells] img')).transform).a < 1.01"
@@ -15,7 +15,7 @@ NO_TRANSITIONS = "*, *::before, *::after { transition: none !important; }"
 
 
 class OutsideReaderToolbarBrowserTests(unittest.TestCase):
-    """Owner-requested changes: no flag/export row, and Fit reads as a plain button."""
+    """Owner review row is present; Fit remains a plain momentary button."""
 
     @classmethod
     def setUpClass(cls):
@@ -43,7 +43,7 @@ class OutsideReaderToolbarBrowserTests(unittest.TestCase):
             }),
         })""")
 
-    def test_review_row_is_gone_and_the_reader_keeps_three_clean_rows(self):
+    def test_review_row_is_restored_with_contiguous_reader_bands(self):
         for label, viewport, mobile in (("desktop", {"width": 1440, "height": 1000}, False),
                                         ("mobile", {"width": 390, "height": 844}, True)):
             with self.subTest(viewport=label):
@@ -52,17 +52,17 @@ class OutsideReaderToolbarBrowserTests(unittest.TestCase):
                 errors = []
                 page.on("pageerror", lambda error: errors.append(str(error)))
                 self.open_reader(page, mobile)
-                self.assertEqual(page.locator(REMOVED_CONTROLS).count(), 0, "the flag/export row must not exist any more")
+                self.assertEqual(page.locator(REVIEW_CONTROLS).count(), 5, "the owner review controls are available")
 
                 geometry = self.reader_rows(page)
-                self.assertEqual(geometry["rows"], ["oz-tools", "oz-viewport", "oz-series"],
-                                 "the viewer grid must not keep an empty band where the review row was")
-                tools, viewport_band, series = geometry["bands"]
-                self.assertAlmostEqual(tools["bottom"], viewport_band["top"], delta=0.5, msg="gap above the photo")
+                self.assertEqual(geometry["rows"], ["oz-tools", "oz-review", "oz-viewport", "oz-series"])
+                tools, review, viewport_band, series = geometry["bands"]
+                self.assertAlmostEqual(tools["bottom"], review["top"], delta=0.5)
+                self.assertAlmostEqual(review["bottom"], viewport_band["top"], delta=0.5, msg="gap above the photo")
                 self.assertAlmostEqual(viewport_band["bottom"], series["top"], delta=0.5, msg="gap below the photo")
                 self.assertGreater(viewport_band["height"], 0)
 
-                # Browsing must not write the removed review store either.
+                # Browsing alone must not create review flags.
                 page.keyboard.press("ArrowDown")
                 stored = page.evaluate("Object.keys(window.localStorage)")
                 self.assertFalse([key for key in stored if "photo-review" in key], stored)
