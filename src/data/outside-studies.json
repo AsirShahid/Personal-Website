@@ -6523,7 +6523,8 @@
           "tz": "UTC-06:00",
           "place": "Green Mountain Falls",
           "transit": false,
-          "area": "Green Mountain Falls"
+          "area": "Green Mountain Falls",
+          "initialPick": true
         },
         {
           "id": "p388eca63",
@@ -6727,7 +6728,8 @@
           "tz": "UTC-06:00",
           "place": "Green Mountain Falls",
           "transit": false,
-          "area": "Green Mountain Falls"
+          "area": "Green Mountain Falls",
+          "initialPick": true
         },
         {
           "id": "p77d3dd60",
@@ -6880,7 +6882,8 @@
           "tz": "UTC-06:00",
           "place": "Manitou Springs",
           "transit": false,
-          "area": "Manitou Springs"
+          "area": "Manitou Springs",
+          "initialPick": true
         },
         {
           "id": "pe1072953",
@@ -6897,7 +6900,8 @@
           "fl": "2.59 mm  (14 mm eq)",
           "place": "Manitou Springs",
           "transit": false,
-          "area": "Manitou Springs"
+          "area": "Manitou Springs",
+          "initialPick": true
         },
         {
           "id": "paef7cb35",
@@ -6999,7 +7003,8 @@
           "fl": "5.59 mm",
           "place": "Denver",
           "transit": false,
-          "area": "Denver"
+          "area": "Denver",
+          "initialPick": true
         },
         {
           "id": "pb58a3166",
@@ -7067,7 +7072,8 @@
           "fl": "5.59 mm",
           "place": "Glenwood Springs",
           "transit": false,
-          "area": "Glenwood Springs"
+          "area": "Glenwood Springs",
+          "initialPick": true
         },
         {
           "id": "p29d89a39",
@@ -7169,7 +7175,8 @@
           "tz": "UTC-06:00",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "p4fd8b606",
@@ -7305,7 +7312,8 @@
           "tz": "UTC-06:00",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "p591f21f2",
@@ -7390,7 +7398,8 @@
           "tz": "UTC-06:00",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "pc9a5db17",
@@ -7560,7 +7569,8 @@
           "tz": "UTC-06:00",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "pe293fa40",
@@ -7594,7 +7604,8 @@
           "fl": "5.59 mm",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "p984aca5f",
@@ -7815,7 +7826,8 @@
           "tz": "UTC-06:00",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "p57040ade",
@@ -7883,7 +7895,8 @@
           "tz": "UTC-06:00",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "p08c8ba23",
@@ -7934,7 +7947,8 @@
           "tz": "UTC-06:00",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "p2922bdf8",
@@ -7985,7 +7999,8 @@
           "fl": "5.59 mm",
           "place": "Estes Park",
           "transit": false,
-          "area": "Estes Park"
+          "area": "Estes Park",
+          "initialPick": true
         },
         {
           "id": "pc0ab8dee",
