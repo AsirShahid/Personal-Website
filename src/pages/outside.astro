@@ -308,25 +308,36 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       const cameraLabel = (camera: string) => camera.replace(/^OnePlus CPH2451$/i, "OnePlus 11 5G").replace(/^(OnePlus)\s+\1\b/i, "$1").toUpperCase();
 
       // ---------- image cache: show a light proxy instantly, swap to full when decoded ----------
+      // `held` references every photo requested for the open study, so the browser cannot evict a warmed photo
+      // and refetch it mid-scroll. Only encoded bytes stay resident until a photo is shown.
       const cache = new Map<string, Promise<void>>();
       const ready = new Set<string>();
-      const load = (url: string) => {
+      const held = new Map<string, HTMLImageElement>();
+      const load = (url: string, priority: "high" | "low" | "auto" = "auto") => {
         let p = cache.get(url);
         if (!p) {
-          p = new Promise<void>((resolve, reject) => {
-            const im = new Image();
-            im.decoding = "async";
+          const im = new Image();
+          im.decoding = "async";
+          im.fetchPriority = priority;
+          const request: Promise<void> = new Promise<void>((resolve, reject) => {
             im.onload = () => { ready.add(url); resolve(); };
-            im.onerror = () => { cache.delete(url); reject(new Error(url)); };
-            im.src = url;
+            im.onerror = () => {
+              if (cache.get(url) === request) { cache.delete(url); held.delete(url); }
+              reject(new Error(url));
+            };
           });
+          p = request;
           cache.set(url, p);
+          held.set(url, im);
+          im.src = url;
         }
         return p;
       };
       const fullUrl = (img: Img) => {
         if (img.src.startsWith("data:")) return img.src;
-        const px = (viewport.clientWidth / (state.layout === 4 ? 2 : 1)) * (window.devicePixelRatio || 1);
+        // The phone reader is display:none until it opens; size against the window it is about to fill.
+        const width = viewport.clientWidth || window.innerWidth;
+        const px = (width / (state.layout === 4 ? 2 : 1)) * (window.devicePixelRatio || 1);
         return `${img.src}${px > 1400 ? "-l" : "-m"}.webp`;
       };
       const thumbUrl = (img: Img) => img.src.startsWith("data:") ? img.src : `${img.src}-s.webp`;
@@ -461,7 +472,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         } else {
           el.src = thumbUrl(img);
           el.classList.add("is-proxy");
-          load(full).then(() => {
+          load(full, "high").then(() => {
             if (el.dataset.want === full) {
               el.src = full;
               el.classList.remove("is-proxy");
@@ -609,6 +620,49 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         }
       };
 
+      // ---------- background warm-up: the first pass through a study should be as sharp as the second ----------
+      // Once the opening photo has loaded, fetch every photo in the study at the size the reader shows. Work outward
+      // from the current photo (two ahead for each one behind), a few files at a time at low priority, and re-centre
+      // whenever the reader moves. Data Saver keeps the neighbour-only window above.
+      const WARM_PARALLEL = 4;
+      const warm = { study: -1, inflight: 0 };
+      const warmFailed = new Set<string>();
+      const saveData = () => Boolean((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData);
+      const pumpWarm = () => {
+        if (warm.study !== state.s || saveData() || (!desktopMQ.matches && !state.open)) return;
+        const imgs = study().images;
+        const n = imgs.length;
+        let ahead = state.i;
+        let behind = state.i - 1;
+        let turn = 0;
+        while (warm.inflight < WARM_PARALLEL && (ahead < n || behind >= 0)) {
+          const k = (turn++ % 3 === 2 && behind >= 0) || ahead >= n ? behind-- : ahead++;
+          const url = fullUrl(imgs[k]);
+          if (cache.has(url) || warmFailed.has(url)) continue;
+          warm.inflight++;
+          load(url, "low")
+            .catch(() => { warmFailed.add(url); })
+            .finally(() => { warm.inflight--; pumpWarm(); });
+        }
+      };
+      const startWarm = () => {
+        const s = state.s;
+        warm.study = -1;
+        warmFailed.clear();
+        const begin = () => { if (state.s === s) { warm.study = s; pumpWarm(); } };
+        const opening = cells.querySelector<HTMLImageElement>(".oz-cell img")?.dataset.want;
+        if (opening) load(opening, "high").then(begin, begin);
+        else begin();
+      };
+      // Opening another study releases the previous study's loaded photos; the HTTP cache still has them for a
+      // revisit. Requests still in flight stay referenced until they settle and are released on a later switch.
+      const releaseOtherStudies = (st: Study) => {
+        const keep = new Set(st.images.flatMap((img) => [img.src, thumbUrl(img), `${img.src}-m.webp`, `${img.src}-l.webp`]));
+        ready.forEach((url) => {
+          if (!keep.has(url)) { ready.delete(url); cache.delete(url); held.delete(url); }
+        });
+      };
+
       let hashTimer = 0;
       const updateHash = () => {
         window.clearTimeout(hashTimer);
@@ -636,6 +690,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         renderSeriesActive();
         applyFilters();
         preloadAround();
+        pumpWarm();
         updateHash();
         announce();
       };
@@ -665,7 +720,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         state.s = clamp(s, 0, studies.length - 1);
         const st = study();
         state.i = clamp(i ?? getOutsideFirstImageIndex(st), 0, st.images.length - 1);
-        if (changed) { state.W = 255; state.L = 128; state.invert = false; syncButtons(); }
+        if (changed) { state.W = 255; state.L = 128; state.invert = false; syncButtons(); releaseOtherStudies(st); }
         rows.forEach((r) => {
           if (r.getAttribute("data-study") === String(state.s)) r.setAttribute("aria-current", "true");
           else r.removeAttribute("aria-current");
@@ -686,6 +741,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           if (opts.push !== false) history.pushState({ oz: 1 }, "", photoLink(st, state.i));
           window.setTimeout(() => viewport.focus({ preventScroll: true }), 60);
         }
+        startWarm();
       };
       const browseStudy = (delta: -1 | 1) => {
         const current = recentStudyIndices.indexOf(state.s);
