@@ -67,6 +67,20 @@ class OutsideDataTests(unittest.TestCase):
         present = {image["src"] for _, _, image in IMAGES}
         self.assertEqual(present & REMOVED, set())
 
+    def test_only_hashed_build_output_is_cached_forever(self):
+        # A replaced photo keeps its URL, so photos must revalidate; only content-hashed /_astro/ files may be immutable.
+        rules, current = {}, None
+        for line in (PUBLIC / "_headers").read_text().splitlines():
+            if not line.strip() or line.lstrip().startswith("#"):
+                continue
+            if not line[0].isspace():
+                current = line.strip()
+                rules[current] = []
+            elif current:
+                rules[current].append(line.strip().lower())
+        immutable = sorted(path for path, headers in rules.items() if any(h.startswith("cache-control:") and "immutable" in h for h in headers))
+        self.assertEqual(immutable, ["/_astro/*"])
+
     def test_every_place_has_an_area(self):
         for study in DATA["studies"]:
             area_map = study.get("areaMap", {})

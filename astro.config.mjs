@@ -19,6 +19,15 @@ const prettyCodeOptions = {
   keepBackground: false,
 };
 
+// Astro names a page's CSS after its module, e.g. "outside@_@astro.<hash>.css". Cloudflare answers any "@" in a
+// path with a 307 to "%40", so every visit paid an extra round trip before its render-blocking stylesheet. Same
+// names and hashes as the default "_astro/[name].[hash][extname]", with "@" written as "_".
+/** @param {{ names?: string[], name?: string }} asset */
+const assetFileNames = (asset) => {
+  const name = (asset.names?.[0] ?? asset.name ?? 'asset').replace(/\.[^./]*$/, '');
+  return `_astro/${name.replaceAll('@', '_')}.[hash][extname]`;
+};
+
 // https://astro.build/config
 export default defineConfig({
   site: CONFIG.site.url,
@@ -27,6 +36,8 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    build: { rollupOptions: { output: { assetFileNames } } },
+    environments: { client: { build: { rollupOptions: { output: { assetFileNames } } } } },
   },
 
   integrations: [

@@ -5,6 +5,9 @@ import data from "@/data/outside-studies.json";
 import legacyLinks from "@/data/outside-legacy-links.json";
 import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
 import { getOutsideFirstImageIndex, getOutsideStudyAreaSummary, getOutsideStudyCover } from "../utils/outside-place.js";
+// The two latin font files every Outside view renders with; the same files global.css points at.
+import outfitLatinUrl from "@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url";
+import geistMonoLatinUrl from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url";
 
 type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string; initialPick?: boolean };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
@@ -54,9 +57,23 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
     <meta name="theme-color" content="#050505" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="preload" as="image" href={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-l.webp`} media="(min-width: 900px)" />
+    <link rel="preload" as="font" type="font/woff2" href={outfitLatinUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={geistMonoLatinUrl} crossorigin />
     <script is:inline>
       if (location.hash) document.documentElement.classList.add("oz-route-fragment-pending");
+    </script>
+    <script is:inline define:vars={{ ozOpeningSrc: firstImg.src.startsWith("data:") ? "" : firstImg.src }}>
+      // A desktop visit without a link opens on this photo. Request it now, at the size fullUrl() will pick
+      // (348 is the worklist column), instead of after the page script runs. Phones land on the worklist.
+      // An Image, not <link rel=preload>: WebKit does not hand a script-inserted preload to the later image load
+      // and downloads the photo twice. The viewer adopts this Image (window.__ozOpening) instead of creating one.
+      if (ozOpeningSrc && !location.hash && matchMedia("(min-width: 900px)").matches) {
+        const image = new Image();
+        image.fetchPriority = "high";
+        image.decoding = "async";
+        image.src = `${ozOpeningSrc}${(innerWidth - 348) * (devicePixelRatio || 1) > 1400 ? "-l" : "-m"}.webp`;
+        window.__ozOpening = image;
+      }
     </script>
     <style is:global>
       html.oz-route-fragment-pending .oz-reader,
@@ -149,7 +166,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         >
           <div class="oz-cells" data-cells data-layout="1">
             <div class="oz-cell" style={`--avg:${firstImg.avg}`}>
-              <img src={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-m.webp`} width={firstImg.w} height={firstImg.h} alt={firstImg.alt?.trim() || `Photograph 1 of ${first.images.length}, ${first.place}`} draggable="false" decoding="async" loading="lazy" />
+              <img src={firstImg.src.startsWith("data:") ? firstImg.src : `${firstImg.src}-s.webp`} width={firstImg.w} height={firstImg.h} alt={firstImg.alt?.trim() || `Photograph 1 of ${first.images.length}, ${first.place}`} draggable="false" decoding="async" loading="lazy" />
               <span class="oz-cell-label"></span>
             </div>
           </div>
@@ -313,6 +330,25 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       const cache = new Map<string, Promise<void>>();
       const ready = new Set<string>();
       const held = new Map<string, HTMLImageElement>();
+      // The head script may already be fetching the desktop landing photo; adopt that request rather than start one.
+      const headStart = (window as Window & { __ozOpening?: HTMLImageElement }).__ozOpening;
+      if (headStart?.src) {
+        const url = new URL(headStart.src).pathname;
+        const request: Promise<void> = new Promise<void>((resolve, reject) => {
+          const settle = () => (headStart.naturalWidth > 0 ? resolve() : reject(new Error(url)));
+          if (headStart.complete) settle();
+          else {
+            headStart.addEventListener("load", settle, { once: true });
+            headStart.addEventListener("error", settle, { once: true });
+          }
+        }).then(() => { ready.add(url); }, (error) => {
+          if (cache.get(url) === request) { cache.delete(url); held.delete(url); }
+          throw error;
+        });
+        request.catch(() => {});
+        cache.set(url, request);
+        held.set(url, headStart);
+      }
       const load = (url: string, priority: "high" | "low" | "auto" = "auto") => {
         let p = cache.get(url);
         if (!p) {
@@ -649,17 +685,31 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         const s = state.s;
         warm.study = -1;
         warmFailed.clear();
-        const begin = () => { if (state.s === s) { warm.study = s; pumpWarm(); } };
+        // The handful of opening photos go first, then the rest of the open study.
+        const begin = () => { warmOpenings().then(() => { if (state.s === s) { warm.study = s; pumpWarm(); } }); };
         const opening = cells.querySelector<HTMLImageElement>(".oz-cell img")?.dataset.want;
         if (opening) load(opening, "high").then(begin, begin);
         else begin();
       };
-      // Opening another study releases the previous study's loaded photos; the HTTP cache still has them for a
-      // revisit. Requests still in flight stay referenced until they settle and are released on a later switch.
+      // ---------- opening photos: every worklist study's first photo is ready before it is opened ----------
+      // Fetched together at low priority once the photo on screen has loaded (desktop) or the list cards have (phone),
+      // ahead of the open study's deeper warm-up. They stay held across study switches. Data Saver skips them.
+      const openingOf = (st: Study) => st.images[getOutsideFirstImageIndex(st)];
+      const openingSrcs = new Set(recentStudyIndices.map((s) => openingOf(studies[s])?.src).filter(Boolean));
+      let openings: Promise<void> | null = null;
+      const warmOpenings = () => {
+        if (saveData()) return Promise.resolve();
+        openings ??= Promise.all(
+          recentStudyIndices.map((s) => openingOf(studies[s])).filter(Boolean).map((img) => load(fullUrl(img), "low").catch(() => {})),
+        ).then(() => {});
+        return openings;
+      };
+      // Opening another study releases the previous study's loaded photos, except opening photos. Requests still in
+      // flight stay referenced until they settle and are released on a later switch.
       const releaseOtherStudies = (st: Study) => {
         const keep = new Set(st.images.flatMap((img) => [img.src, thumbUrl(img), `${img.src}-m.webp`, `${img.src}-l.webp`]));
         ready.forEach((url) => {
-          if (!keep.has(url)) { ready.delete(url); cache.delete(url); held.delete(url); }
+          if (!keep.has(url) && !openingSrcs.has(url.replace(/-[sml]\.webp$/, ""))) { ready.delete(url); cache.delete(url); held.delete(url); }
         });
       };
 
@@ -1229,6 +1279,11 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           state.s = -1;
           openStudy(initial.s, initial.i);
         }
+      }
+      // On the phone worklist nothing is open yet: ready the opening photos once the visible cards have loaded.
+      if (!state.open && !desktopMQ.matches) {
+        if (document.readyState === "complete") warmOpenings();
+        else window.addEventListener("load", warmOpenings, { once: true });
       }
       window.setTimeout(() => hint.classList.add("is-gone"), 9000);
       body.classList.add("is-ready");

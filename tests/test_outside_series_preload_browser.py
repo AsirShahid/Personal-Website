@@ -28,6 +28,15 @@ def _smallest_study(minimum):
     return min((s for s in DATA["studies"] if len(s["images"]) >= minimum), key=lambda s: len(s["images"]))
 
 
+def _first_index(study):
+    """Mirror of getOutsideFirstImageIndex: first SE 1 photo, else first non-transit photo, else 0."""
+    images = study["images"]
+    first_se1 = next((i for i, image in enumerate(images) if image.get("se") == 1), -1)
+    if first_se1 >= 0:
+        return first_se1
+    return next((i for i, image in enumerate(images) if not (image.get("transit") is True or image.get("se") == 0)), 0)
+
+
 def _track_full_size(page):
     seen = {"requested": [], "finished": set()}
 
@@ -98,9 +107,12 @@ def test_phone_worklist_does_not_warm_a_study_until_it_is_opened(browser):
     seen = _track_full_size(page)
     page.goto(BASE, wait_until="domcontentloaded")
     page.wait_for_timeout(2500)
-    # Only the worklist cards' own cover images may load at full size while the list is showing.
-    per_study = Counter(STUDY_OF_SRC.get(FULL_SIZE.search(path).group(1)) for path in seen["requested"])
-    assert max(per_study.values(), default=0) <= 1, per_study
+    # While the list is showing, a study may load only its card's cover and its opening photo at full size.
+    payload = json.loads(page.locator("#oz-data").text_content() or "{}")
+    covers = {re.sub(r"-[sml]\.webp$", "", src) for src in page.locator(".oz-rows img").evaluate_all("els => els.map(im => new URL(im.currentSrc || im.src).pathname)")}
+    openings = {study["images"][_first_index(study)]["src"] for study in payload["studies"] if study["id"] in payload["recentStudyIds"]}
+    stray = {path for path in seen["requested"] if FULL_SIZE.search(path).group(1) not in covers | openings}
+    assert stray == set(), sorted(stray)[:8]
 
     row = page.locator(".oz-rows [data-study]").first
     study = next(s for s in DATA["studies"] if s["id"] == (row.get_attribute("href") or "").lstrip("#"))
