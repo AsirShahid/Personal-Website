@@ -968,7 +968,8 @@ def test_outside_place_series_real_data_acceptance():
                 southwest = focus.get("southwest")
                 if southwest and southwest.get("images"):
                     last = southwest["images"][-1]
-                    _open_route(page, f"#{southwest['id']}/{len(southwest['images'])}")
+                    # Stable photo id: a bare number is a frozen pre-refactor link and moves when photos are removed.
+                    _open_route(page, f"#{southwest['id']}/{last['id']}")
                     _wait_image(page, page.locator("[data-cells] img").first.get_attribute("data-want") or "")
                     evidence.check(f"southwest.last-image-hoover-dam.{width}", _active_source(page) == last.get("src") and last.get("place") == "Hoover Dam",
                                    {"actual_source": _active_source(page), "expected_source": last.get("src"), "place": last.get("place")})

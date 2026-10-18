@@ -65,7 +65,8 @@ class OutsideTimezoneOverlayBrowserTests(unittest.TestCase):
                 page.on("pageerror", lambda error: errors.append(str(error)))
                 payload = None
                 for ordinal, image in differing_images(study):
-                    page.goto(urljoin(BASE_URL, f"#{study['id']}/{ordinal}"), wait_until="domcontentloaded")
+                    # Stable photo id: a bare number is a frozen pre-refactor link and moves when photos are removed.
+                    page.goto(urljoin(BASE_URL, f"#{study['id']}/{image['id']}"), wait_until="domcontentloaded")
                     if payload is None:
                         payload = json.loads(page.locator("#oz-data").text_content() or "{}")
                     expected = canonical(zone_of(study, image))
@@ -88,14 +89,14 @@ class OutsideTimezoneOverlayBrowserTests(unittest.TestCase):
             page = context.new_page()
             undated = next(study for study in SOURCE["studies"]
                            if all(not zone_of(study, image) for image in study["images"]))
-            page.goto(urljoin(BASE_URL, f"#{undated['id']}/1"), wait_until="domcontentloaded")
+            page.goto(urljoin(BASE_URL, f"#{undated['id']}/{undated['images'][0]['id']}"), wait_until="domcontentloaded")
             self.assertEqual(self.zone_lines(page), [], "no stored zone must not invent one")
 
             known = next(study for study in SOURCE["studies"]
                          if any(CANONICAL.fullmatch(zone_of(study, image)) for image in study["images"]))
             ordinal = next(index for index, image in enumerate(known["images"], 1)
                            if CANONICAL.fullmatch(zone_of(known, image)))
-            page.goto(urljoin(BASE_URL, f"#{known['id']}/{ordinal}"), wait_until="domcontentloaded")
+            page.goto(urljoin(BASE_URL, f"#{known['id']}/{known['images'][ordinal - 1]['id']}"), wait_until="domcontentloaded")
             self.assertEqual(self.zone_lines(page), [zone_of(known, known["images"][ordinal - 1])])
         finally:
             context.close()
