@@ -1,4 +1,4 @@
-"""Owner review flags survive navigation/reloads and export exact source identities."""
+"""Owner review flags (shown on /outside/?review) survive navigation/reloads and export exact source identities."""
 import json
 import os
 import unittest
@@ -6,6 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get('OUTSIDE_CANDIDATE_URL', 'http://127.0.0.1:4321/outside/')
+REVIEW_URL = BASE_URL + '?review'
 SOURCE = json.loads((Path(__file__).parents[1] / 'src/data/outside-studies.json').read_text())
 STUDY = next(s for s in SOURCE['studies'] if s['id'] == 'colorado-2025-june-gallery')
 KEY = 'outside-studies:photo-review:v1'
@@ -21,7 +22,7 @@ class PhotoReviewTests(unittest.TestCase):
                     errors = []
                     page.on('pageerror', lambda error: errors.append(str(error)))
                     first, second = STUDY['images'][:2]
-                    url = BASE_URL + '#' + STUDY['id'] + '/' + first['id']
+                    url = REVIEW_URL + '#' + STUDY['id'] + '/' + first['id']
                     page.goto(url, wait_until='domcontentloaded')
                     button = page.locator('[data-review-flag]')
                     self.assertEqual(button.count(), 1, 'Flag photo control must be restored')
@@ -29,7 +30,7 @@ class PhotoReviewTests(unittest.TestCase):
                     self.assertEqual(button.get_attribute('aria-pressed'), 'true')
                     stored = page.evaluate('(key) => JSON.parse(localStorage.getItem(key))', KEY)
                     self.assertEqual(stored['flaggedSrcs'], [first['src']])
-                    page.goto(BASE_URL + '#' + STUDY['id'] + '/' + second['id'])
+                    page.goto(REVIEW_URL + '#' + STUDY['id'] + '/' + second['id'])
                     self.assertEqual(button.get_attribute('aria-pressed'), 'false')
                     page.goto(url)
                     page.reload()

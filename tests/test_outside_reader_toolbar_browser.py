@@ -15,7 +15,7 @@ NO_TRANSITIONS = "*, *::before, *::after { transition: none !important; }"
 
 
 class OutsideReaderToolbarBrowserTests(unittest.TestCase):
-    """Owner review row is present; Fit remains a plain momentary button."""
+    """Owner review row only with ?review; Fit remains a plain momentary button."""
 
     @classmethod
     def setUpClass(cls):
@@ -28,8 +28,8 @@ class OutsideReaderToolbarBrowserTests(unittest.TestCase):
         cls.browser.close()
         cls.playwright.stop()
 
-    def open_reader(self, page, mobile):
-        page.goto(urljoin(BASE_URL, f"#{STUDY}/1"), wait_until="domcontentloaded")
+    def open_reader(self, page, mobile, query=""):
+        page.goto(urljoin(BASE_URL, f"{query}#{STUDY}/1"), wait_until="domcontentloaded")
         if mobile:
             page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
         page.wait_for_function("document.querySelector('[data-cells] img')?.naturalWidth > 0", timeout=10000)
@@ -43,33 +43,36 @@ class OutsideReaderToolbarBrowserTests(unittest.TestCase):
             }),
         })""")
 
-    def test_review_row_is_restored_with_contiguous_reader_bands(self):
+    def test_review_row_is_hidden_unless_asked_for_and_reader_bands_stay_contiguous(self):
         for label, viewport, mobile in (("desktop", {"width": 1440, "height": 1000}, False),
                                         ("mobile", {"width": 390, "height": 844}, True)):
-            with self.subTest(viewport=label):
-                context = self.browser.new_context(viewport=viewport, reduced_motion="reduce")
-                page = context.new_page()
-                errors = []
-                page.on("pageerror", lambda error: errors.append(str(error)))
-                self.open_reader(page, mobile)
-                self.assertEqual(page.locator(REVIEW_CONTROLS).count(), 5, "the owner review controls are available")
+            for query, expected in (("", ["oz-tools", "oz-viewport", "oz-series"]),
+                                    ("?review", ["oz-tools", "oz-review", "oz-viewport", "oz-series"])):
+                with self.subTest(viewport=label, query=query or "public"):
+                    context = self.browser.new_context(viewport=viewport, reduced_motion="reduce")
+                    page = context.new_page()
+                    errors = []
+                    page.on("pageerror", lambda error: errors.append(str(error)))
+                    self.open_reader(page, mobile, query)
+                    visible = [el for el in page.locator(REVIEW_CONTROLS).all() if el.is_visible()]
+                    self.assertEqual(len(visible), 5 if query else 0, "flag controls show only on /outside/?review")
 
-                geometry = self.reader_rows(page)
-                self.assertEqual(geometry["rows"], ["oz-tools", "oz-review", "oz-viewport", "oz-series"])
-                tools, review, viewport_band, series = geometry["bands"]
-                self.assertAlmostEqual(tools["bottom"], review["top"], delta=0.5)
-                self.assertAlmostEqual(review["bottom"], viewport_band["top"], delta=0.5, msg="gap above the photo")
-                self.assertAlmostEqual(viewport_band["bottom"], series["top"], delta=0.5, msg="gap below the photo")
-                self.assertGreater(viewport_band["height"], 0)
+                    geometry = self.reader_rows(page)
+                    shown = [(row, band) for row, band in zip(geometry["rows"], geometry["bands"]) if band["height"] > 0]
+                    self.assertEqual([row for row, _ in shown], expected)
+                    bands = [band for _, band in shown]
+                    for upper, lower in zip(bands, bands[1:]):
+                        self.assertAlmostEqual(upper["bottom"], lower["top"], delta=0.5, msg="no empty band between reader rows")
+                    self.assertGreater(bands[expected.index("oz-viewport")]["height"], 0)
 
-                # Browsing alone must not create review flags.
-                page.keyboard.press("ArrowDown")
-                stored = page.evaluate("Object.keys(window.localStorage)")
-                self.assertFalse([key for key in stored if "photo-review" in key], stored)
-                self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"),
-                                     page.evaluate("window.innerWidth"))
-                self.assertEqual(errors, [], errors)
-                context.close()
+                    # Browsing alone must not create review flags.
+                    page.keyboard.press("ArrowDown")
+                    stored = page.evaluate("Object.keys(window.localStorage)")
+                    self.assertFalse([key for key in stored if "photo-review" in key], stored)
+                    self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"),
+                                         page.evaluate("window.innerWidth"))
+                    self.assertEqual(errors, [], errors)
+                    context.close()
 
     def test_fit_is_styled_like_a_plain_button_and_has_no_toggle_state(self):
         for label, viewport, mobile in (("desktop", {"width": 1440, "height": 1000}, False),

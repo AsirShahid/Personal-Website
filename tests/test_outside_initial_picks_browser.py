@@ -20,7 +20,7 @@ def test_initial_pick_labels_follow_photo_identity_and_leave_flags_independent()
             page.on('pageerror', lambda error: errors.append(str(error)))
             # Owner curation can remove a pick; exercise a retained marker, not a frozen source.
             initial_pick = next(image for image in STUDY['images'] if image.get('initialPick'))
-            page.goto(BASE_URL + '#' + STUDY['id'] + '/' + initial_pick['id'])
+            page.goto(BASE_URL + '?review#' + STUDY['id'] + '/' + initial_pick['id'])
             overlay = page.locator('[data-ov=tr]')
             expect(overlay).to_contain_text('INITIAL PICK')
             flag = page.locator('[data-review-flag]')
