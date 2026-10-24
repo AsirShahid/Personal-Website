@@ -7,7 +7,7 @@ from urllib.parse import urljoin
 
 from playwright.sync_api import sync_playwright
 
-from outside_links import DATA, resolve
+from outside_links import DATA, RENAMED, first_se1_index, resolve
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
 LINKS_AT_FREEZE = json.loads((Path(__file__).parent / "fixtures/outside-links-at-freeze.json").read_text())
@@ -94,8 +94,8 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
         for route in ("#lahore/999", "#lahore/0", "#lahore/01", "#pakistan-2026-summer/999", "#pakistan-2026-summer-photos/999", "#projection-pakistan-2026/999", "#projection-pakistan-2026-expanded-retained-20261004/999"):
             with self.subTest(route=route):
                 self.assert_route_matches_source(route)
-        context, page = self.open_page("#pakistan-2026-summer-gallery-20261005/999")
-        study = next(s for s in self.payload(page)["studies"] if s["id"] == "pakistan-2026-summer-gallery-20261005")
+        context, page = self.open_page("#pakistan-2026-june/999")
+        study = next(s for s in self.payload(page)["studies"] if s["id"] == "pakistan-2026-june")
         self.assertEqual(self.image_src(page), study["images"][-1]["src"])
         context.close()
 
@@ -135,6 +135,27 @@ class OutsideRoutingBrowserTests(unittest.TestCase):
             self.assertFalse(page.locator("[data-route-error]").is_visible())
             self.assertEqual(page.locator('[data-study="0"]').get_attribute("aria-current"), "true")
             self.assertEqual(page.locator(".oz-journey").count(), 0)
+            context.close()
+
+    def test_renamed_study_links_open_the_same_photo_and_show_the_current_id(self):
+        """Links made before a study was renamed open the same photo, and the address bar switches to the new id."""
+        studies = {study["id"]: study for study in DATA["studies"]}
+        self.assertTrue(RENAMED, "outside-study-renames.json lists the renamed studies")
+        for width in (1440, 390):
+            context = self.browser.new_context(viewport={"width": width, "height": 1000}, reduced_motion="reduce")
+            page = context.new_page()
+            page.route("**/*.webp", lambda route: route.abort())
+            for old, new in RENAMED.items():
+                study = studies[new]
+                last = study["images"][-1]
+                for fragment, expected in ((f"#{old}", study["images"][first_se1_index(study)]), (f"#{old}/{last['id']}", last)):
+                    with self.subTest(width=width, link=fragment):
+                        page.goto("about:blank")
+                        page.goto(urljoin(BASE_URL, fragment), wait_until="domcontentloaded")
+                        page.wait_for_function("hash => location.hash === hash", arg=f"#{new}/{expected['id']}", timeout=5000)
+                        self.assertFalse(page.locator("[data-route-error]").is_visible(), fragment)
+                        want = page.locator("[data-cells] img").first.get_attribute("data-want") or ""
+                        self.assertEqual(re.sub(r"-(?:s|m|l)\.webp$", "", want), expected["src"], fragment)
             context.close()
 
     def test_mobile_native_back_from_reader_to_empty_hash_closes_reader(self):

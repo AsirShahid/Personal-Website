@@ -24,10 +24,10 @@ EVIDENCE_DIR = Path(os.environ.get("OUTSIDE_AREA_EVIDENCE_DIR") or tempfile.mkdt
 TARGET_PREFIXES = {
     "new_zealand": "new-zealand-2026-july",
     "australia": "australia-2026-july",
-    "pakistan": "pakistan-2026-summer",
+    "pakistan": "pakistan-2026-june",
     "galapagos": "galapagos-2026-january",
-    "montreal": "montreal-november-2025",
-    "southwest": "american-southwest-2025-october-gallery",
+    "montreal": "montreal-2025-november",
+    "southwest": "american-southwest-2025-october",
 }
 EXPECTED_AREA_ORDER = {
     "new_zealand": ["Auckland", "Rotorua"],

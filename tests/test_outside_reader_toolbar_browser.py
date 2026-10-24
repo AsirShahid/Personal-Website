@@ -5,7 +5,7 @@ from urllib.parse import urljoin
 from playwright.sync_api import sync_playwright
 
 BASE_URL = os.environ.get("OUTSIDE_CANDIDATE_URL", "http://127.0.0.1:4321/outside/")
-STUDY = "pakistan-2026-summer-gallery-20261005"
+STUDY = "pakistan-2026-june"
 REVIEW_CONTROLS = ".oz-review, [data-review-flag], [data-review-export], [data-review-count], [data-review-saved]"
 SCALE = "im => new DOMMatrixReadOnly(getComputedStyle(im).transform).a"
 ZOOMED = "() => new DOMMatrixReadOnly(getComputedStyle(document.querySelector('[data-cells] img')).transform).a > 1.05"

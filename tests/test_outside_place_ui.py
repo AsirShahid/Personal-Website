@@ -76,8 +76,8 @@ def make_transit_fixture():
             image["transit"] = False
             image["se"] = 1
         study["areaOrder"] = [study["place"]]
-    excluded = {"puerto-rico-2025-june-photos", "puerto-rico-2025-october", "georgia-2025-october"}
-    include = {"puerto-rico-2025-june-photos"}
+    excluded = {"puerto-rico-2025-june", "puerto-rico-2025-october", "georgia-2025-october"}
+    include = {"puerto-rico-2025-june"}
     ordered = sorted(payload["studies"], key=lambda study: (study.get("dateEnd") or study.get("date") or "", study.get("date") or ""), reverse=True)
     payload["recentStudyIds"] = [
         study["id"] for study in ordered

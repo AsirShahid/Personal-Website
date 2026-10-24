@@ -1,7 +1,7 @@
 {
   "studies": [
     {
-      "id": "new-zealand-2026-july-photos-161007",
+      "id": "new-zealand-2026-july",
       "place": "New Zealand",
       "region": "New Zealand",
       "country": "New Zealand",
@@ -381,7 +381,7 @@
       ]
     },
     {
-      "id": "australia-2026-july-gallery-20261005-quokka",
+      "id": "australia-2026-july",
       "place": "Australia",
       "region": "Western Australia",
       "country": "Australia",
@@ -1076,7 +1076,7 @@
       ]
     },
     {
-      "id": "pakistan-2026-summer-gallery-20261005",
+      "id": "pakistan-2026-june",
       "place": "Pakistan",
       "region": "Pakistan",
       "country": "Pakistan",
@@ -1708,7 +1708,7 @@
       ]
     },
     {
-      "id": "galapagos-2026-january-photos-20261004-20261005-161007",
+      "id": "galapagos-2026-january",
       "place": "Galápagos",
       "region": "Galápagos",
       "country": "Ecuador",
@@ -2880,7 +2880,7 @@
       ]
     },
     {
-      "id": "montreal-november-2025-photos-20261005",
+      "id": "montreal-2025-november",
       "place": "Montréal",
       "region": "",
       "country": "Canada",
@@ -3288,7 +3288,7 @@
       ]
     },
     {
-      "id": "american-southwest-2025-october-gallery-20261004-2-20261005",
+      "id": "american-southwest-2025-october",
       "place": "American Southwest",
       "region": "American Southwest",
       "country": "United States",
@@ -4539,7 +4539,7 @@
       ]
     },
     {
-      "id": "sams-point-2025-august",
+      "id": "sams-point-ice-caves-2025-august",
       "place": "Sam’s Point Ice Caves",
       "region": "New York",
       "country": "United States",
@@ -4638,7 +4638,7 @@
       ]
     },
     {
-      "id": "colorado-2025-july-photos",
+      "id": "colorado-2025-july",
       "place": "Colorado",
       "region": "Colorado",
       "country": "United States",
@@ -4817,7 +4817,7 @@
       ]
     },
     {
-      "id": "puerto-rico-2025-june-photos",
+      "id": "puerto-rico-2025-june",
       "place": "Puerto Rico",
       "region": "Puerto Rico",
       "country": "Puerto Rico",
@@ -5293,7 +5293,7 @@
       ]
     },
     {
-      "id": "atlanta-2025-june-20261004",
+      "id": "atlanta-2025-june",
       "place": "Atlanta",
       "region": "Georgia",
       "country": "United States",
@@ -5851,7 +5851,7 @@
       ]
     },
     {
-      "id": "las-vegas-2025-june-gallery-20261004",
+      "id": "las-vegas-2025-june",
       "place": "Las Vegas",
       "region": "Nevada",
       "country": "United States",
@@ -6120,7 +6120,7 @@
       ]
     },
     {
-      "id": "colorado-2025-june-gallery",
+      "id": "colorado-2025-june",
       "place": "Colorado",
       "region": "Colorado",
       "country": "United States",
@@ -6848,7 +6848,7 @@
       ]
     },
     {
-      "id": "cruise-2024-december-gallery",
+      "id": "cruise-2024-december",
       "place": "Cruise",
       "region": "",
       "country": "",
@@ -7072,7 +7072,7 @@
     {
       "date": "2023-08-13",
       "dateEnd": "2023-08-13",
-      "id": "maryland-national-harbor-2023-august",
+      "id": "national-harbor-2023-august",
       "images": [
         {
           "id": "pbb8dcb56",
@@ -7121,7 +7121,7 @@
       "country": "Canada",
       "date": "2023-08-06",
       "dateEnd": "2023-08-08",
-      "id": "montreal-august-2023-photos",
+      "id": "montreal-2023-august",
       "images": [
         {
           "id": "pd911e3c1",
@@ -7431,7 +7431,7 @@
       ]
     },
     {
-      "id": "philadelphia-2023-spring-gallery",
+      "id": "philadelphia-2023-march",
       "place": "Philadelphia",
       "region": "Pennsylvania",
       "country": "United States",
@@ -8011,7 +8011,7 @@
       ]
     },
     {
-      "id": "point-lookout-2015-august",
+      "id": "coastal-views-2015-august",
       "place": "Coastal views",
       "region": "",
       "country": "",
@@ -8110,7 +8110,7 @@
       ]
     },
     {
-      "id": "europe-shared-album",
+      "id": "europe",
       "place": "Europe",
       "region": "Europe",
       "status": "PRELIM",

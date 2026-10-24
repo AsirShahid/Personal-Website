@@ -11,7 +11,17 @@
       metadata from EXIF, and inserts the record chronologically.
 
   python scripts/outside.py check
-      Exit non-zero if stored series/covers differ from what the rebuild would produce.
+      Exit non-zero if stored series/covers differ from what the rebuild would produce, or a study id breaks the
+      naming rule below.
+
+  python scripts/outside.py rename-studies
+      Give every study the id the naming rule asks for. Old ids keep working: they are recorded in
+      src/data/outside-study-renames.json and the page sends them to the new id.
+
+Study ids are <place>-<year>-<month>, from the study's name and first day as the page shows them
+(australia-2026-july). An undated study is just <place> (europe). If two studies would share an id, both get their
+first day appended (colorado-2025-june-7). Ids never record import dates, edits or batch names: photo edits keep the
+id, and only a change to the study's name or start month gives it a new one.
 
 Photos carry stable ids, and old numbered links live in the frozen src/data/outside-legacy-links.json,
 so edits never renumber or rewrite links: a removed photo's links simply become unavailable.
@@ -26,6 +36,8 @@ import io
 import json
 import re
 import sys
+import unicodedata
+from collections import Counter
 from fractions import Fraction
 from pathlib import Path
 
@@ -33,12 +45,42 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "src/data/outside-studies.json"
 REMOVED = ROOT / "src/data/outside-removed-sources.json"
 LEGACY = ROOT / "src/data/outside-legacy-links.json"
+RENAMED = ROOT / "src/data/outside-study-renames.json"
+PAGE = ROOT / "src/pages/outside.astro"
 PUBLIC = ROOT / "public"
 SIZES = {"s": (360, 70), "m": (1080, 78), "l": (1920, 80)}
+MONTHS = ("january", "february", "march", "april", "may", "june",
+          "july", "august", "september", "october", "november", "december")
 
 
 def photo_id(src: str) -> str:
     return "p" + hashlib.sha1(src.encode()).hexdigest()[:8]
+
+
+def slug(text: str) -> str:
+    text = unicodedata.normalize("NFKD", text.replace("'", "").replace("\u2019", ""))
+    return re.sub(r"[^a-z0-9]+", "-", text.encode("ascii", "ignore").decode().lower()).strip("-")
+
+
+def study_ids(data: dict) -> dict[str, str]:
+    """Map each study's current id to the id the naming rule asks for (see the module docstring)."""
+    def base(study: dict) -> str:
+        date = study.get("date") or ""
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+            return slug(study["place"])
+        return f"{slug(study['place'])}-{date[:4]}-{MONTHS[int(date[5:7]) - 1]}"
+    bases = [base(study) for study in data["studies"]]
+    shared = Counter(bases)
+    wanted = {}
+    for study, name in zip(data["studies"], bases):
+        wanted[study["id"]] = f"{name}-{int(study['date'][8:10])}" if shared[name] > 1 and study.get("date") else name
+    if len(set(wanted.values())) != len(wanted):
+        raise ValueError(f"two studies would share an id; rename one of them: {sorted(wanted.values())}")
+    return wanted
+
+
+def load_renames() -> dict:
+    return json.loads(RENAMED.read_text(encoding="utf-8")) if RENAMED.exists() else {}
 
 
 def first_se1_index(study: dict) -> int:
@@ -49,23 +91,28 @@ def first_se1_index(study: dict) -> int:
     return k
 
 
-def resolve(data: dict, legacy: dict, link: str) -> str | None:
+def resolve(data: dict, legacy: dict, link: str, renamed: dict | None = None) -> str | None:
     """Return the photo src a link opens, or None if the page would say it is unavailable.
 
     Python mirror of parseHash() in src/pages/outside.astro; tests check the two agree.
     """
+    renamed = renamed or {}
     match = re.fullmatch(r"([\w-]+)(?:/([\w-]+))?", link.split("#", 1)[-1])
     if not match:
         return None
     route_id, part = match.groups()
     studies = {study["id"]: study for study in data["studies"]}
+
+    def named(study_id):
+        return studies.get(renamed.get(study_id, study_id)) if study_id else None
+
     by_id = {image["id"]: image["src"] for study in data["studies"] for image in study["images"]}
     if part and not re.fullmatch(r"[1-9]\d*", part):
         return by_id.get(part)
     old = legacy.get(route_id)
     if old is not None:
         if part is None:
-            study = studies.get(old["study"]) if old["study"] else None
+            study = named(old["study"])
             return study["images"][first_se1_index(study)]["src"] if study else None
         k = int(part) - 1
         if k >= len(old["photos"]):
@@ -73,7 +120,7 @@ def resolve(data: dict, legacy: dict, link: str) -> str | None:
                 return None
             k = len(old["photos"]) - 1
         return by_id.get(old["photos"][k]) if old["photos"][k] else None
-    study = studies.get(route_id)
+    study = named(route_id)
     if study is None:
         return None
     if part is None:
@@ -245,7 +292,8 @@ def write_derivatives(image, src: str) -> None:
 
 def cmd_add(args) -> int:
     data = load()
-    study = next((row for row in data["studies"] if row["id"] == args.study), None)
+    study_id = load_renames().get(args.study, args.study)
+    study = next((row for row in data["studies"] if row["id"] == study_id), None)
     if study is None:
         sys.exit(f"unknown study: {args.study}")
     if not args.src.startswith("/outside/") or any(image["src"] == args.src for row in data["studies"] for image in row["images"]):
@@ -284,7 +332,42 @@ def cmd_check(_args) -> int:
     if drift:
         print("series/cover drift:", ", ".join(drift), file=sys.stderr)
         return 1
+    misnamed = {old: new for old, new in study_ids(data).items() if old != new}
+    if misnamed:
+        print("study ids that break the naming rule (run `python scripts/outside.py rename-studies`):", file=sys.stderr)
+        for old, new in misnamed.items():
+            print(f"  {old} -> {new}", file=sys.stderr)
+        return 1
     print("Outside data is consistent.")
+    return 0
+
+
+def cmd_rename_studies(_args) -> int:
+    data = load()
+    changes = {old: new for old, new in study_ids(data).items() if old != new}
+    if not changes:
+        print("Every study id already follows the naming rule.")
+        return 0
+    for study in data["studies"]:
+        study["id"] = changes.get(study["id"], study["id"])
+    current = {study["id"] for study in data["studies"]}
+    # Earlier renames follow their study to its newest id, so every old id redirects in one step.
+    renamed = {old: changes.get(new, new) for old, new in load_renames().items()}
+    renamed.update(changes)
+    renamed = {old: new for old, new in sorted(renamed.items()) if old not in current}
+    save(data)
+    RENAMED.write_text(json.dumps(renamed, indent=2) + "\n", encoding="utf-8")
+    # The worklist filter in the page names studies by id.
+    page = PAGE.read_text(encoding="utf-8")
+    block = re.search(r"const RECENT_ONLY[\s\S]*?\n\};", page)
+    if block:
+        text = block.group(0)
+        for old, new in changes.items():
+            text = text.replace(f'"{old}"', f'"{new}"')
+        PAGE.write_text(page[:block.start()] + text + page[block.end():], encoding="utf-8")
+    for old, new in changes.items():
+        print(f"  {old} -> {new}")
+    print(f"renamed {len(changes)} studies; old ids redirect through {RENAMED.relative_to(ROOT)}")
     return 0
 
 
@@ -301,8 +384,9 @@ def main() -> int:
     add.add_argument("--place")
     add.add_argument("--allow-removed", action="store_true")
     sub.add_parser("check")
+    sub.add_parser("rename-studies")
     args = parser.parse_args()
-    return {"remove": cmd_remove, "add": cmd_add, "check": cmd_check}[args.command](args)
+    return {"remove": cmd_remove, "add": cmd_add, "check": cmd_check, "rename-studies": cmd_rename_studies}[args.command](args)
 
 
 if __name__ == "__main__":

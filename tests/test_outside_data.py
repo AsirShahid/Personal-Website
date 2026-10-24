@@ -11,7 +11,7 @@ import unittest
 from collections import defaultdict
 from pathlib import Path
 
-from outside_links import LEGACY, first_se1_index, photo_id, resolve
+from outside_links import LEGACY, RENAMED, first_se1_index, photo_id, resolve, study_ids
 
 ROOT = Path(__file__).parents[1]
 DATA = json.loads((ROOT / "src/data/outside-studies.json").read_text())
@@ -131,7 +131,7 @@ class OutsideDataTests(unittest.TestCase):
             if kind == "photo":
                 expected = value if value in present else None
             elif kind == "study":
-                study = STUDIES.get(value)
+                study = STUDIES.get(RENAMED.get(value, value))
                 expected = study["images"][first_se1_index(study)]["src"] if study else None
             else:
                 expected = None
@@ -142,6 +142,28 @@ class OutsideDataTests(unittest.TestCase):
         for route_id, old in LEGACY.items():
             self.assertNotIn(route_id, {"", "p"}, route_id)
             self.assertTrue(set(filter(None, old["photos"])) <= known, route_id)
+
+    def test_study_ids_follow_the_naming_rule(self):
+        """<place>-<year>-<month> from the shown name and first day; see scripts/outside.py. Fix with rename-studies."""
+        self.assertEqual({old: new for old, new in study_ids(DATA).items() if old != new}, {})
+        for study in DATA["studies"]:
+            self.assertRegex(study["id"], r"^[a-z0-9]+(-[a-z0-9]+)*$")
+            self.assertNotRegex(study["id"], r"20\d{6}|gallery|photos|album", "ids never carry batch names or import dates")
+
+    def test_renamed_study_ids_still_open_their_study(self):
+        for old, new in RENAMED.items():
+            self.assertIn(new, STUDIES, f"{old} redirects to a study that no longer exists")
+            self.assertNotIn(old, STUDIES, f"{old} is a current id again; drop it from outside-study-renames.json")
+            study = STUDIES[new]
+            self.assertEqual(resolve(f"#{old}"), study["images"][first_se1_index(study)]["src"], old)
+            self.assertEqual(resolve(f"#{old}/{study['images'][-1]['id']}"), study["images"][-1]["src"], old)
+
+    def test_a_current_id_that_is_also_an_old_link_opens_the_same_study(self):
+        # Old link ids win over current ids when the page resolves a link, so they must agree.
+        for study_id in STUDIES:
+            old = LEGACY.get(study_id)
+            if old is not None:
+                self.assertEqual(RENAMED.get(old["study"], old["study"]), study_id, study_id)
 
     def test_content_script_rebuild_matches_stored_series_and_covers(self):
         result = subprocess.run([sys.executable, str(ROOT / "scripts/outside.py"), "check"], text=True, capture_output=True)

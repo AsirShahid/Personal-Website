@@ -40,7 +40,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         page = context.new_page()
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
-        page.goto(urljoin(BASE_URL, "#new-zealand-2026-july-photos-161007/1"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, "#new-zealand-2026-july/1"), wait_until="domcontentloaded")
         payload = json.loads(page.locator("#oz-data").text_content() or "{}")
         source_by_id = {study["id"]: study for study in SOURCE["studies"]}
         hidden_studies = [study for study in SOURCE["studies"] if study["id"] not in RECENT_IDS]
@@ -109,7 +109,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         context.close()
 
     def test_exact_camera_alias_changes_only_the_c887_overlay(self):
-        study = next(item for item in SOURCE["studies"] if item["id"] == "puerto-rico-2025-june-photos")
+        study = next(item for item in SOURCE["studies"] if item["id"] == "puerto-rico-2025-june")
         expected = {"C887": "ONEPLUS 11 5G", "C894": "ONEPLUS 11 5G"}
         errors = []
         for source_suffix, display_label in expected.items():
@@ -131,7 +131,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         context = self.browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
         page = context.new_page()
         page.add_init_script("window.__nativePopStates = []; addEventListener('popstate', event => window.__nativePopStates.push({href: location.href, isTrusted: event.isTrusted}));")
-        page.goto(urljoin(BASE_URL, "#montreal-november-2025-photos-20261005/1"), wait_until="domcontentloaded")
+        page.goto(urljoin(BASE_URL, "#montreal-2025-november/1"), wait_until="domcontentloaded")
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
         page.go_back(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("window.__nativePopStates.some(event => event.isTrusted)", timeout=5000)
@@ -141,7 +141,7 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         page.go_forward(wait_until="domcontentloaded", timeout=10000)
         page.wait_for_function("document.body.classList.contains('is-reading')", timeout=10000)
         # The reader rewrites the opened link to the photo's stable id link.
-        montreal = next(study for study in SOURCE["studies"] if study["id"] == "montreal-november-2025-photos-20261005")
+        montreal = next(study for study in SOURCE["studies"] if study["id"] == "montreal-2025-november")
         self.assertEqual(page.evaluate("location.hash"), f"#{montreal['id']}/{montreal['images'][0]['id']}")
         self.assertTrue(any(event["isTrusted"] for event in page.evaluate("window.__nativePopStates")))
         context.close()
