@@ -3,6 +3,7 @@ export const prerender = true;
 import "../styles/global.css";
 import data from "@/data/outside-studies.json";
 import legacyLinks from "@/data/outside-legacy-links.json";
+import studyRenames from "@/data/outside-study-renames.json";
 import { formatOutsideCompactDateRange, formatOutsideDateRange } from "../utils/outside-date.js";
 import { getOutsideFirstImageIndex, getOutsideStudyAreaSummary, getOutsideStudyCover } from "../utils/outside-place.js";
 // The two latin font files every Outside view renders with; the same files global.css points at.
@@ -25,13 +26,15 @@ const studies = (validStudies.length ? validStudies : [fallbackStudy]).slice().s
   (b.date || "").localeCompare(a.date || ""),
 );
 const legacy = legacyLinks as Record<string, LegacyLink>;
+// Old study ids (from before ids followed the <place>-<year>-<month> rule in scripts/outside.py) -> current ids.
+const renamed = studyRenames as Record<string, string>;
 // Set to null to restore the full worklist; source studies and links stay intact.
 // excludeStudyIds wins over cutoff/includeStudyIds: it is a display-level hide requested by the
 // owner, so the records, deep links and original media stay untouched and the rows are reversible.
 const RECENT_ONLY: { cutoff: string; includeStudyIds: string[]; excludeStudyIds: string[] } | null = {
   cutoff: "2025-10-01",
-  includeStudyIds: ["puerto-rico-2025-june-photos", "colorado-2025-june-gallery"],
-  excludeStudyIds: ["puerto-rico-2025-june-photos", "puerto-rico-2025-october", "georgia-2025-october"],
+  includeStudyIds: ["puerto-rico-2025-june", "colorado-2025-june"],
+  excludeStudyIds: ["puerto-rico-2025-june", "puerto-rico-2025-october", "georgia-2025-october"],
 };
 const recentStudies = RECENT_ONLY
   ? studies.filter((s) => !RECENT_ONLY.excludeStudyIds.includes(s.id) && (RECENT_ONLY.includeStudyIds.includes(s.id) || (Boolean(s.date) && s.date >= RECENT_ONLY.cutoff)))
@@ -217,7 +220,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
     <div class="oz-sr" aria-live="polite" data-live></div>
     <div class="oz-route-error" data-route-error role="alert" aria-live="assertive" hidden>This Outside Studies link is no longer available.</div>
 
-    <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, legacy, recentStudyIds: recentStudies.map((s) => s.id) })}></script>
+    <script type="application/json" id="oz-data" set:html={JSON.stringify({ studies, legacy, renamed, recentStudyIds: recentStudies.map((s) => s.id) })}></script>
 
     <script>
       import { formatOutsideDateRange, formatOutsideSeriesDate } from "../utils/outside-date.js";
@@ -231,6 +234,8 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       const pageData = JSON.parse(document.getElementById("oz-data")!.textContent || "{}");
       const studies: Study[] = pageData.studies;
       const legacy: Record<string, LegacyLink> = pageData.legacy ?? {};
+      const renamed: Record<string, string> = pageData.renamed ?? {};
+      const studyIndex = (id: string | null) => (id ? studies.findIndex((st) => st.id === (renamed[id] ?? id)) : -1);
       const photoIndex = new Map<string, { s: number; i: number }>();
       studies.forEach((st, s) => st.images.forEach((img, i) => photoIndex.set(img.id, { s, i })));
       const photoLink = (st: Study, i: number) => `#${st.id}/${st.images[i]?.id ?? i + 1}`;
@@ -1290,6 +1295,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       // ---------- routing ----------
       // #study/p1a2b3c4d is a stable photo link. #study/12 and old alias ids resolve through the frozen
       // legacy table, so adding or removing photos never moves an old link to a different photo.
+      // A renamed study's old id still opens it; the address bar then shows the current id.
       const parseHash = () => {
         const m = location.hash.slice(1).match(/^([\w-]+)(?:\/([\w-]+))?$/);
         if (!m) return null;
@@ -1298,7 +1304,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         const old = Object.prototype.hasOwnProperty.call(legacy, routeId) ? legacy[routeId] : undefined;
         if (old) {
           if (!part) {
-            const s = old.study ? studies.findIndex((st) => st.id === old.study) : -1;
+            const s = studyIndex(old.study);
             return s >= 0 ? { s, i: undefined } : null;
           }
           let k = Number(part) - 1;
@@ -1309,7 +1315,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           const photo = old.photos[k];
           return photo ? photoIndex.get(photo) ?? null : null;
         }
-        const s = studies.findIndex((st) => st.id === routeId);
+        const s = studyIndex(routeId);
         if (s < 0) return null;
         return { s, i: part ? Number(part) - 1 : undefined };
       };

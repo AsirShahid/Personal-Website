@@ -28,11 +28,11 @@ MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", 
 # These sequences are acceptance expectations from the owner requirements, not
 # image fixtures: every value is checked against the real served payload.
 TARGET_PREFIXES = {
-    "pakistan": "pakistan-2026-summer",
+    "pakistan": "pakistan-2026-june",
     "australia": "australia-2026-july",
     "galapagos": "galapagos-2026-january",
-    "southwest": "american-southwest-2025-october-gallery",
-    "montreal": "montreal-november-2025",
+    "southwest": "american-southwest-2025-october",
+    "montreal": "montreal-2025-november",
     "new_zealand": "new-zealand-2026-july",
 }
 EXPECTED_ORDINARY_AREAS = {
@@ -74,7 +74,7 @@ EXPECTED_AREA_BY_PLACE = {
     "new_zealand": {"Waiotapu": "Rotorua"},
 }
 BASELINE_HIDDEN_STUDY_IDS = {
-    "puerto-rico-2025-june-photos",
+    "puerto-rico-2025-june",
     "puerto-rico-2025-october",
     "georgia-2025-october",
 }
@@ -440,7 +440,7 @@ def _worklist_row_checks(page, study: dict, evidence: Evidence, width: int):
                    area_metrics)
     repeated_title = bool(title and title.casefold() in area_line.casefold())
     evidence.check(f"worklist.no-title-in-area-line.{width}.{sid}", not repeated_title, {"title": title, "area_line": area_line})
-    if sid.startswith("montreal-august-2023") or sid.startswith("montreal-november-2025"):
+    if sid.startswith("montreal-"):
         evidence.check(f"worklist.montreal-country.{width}.{sid}", area_line.startswith("Canada"), {"area_line": area_line})
     image = expected_cover(study)
     thumb = row.locator(".oz-thumb img").get_attribute("src") or ""

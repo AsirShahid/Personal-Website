@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright
 BASE_URL = os.environ.get('OUTSIDE_CANDIDATE_URL', 'http://127.0.0.1:4321/outside/')
 REVIEW_URL = BASE_URL + '?review'
 SOURCE = json.loads((Path(__file__).parents[1] / 'src/data/outside-studies.json').read_text())
-STUDY = next(s for s in SOURCE['studies'] if s['id'] == 'colorado-2025-june-gallery')
+STUDY = next(s for s in SOURCE['studies'] if s['id'] == 'colorado-2025-june')
 KEY = 'outside-studies:photo-review:v1'
 
 class PhotoReviewTests(unittest.TestCase):

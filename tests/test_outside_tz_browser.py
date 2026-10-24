@@ -54,7 +54,7 @@ class OutsideTimezoneOverlayBrowserTests(unittest.TestCase):
     def test_mixed_spellings_render_one_canonical_zone_while_stored_records_stay_intact(self):
         mixed = [study for study in SOURCE["studies"] if differing_images(study)]
         # The owner's complaint: one study showing both "UTC+2" and "UTC+02:00" over its own photos.
-        self.assertTrue(any(study["id"] == "pakistan-2026-summer-gallery-20261005" for study in mixed))
+        self.assertTrue(any(study["id"] == "pakistan-2026-june" for study in mixed))
         self.assertGreater(len(mixed), 1)
 
         context = self.browser.new_context(viewport={"width": 1440, "height": 1000}, reduced_motion="reduce")
