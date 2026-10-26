@@ -74,7 +74,10 @@ export function normalizeRequest(url, method = "GET") {
   if (method !== "GET" && method !== "HEAD") return null;
 
   let pathname = PATH_ALIASES[url.pathname] ?? url.pathname;
-  pathname = normalizeTrailingSlash(pathname);
+
+  // A retired path answers 410 directly: adding a slash first would make
+  // Googlebot take two hops for nothing.
+  if (!retiredPaths(pathname)) pathname = normalizeTrailingSlash(pathname);
 
   if (url.protocol === "https:" && isApex && pathname === url.pathname) return null;
 
