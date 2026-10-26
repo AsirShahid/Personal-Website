@@ -51,7 +51,9 @@ export default defineConfig({
       rehypePlugins: [[rehypePrettyCode, prettyCodeOptions]],
       syntaxHighlight: false,
     }),
-    sitemap(),
+    // /outside/ is deliberately noindex (see the meta tag in that page), so it
+    // must not be advertised in the sitemap.
+    sitemap({ filter: (page) => new URL(page).pathname !== '/outside/' }),
   ],
 
   markdown: {
