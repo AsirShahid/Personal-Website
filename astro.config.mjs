@@ -32,6 +32,10 @@ const assetFileNames = (asset) => {
 export default defineConfig({
   site: CONFIG.site.url,
   output: 'server',
+  // Every canonical URL ends with a slash (/outside/, /blog/, /blog/<post>/).
+  // Astro redirects the unslashed form, and src/worker.ts does the same ahead
+  // of the asset layer so prerendered pages match.
+  trailingSlash: 'always',
   adapter: cloudflare(),
 
   vite: {

@@ -10,6 +10,7 @@ interface Props {
   description?: string;
   image?: string;
   canonicalURL?: string;
+  noindex?: boolean;
   type?: "website" | "article";
   publishedTime?: string;
   modifiedTime?: string;
@@ -27,6 +28,7 @@ const {
   description = DATA.description,
   image,
   canonicalURL = defaultCanonical,
+  noindex = false,
   type = "website",
   publishedTime,
   modifiedTime,
@@ -134,10 +136,12 @@ const { baseFontSize } = CONFIG.typography;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Robots -->
-    <meta name="robots" content={CONFIG.seo.robots} />
+    <meta name="robots" content={noindex ? "noindex, follow" : CONFIG.seo.robots} />
     <meta
       name="googlebot"
-      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+      content={noindex
+        ? "noindex, follow"
+        : "index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}
     />
 
     <!-- OpenGraph -->
