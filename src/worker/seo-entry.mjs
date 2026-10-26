@@ -12,7 +12,26 @@
 // and the Outside photo derivatives on the pure asset path.
 
 import astro from "./entry.astro.mjs";
-import { normalizeRequest, retiredPaths, RETIRED_HTML } from "./canonical.mjs";
+import {
+  needsSlashProbe,
+  normalizeRequest,
+  retiredPaths,
+  RETIRED_HTML,
+  slashedPath,
+} from "./canonical.mjs";
+
+async function assetExists(env, url, pathname) {
+  const probe = new URL(url.toString());
+  probe.pathname = pathname;
+
+  try {
+    const response = await env.ASSETS.fetch(new Request(probe, { method: "HEAD" }));
+    await response.body?.cancel();
+    return response.status < 400;
+  } catch {
+    return false;
+  }
+}
 
 async function gone(env, url) {
   // Reuse the prerendered 404 page so a retired URL still looks like the site.
@@ -45,13 +64,18 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
-    const redirectTo = normalizeRequest(url, request.method);
-    if (redirectTo) {
-      return new Response(null, { status: 301, headers: { Location: redirectTo } });
-    }
-
     if (retiredPaths(url.pathname)) {
       return gone(env, url);
+    }
+
+    // Only redirect a missing trailing slash when the slashed URL is a real
+    // page; an unknown path must answer 404, not 301.
+    const pageExists =
+      needsSlashProbe(url) && (await assetExists(env, url, slashedPath(url.pathname)));
+
+    const redirectTo = normalizeRequest(url, request.method, pageExists);
+    if (redirectTo) {
+      return new Response(null, { status: 301, headers: { Location: redirectTo } });
     }
 
     const response = await astro.fetch(request, env, ctx);
