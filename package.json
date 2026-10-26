@@ -9,11 +9,11 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node scripts/wrap-worker-entry.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "deploy": "astro build && wrangler deploy",
+    "deploy": "astro build && node scripts/wrap-worker-entry.mjs && wrangler deploy",
     "generate-types": "wrangler types"
   },
   "dependencies": {

@@ -41,7 +41,7 @@ const jsonLd = JSON.stringify({
       ? image
       : `${DATA.url}${image}`
     : `${DATA.url}/og_image.png`,
-  url: `${DATA.url}/blog/${slug}`,
+  url: `${DATA.url}/blog/${slug}/`,
   author: {
     "@type": "Person",
     name: DATA.name,
@@ -53,7 +53,7 @@ const jsonLd = JSON.stringify({
   title={title}
   description={summary}
   image={image}
-  canonicalURL={`${DATA.url}/blog/${slug}`}
+  canonicalURL={`${DATA.url}/blog/${slug}/`}
   type="article"
   publishedTime={publishedAt}
   modifiedTime={updatedAt ?? publishedAt}
