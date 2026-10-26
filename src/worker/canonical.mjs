@@ -20,7 +20,7 @@ const NO_TRAILING_SLASH = new Set(["/404"]);
 // from the Astro starter (removed in 735f23e, "remove template leftovers") and
 // the demo /posts and /notes content of the Hugo site the Astro rewrite
 // replaced (a0819b5). They answer 410 Gone, not 404, so Google drops them
-// instead of retrying. Do not add a page here that should exist: restore it.
+// instead of retrying. Never add a page here that should exist: restore it.
 export const RETIRED_PREFIXES = ["/posts", "/notes", "/search", "/categories", "/tags", "/series"];
 
 export const RETIRED_BLOG_SLUGS = [
@@ -37,58 +37,6 @@ function trimTrailingSlash(path) {
   return path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path;
 }
 
-function lastSegment(pathname) {
-  return pathname.slice(pathname.lastIndexOf("/") + 1);
-}
-
-/** Canonical form of a path is always slashed, except files and /404. */
-export function normalizeTrailingSlash(pathname) {
-  if (pathname === "/") return pathname;
-
-  const segment = lastSegment(pathname);
-
-  if (pathname.endsWith("/")) {
-    // /rss.xml/ -> /rss.xml, but leave directory paths alone.
-    const beforeSlash = pathname.replace(/\/+$/, "");
-    return beforeSlash.includes(".") ? beforeSlash : pathname;
-  }
-
-  if (NO_TRAILING_SLASH.has(pathname)) return pathname;
-  if (segment.includes(".")) return pathname;
-
-  return `${pathname}/`;
-}
-
-/**
- * Absolute URL to redirect to, or null when the request is already canonical.
- * Only asir.dev and www.asir.dev are touched so preview hosts keep working.
- */
-export function normalizeRequest(url, method = "GET") {
-  const host = url.hostname.toLowerCase();
-  const isApex = host === CANONICAL_HOST;
-  const isWww = host === `www.${CANONICAL_HOST}`;
-
-  if (!isApex && !isWww) return null;
-
-  // A 301 on POST would turn it into a GET; let those through untouched.
-  if (method !== "GET" && method !== "HEAD") return null;
-
-  let pathname = PATH_ALIASES[url.pathname] ?? url.pathname;
-
-  // A retired path answers 410 directly: adding a slash first would make
-  // Googlebot take two hops for nothing.
-  if (!retiredPaths(pathname)) pathname = normalizeTrailingSlash(pathname);
-
-  if (url.protocol === "https:" && isApex && pathname === url.pathname) return null;
-
-  const target = new URL(url.toString());
-  target.protocol = "https:";
-  target.hostname = CANONICAL_HOST;
-  target.port = "";
-  target.pathname = pathname;
-  return target.toString();
-}
-
 /** True when the path belongs to permanently removed content. */
 export function retiredPaths(pathname) {
   const path = trimTrailingSlash(pathname);
@@ -102,6 +50,74 @@ export function retiredPaths(pathname) {
   }
 
   return false;
+}
+
+/** asir.dev and www.asir.dev are ours; preview hosts are left alone. */
+export function isOursHost(url) {
+  const host = url.hostname.toLowerCase();
+  return host === CANONICAL_HOST || host === `www.${CANONICAL_HOST}`;
+}
+
+/**
+ * True when this request might need a trailing slash added. The Worker then
+ * checks whether the slashed URL is a real page before redirecting, so an
+ * unknown path answers 404 instead of bouncing through a 301.
+ */
+export function needsSlashProbe(url) {
+  const pathname = url.pathname;
+
+  if (pathname === "/" || pathname.endsWith("/")) return false;
+  if (NO_TRAILING_SLASH.has(pathname)) return false;
+  if (PATH_ALIASES[pathname]) return false;
+  if (retiredPaths(pathname)) return false;
+
+  return !pathname.slice(pathname.lastIndexOf("/") + 1).includes(".");
+}
+
+/** Slashed form of a path, used as the probe URL. */
+export function slashedPath(pathname) {
+  return pathname.endsWith("/") ? pathname : `${pathname}/`;
+}
+
+/**
+ * Absolute URL to redirect to, or null when the request is already canonical.
+ *
+ * `pageExists` says whether the slashed form of an unslashed path is a real
+ * page; the Worker resolves it from the assets binding first.
+ */
+export function normalizeRequest(url, method = "GET", pageExists = false) {
+  if (!isOursHost(url)) return null;
+
+  // A 301 on POST would turn it into a GET; let those through untouched.
+  if (method !== "GET" && method !== "HEAD") return null;
+
+  let pathname = PATH_ALIASES[url.pathname] ?? url.pathname;
+
+  if (needsSlashProbe(url)) {
+    // A retired path answers 410 directly, and an unknown path must not be
+    // redirected to a slashed twin that 404s: only real pages get the slash.
+    if (!pageExists) return null;
+    pathname = slashedPath(pathname);
+  }
+
+  // A trailing slash on a file path is always wrong: /rss.xml/ -> /rss.xml.
+  if (pathname !== "/" && pathname.endsWith("/")) {
+    const trimmed = pathname.replace(/\/+$/, "");
+    const lastSegment = trimmed.slice(trimmed.lastIndexOf("/") + 1);
+    if (lastSegment.includes(".")) pathname = trimmed;
+  }
+
+  const isCanonical =
+    url.protocol === "https:" && url.hostname === CANONICAL_HOST && pathname === url.pathname;
+
+  if (isCanonical) return null;
+
+  const target = new URL(url.toString());
+  target.protocol = "https:";
+  target.hostname = CANONICAL_HOST;
+  target.port = "";
+  target.pathname = pathname;
+  return target.toString();
 }
 
 // Fallback body when the prerendered 404 page cannot be read from the assets
