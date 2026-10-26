@@ -49,6 +49,12 @@ test("query strings survive normalization", () => {
   assert.equal(target("https://asir.dev/blog?page=2"), "https://asir.dev/blog/?page=2");
 });
 
+test("retired paths answer in one hop", () => {
+  assert.equal(target("https://asir.dev/posts"), null);
+  assert.equal(target("https://asir.dev/blog/getting-started-with-astro"), null);
+  assert.equal(target("https://www.asir.dev/posts"), "https://asir.dev/posts");
+});
+
 test("preview hosts and unsafe methods are untouched", () => {
   assert.equal(target("https://asir.asirshahid.workers.dev/"), null);
   assert.equal(target("http://asir.dev/blog/", "POST"), null);
