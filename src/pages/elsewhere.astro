@@ -1,0 +1,1173 @@
+---
+export const prerender = true;
+import Layout from "@/layouts/Layout.astro";
+import { ELSEWHERE_PHOTOS } from "@/data/elsewhere-photos";
+
+const photoCount = String(ELSEWHERE_PHOTOS.length).padStart(2, "0");
+---
+
+<Layout
+  title="Elsewhere"
+  description={`A sample photographic journey through ${ELSEWHERE_PHOTOS.length} places. The images are credited reference photographs, not Asir's personal travel photographs.`}
+>
+  <main class="elsewhere-page">
+    <header class="page-heading">
+      <div class="heading-copy">
+        <a class="home-link" href="/" aria-label="Return to Asir's home page">
+          <span aria-hidden="true">←</span> Asir Shahid
+        </a>
+        <p class="eyebrow"><span class="sample-dot" aria-hidden="true"></span> Sample photo journal</p>
+        <h1>Elsewhere<span class="title-period">.</span></h1>
+      </div>
+      <p class="heading-note">
+        Credited sample photographs, not Asir's own. Swipe or drag to explore.
+      </p>
+    </header>
+
+    <section class="journey" aria-label="Sample photographic journey">
+      <div class="journey-topline">
+        <div class="journey-label">
+          <span class="micro-label">A SAMPLE SEQUENCE</span>
+          <span class="frame-count">{photoCount} frames <span aria-hidden="true">/</span> one line</span>
+        </div>
+        <div class="ribbon-controls" aria-label="Move through the sample photographs">
+          <button class="arrow-control" type="button" data-move="previous" aria-label="Move to the previous photograph">
+            <span aria-hidden="true">←</span>
+          </button>
+          <button class="arrow-control" type="button" data-move="next" aria-label="Move to the next photograph">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="route-contact-line">
+        <nav class="route-nav" aria-label="Choose a place in the sample sequence">
+          {ELSEWHERE_PHOTOS.map((photo, index) => (
+            <button
+              type="button"
+              class="route-stop"
+              data-route-index={index}
+              aria-controls={`frame-${photo.id}`}
+              aria-current={index === 0 ? "step" : undefined}
+              title={photo.place}
+              aria-label={`Go to frame ${index + 1}: ${photo.place}`}
+            >
+              <span class="route-stop-number">{String(index + 1).padStart(2, "0")}</span>
+              <span class="route-stop-name">{photo.routeLabel}</span>
+            </button>
+          ))}
+        </nav>
+        <a class="contact-link" href="/#contact">Contact <span aria-hidden="true">↗</span></a>
+      </div>
+
+      <div class="photo-ribbon" data-ribbon tabindex="0" role="region" aria-label="Scrollable sample photographs. Use left and right arrow keys to move.">
+        <ol class="photo-track">
+          {ELSEWHERE_PHOTOS.map((photo, index) => (
+            <li
+              class="photo-slot"
+              id={`frame-${photo.id}`}
+              style={`--frame-width: ${photo.desktopWidth}rem; --frame-height: ${photo.desktopHeight}rem; --mobile-height: ${photo.mobileHeight}vw; --frame-lift: ${photo.lift}px;`}
+            >
+              <figure>
+                <button
+                  class="photo-trigger"
+                  type="button"
+                  data-photo-index={index}
+                  data-place={photo.place}
+                  data-note={photo.note}
+                  data-credit={photo.credit}
+                  data-license={photo.license}
+                  data-license-url={photo.licenseUrl}
+                  data-source={photo.source}
+                  data-source-title={photo.sourceTitle}
+                  aria-label={`Open sample photograph ${index + 1} of ${ELSEWHERE_PHOTOS.length}: ${photo.place}. ${photo.alt}`}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.pixelWidth}
+                    height={photo.pixelHeight}
+                    loading={index < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                  <span class="open-cue" aria-hidden="true">↗</span>
+                </button>
+                <figcaption>
+                  <span class="photo-place">{photo.place}</span>
+                  <span class="photo-note">{photo.note}</span>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <span class="visually-hidden" data-ribbon-status aria-live="polite" aria-atomic="true">Frame 1 of {ELSEWHERE_PHOTOS.length}</span>
+    </section>
+
+    <section class="image-credits" aria-labelledby="credits-heading">
+      <div class="credits-intro">
+        <h2 id="credits-heading">Sample image credits</h2>
+        <p>Each photograph links to its source file and reuse license.</p>
+      </div>
+      <ul class="credit-list">
+        {ELSEWHERE_PHOTOS.map((photo) => (
+          <li>
+            <span class="credit-place">{photo.place}</span>
+            <span class="credit-line">
+              Photo by {photo.credit} · <a href={photo.source} target="_blank" rel="noreferrer">source file</a> · <a href={photo.licenseUrl} target="_blank" rel="noreferrer">{photo.license}</a>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <footer class="page-footer">
+      <span>Sample sequence only. Personal photographs can replace these reference images later.</span>
+      <a href="/">Return home <span aria-hidden="true">↑</span></a>
+    </footer>
+  </main>
+
+  <dialog class="photo-dialog" data-lightbox aria-labelledby="lightbox-title">
+    <div class="dialog-content">
+      <div class="dialog-topbar">
+        <span class="dialog-sample-label"><span class="sample-dot" aria-hidden="true"></span> Sample photograph</span>
+        <button class="dialog-close" type="button" data-close aria-label="Close photograph view">Close <span aria-hidden="true">×</span></button>
+      </div>
+      <div class="dialog-image-stage">
+        <button class="dialog-step dialog-step-previous" type="button" data-dialog-previous aria-label="View previous photograph"><span aria-hidden="true">←</span></button>
+        <img data-dialog-image src="" alt="" />
+        <button class="dialog-step dialog-step-next" type="button" data-dialog-next aria-label="View next photograph"><span aria-hidden="true">→</span></button>
+      </div>
+      <div class="dialog-caption">
+        <div>
+          <h2 id="lightbox-title" data-dialog-place></h2>
+          <p data-dialog-note></p>
+        </div>
+        <div class="dialog-attribution">
+          <span>Photo by <span data-dialog-credit></span></span>
+          <a data-dialog-source target="_blank" rel="noreferrer">Source file</a>
+          <a data-dialog-license target="_blank" rel="noreferrer"></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const ribbon = document.querySelector<HTMLElement>("[data-ribbon]");
+    const dialog = document.querySelector<HTMLDialogElement>("[data-lightbox]");
+
+    if (ribbon && dialog) {
+      const photoRibbon = ribbon;
+      const photoDialog = dialog;
+      const photoButtons = Array.from(photoRibbon.querySelectorAll<HTMLButtonElement>("[data-photo-index]"));
+      const routeStops = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-route-index]"));
+      const moveButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-move]"));
+      const image = photoDialog.querySelector<HTMLImageElement>("[data-dialog-image]");
+      const place = photoDialog.querySelector<HTMLElement>("[data-dialog-place]");
+      const note = photoDialog.querySelector<HTMLElement>("[data-dialog-note]");
+      const credit = photoDialog.querySelector<HTMLElement>("[data-dialog-credit]");
+      const source = photoDialog.querySelector<HTMLAnchorElement>("[data-dialog-source]");
+      const license = photoDialog.querySelector<HTMLAnchorElement>("[data-dialog-license]");
+      const closeButton = photoDialog.querySelector<HTMLButtonElement>("[data-close]");
+      const ribbonStatus = document.querySelector<HTMLElement>("[data-ribbon-status]");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let activeIndex = 0;
+      let openIndex = -1;
+      let restoreFocusTo: HTMLElement | null = null;
+      let scrollFrame = 0;
+      let pointerId: number | null = null;
+      let pointerStartX = 0;
+      let previousX = 0;
+      let previousTime = 0;
+      let dragDistance = 0;
+      let dragVelocity = 0;
+      let draggedButton: HTMLButtonElement | null = null;
+      let suppressClickOn: HTMLButtonElement | null = null;
+      let inertiaFrame = 0;
+      let inertiaTime = 0;
+
+      const boundedIndex = (index: number) => (index + photoButtons.length) % photoButtons.length;
+      const scrollBehavior = () => (reduceMotion.matches ? "auto" : "smooth");
+
+      function setActive(index: number) {
+        activeIndex = boundedIndex(index);
+        routeStops.forEach((stop, stopIndex) => {
+          if (stopIndex === activeIndex) stop.setAttribute("aria-current", "step");
+          else stop.removeAttribute("aria-current");
+        });
+        if (ribbonStatus) ribbonStatus.textContent = `Frame ${activeIndex + 1} of ${photoButtons.length}`;
+      }
+
+      function updateActiveFromScroll() {
+        scrollFrame = 0;
+        const center = photoRibbon.getBoundingClientRect().left + photoRibbon.clientWidth / 2;
+        let nearest = 0;
+        let shortestDistance = Number.POSITIVE_INFINITY;
+        photoButtons.forEach((button, index) => {
+          const bounds = button.getBoundingClientRect();
+          const distance = Math.abs(bounds.left + bounds.width / 2 - center);
+          if (distance < shortestDistance) {
+            nearest = index;
+            shortestDistance = distance;
+          }
+        });
+        setActive(nearest);
+      }
+
+      photoRibbon.addEventListener("scroll", () => {
+        if (!scrollFrame) scrollFrame = requestAnimationFrame(updateActiveFromScroll);
+      }, { passive: true });
+
+      moveButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const direction = button.dataset.move === "next" ? 1 : -1;
+          const target = photoButtons[boundedIndex(activeIndex + direction)];
+          const targetCenter = target.getBoundingClientRect().left + target.getBoundingClientRect().width / 2;
+          const ribbonCenter = photoRibbon.getBoundingClientRect().left + photoRibbon.clientWidth / 2;
+          photoRibbon.scrollBy({ left: targetCenter - ribbonCenter, behavior: scrollBehavior() });
+        });
+      });
+
+      routeStops.forEach((stop, index) => {
+        stop.addEventListener("click", () => {
+          const target = photoButtons[index];
+          const targetCenter = target.getBoundingClientRect().left + target.getBoundingClientRect().width / 2;
+          const ribbonCenter = photoRibbon.getBoundingClientRect().left + photoRibbon.clientWidth / 2;
+          photoRibbon.scrollBy({ left: targetCenter - ribbonCenter, behavior: scrollBehavior() });
+          setActive(index);
+        });
+      });
+
+      photoRibbon.addEventListener("wheel", (event) => {
+        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+        const multiplier = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? 18 : event.deltaMode === WheelEvent.DOM_DELTA_PAGE ? photoRibbon.clientWidth : 1;
+        event.preventDefault();
+        photoRibbon.scrollLeft += event.deltaY * multiplier;
+      }, { passive: false });
+
+      photoRibbon.addEventListener("keydown", (event) => {
+        if (event.target !== photoRibbon) return;
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+          event.preventDefault();
+          const direction = event.key === "ArrowRight" ? 1 : -1;
+          const target = photoButtons[boundedIndex(activeIndex + direction)];
+          const targetCenter = target.getBoundingClientRect().left + target.getBoundingClientRect().width / 2;
+          const ribbonCenter = photoRibbon.getBoundingClientRect().left + photoRibbon.clientWidth / 2;
+          photoRibbon.scrollBy({ left: targetCenter - ribbonCenter, behavior: scrollBehavior() });
+        } else if (event.key === "Home" || event.key === "End") {
+          event.preventDefault();
+          const index = event.key === "Home" ? 0 : photoButtons.length - 1;
+          const target = photoButtons[index];
+          const targetCenter = target.getBoundingClientRect().left + target.getBoundingClientRect().width / 2;
+          const ribbonCenter = photoRibbon.getBoundingClientRect().left + photoRibbon.clientWidth / 2;
+          photoRibbon.scrollBy({ left: targetCenter - ribbonCenter, behavior: scrollBehavior() });
+        }
+      });
+
+      function stopInertia() {
+        if (inertiaFrame) cancelAnimationFrame(inertiaFrame);
+        inertiaFrame = 0;
+        photoRibbon.classList.remove("is-inertial");
+      }
+
+      function glide(now: number) {
+        const elapsed = Math.min(now - inertiaTime, 32);
+        inertiaTime = now;
+        photoRibbon.scrollLeft += dragVelocity * elapsed;
+        dragVelocity *= Math.pow(0.92, elapsed / 16);
+        const atBoundary = photoRibbon.scrollLeft <= 0 || photoRibbon.scrollLeft >= photoRibbon.scrollWidth - photoRibbon.clientWidth;
+        if (Math.abs(dragVelocity) > 0.018 && !atBoundary && !reduceMotion.matches) {
+          inertiaFrame = requestAnimationFrame(glide);
+        } else {
+          inertiaFrame = 0;
+          photoRibbon.classList.remove("is-inertial");
+        }
+      }
+
+      photoRibbon.addEventListener("pointerdown", (event) => {
+        if (event.pointerType !== "mouse" || event.button !== 0) return;
+        stopInertia();
+        pointerId = event.pointerId;
+        pointerStartX = event.clientX;
+        previousX = event.clientX;
+        previousTime = performance.now();
+        dragDistance = 0;
+        dragVelocity = 0;
+        draggedButton = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-photo-index]");
+      });
+
+      document.addEventListener("pointermove", (event) => {
+        if (pointerId !== event.pointerId) return;
+        const now = performance.now();
+        const delta = event.clientX - previousX;
+        dragDistance = Math.max(dragDistance, Math.abs(event.clientX - pointerStartX));
+        if (dragDistance > 5) {
+          photoRibbon.classList.add("is-dragging");
+          if (event.cancelable) event.preventDefault();
+          photoRibbon.scrollLeft -= delta;
+          const elapsed = Math.max(1, now - previousTime);
+          dragVelocity = Math.max(-2.6, Math.min(2.6, -delta / elapsed));
+        }
+        previousX = event.clientX;
+        previousTime = now;
+      }, { passive: false });
+
+      function finishPointer(event: PointerEvent) {
+        if (pointerId !== event.pointerId) return;
+        pointerId = null;
+        photoRibbon.classList.remove("is-dragging");
+        if (dragDistance > 5) {
+          suppressClickOn = draggedButton;
+          window.setTimeout(() => { suppressClickOn = null; }, 650);
+          if (!reduceMotion.matches && Math.abs(dragVelocity) > 0.08) {
+            photoRibbon.classList.add("is-inertial");
+            inertiaTime = performance.now();
+            inertiaFrame = requestAnimationFrame(glide);
+          }
+        }
+        draggedButton = null;
+      }
+
+      document.addEventListener("pointerup", finishPointer);
+      document.addEventListener("pointercancel", finishPointer);
+
+      photoRibbon.addEventListener("click", (event) => {
+        if (!suppressClickOn) return;
+        const clicked = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-photo-index]");
+        if (clicked === suppressClickOn) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        suppressClickOn = null;
+      }, true);
+
+      function fillLightbox(index: number) {
+        openIndex = boundedIndex(index);
+        const trigger = photoButtons[openIndex];
+        const triggerImage = trigger.querySelector<HTMLImageElement>("img");
+        if (!triggerImage || !image || !place || !note || !credit || !source || !license) return;
+        image.src = triggerImage.currentSrc || triggerImage.src;
+        image.alt = triggerImage.alt;
+        place.textContent = trigger.dataset.place ?? "Sample photograph";
+        note.textContent = trigger.dataset.note ?? "";
+        credit.textContent = trigger.dataset.credit ?? "";
+        source.href = trigger.dataset.source ?? "#";
+        source.textContent = `Source file: ${trigger.dataset.sourceTitle ?? "Wikimedia Commons"}`;
+        license.href = trigger.dataset.licenseUrl ?? "#";
+        license.textContent = trigger.dataset.license ?? "Image license";
+      }
+
+      function openLightbox(index: number, opener: HTMLElement) {
+        restoreFocusTo = opener;
+        fillLightbox(index);
+        if (!photoDialog.open) photoDialog.showModal();
+        closeButton?.focus({ preventScroll: true });
+      }
+
+      photoButtons.forEach((button, index) => {
+        button.addEventListener("click", () => openLightbox(index, button));
+      });
+
+      photoDialog.querySelector<HTMLButtonElement>("[data-close]")?.addEventListener("click", () => photoDialog.close());
+      photoDialog.querySelector<HTMLButtonElement>("[data-dialog-previous]")?.addEventListener("click", () => fillLightbox(openIndex - 1));
+      photoDialog.querySelector<HTMLButtonElement>("[data-dialog-next]")?.addEventListener("click", () => fillLightbox(openIndex + 1));
+      photoDialog.addEventListener("click", (event) => {
+        if (event.target === photoDialog) photoDialog.close();
+      });
+      photoDialog.addEventListener("close", () => {
+        const focusTarget = restoreFocusTo;
+        restoreFocusTo = null;
+        if (focusTarget?.isConnected) focusTarget.focus({ preventScroll: true });
+      });
+      photoDialog.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          fillLightbox(openIndex + 1);
+        } else if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          fillLightbox(openIndex - 1);
+        } else if (event.key === "Tab") {
+          const focusable = Array.from(photoDialog.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])')).filter((element) => element.getClientRects().length > 0);
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
+        }
+      });
+    }
+  </script>
+
+  <style>
+    .elsewhere-page {
+      position: relative;
+      left: 50%;
+      width: min(calc(100vw - 3rem), 78rem);
+      max-width: 78rem;
+      transform: translateX(-50%);
+      color: var(--foreground);
+      padding: 0 0.25rem;
+    }
+
+    .page-heading {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr);
+      align-items: end;
+      gap: clamp(2rem, 7vw, 7rem);
+      padding: 0.5rem 0 1rem;
+    }
+
+    .home-link,
+    .contact-link,
+    .page-footer a {
+      color: var(--muted-foreground);
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .home-link {
+      position: absolute;
+      top: 0.5rem;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      min-height: 2.75rem;
+      font-size: 0.84rem;
+      letter-spacing: 0.015em;
+    }
+
+    .home-link:hover,
+    .contact-link:hover,
+    .page-footer a:hover {
+      color: var(--foreground);
+    }
+
+    .home-link span {
+      font-size: 1.1rem;
+    }
+
+    .eyebrow,
+    .micro-label,
+    .dialog-sample-label {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin: 1rem 0 0.65rem;
+      color: var(--muted-foreground);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .sample-dot {
+      display: inline-block;
+      width: 0.42rem;
+      height: 0.42rem;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #d39a62;
+      box-shadow: 0 0 0 3px color-mix(in srgb, #d39a62 16%, transparent);
+    }
+
+    .page-heading h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 8.5vw, 7.1rem);
+      font-weight: 500;
+      letter-spacing: -0.075em;
+      line-height: 0.9;
+    }
+
+    .title-period {
+      color: #d39a62;
+    }
+
+    .heading-note {
+      max-width: 25rem;
+      margin: 0 0 0.3rem auto;
+      color: var(--muted-foreground);
+      font-size: 0.96rem;
+      line-height: 1.75;
+      text-wrap: pretty;
+    }
+
+    .journey {
+      position: relative;
+      margin-top: clamp(0.8rem, 1.35vw, 1.1rem);
+    }
+
+    .journey-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .journey-label {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.85rem;
+    }
+
+    .micro-label {
+      margin: 0;
+      color: var(--foreground);
+      font-size: 0.65rem;
+    }
+
+    .frame-count {
+      color: var(--muted-foreground);
+      font-size: 0.78rem;
+    }
+
+    .frame-count span {
+      padding-inline: 0.25rem;
+      color: color-mix(in srgb, var(--muted-foreground) 60%, transparent);
+    }
+
+    .ribbon-controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .arrow-control,
+    .dialog-close,
+    .dialog-step {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 2.75rem;
+      min-height: 2.75rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--foreground);
+      font: inherit;
+      cursor: pointer;
+      transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .arrow-control:hover,
+    .dialog-close:hover,
+    .dialog-step:hover {
+      border-color: var(--muted-foreground);
+      background: color-mix(in srgb, var(--foreground) 6%, transparent);
+    }
+
+    .arrow-control:active,
+    .dialog-step:active {
+      transform: scale(0.96);
+    }
+
+    .photo-ribbon {
+      overflow-x: auto;
+      overflow-y: hidden;
+      overscroll-behavior-x: contain;
+      scroll-behavior: smooth;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x pan-y pinch-zoom;
+      cursor: grab;
+      outline: none;
+    }
+
+    .photo-ribbon::-webkit-scrollbar,
+    .route-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .photo-ribbon:focus-visible {
+      outline: 2px solid #d39a62;
+      outline-offset: 3px;
+      border-radius: 0.25rem;
+    }
+
+    .photo-ribbon.is-dragging,
+    .photo-ribbon.is-inertial {
+      scroll-behavior: auto;
+    }
+
+    .photo-ribbon.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      user-select: none;
+    }
+
+    .photo-track {
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(1.1rem, 2.1vw, 2rem);
+      width: max-content;
+      min-width: 100%;
+      margin: 0;
+      padding: 1rem clamp(1rem, 5.5vw, 4rem) 0.9rem;
+      list-style: none;
+    }
+
+    .photo-track::after {
+      display: block;
+      width: min(50vw, 35rem);
+      flex: 0 0 min(50vw, 35rem);
+      content: "";
+    }
+
+    .photo-slot {
+      width: var(--frame-width);
+      flex: 0 0 auto;
+      margin-top: var(--frame-lift);
+      scroll-snap-align: center;
+    }
+
+    .photo-slot figure {
+      margin: 0;
+    }
+
+    .photo-trigger {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: var(--frame-height);
+      overflow: hidden;
+      padding: 0;
+      border: 1px solid color-mix(in srgb, var(--foreground) 17%, transparent);
+      border-radius: 0.16rem;
+      background: var(--muted);
+      cursor: zoom-in;
+    }
+
+    .photo-trigger img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms cubic-bezier(0.2, 0.65, 0.3, 1), filter 500ms ease;
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    .photo-trigger:hover img,
+    .photo-trigger:focus-visible img {
+      transform: scale(1.035);
+    }
+
+    .photo-trigger:focus-visible,
+    .route-stop:focus-visible,
+    .arrow-control:focus-visible,
+    .contact-link:focus-visible,
+    .home-link:focus-visible,
+    .dialog-close:focus-visible,
+    .dialog-step:focus-visible,
+    .credit-line a:focus-visible,
+    .page-footer a:focus-visible {
+      outline: 2px solid #d39a62;
+      outline-offset: 3px;
+    }
+
+    .open-cue {
+      position: absolute;
+      right: 0.65rem;
+      bottom: 0.65rem;
+      display: grid;
+      width: 2rem;
+      height: 2rem;
+      place-items: center;
+      border: 1px solid rgb(255 255 255 / 35%);
+      border-radius: 50%;
+      background: rgb(14 14 14 / 45%);
+      color: white;
+      font-size: 1rem;
+      opacity: 0;
+      transform: translateY(3px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .photo-trigger:hover .open-cue,
+    .photo-trigger:focus-visible .open-cue {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .photo-slot figcaption {
+      display: flex;
+      flex-direction: column;
+      gap: 0.16rem;
+      padding-top: 0.7rem;
+    }
+
+    .photo-place {
+      color: var(--foreground);
+      font-size: 0.91rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+    }
+
+    .photo-note {
+      color: var(--muted-foreground);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .route-contact-line {
+      display: flex;
+      align-items: stretch;
+      gap: 1.25rem;
+      border-block: 1px solid var(--border);
+    }
+
+    .route-nav {
+      display: flex;
+      align-items: stretch;
+      flex: 1 1 auto;
+      overflow-x: auto;
+      scrollbar-width: none;
+      scroll-snap-type: x proximity;
+    }
+
+    .route-stop {
+      position: relative;
+      display: flex;
+      min-width: max-content;
+      min-height: 3.85rem;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.24rem;
+      padding: 0.6rem clamp(0.7rem, 1.55vw, 1.3rem);
+      border: 0;
+      background: transparent;
+      color: var(--muted-foreground);
+      text-align: left;
+      cursor: pointer;
+      scroll-snap-align: center;
+      transition: color 160ms ease;
+    }
+
+    .route-stop:first-child {
+      padding-left: 0;
+    }
+
+    .route-stop::before {
+      position: absolute;
+      top: -1px;
+      right: 1.2rem;
+      left: 1.2rem;
+      height: 1px;
+      background: transparent;
+      content: "";
+    }
+
+    .route-stop:first-child::before {
+      left: 0;
+    }
+
+    .route-stop[aria-current="step"] {
+      color: var(--foreground);
+    }
+
+    .route-stop[aria-current="step"]::before {
+      background: #d39a62;
+    }
+
+    .route-stop-number {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      opacity: 0.75;
+    }
+
+    .route-stop-name {
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 0.55rem;
+      min-height: 3.85rem;
+      border-left: 1px solid var(--border);
+      padding-left: 1.1rem;
+      font-size: 0.8rem;
+    }
+
+    .image-credits {
+      display: grid;
+      grid-template-columns: minmax(10rem, 0.72fr) minmax(0, 2fr);
+      gap: 1.5rem 3rem;
+      margin-top: 3.5rem;
+      padding: 2.1rem 0 1.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .credits-intro h2 {
+      margin: 0 0 0.4rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .credits-intro p {
+      max-width: 14rem;
+      margin: 0;
+      color: var(--muted-foreground);
+      font-size: 0.74rem;
+      line-height: 1.55;
+    }
+
+    .credit-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .credit-list li {
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+      min-width: 0;
+    }
+
+    .credit-place {
+      color: var(--foreground);
+      font-size: 0.74rem;
+    }
+
+    .credit-line {
+      color: var(--muted-foreground);
+      font-size: 0.68rem;
+      line-height: 1.55;
+    }
+
+    .credit-line a {
+      color: var(--muted-foreground);
+      text-decoration: underline;
+      text-decoration-color: color-mix(in srgb, var(--muted-foreground) 35%, transparent);
+      text-underline-offset: 0.18em;
+    }
+
+    .credit-line a:hover {
+      color: var(--foreground);
+      text-decoration-color: currentColor;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 0 0.8rem;
+      color: var(--muted-foreground);
+      font-size: 0.72rem;
+      line-height: 1.5;
+    }
+
+    .page-footer a {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .photo-dialog {
+      width: min(94vw, 76rem);
+      max-width: none;
+      max-height: min(92svh, 62rem);
+      overflow: auto;
+      padding: clamp(0.8rem, 2vw, 1.5rem);
+      border: 1px solid color-mix(in srgb, var(--foreground) 15%, transparent);
+      border-radius: 0.35rem;
+      background: var(--background);
+      color: var(--foreground);
+    }
+
+    .photo-dialog::backdrop {
+      background: rgb(4 5 5 / 83%);
+      backdrop-filter: blur(3px);
+    }
+
+    .dialog-content {
+      display: flex;
+      min-height: min(72vh, 48rem);
+      flex-direction: column;
+    }
+
+    .dialog-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 0.85rem;
+    }
+
+    .dialog-sample-label {
+      margin: 0;
+      font-size: 0.63rem;
+    }
+
+    .dialog-close {
+      gap: 0.8rem;
+      padding: 0 0.85rem;
+      font-size: 0.76rem;
+    }
+
+    .dialog-close span {
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .dialog-image-stage {
+      position: relative;
+      display: grid;
+      min-height: 14rem;
+      flex: 1 1 auto;
+      place-items: center;
+      background: color-mix(in srgb, var(--foreground) 3%, var(--background));
+    }
+
+    .dialog-image-stage img {
+      display: block;
+      width: 100%;
+      max-height: min(68svh, 48rem);
+      object-fit: contain;
+    }
+
+    .dialog-step {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      transform: translateY(-50%);
+      border-color: rgb(255 255 255 / 28%);
+      background: rgb(12 12 12 / 55%);
+      color: white;
+    }
+
+    .dialog-step:hover {
+      background: rgb(12 12 12 / 82%);
+    }
+
+    .dialog-step-previous {
+      left: 0.8rem;
+    }
+
+    .dialog-step-next {
+      right: 0.8rem;
+    }
+
+    .dialog-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      padding-top: 0.95rem;
+    }
+
+    .dialog-caption h2 {
+      margin: 0 0 0.2rem;
+      font-size: 1.08rem;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+
+    .dialog-caption p {
+      margin: 0;
+      color: var(--muted-foreground);
+      font-size: 0.78rem;
+    }
+
+    .dialog-attribution {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.85rem;
+      color: var(--muted-foreground);
+      font-size: 0.68rem;
+      text-align: right;
+    }
+
+    .dialog-attribution a {
+      color: var(--foreground);
+      text-underline-offset: 0.18em;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
+
+    @media (max-width: 760px) {
+      .page-heading {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0.65rem;
+        padding-bottom: 0.7rem;
+      }
+
+      .eyebrow {
+        margin-top: 0.55rem;
+      }
+
+      .heading-note {
+        max-width: 34rem;
+        margin-left: 0;
+      }
+
+      .photo-track {
+        gap: 1.05rem;
+        padding-inline: 0.25rem;
+      }
+
+      .photo-slot {
+        width: min(var(--frame-width), 78vw);
+        margin-top: calc(var(--frame-lift) * 0.48);
+      }
+
+      .photo-trigger {
+        height: min(var(--mobile-height), 67vw);
+      }
+
+      .route-contact-line {
+        gap: 0.6rem;
+      }
+
+      .route-stop {
+        padding-inline: 0.7rem;
+      }
+
+      .route-stop-name {
+        max-width: 8.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .contact-link {
+        padding-left: 0.75rem;
+      }
+
+      .image-credits {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+      }
+
+      .credits-intro p {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .elsewhere-page {
+        width: calc(100vw - 2rem);
+        padding: 0;
+      }
+
+      .page-heading h1 {
+        font-size: clamp(3.5rem, 17vw, 5rem);
+      }
+
+      .heading-note {
+        font-size: 0.87rem;
+      }
+
+      .journey {
+        margin-top: 0.6rem;
+      }
+
+      .journey-topline {
+        padding-block: 0.5rem;
+      }
+
+      .photo-ribbon {
+        margin-inline: -0.1rem;
+      }
+
+      .photo-track {
+        padding: 0.5rem 0.05rem 0.75rem;
+      }
+
+      .photo-slot {
+        width: min(var(--frame-width), 79vw);
+      }
+
+      .photo-trigger {
+        height: min(var(--mobile-height), 66vw);
+      }
+
+      .route-stop:first-child {
+        padding-left: 0.15rem;
+      }
+
+      .credit-list {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+      }
+
+      .page-footer {
+        align-items: flex-start;
+        font-size: 0.68rem;
+      }
+
+      .photo-dialog {
+        width: calc(100vw - 1rem);
+        max-height: 96svh;
+        padding: 0.65rem;
+      }
+
+      .dialog-content {
+        min-height: 70svh;
+      }
+
+      .dialog-image-stage img {
+        max-height: 62svh;
+      }
+
+      .dialog-caption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.65rem;
+      }
+
+      .dialog-attribution {
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      .dialog-step-previous {
+        left: 0.35rem;
+      }
+
+      .dialog-step-next {
+        right: 0.35rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .elsewhere-page *,
+      .elsewhere-page *::before,
+      .elsewhere-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</Layout>
