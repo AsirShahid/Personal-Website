@@ -50,9 +50,9 @@ export const DATA = {
     skills: { order: 4, enabled: true, heading: "Skills" },
     projects: {
       order: 5, enabled: true,
-      label: "My Projects",
-      heading: "Check out my latest work",
-      text: "A mix of medical imaging, computational research, and engineering projects.",
+      label: "Projects",
+      heading: "Research and coursework",
+      text: "",
     },
     hackathons: {
       order: 7, enabled: false,
@@ -68,7 +68,7 @@ export const DATA = {
       order: 8, enabled: true,
       label: "Contact",
       heading: "Get in Touch",
-      text: "Want to chat? The fastest way is by email. I'll respond when I can.",
+      text: "Email is the best way to reach me.",
     },
   },
   photos: [] as readonly Photo[],
@@ -154,7 +154,7 @@ export const DATA = {
       start: "July 2026",
       end: undefined,
       description:
-        "Assisting with MRI scan sessions investigating neurofluidic dynamics in idiopathic normal pressure hydrocephalus (iNPH) versus matched controls. Quantifying arteriovenous blood flow and CSF dynamics using real-time phase-contrast MRI and measuring brain tissue motion and subarachnoid space CSF pulsations to develop novel biomarkers for iNPH diagnosis and shunt patient selection.",
+        "Help run MRI sessions for a study comparing patients with idiopathic normal pressure hydrocephalus (iNPH) to matched controls. Measure arterial, venous, and CSF flow with real-time phase-contrast MRI, along with brain tissue motion and CSF pulsation in the subarachnoid space. The aim is better markers for diagnosing iNPH and deciding who should get a shunt.",
     },
     {
       company: "Station Medical",
@@ -166,7 +166,7 @@ export const DATA = {
       start: "October 2025",
       end: undefined,
       description:
-        "Performed phlebotomy, 12-lead EKGs, and vital signs assessment in a high-volume primary care setting. Facilitated uninterrupted patient care by independently managing prior authorizations and specialty medication appeals to resolve complex insurance coverage disputes.",
+        "Drew blood, ran 12-lead EKGs, and took vitals at a busy primary care practice. Handled prior authorizations and specialty medication appeals on my own.",
     },
     {
       company: "Nagan Lab, Stony Brook University",
@@ -178,7 +178,7 @@ export const DATA = {
       start: "October 2023",
       end: undefined,
       description:
-        "Investigated force field accuracy for RNA molecular dynamics simulations in AMBER, developing custom Python scripts to analyze stem-loop simulations and validate computational models. Served as System Administrator for the lab's Linux-based computing cluster, writing Bash scripts to automate software deployments, streamline job scheduling, and maintain hardware infrastructure.",
+        "Tested how accurately AMBER force fields reproduce RNA stem-loop structures in molecular dynamics simulations, and wrote Python scripts to analyze the runs. Also ran the lab's Linux cluster: Bash scripts for software installs and job scheduling, and upkeep of the hardware.",
     },
     {
       company: "Integrated Spine and Pain Care",
@@ -190,7 +190,7 @@ export const DATA = {
       start: "August 2024",
       end: "October 2025",
       description:
-        "Facilitated fluoroscopy-guided interventional pain procedures (epidural steroid injections, nerve blocks) by preparing sterile fields, managing instruments, and monitoring patient vitals. Maintained accurate EHR documentation, capturing patient histories and treatment plans to support clinical continuity.",
+        "Assisted with fluoroscopy-guided pain procedures such as epidural steroid injections and nerve blocks: set up sterile fields, handled instruments, and monitored vitals. Documented patient histories and treatment plans in the EHR.",
     },
     {
       company: "Port Jefferson EMS",
@@ -202,7 +202,7 @@ export const DATA = {
       start: "October 2024",
       end: "April 2025",
       description:
-        "Provided pre-hospital basic life support for medical and trauma emergencies. Commanded emergency scenes, coordinated with paramedic teams, and ensured safe patient transport and handoff to hospital staff.",
+        "Provided basic life support on medical and trauma calls. Led scenes, worked with paramedic crews, and transported patients and handed them off to hospital staff.",
     },
     {
       company: "Goldman Sachs",
@@ -214,7 +214,7 @@ export const DATA = {
       start: "February 2023",
       end: "July 2023",
       description:
-        "Developed quantitative models and data pipelines in Python, NumPy, SciPy, and SQL to support trading algorithm research and strategy analysis. Applied statistical modeling and time series analysis to financial data sourced via Bloomberg Terminal, surfacing insights for trading teams using Jupyter notebooks.",
+        "Built quantitative models and data pipelines in Python, NumPy, SciPy, and SQL for trading algorithm research. Ran statistical and time series analyses on Bloomberg data and shared the results with trading teams in Jupyter notebooks.",
     },
     {
       company: "Zebra Technologies",
@@ -226,7 +226,7 @@ export const DATA = {
       start: "August 2020",
       end: "February 2023",
       description:
-        "Engineered data processing pipelines using Python and Pandas to parse and analyze large volumes of automated test logs and device telemetry, extracting actionable metrics to identify failure trends. Developed automation frameworks using Python and Selenium to streamline QA, utilizing Matplotlib for data visualization to present root-cause analysis to development teams.",
+        "Wrote Python and Pandas pipelines that parsed automated test logs and device telemetry to find failure trends. Built Selenium test automation for QA and used Matplotlib charts to show developers the root causes of failures.",
     },
   ],
 
@@ -237,7 +237,7 @@ export const DATA = {
       dates: "2024",
       active: false,
       description:
-        "Co-authored peer-reviewed research investigating force field accuracy for RNA stem-loop molecular dynamics simulations in AMBER using implicit solvent. Identified that CH···O force field modifications combined with a nonpolar solvent correction were necessary to reproduce experimental loop structures. Published in the Journal of Chemical Information and Modeling.",
+        "Co-author on a study of how well AMBER force fields with implicit solvent reproduce RNA stem-loop structures. Matching the experimental loop structures took CH···O force field modifications plus a nonpolar solvent correction. Published in the Journal of Chemical Information and Modeling.",
       technologies: ["Python", "AMBER", "Molecular Dynamics", "RNA", "Implicit Solvent", "Bash"],
       links: [
         {
@@ -255,7 +255,7 @@ export const DATA = {
       dates: "Fall 2025",
       active: false,
       description:
-        "Engineered a geometry-aware filtered back-projection pipeline in Python to reconstruct X-ray CTs from sinogram data. Applied the Radon transform and evaluated reconstructions using structural similarity (SSIM) and peak SNR. Academic project for AMS 325.",
+        "Course project for AMS 325: filtered back-projection in Python that reconstructs CT images from sinograms, using the Radon transform, with reconstructions scored by SSIM and peak SNR.",
       technologies: ["Python", "NumPy", "SciPy", "Radon Transform", "Image Reconstruction"],
       links: [],
       image: "/sinogram.png",
