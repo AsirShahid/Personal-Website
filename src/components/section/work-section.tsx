@@ -29,6 +29,13 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+
+// end: undefined means ongoing ("Present"); end: "" means a single date, for a role that hasn't started yet.
+function workDates(start: string, end: string | undefined) {
+  if (end === "") return start;
+  return `${start} - ${end ?? DATA.sections.work.presentLabel}`;
+}
+
 export default function WorkSection() {
   return (
     <Accordion type="single" collapsible className="w-full grid gap-6">
@@ -72,7 +79,7 @@ export default function WorkSection() {
                     {work.title}
                   </div>
                   <div className="text-xs tabular-nums text-muted-foreground md:hidden">
-                    {work.start} - {work.end ?? DATA.sections.work.presentLabel}
+                    {workDates(work.start, work.end)}
                   </div>
                 </div>
               </AccordionPrimitive.Trigger>
@@ -88,7 +95,7 @@ export default function WorkSection() {
                 </a>
               )}
               <div className="hidden md:block text-xs tabular-nums text-muted-foreground text-right flex-none">
-                {work.start} - {work.end ?? DATA.sections.work.presentLabel}
+                {workDates(work.start, work.end)}
               </div>
             </div>
           </AccordionPrimitive.Header>

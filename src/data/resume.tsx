@@ -149,12 +149,12 @@ export const DATA = {
       href: "https://renaissance.stonybrookmedicine.edu/radiology/research/laboratories/Yicun-Wang",
       badges: [],
       location: "Stony Brook, NY",
-      title: "Clinical Research Assistant",
+      title: "Incoming Research Student",
       logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
-      start: "July 2026",
-      end: undefined,
+      start: "2026",
+      end: "",
       description:
-        "Help run MRI sessions for a study comparing patients with idiopathic normal pressure hydrocephalus (iNPH) to matched controls. Measure arterial, venous, and CSF flow with real-time phase-contrast MRI, along with brain tissue motion and CSF pulsation in the subarachnoid space. The aim is better markers for diagnosing iNPH and deciding who should get a shunt.",
+        "Joining a study that compares patients with idiopathic normal pressure hydrocephalus (iNPH) to matched controls. It measures arterial, venous, and CSF flow with real-time phase-contrast MRI, along with brain tissue motion and CSF pulsation in the subarachnoid space. The aim is better markers for diagnosing iNPH and deciding who should get a shunt.",
     },
     {
       company: "Station Medical",
@@ -164,7 +164,7 @@ export const DATA = {
       title: "Medical Assistant",
       logoUrl: "https://www.google.com/s2/favicons?domain=station-medical.com&sz=128",
       start: "October 2025",
-      end: undefined,
+      end: "May 2026",
       description:
         "Drew blood, ran 12-lead EKGs, and took vitals at a busy primary care practice. Handled prior authorizations and specialty medication appeals on my own.",
     },
@@ -176,7 +176,7 @@ export const DATA = {
       title: "Undergraduate Researcher and System Administrator",
       logoUrl: "https://www.google.com/s2/favicons?domain=stonybrook.edu&sz=128",
       start: "October 2023",
-      end: undefined,
+      end: "July 2026",
       description:
         "Tested how accurately AMBER force fields reproduce RNA stem-loop structures in molecular dynamics simulations, and wrote Python scripts to analyze the runs. Also ran the lab's Linux cluster: Bash scripts for software installs and job scheduling, and upkeep of the hardware.",
     },
