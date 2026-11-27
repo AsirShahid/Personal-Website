@@ -131,7 +131,9 @@ def test_data_saver_skips_opening_photos(browser):
     page.goto(BASE, wait_until="domcontentloaded")
     page.wait_for_load_state("load")
     page.wait_for_timeout(2500)
-    opening_srcs = set(_openings(page).values())
+    openings = _openings(page)
+    landing = next(iter(openings.values()))  # the first study is painted into the hidden reader and loads its own opening photo
+    opening_srcs = set(openings.values()) - {landing}
     covers = {re.sub(r"-[sml]\.webp$", "", src) for src in page.locator(".oz-rows img").evaluate_all("els => els.map(im => new URL(im.currentSrc || im.src).pathname)")}
     warmed = {path for path in seen["requested"] if FULL_SIZE.search(path).group(1) in opening_srcs - covers}
     assert warmed == set(), sorted(warmed)

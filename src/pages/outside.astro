@@ -10,7 +10,7 @@ import { getOutsideFirstImageIndex, getOutsideStudyAreaSummary, getOutsideStudyC
 import outfitLatinUrl from "@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url";
 import geistMonoLatinUrl from "@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2?url";
 
-type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string; initialPick?: boolean };
+type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string; initialPick?: boolean; xl?: boolean };
 type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
 type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
 // Old numbered links (#study/12) are frozen in outside-legacy-links.json; new links use stable photo ids (#study/p1a2b3c4d).
@@ -225,7 +225,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
       import { formatOutsideDateRange, formatOutsideSeriesDate } from "../utils/outside-date.js";
       import { formatOutsideTz } from "../utils/outside-tz.js";
       import { getOutsideFirstImageIndex, getOutsideSeriesArea, isOutsideTransitImage } from "../utils/outside-place.js";
-      type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place?: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string; initialPick?: boolean };
+      type Img = { id: string; src: string; w: number; h: number; d: string; t: string; se: number; place?: string; area?: string; transit?: boolean; ex: string; fl: string; cam: string; avg: string; tz?: string; alt?: string; initialPick?: boolean; xl?: boolean };
       type Series = { start: number; count: number; time: string; title?: string; date?: string; dateEnd?: string; key?: number; displayNumber?: number };
       type Study = { id: string; place: string; region: string; country: string; status: string; date: string; dateEnd: string; tz: string; key: number; areaOrder?: string[]; journey?: { id: string; title: string }; series: Series[]; images: Img[] };
       type LegacyLink = { study: string | null; photos: (string | null)[]; clamp?: boolean };
@@ -424,6 +424,27 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           centerY: box.top + box.height / 2,
         };
       };
+      // Photos with a full-resolution copy (xl) swap it in once zoomed past FULL_ZOOM, so pinching in shows real detail.
+      // Fit-size views keep the -m/-l files; the copy is fetched only on zoom and skipped under Data Saver.
+      const FULL_ZOOM = 1.5;
+      const cellPhoto = new WeakMap<HTMLElement, Img>();
+      const upgradeFull = (cell: HTMLElement) => {
+        const img = cellPhoto.get(cell);
+        const el = cell.querySelector<HTMLImageElement>("img");
+        if (!img || !el || !img.xl || img.src.startsWith("data:") || saveData()) return;
+        const url = `${img.src}-x.webp`;
+        if (el.dataset.hi === url) return;
+        el.dataset.hi = url;
+        const hi = new Image();
+        hi.decoding = "async";
+        hi.src = url;
+        hi.decode().then(() => {
+          if (el.dataset.hi !== url || cellPhoto.get(cell) !== img) return;
+          el.src = url;
+          el.dataset.hiReady = url;
+          el.classList.remove("is-proxy");
+        }, () => {});
+      };
       const applyPhotoView = (cell: HTMLElement) => {
         const image = cell.querySelector<HTMLImageElement>("img");
         if (!image) return;
@@ -440,6 +461,7 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           view.y = 0;
         }
         image.style.transform = `translate3d(${view.x}px, ${view.y}px, 0) scale(${view.scale})`;
+        if (view.scale > FULL_ZOOM) upgradeFull(cell);
       };
       const fitPhoto = (cell: HTMLElement) => {
         photoViews.set(cell, newPhotoView());
@@ -499,6 +521,9 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
           cell.classList.add("is-empty");
           cell.dataset.photoKey = "";
           photoViews.delete(cell);
+          cellPhoto.delete(cell);
+          delete el.dataset.hi;
+          delete el.dataset.hiReady;
           el.style.transform = "";
           el.removeAttribute("src");
           el.alt = "";
@@ -509,7 +534,10 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         if (cell.dataset.photoKey !== photoKey) {
           cell.dataset.photoKey = photoKey;
           photoViews.set(cell, newPhotoView());
+          delete el.dataset.hi;
+          delete el.dataset.hiReady;
         }
+        cellPhoto.set(cell, img);
         cell.classList.remove("is-empty");
         cell.style.setProperty("--avg", img.avg);
         const full = fullUrl(img);
@@ -517,7 +545,9 @@ const rowDateLabel = (s: Study) => formatOutsideCompactDateRange(s.date, s.dateE
         el.width = img.w;
         el.height = img.h;
         el.alt = img.alt?.trim() || `Photograph ${idx + 1} of ${st.images.length}, ${st.place}`;
-        if (ready.has(full)) {
+        if (el.dataset.hiReady && el.getAttribute("src") === el.dataset.hiReady) {
+          el.classList.remove("is-proxy"); // keep the full-resolution frame while this photo stays open
+        } else if (ready.has(full)) {
           if (el.getAttribute("src") !== full) el.src = full;
           el.classList.remove("is-proxy");
         } else {

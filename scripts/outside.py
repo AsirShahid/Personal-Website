@@ -7,7 +7,8 @@
       Safe to re-run.
 
   python scripts/outside.py add --study STUDY_ID --file ORIGINAL.jpg --src /outside/assets/DIR/NAME [--alt TEXT] [--place PLACE]
-      Add one photo: writes the -s/-m/-l WebP derivatives (sRGB, metadata stripped), reads capture
+      Add one photo: writes the -s/-m/-l WebP derivatives (sRGB, metadata stripped; plus a full-resolution -x for the
+      zoomed view when the source is larger than 1920 px, recorded as "xl": true), reads capture
       metadata from EXIF, and inserts the record chronologically.
 
   python scripts/outside.py check
@@ -49,6 +50,9 @@ RENAMED = ROOT / "src/data/outside-study-renames.json"
 PAGE = ROOT / "src/pages/outside.astro"
 PUBLIC = ROOT / "public"
 SIZES = {"s": (360, 70), "m": (1080, 78), "l": (1920, 80)}
+# Full-resolution copy (never downscaled below 4096), loaded only while a photo is zoomed in. Written when the source is
+# larger than the "l" size; the record then carries "xl": true so the viewer knows -x.webp exists.
+FULL = (4096, 80)
 MONTHS = ("january", "february", "march", "april", "may", "june",
           "july", "august", "september", "october", "november", "december")
 
@@ -274,7 +278,8 @@ def exif_record(path: Path) -> tuple[dict, object]:
     return record, image
 
 
-def write_derivatives(image, src: str) -> None:
+def write_derivatives(image, src: str) -> bool:
+    """Write -s/-m/-l (and -x when the source is bigger than -l). Returns True when -x was written."""
     from PIL import Image, ImageCms
     icc = image.info.get("icc_profile")
     image = image.convert("RGB")
@@ -288,6 +293,12 @@ def write_derivatives(image, src: str) -> None:
         copy = image.copy()
         copy.thumbnail((edge, edge), Image.Resampling.LANCZOS)
         copy.save(f"{target}-{suffix}.webp", "WEBP", quality=quality, method=5, icc_profile=srgb_bytes)
+    if max(image.size) <= SIZES["l"][0]:
+        return False
+    copy = image.copy()
+    copy.thumbnail((FULL[0], FULL[0]), Image.Resampling.LANCZOS)
+    copy.save(f"{target}-x.webp", "WEBP", quality=FULL[1], method=5, icc_profile=srgb_bytes)
+    return True
 
 
 def cmd_add(args) -> int:
@@ -308,7 +319,8 @@ def cmd_add(args) -> int:
              "transit": False, "area": study["areaMap"][place]}
     if args.alt:
         entry["alt"] = args.alt
-    write_derivatives(image, args.src)
+    if write_derivatives(image, args.src):
+        entry["xl"] = True
     old = json.loads(json.dumps(study))
     stamp = (entry["d"], entry["t"])
     position = next((k for k, row in enumerate(study["images"])

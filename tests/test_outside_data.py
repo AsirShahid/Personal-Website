@@ -50,6 +50,17 @@ class OutsideDataTests(unittest.TestCase):
             for size in "sml":
                 self.assertTrue((PUBLIC / f"{image['src'].lstrip('/')}-{size}.webp").is_file(), f"{image['src']}-{size}.webp")
 
+    def test_full_resolution_copies_exist_exactly_where_marked(self):
+        from PIL import Image
+        for _, _, image in IMAGES:
+            path = PUBLIC / (image["src"].lstrip("/") + "-x.webp")
+            if image.get("xl"):
+                self.assertTrue(path.exists(), f"{image['src']} is marked xl but has no -x.webp")
+                with Image.open(path) as full, Image.open(PUBLIC / (image["src"].lstrip("/") + "-l.webp")) as large:
+                    self.assertGreater(max(full.size), max(large.size), image["src"])
+            else:
+                self.assertFalse(path.exists(), f"{image['src']} has -x.webp but is not marked xl")
+
     def test_no_duplicate_photos(self):
         owners = defaultdict(list)
         for _, _, image in IMAGES:

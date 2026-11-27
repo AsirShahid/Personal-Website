@@ -100,7 +100,8 @@
           "se": 1,
           "place": "Alkali Flat Trail",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "pb4bb6494",
@@ -117,7 +118,8 @@
           "se": 1,
           "place": "Alkali Flat Trail",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "p4d5e563b",
@@ -134,7 +136,8 @@
           "se": 1,
           "place": "Alkali Flat Trail",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "p908ba501",
@@ -151,7 +154,8 @@
           "se": 1,
           "place": "Alkali Flat Trail",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "pb9fca874",
@@ -168,7 +172,8 @@
           "se": 1,
           "place": "Alkali Flat Trail",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "p8faf0adf",
@@ -185,7 +190,8 @@
           "se": 1,
           "place": "Alkali Flat Trail",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "p8b32200d",
@@ -202,7 +208,8 @@
           "se": 1,
           "place": "Alkali Flat Trail",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "p8aab2132",
@@ -219,7 +226,8 @@
           "se": 1,
           "place": "White Sands Missile Range",
           "transit": false,
-          "area": "White Sands"
+          "area": "White Sands",
+          "xl": true
         },
         {
           "id": "pc61dfba1",
@@ -236,7 +244,8 @@
           "se": 2,
           "place": "Lost Mine Trail",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p7d523272",
@@ -253,7 +262,8 @@
           "se": 2,
           "place": "Lost Mine Trail",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p42ca8b79",
@@ -270,7 +280,8 @@
           "se": 2,
           "place": "Lost Mine Trail",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p5d09ddc7",
@@ -287,7 +298,8 @@
           "se": 2,
           "place": "Lost Mine Trail",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p28c93175",
@@ -304,7 +316,8 @@
           "se": 2,
           "place": "Lost Mine Trail",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p9aa99858",
@@ -321,7 +334,8 @@
           "se": 2,
           "place": "Lost Mine Trail",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p07408ddb",
@@ -338,7 +352,8 @@
           "se": 2,
           "place": "Boquillas del Carmen",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pab5e9875",
@@ -355,7 +370,8 @@
           "se": 2,
           "place": "Boquillas del Carmen",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p93005c7f",
@@ -372,7 +388,8 @@
           "se": 2,
           "place": "Boquillas del Carmen",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pc65f5bf9",
@@ -389,7 +406,8 @@
           "se": 2,
           "place": "Burro Mesa Pouroff",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p0c933d3b",
@@ -406,7 +424,8 @@
           "se": 2,
           "place": "Burro Mesa Pouroff",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p3d628785",
@@ -423,7 +442,8 @@
           "se": 2,
           "place": "Burro Mesa Pouroff",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pb98428dc",
@@ -440,7 +460,8 @@
           "se": 2,
           "place": "Burro Mesa Pouroff",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pf7e8af79",
@@ -457,7 +478,8 @@
           "se": 2,
           "place": "Burro Mesa Pouroff",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p4ba6f0aa",
@@ -474,7 +496,8 @@
           "se": 2,
           "place": "Burro Mesa Pouroff",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pad3f42bc",
@@ -491,7 +514,8 @@
           "se": 2,
           "place": "Sotol Vista",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p6733733a",
@@ -508,7 +532,8 @@
           "se": 2,
           "place": "Sotol Vista",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p50f2ca54",
@@ -525,7 +550,8 @@
           "se": 3,
           "place": "Laguna Meadows",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pe9864af4",
@@ -542,7 +568,8 @@
           "se": 3,
           "place": "South Rim",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p20022bbe",
@@ -559,7 +586,8 @@
           "se": 3,
           "place": "South Rim",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p53b2f9c0",
@@ -576,7 +604,8 @@
           "se": 3,
           "place": "South Rim",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p824bb321",
@@ -593,7 +622,8 @@
           "se": 3,
           "place": "South Rim",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pb7c55500",
@@ -610,7 +640,8 @@
           "se": 3,
           "place": "Boot Canyon",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p5e1b47d5",
@@ -627,7 +658,8 @@
           "se": 3,
           "place": "Boot Canyon",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pcd2cbacb",
@@ -644,7 +676,8 @@
           "se": 3,
           "place": "Boot Canyon",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p594cf175",
@@ -661,7 +694,8 @@
           "se": 3,
           "place": "Boot Canyon",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p9bf68906",
@@ -678,7 +712,8 @@
           "se": 3,
           "place": "Boot Canyon",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p8d6fa7cf",
@@ -695,7 +730,8 @@
           "se": 3,
           "place": "Emory Peak",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pd06d1f9c",
@@ -712,7 +748,8 @@
           "se": 3,
           "place": "Emory Peak",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p509dcce9",
@@ -729,7 +766,8 @@
           "se": 3,
           "place": "Chisos Basin",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "p0fda185e",
@@ -746,7 +784,8 @@
           "se": 3,
           "place": "Chisos Basin",
           "transit": false,
-          "area": "Big Bend"
+          "area": "Big Bend",
+          "xl": true
         },
         {
           "id": "pec9542e7",
@@ -763,7 +802,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p5399669e",
@@ -780,7 +820,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "pc5edb802",
@@ -797,7 +838,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p8b0e0a40",
@@ -814,7 +856,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p6e4e349b",
@@ -831,7 +874,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "pdc5b9060",
@@ -848,7 +892,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p950ffbb3",
@@ -865,7 +910,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p5523bad9",
@@ -882,7 +928,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "pe8f72e1a",
@@ -899,7 +946,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p0480bd15",
@@ -916,7 +964,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p8020ce08",
@@ -933,7 +982,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p625d1fd2",
@@ -950,7 +1000,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "p179d3e6e",
@@ -967,7 +1018,8 @@
           "se": 4,
           "place": "Carlsbad Caverns",
           "transit": false,
-          "area": "Carlsbad Caverns"
+          "area": "Carlsbad Caverns",
+          "xl": true
         },
         {
           "id": "pda44d999",
@@ -984,7 +1036,8 @@
           "se": 5,
           "place": "Guadalupe Peak",
           "transit": false,
-          "area": "Guadalupe Mountains"
+          "area": "Guadalupe Mountains",
+          "xl": true
         },
         {
           "id": "p2f49d911",
@@ -1001,7 +1054,8 @@
           "se": 5,
           "place": "Guadalupe Peak",
           "transit": false,
-          "area": "Guadalupe Mountains"
+          "area": "Guadalupe Mountains",
+          "xl": true
         },
         {
           "id": "p35546f6b",
@@ -1018,7 +1072,8 @@
           "se": 5,
           "place": "Guadalupe Peak",
           "transit": false,
-          "area": "Guadalupe Mountains"
+          "area": "Guadalupe Mountains",
+          "xl": true
         },
         {
           "id": "pa1f3f0bc",
@@ -1035,7 +1090,8 @@
           "se": 5,
           "place": "Guadalupe Peak",
           "transit": false,
-          "area": "Guadalupe Mountains"
+          "area": "Guadalupe Mountains",
+          "xl": true
         },
         {
           "id": "p5d646446",
@@ -1052,7 +1108,8 @@
           "se": 5,
           "place": "Guadalupe Mountains",
           "transit": false,
-          "area": "Guadalupe Mountains"
+          "area": "Guadalupe Mountains",
+          "xl": true
         },
         {
           "id": "p989c46f6",
@@ -1069,7 +1126,8 @@
           "se": 5,
           "place": "Guadalupe Mountains",
           "transit": false,
-          "area": "Guadalupe Mountains"
+          "area": "Guadalupe Mountains",
+          "xl": true
         }
       ]
     },
