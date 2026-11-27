@@ -40,7 +40,8 @@ class OutsideRecentAndZoomBrowserTests(unittest.TestCase):
         page = context.new_page()
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
-        page.goto(urljoin(BASE_URL, "#new-zealand-2026-july/1"), wait_until="domcontentloaded")
+        first_recent = next(study["id"] for study in SOURCE["studies"] if study["id"] in RECENT_IDS)  # worklist order = data order
+        page.goto(urljoin(BASE_URL, f"#{first_recent}/1"), wait_until="domcontentloaded")
         payload = json.loads(page.locator("#oz-data").text_content() or "{}")
         source_by_id = {study["id"]: study for study in SOURCE["studies"]}
         hidden_studies = [study for study in SOURCE["studies"] if study["id"] not in RECENT_IDS]
